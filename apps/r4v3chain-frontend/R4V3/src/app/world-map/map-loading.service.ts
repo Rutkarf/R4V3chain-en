@@ -22,7 +22,7 @@ export interface MapLoadState {
 
 /**
  * Résout le fournisseur de carte, gère le fallback legacy et l'état de chargement.
- * La couche réseau est attachée à la scène floor indépendamment du provider (Metaverse ou legacy).
+ * La couche network est attachée à la scène floor indépendamment du provider (Metaverse ou legacy).
  */
 @Injectable({ providedIn: 'root' })
 export class MapLoadingService {
@@ -199,7 +199,7 @@ export class MapLoadingService {
 
   private attachNetworkLayer(scene: THREE.Scene, camera: THREE.Camera): void {
     if (this.networkRoot) return;
-    // Arena slim : WiGLE / points réseau désactivés (code intact).
+    // Arena slim : WiGLE / points network désactivés (code intact).
     if (this.isSlimWorld()) {
       console.info('[MapLoadingService] Arena slim — couche WiGLE désactivée');
       return;
@@ -209,7 +209,7 @@ export class MapLoadingService {
     scene.add(this.networkRoot);
     this.syncNetworkGroundResolver();
     this.wigleVisualization.attach(scene, this.networkRoot, camera);
-    console.info('[MapLoadingService] Couche réseau attachée à la scène floor.');
+    console.info('[MapLoadingService] Couche network attachée à la scène floor.');
   }
 
   private async attachPlacementLayer(scene: THREE.Scene): Promise<void> {
@@ -221,7 +221,7 @@ export class MapLoadingService {
     await this.placementLayer.attach(scene);
   }
 
-  /** Chaque point réseau pose Y = sol marchable (quai / terre / eau exclue). */
+  /** Chaque point network pose Y = sol marchable (quai / terre / eau exclue). */
   private syncNetworkGroundResolver(): void {
     const sync = this.activeProvider?.getSurfaceProvider()?.getSurfaceHeightSync;
     if (!sync) {

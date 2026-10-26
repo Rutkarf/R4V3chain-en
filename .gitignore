@@ -36,10 +36,11 @@ apps/r4v3chain-backend/*.jar
 apps/r4v3chain-backend/data/*.json
 !apps/r4v3chain-backend/data/seed/
 
-# Divers
+# Misc
 coverage/
 reports/
 .tools/
+.bin/
 backups/
 
 # Reliquat archive GitHub / montages Docker accidentels

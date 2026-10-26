@@ -162,7 +162,7 @@ export class MarketPanelComponent implements OnDestroy {
 
   protected readonly searchPlaceholder = computed(() => {
     const count = this.filteredRows().length;
-    return `${count} résultat${count > 1 ? 's' : ''}`;
+    return `${count} result${count > 1 ? 's' : ''}`;
   });
 
   protected readonly statusBanner = computed((): { message: string; tone: StatusBannerTone } | null => {
@@ -173,7 +173,7 @@ export class MarketPanelComponent implements OnDestroy {
 
     const alerts = this.alertNotifications();
     if (alerts.length) {
-      return { message: `Alerte : ${alerts.join(' · ')}`, tone: 'warn' };
+      return { message: `Alert: ${alerts.join(' · ')}`, tone: 'warn' };
     }
 
     const hint = this.tradeHint();
@@ -188,29 +188,29 @@ export class MarketPanelComponent implements OnDestroy {
     switch (this.filter()) {
       case 'nft':
       case 'drop':
-        return 'Aucun drop NFT pour le moment';
+        return 'No NFT drops at the moment';
       case 'service':
-        return 'Aucun service numérique disponible';
+        return 'No digital services available';
       case 'asset':
-        return 'Aucun actif listé';
+        return 'No assets listed';
       case 'fav':
-        return 'Aucun favori — étoilez un produit';
+        return 'No favorites — star a product';
       case 'live':
-        return 'Aucun token live pour le moment';
+        return 'No live tokens at the moment';
       default:
         break;
     }
 
     if (this.searchQuery().trim()) {
-      return 'Aucun produit ne correspond à la recherche';
+      return 'No products match your search';
     }
 
-    return 'Aucun produit disponible';
+    return 'No products available';
   });
 
   protected readonly resultCountLabel = computed(() => {
     const count = this.filteredRows().length;
-    return `${count} résultat${count > 1 ? 's' : ''}`;
+    return `${count} result${count > 1 ? 's' : ''}`;
   });
 
   protected readonly filteredTrades = computed(() => {
@@ -363,12 +363,12 @@ export class MarketPanelComponent implements OnDestroy {
 
   protected primaryCtaLabel(row: MarketAssetRow): string {
     if (row.config.offerKind === 'nft') {
-      return 'Acheter';
+      return 'Buy';
     }
     if (row.config.offerKind === 'service') {
       return 'Commander';
     }
-    return row.config.native ? 'Échanger' : 'Acheter';
+    return row.config.native ? 'Swapr' : 'Buy';
   }
 
   protected isFilterActive(id: MarketFilter): boolean {
@@ -398,7 +398,7 @@ export class MarketPanelComponent implements OnDestroy {
     const rows = this.sortedRows();
     const row = rows[this.focusedRowIndex()] ?? rows[0];
     if (!row) {
-      this.showTradeHint('Aucun token disponible');
+      this.showTradeHint('No token available');
       return;
     }
 
@@ -465,8 +465,8 @@ export class MarketPanelComponent implements OnDestroy {
     this.marketData.togglePriceAlert(row.config.exchangeToken, enabled, threshold);
     this.showTradeHint(
       enabled
-        ? `Alerte ±${threshold}% sur ${row.config.displaySymbol}`
-        : `Alerte désactivée pour ${row.config.displaySymbol}`
+        ? `Alert ±${threshold}% on ${row.config.displaySymbol}`
+        : `Alert disabled for ${row.config.displaySymbol}`
     );
   }
 
@@ -492,7 +492,7 @@ export class MarketPanelComponent implements OnDestroy {
 
     this.brandCrypto.requestExchangeTrade(EXCHANGE_NATIVE_TOKEN, 'PXD');
     this.brandCrypto.select('R4V3');
-    this.showTradeHint('Échange R4V3 → jeton du laboratoire');
+    this.showTradeHint('Swap R4V3 → Laboratory token');
     this.scrollToSwap();
   }
 
@@ -515,8 +515,8 @@ export class MarketPanelComponent implements OnDestroy {
     }
 
     return trimmed
-      .replace('Laboratoire', 'Labo')
-      .replace('Parité CHF', 'Parité')
+      .replace('Laboratory', 'Labo')
+      .replace('CHF parity', 'Parity')
       .replace(/\s*R4V3\b/gi, '')
       .replace(/\s+/g, ' ')
       .trim();
@@ -542,7 +542,7 @@ export class MarketPanelComponent implements OnDestroy {
 
     const share = this.portfolioShare(row);
     const shareLabel = share != null ? ` · ${share.toFixed(0)}%` : '';
-    return `${row.walletBalance.toLocaleString('fr-FR', { maximumFractionDigits: 4 })}${shareLabel}`;
+    return `${row.walletBalance.toLocaleString('en-US', { maximumFractionDigits: 4 })}${shareLabel}`;
   }
 
   protected portfolioShare(row: MarketAssetRow): number | null {
@@ -607,7 +607,7 @@ export class MarketPanelComponent implements OnDestroy {
   }
 
   protected formatTradeTime(trade: MarketRecentTrade): string {
-    return new Date(trade.at).toLocaleTimeString('fr-FR', {
+    return new Date(trade.at).toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
     });
@@ -868,12 +868,12 @@ export class MarketPanelComponent implements OnDestroy {
   private ensureTradeReady(fromToken: string): string | null {
     if (!this.walletSession.address()) {
       window.dispatchEvent(new CustomEvent('dock-open-panel', { detail: { panel: 'wallet' } }));
-      return 'Créez un wallet pour trader';
+      return 'Create a wallet to trade';
     }
 
     if (!this.auth.isAuthenticated()) {
       this.auth.openDrawer('login');
-      return 'Connexion requise pour trader';
+      return 'Sign in required to trade';
     }
 
     void fromToken;

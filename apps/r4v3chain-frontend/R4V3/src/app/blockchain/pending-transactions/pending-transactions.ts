@@ -170,7 +170,7 @@ export class PendingTransactionsComponent {
     }
 
     if (!this.auth.promptLogin()) {
-      this.actionError.set('Connectez-vous pour miner.');
+      this.actionError.set('Sign in to mine.');
       return;
     }
 
@@ -186,7 +186,7 @@ export class PendingTransactionsComponent {
         await firstValueFrom(this.api.minePendingTransaction({ id: tx.id }));
       } catch (mineError) {
         console.error(mineError);
-        this.actionError.set(this.resolveMineError(mineError, 'Erreur lors du minage groupé.'));
+        this.actionError.set(this.resolveMineError(mineError, 'Error during batch mining.'));
         break;
       }
     }
@@ -206,7 +206,7 @@ export class PendingTransactionsComponent {
     }
 
     if (!this.auth.promptLogin()) {
-      this.actionError.set('Connectez-vous pour miner.');
+      this.actionError.set('Sign in to mine.');
       return;
     }
 
@@ -218,7 +218,7 @@ export class PendingTransactionsComponent {
       this.data.scheduleRefresh(true);
     } catch (mineError) {
       console.error(mineError);
-      this.actionError.set(this.resolveMineError(mineError, 'Erreur lors du minage.'));
+      this.actionError.set(this.resolveMineError(mineError, 'Error during mining.'));
     } finally {
       this.miningTransactionId.set(null);
     }

@@ -20,11 +20,11 @@ public class BannerController {
         List<PendingTransactionResponse> pending = pendingTransactionService.getPendingTransactions();
 
         String lastTransaction = pending.isEmpty()
-                ? "Aucune transaction récente"
+                ? "No recent transactions"
                 : buildLastTransactionText(pending.get(0));
 
         String lastTransactionShort = pending.isEmpty()
-                ? "Aucune"
+                ? "None"
                 : truncate(lastTransaction, 32);
 
         return new BannerResponse(

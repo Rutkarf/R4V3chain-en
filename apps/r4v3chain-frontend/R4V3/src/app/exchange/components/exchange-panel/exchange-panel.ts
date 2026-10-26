@@ -152,17 +152,17 @@ export class ExchangePanelComponent implements AfterViewInit {
 
     switch (this.swapAction()) {
       case 'create-wallet':
-        return 'Créer wallet';
+        return 'Create wallet';
       case 'login-required':
-        return 'Se connecter';
+        return 'Sign in';
       case 'enter-amount':
-        return 'Convertir';
+        return 'Convert';
       case 'insufficient':
-        return this.fromBalance() <= 0 ? 'Obtenir R4V3' : 'Insuffisant';
+        return this.fromBalance() <= 0 ? 'Get R4V3' : 'Insufficient';
       case 'swapping':
         return 'Conv…';
       default:
-        return 'Convertir';
+        return 'Convert';
     }
   }
 
@@ -317,13 +317,13 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly compactMetaHint = computed(() => {
     switch (this.swapAction()) {
       case 'create-wallet':
-        return 'Portefeuille requis';
+        return 'Wallet required';
       case 'login-required':
-        return 'Connexion requise';
+        return 'Sign in required';
       case 'enter-amount':
-        return 'Saisissez un montant';
+        return 'Enter an amount';
       case 'insufficient':
-        return this.fromBalance() <= 0 ? 'Obtenir R4V3' : 'Solde insuffisant';
+        return this.fromBalance() <= 0 ? 'Get R4V3' : 'Insufficient balance';
       default:
         return '';
     }
@@ -341,14 +341,14 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly showFooter = computed(() => false);
 
   protected readonly trustLine = computed(
-    () => 'Slippage max 0,5 % · Frais réseau 0 %'
+    () => 'Max slippage 0.5% · Network fee 0%'
   );
 
   protected readonly socialProofLines = computed(() => {
     const lines: string[] = [];
 
     if (this.rateLine()) {
-      lines.push(`${this.rateLine()} · Taux garanti 30 s`);
+      lines.push(`${this.rateLine()} · Guaranteed rate 30 s`);
     }
 
     const change = this.change24hLabel();
@@ -374,9 +374,9 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly footerMetaLine = computed(() => {
     switch (this.swapAction()) {
       case 'create-wallet':
-        return 'Portefeuille requis pour convertir · environ 30 s';
+        return 'Wallet required to convert · about 30 s';
       case 'login-required':
-        return 'Connectez-vous pour valider la conversion';
+        return 'Sign in to confirm the conversion';
       default:
         break;
     }
@@ -393,7 +393,7 @@ export class ExchangePanelComponent implements AfterViewInit {
     }
 
     if (this.rateLine()) {
-      return `${this.rateLine()} · Taux garanti 30 s`;
+      return `${this.rateLine()} · Guaranteed rate 30 s`;
     }
 
     return this.socialProofLine();
@@ -483,7 +483,7 @@ export class ExchangePanelComponent implements AfterViewInit {
     const usd = this.unitUsdPriceFrom();
     const balance = this.fromBalance();
     if (usd == null) {
-      return 'Laboratoire, réseau de test';
+      return 'Laboratory, test network';
     }
 
     const totalUsd = balance * usd;
@@ -497,7 +497,7 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly prixSubline = computed(() => {
     const usd = this.unitUsdPriceTo();
     if (usd == null) {
-      return 'Laboratoire, réseau de test';
+      return 'Laboratory, test network';
     }
 
     return `${this.formatUsd(usd, 4)} CHF`;
@@ -549,13 +549,13 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly swapButtonLabel = computed(() => {
     switch (this.swapAction()) {
       case 'create-wallet':
-        return 'Créer un portefeuille';
+        return 'Create a wallet';
       case 'login-required':
-        return 'Se connecter';
+        return 'Sign in';
       case 'enter-amount':
-        return 'Convertir →';
+        return 'Convert →';
       case 'insufficient':
-        return this.fromBalance() <= 0 ? 'Obtenir R4V3' : 'Solde insuffisant';
+        return this.fromBalance() <= 0 ? 'Get R4V3' : 'Insufficient balance';
       case 'swapping':
         return 'Conversion…';
       default: {
@@ -563,7 +563,7 @@ export class ExchangePanelComponent implements AfterViewInit {
         const amountOut = this.formattedEstimatedTo();
         const fromUnit = this.amountUnitDisplay(this.fromToken());
         const toSymbol = this.toToken();
-        return `Convertir ${amountIn} ${fromUnit} → ${amountOut} ${toSymbol}`;
+        return `Convert ${amountIn} ${fromUnit} → ${amountOut} ${toSymbol}`;
       }
     }
   });
@@ -571,13 +571,13 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly swapButtonLabelCompact = computed(() => {
     switch (this.swapAction()) {
       case 'create-wallet':
-        return 'Créer';
+        return 'Create';
       case 'login-required':
-        return 'Connexion';
+        return 'Sign in';
       case 'enter-amount':
-        return 'Convertir';
+        return 'Convert';
       case 'insufficient':
-        return this.fromBalance() <= 0 ? 'R4V3' : 'Insuffisant';
+        return this.fromBalance() <= 0 ? 'R4V3' : 'Insufficient';
       case 'swapping':
         return '…';
       default: {
@@ -590,15 +590,15 @@ export class ExchangePanelComponent implements AfterViewInit {
   protected readonly swapCtaHint = computed(() => {
     switch (this.swapAction()) {
       case 'create-wallet':
-        return 'Portefeuille requis pour convertir vos jetons en actifs du laboratoire.';
+        return 'Wallet required to convert your tokens into Laboratory assets.';
       case 'login-required':
-        return 'Connectez-vous pour valider la conversion.';
+        return 'Sign in to confirm the conversion.';
       case 'enter-amount':
-        return 'Saisissez un montant pour voir ce que vous recevrez.';
+        return 'Enter an amount to see what you will receive.';
       case 'insufficient':
         return this.fromBalance() <= 0
-          ? 'Obtenez des R4V3 sur le faucet testnet.'
-          : 'Réduisez le montant ou rechargez votre solde.';
+          ? 'Get R4V3 from the testnet faucet.'
+          : 'Lower the amount or top up your balance.';
       default:
         return '';
     }
@@ -991,7 +991,7 @@ export class ExchangePanelComponent implements AfterViewInit {
     }
 
     if (this.swapAction() === 'login-required') {
-      this.errorMessage.set('Connectez-vous pour swapper.');
+      this.errorMessage.set('Sign in to swap.');
       this.showStatus.set(true);
       this.auth.openDrawer('login');
       return;
@@ -1127,7 +1127,7 @@ export class ExchangePanelComponent implements AfterViewInit {
           this.lockQuoteRate(response.rate);
           this.successMessage.set(
             response.message ||
-              `Reçu ${this.formatAmount(response.amountOut)} ${response.toToken}`
+              `Received ${this.formatAmount(response.amountOut)} ${response.toToken}`
           );
           this.showStatus.set(true);
           this.showSuccessToast.set(true);
@@ -1151,9 +1151,9 @@ export class ExchangePanelComponent implements AfterViewInit {
           void this.questProgress.recordSwap(response.fromToken, response.toToken);
         },
         error: (error: unknown) => {
-          const message = this.resolveErrorMessage(error, 'Swap impossible.');
+          const message = this.resolveErrorMessage(error, 'Swap failed.');
           this.errorMessage.set(message);
-          if (message.includes('Connectez-vous')) {
+          if (message.includes('Sign in')) {
             this.auth.openDrawer('login');
           }
           this.showStatus.set(true);
@@ -1199,7 +1199,7 @@ export class ExchangePanelComponent implements AfterViewInit {
           this.loadingPanel.set(false);
         },
         error: () => {
-          this.errorMessage.set('Impossible de charger le panneau d’échange.');
+          this.errorMessage.set('Unable to load the exchange panel.');
           this.showStatus.set(true);
           this.loadingPanel.set(false);
         },
@@ -1250,7 +1250,7 @@ export class ExchangePanelComponent implements AfterViewInit {
   private resolveErrorMessage(error: unknown, fallback: string): string {
     if (error instanceof Error && error.message) {
       if (error.message.includes('401') || error.message.toLowerCase().includes('unauthorized')) {
-        return 'Connectez-vous pour swapper.';
+        return 'Sign in to swap.';
       }
       return error.message;
     }

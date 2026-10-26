@@ -66,16 +66,16 @@ export class DockQuestsSummaryComponent implements OnInit, OnDestroy {
 
   readonly displayedQuestTitle = computed(() => {
     if (this.state.loading() && this.state.taskViews().length === 0) {
-      return 'Chargement…';
+      return 'Loading…';
     }
     if (this.state.error() && this.state.taskViews().length === 0) {
-      return 'Quêtes indisponibles';
+      return 'Quests unavailable';
     }
     const quest = this.displayedQuest();
     if (quest) {
       return quest.title;
     }
-    return 'Toutes les quêtes réalisées';
+    return 'All quests completed';
   });
 
   readonly canClaim = computed(() => {

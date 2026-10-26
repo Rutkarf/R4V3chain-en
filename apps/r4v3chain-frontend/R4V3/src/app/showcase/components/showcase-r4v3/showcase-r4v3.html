@@ -9,7 +9,7 @@
  (click)="toggleOfficialWiki()"
  aria-haspopup="dialog"
  [attr.aria-expanded]="isWikiDrawerOpen()"
- [attr.title]="isWikiDrawerOpen() ? 'Fermer le wiki' : 'Ouvrir le wiki R4V3'"
+ [attr.title]="isWikiDrawerOpen() ? 'Close wiki' : 'Open R4V3 wiki'"
  >
       <span class="showcase-r4v3__rail-btn-icon" aria-hidden="true">
         <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-book"/></svg>
@@ -67,7 +67,7 @@
  (click)="openCommunityFormDrawer()"
  aria-haspopup="dialog"
  >
-              <span class="showcase-r4v3__section-link-label">FAQ communautaire</span>
+              <span class="showcase-r4v3__section-link-label">Community FAQ</span>
             </button>
           </nav>
         </div>
@@ -96,11 +96,11 @@
  (click)="openWhitepaper($event)"
  [attr.aria-busy]="whitepaperLoading()"
  [attr.title]="
- whitepaperLoading() ? 'Téléchargement…' : 'Télécharger le white paper R4V3'
+ whitepaperLoading() ? 'Downloading…' : 'Download R4V3 white paper'
  "
  >
       <span class="showcase-r4v3__rail-btn-label showcase-r4v3__wp-btn-label">
-        {{ whitepaperLoading() ? 'Ouverture…' : 'Livre blanc' }}
+        {{ whitepaperLoading() ? 'Opening…' : 'White paper' }}
       </span>
       <span class="showcase-r4v3__rail-btn-icon showcase-r4v3__wp-btn-icon" aria-hidden="true">
         <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-download"/></svg>

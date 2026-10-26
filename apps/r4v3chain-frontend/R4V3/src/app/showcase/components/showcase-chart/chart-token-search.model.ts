@@ -14,7 +14,7 @@ export function chartSearchSourceLabel(source?: ChartSearchSource, network?: str
     case 'geckoterminal':
       return network?.trim() || 'DEX';
     case 'launchlab':
-      return 'Laboratoire';
+      return 'Laboratory';
     case 'r4v3chain':
       return 'R4V3';
     default:

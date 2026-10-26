@@ -70,6 +70,6 @@ describe('ShowcaseChatComponent (Phase V)', () => {
     expect(fixture.nativeElement.querySelector('.showcase-meta__room')).toBeFalsy();
     expect(fixture.nativeElement.querySelector('.showcase-meta__rail')).toBeFalsy();
     expect(fixture.nativeElement.querySelector('.showcase-meta__refresh')).toBeFalsy();
-    expect(fixture.nativeElement.textContent).toContain('Envoyer');
+    expect(fixture.nativeElement.textContent).toContain('Send');
   });
 });

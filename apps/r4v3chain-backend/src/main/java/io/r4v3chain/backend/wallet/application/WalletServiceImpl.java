@@ -48,7 +48,7 @@ public class WalletServiceImpl implements WalletService {
         String derivedAddress = CryptoUtils.addressFromPublicKey(publicKey);
 
         if (!derivedAddress.equals(senderAddress)) {
-            throw new RuntimeException("La clé publique ne correspond pas à l'adresse sender");
+            throw new RuntimeException("Public key does not match the sender address");
         }
 
         String payload = TransactionPayloadBuilder.build(
@@ -85,7 +85,7 @@ public class WalletServiceImpl implements WalletService {
         String derivedAddress = CryptoUtils.addressFromPublicKey(publicKey);
 
         if (!derivedAddress.equals(senderAddress)) {
-            throw new IllegalArgumentException("La clé publique ne correspond pas à l'adresse sender");
+            throw new IllegalArgumentException("Public key does not match the sender address");
         }
 
         String expectedPayload = TransactionPayloadBuilder.build(
@@ -97,11 +97,11 @@ public class WalletServiceImpl implements WalletService {
         );
 
         if (!expectedPayload.equals(payload)) {
-            throw new IllegalArgumentException("payload signature invalide");
+            throw new IllegalArgumentException("invalid signature payload");
         }
 
         if (!CryptoUtils.verifyClientSignature(payload, signature, publicKey)) {
-            throw new IllegalArgumentException("signature ECDSA invalide");
+            throw new IllegalArgumentException("invalid ECDSA signature");
         }
 
         return buildTransaction(

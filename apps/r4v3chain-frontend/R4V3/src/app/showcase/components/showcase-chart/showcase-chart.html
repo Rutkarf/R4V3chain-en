@@ -78,7 +78,7 @@
                 (click)="toggleHubTickMenu($event)"
                 [attr.aria-expanded]="hubTickMenuOpen()"
                 aria-haspopup="listbox"
-                [attr.aria-label]="'Résolution : ' + hubActiveTickBadge()"
+                [attr.aria-label]="'Resolution: ' + hubActiveTickBadge()"
               >
                 <span class="showcase-chart__hub-dropdown-label">{{ hubActiveTickBadge() }}</span>
                 <span class="showcase-chart__hub-dropdown-chevron" aria-hidden="true"></span>
@@ -184,7 +184,7 @@
             class="showcase-chart__hub-collapse"
             [collapsed]="chartCollapsed()"
             [collapseAriaLabel]="collapseAriaLabel()"
-            refreshAriaLabel="Actualiser le graphique"
+            refreshAriaLabel="Refresh chart"
             [refreshBusy]="loading()"
             (refresh)="refresh()"
             (collapseToggle)="collapseToggle.emit()"
@@ -209,7 +209,7 @@
     <div class="showcase-chart__toolbar">
       <div class="showcase-chart__toolbar-start">
         <span class="showcase-chart__accent" aria-hidden="true"></span>
-        <span class="showcase-chart__title">Graphique</span>
+        <span class="showcase-chart__title">Chart</span>
 
         <div class="showcase-chart__market">
           <div class="showcase-chart__pair-dynamic">
@@ -238,7 +238,7 @@
             @if (hoverInfo(); as hover) {
               <span
                 class="showcase-chart__quote showcase-chart__quote--inspect"
-                [title]="hover.label + (hover.pinned ? ' · épingle' : '')"
+                [title]="hover.label + (hover.pinned ? ' · pin' : '')"
               >
                 {{ hover.price }}
               </span>
@@ -285,7 +285,7 @@
           type="button"
           class="cta cta--swap cta--sm showcase-chart__tool-btn showcase-chart__ind-btn"
           [class.showcase-chart__ind-btn--active]="alertPanelOpen()"
-          title="Alerte"
+          title="Alert"
           (click)="toggleAlertPanel()"
         >
           Alt
@@ -297,8 +297,8 @@
 
     @if (alertPanelOpen()) {
       <div class="showcase-chart__alert-panel showcase-chart__alert-panel--inline">
-        <input type="text" placeholder="Seuil haut" [value]="alertAbove()" (input)="alertAbove.set($any($event.target).value)" />
-        <input type="text" placeholder="Seuil bas" [value]="alertBelow()" (input)="alertBelow.set($any($event.target).value)" />
+        <input type="text" placeholder="Upper threshold" [value]="alertAbove()" (input)="alertAbove.set($any($event.target).value)" />
+        <input type="text" placeholder="Lower threshold" [value]="alertBelow()" (input)="alertBelow.set($any($event.target).value)" />
         <button type="button" class="cta cta--swap cta--sm showcase-chart__tool-btn" (click)="saveAlert()">OK</button>
         <button type="button" class="cta cta--swap cta--sm showcase-chart__tool-btn" (click)="clearAlert()"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
       </div>
@@ -314,8 +314,8 @@
   <div class="showcase-chart__main" [class.showcase-chart__main--compact]="compactLayout()">
       @if (error()) {
         <p class="showcase-chart__inline-error" role="alert">
-          Données indisponibles pour {{ pairBase() }} — courbe indicative affichée.
-          <button type="button" class="cta cta--swap cta--sm showcase-chart__tool-btn" (click)="retry()">Réessayer</button>
+          Data unavailable for {{ pairBase() }} — indicative curve shown.
+          <button type="button" class="cta cta--swap cta--sm showcase-chart__tool-btn" (click)="retry()">Retry</button>
         </p>
       }
       <div
@@ -741,19 +741,19 @@
               }
             </svg>
             @if (loading()) {
-              <div class="showcase-chart__plot-loading" aria-busy="true" aria-label="Chargement du graphique"></div>
+              <div class="showcase-chart__plot-loading" aria-busy="true" aria-label="Loading chart"></div>
             }
             </div>
             <div class="showcase-chart__plot-chrome">
               <div class="showcase-chart__plot-chrome-bar">
               @if (!hubLayout()) {
-              <div class="showcase-chart__type-overlay" role="group" aria-label="Type de graphique">
+              <div class="showcase-chart__type-overlay" role="group" aria-label="Chart type">
                 <button
                   type="button"
                   class="cta cta--swap cta--sm showcase-chart__type-icon-btn"
                   [class.showcase-chart__type-icon-btn--active]="effectiveChartType() === 'line'"
-                  title="Courbe"
-                  aria-label="Courbe"
+                  title="Line"
+                  aria-label="Line"
                   (click)="setChartType('line')"
                 >
                   <svg class="showcase-chart__type-icon icon" aria-hidden="true" focusable="false"><use href="#icon-chart-line"/></svg>
@@ -762,8 +762,8 @@
                   type="button"
                   class="cta cta--swap cta--sm showcase-chart__type-icon-btn"
                   [class.showcase-chart__type-icon-btn--active]="effectiveChartType() === 'candles'"
-                  title="Bougies"
-                  aria-label="Bougies"
+                  title="Candles"
+                  aria-label="Candles"
                   (click)="setChartType('candles')"
                 >
                   <svg class="showcase-chart__type-icon icon" aria-hidden="true" focusable="false"><use href="#icon-candles"/></svg>
@@ -843,7 +843,7 @@
       @if (hubHasLaunchDetails()) {
         <div class="showcase-chart__hub-footer-tier showcase-chart__hub-footer-tier--secondary">
           <div class="showcase-chart__hub-stat">
-            <span class="showcase-chart__hub-stat-label">Collecté</span>
+            <span class="showcase-chart__hub-stat-label">Raised</span>
             <span class="showcase-chart__hub-stat-value">{{ hubLaunchRaised() }}</span>
           </div>
           <div class="showcase-chart__hub-stat">
@@ -876,11 +876,11 @@
             </span>
           </div>
           <div class="showcase-chart__hub-stat">
-            <span class="showcase-chart__hub-stat-label">Échanges</span>
+            <span class="showcase-chart__hub-stat-label">Swaps</span>
             <span class="showcase-chart__hub-stat-value">{{ r4v3FlowStats().swaps }}</span>
           </div>
           <div class="showcase-chart__hub-stat">
-            <span class="showcase-chart__hub-stat-label">Santé</span>
+            <span class="showcase-chart__hub-stat-label">Health</span>
             <span class="showcase-chart__hub-stat-value showcase-chart__hub-stat-value--up">
               {{ r4v3HealthScore() }}/100
             </span>

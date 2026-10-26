@@ -45,7 +45,7 @@
     (click)="onWhitepaper($event)"
     [attr.aria-label]="whitepaperAriaLabel()"
     [attr.aria-busy]="whitepaperLoading()"
-    [attr.title]="whitepaperLoading() ? 'Téléchargement…' : 'Télécharger le white paper R4V3'"
+    [attr.title]="whitepaperLoading() ? 'Downloading…' : 'Download R4V3 white paper'"
   >
     <span class="r4v3-summary-bar__wp-btn-icon" aria-hidden="true">
       <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-file-down"/></svg>

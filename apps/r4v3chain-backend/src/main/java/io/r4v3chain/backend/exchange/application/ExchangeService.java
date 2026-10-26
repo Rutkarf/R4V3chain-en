@@ -168,7 +168,7 @@ public class ExchangeService {
                 amountOut,
                 getEffectiveBalance(walletAddress, fromToken),
                 getEffectiveBalance(walletAddress, toToken),
-                "Swap testnet réussi : "
+                "Testnet swap succeeded: "
                         + formatAmount(amount)
                         + " "
                         + fromToken
@@ -371,7 +371,7 @@ public class ExchangeService {
         boolean toIsNative = NATIVE_TOKEN.equalsIgnoreCase(toToken);
         if (!fromIsNative && !toIsNative) {
             throw new IllegalArgumentException(
-                    "Les échanges du laboratoire exigent R4V3 (m4t3r) comme contre-actif"
+                    "Lab swaps require R4V3 (m4t3r) as the counter-asset"
             );
         }
     }

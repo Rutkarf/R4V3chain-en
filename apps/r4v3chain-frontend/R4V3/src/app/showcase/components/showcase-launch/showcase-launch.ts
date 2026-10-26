@@ -66,7 +66,7 @@ export class ShowcaseLaunchComponent {
   readonly liveSummaryTooltip = computed(() => {
     const live = this.liveCount();
     if (live === 0) {
-      return 'Aucun projet live pour le moment';
+      return 'No live projects at the moment';
     }
     const names = this.launchState
       .liveProjects()
@@ -119,8 +119,8 @@ export class ShowcaseLaunchComponent {
 
   protected emptyMessage(): string {
     return this.searchQuery().trim()
-      ? 'Aucun projet ne correspond à votre recherche.'
-      : 'Aucun projet disponible pour le moment.';
+      ? 'No projects match your search.'
+      : 'No projects available at the moment.';
   }
 
   protected openDrawer(): void {
@@ -216,8 +216,8 @@ export class ShowcaseLaunchComponent {
 
   protected whitepaperAriaLabel(project: LaunchProject): string {
     return this.hasWhitepaper(project)
-      ? `Ouvrir le whitepaper ${project.symbol}`
-      : `Livre blanc indisponible pour ${project.symbol}`;
+      ? `Open white paper ${project.symbol}`
+      : `White paper unavailable for ${project.symbol}`;
   }
 
   protected openWhitepaper(project: LaunchProject, event: MouseEvent): void {

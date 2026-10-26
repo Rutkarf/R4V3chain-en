@@ -39,7 +39,7 @@ export class WaveEffectPool {
 }
 
 /**
- * Système des effets d'ondes réseau — pooling + shaders unifiés.
+ * Système des effets d'ondes network — pooling + shaders unifiés.
  * Affiche uniquement des ripples au sol + liens mesh entre points.
  */
 export class WaveEffectSystem {

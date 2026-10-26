@@ -10,7 +10,7 @@
 │          ██║  ██║     ██║ ╚████╔╝ ██████╔╝                   │
 │          ╚═╝  ╚═╝     ╚═╝  ╚═══╝  ╚═════╝                    │
 │                                                              │
-│              ◈  H 0 L L 0 W   N A T I 0 N  ◈                 │
+│           ◈  H 0 / / 0 w R 4 V 3 n a t i o n  ◈              │
 │         peer accounting  ·  hold the signal                  │
 │                                                              │
 │   ◆ R4V3 ◆ M4T3R ◆ CAN0PY ◆ SAWT ◆ LORA ◆ LUNE ◆           │
@@ -20,156 +20,156 @@
 
 # R4V3chain
 
-### protocole de comptabilité peer-to-peer · vitre démo · Pre-Seal
+### peer-to-peer accounting protocol · demo pane · Pre-Seal
 
 [![Demo](https://img.shields.io/badge/◈_DEMO-r4v3chain.pages.dev-0A1220?style=for-the-badge&labelColor=2ec4d6)](https://r4v3chain.pages.dev)
 [![API](https://img.shields.io/badge/API-health-235789?style=for-the-badge&logo=springboot&logoColor=white)](https://r4v3chain-backend-1-0-0.onrender.com/api/health)
-[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](#-10--stack--runtime)
-[![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=for-the-badge&logo=angular&logoColor=white)](#-10--stack--runtime)
-[![Spring](https://img.shields.io/badge/Spring_Boot-3.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](#-10--stack--runtime)
-[![SAWT](https://img.shields.io/badge/SAWT-LORA_✕_IONO_✕_MOON-111111?style=for-the-badge&labelColor=2ec4d6)](#-08--sawt--lora--la-chaîne-vers-la-lune)
+[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](#-11--stack--runtime)
+[![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=for-the-badge&logo=angular&logoColor=white)](#-11--stack--runtime)
+[![Spring](https://img.shields.io/badge/Spring_Boot-3.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](#-11--stack--runtime)
+[![SAWT](https://img.shields.io/badge/SAWT-LORA_✕_IONO_✕_MOON-111111?style=for-the-badge&labelColor=2ec4d6)](#-08--sawt--lora--the-chain-toward-the-moon)
 
 ```
 ◆ Don't Sell Ur R4V3 ◆
 ◆ Dreamz In Glitch , H0LD The Sawt ◆
-◆ Wake the tag. Hold the signal. Don't sell the dream short. ◆
+◆ Wake the tag. Hold the signal. Don't sell the R4V3 short. ◆
 ```
 
-| ◈ | Lien / fait |
+| ◈ | Link / fact |
 |:--|:--|
-| **Vitre** | [r4v3chain.pages.dev](https://r4v3chain.pages.dev) |
+| **Pane** | [r4v3chain.pages.dev](https://r4v3chain.pages.dev) |
 | **API** | [`/api/health`](https://r4v3chain-backend-1-0-0.onrender.com/api/health) |
-| **Hub confiance** | [R4V3chainReview](https://github.com/Rutkarf/R4V3chainReview) |
-| **Opérateur** | RJHBZ · SAS R4V3chain |
-| **Signal lock** | **31 / 01 / 2027** · France · Tag LORA + Tag ionosphérique |
-| **Statut** | v0.1.0 · Pre-Seal · document **non audité** |
+| **Trust hub** | [R4V3chainReview](https://github.com/Rutkarf/R4V3chainReview) |
+| **Operator** | RJHBZ · SAS R4V3chain |
+| **Signal lock** | **01 / 01 / 2027 · 00:00** · France · LORA Tag + ionospheric Tag |
+| **Status** | v0.1.0 · Pre-Seal · **unaudited** document |
 
-> ⚠️ **Ce n’est pas une crypto réelle.** Pas de mainnet, pas de custodian, pas d’achat, **aucun yield**.  
-> Jetons de démonstration uniquement. Peg intention ≠ peg UI. **Pas une offre de titres.**
+> ⚠️ **This is not a real crypto.** No mainnet, no custodian, no purchase, **no yield**.  
+> Demo tokens only. Intent peg ≠ UI peg. **Not a securities offering.**
 
 </div>
 
 ---
 
-## ◈ Sommaire
+## ◈ Table of contents
 
 | | | |
 |:--|:--|:--|
-| [01 · Transmission](#-01--transmission--pourquoi-r4v3) | [02 · Lore](#-02--lore--h0ll0w-nati0n) | [03 · Tokenomics](#-03--tokenomics--faits-durs) |
-| [04 · CAN0PY](#-04--can0py--le-prix-du-passage) | [05 · Protocole](#-05--protocole--os-du-paper) | [06 · Phases](#-06--phases-signal--feu--city) |
-| [07 · ChronoBoost](#-07--chronoboost--la-poussière-se-souvient) | [08 · SAWT / Lune](#-08--sawt--lora--la-chaîne-vers-la-lune) | [09 · Roadmap](#-09--roadmap-n1--jalons) |
-| [10 · Vitre](#-10--vitre-démo--ce-repo) | [11 · Stack](#-11--stack--runtime) | [12 · Quick start](#-12--quick-start) |
-| [13 · Org](#-13--organisation--axes) | [14 · Serment](#-14--serment--disclaimer) | [15 · Glossaire](#-15--glossaire-express) |
-| [16 · Black CODE](#-16--phrases-black-code-extrait) | [17 · Liens](#-17--liens--compagnons) | |
+| [01 · Transmission](#-01--transmission--why-r4v3) | [02 · Lore](#-02--lore--h00wr4v3nation) | [03 · Tokenomics](#-03--tokenomics--hard-facts) |
+| [04 · CAN0PY](#-04--can0py--the-price-of-passage) | [05 · Protocol](#-05--protocol--paper-bones) | [06 · Phases](#-06--phases-signal--fire--city) |
+| [07 · ChronoBoost](#-07--chronoboost--the-dust-remembers) | [08 · SAWT / Moon](#-08--sawt--lora--the-chain-toward-the-moon) | [09 · Roadmap](#-09--roadmap-n1--milestones) |
+| [10 · Pane](#-10--demo-pane--this-repo) | [11 · Stack](#-11--stack--runtime) | [12 · Quick start](#-12--quick-start) |
+| [13 · Org](#-13--organisation--axes) | [14 · Oath](#-14--oath--disclaimer) | [15 · Glossary](#-15--express-glossary) |
+| [16 · Black CODE](#-16--black-code-phrases-excerpt) | [17 · Links](#-17--links--companions) | |
 
 ---
 
-## ◈ 01 — Transmission · pourquoi R4V3
+## ◈ 01 — Transmission · why R4V3
 
 ```
 ┌─ BLACK_CODE ──────────────────────────────────────────────────┐
-│  Le commerce numérique s’appuie encore sur des institutions   │
-│  qui valident, annulent et médiatisent.                       │
-│  → coûts · friction · exclusion                               │
+│  Digital commerce still leans on institutions that            │
+│  validate, cancel, and mediate.                               │
+│  → costs · friction · exclusion                               │
 │                                                               │
-│  Sans anti-double-dépense, le même solde peut créditer        │
-│  deux destinataires. Le protocole ordonne l’état.             │
+│  Without anti-double-spend, the same balance can credit       │
+│  two recipients. The protocol orders state.                   │
 └───────────────────────────────────────────────────────────────┘
 ```
 
-| Pilier | Rôle |
+| Pillar | Role |
 |:-------|:-----|
-| ◆ **État ordonné** | Comptes + nonces + `apply(S, tx)` atomique |
-| ◆ **Frais lisibles** | Grille **CAN0PY** — anti-spam, pas d’enchère de gas opaque |
-| ◆ **Bootstrap explicite** | Phase **Signal** : centralisation **assumée et déclarée** |
-| ◆ **Faits dossier** | Burn créateur · capital SAS · peg **intention** |
-| ◆ **Vitre ≠ Ville** | La démo HTTPS prouve un artefact — pas le mainnet |
-| ◆ **SAWT** | Radio Nation — LORA au sol, iono vers la voûte, Lune dans l’ADN |
+| ◆ **Ordered state** | Accounts + nonces + atomic `apply(S, tx)` |
+| ◆ **Readable fees** | **CAN0PY** schedule — anti-spam, no opaque gas auction |
+| ◆ **Explicit bootstrap** | **Signal** phase: centralization **assumed and declared** |
+| ◆ **Dossier facts** | Creator burn · SAS capital · **intent** peg |
+| ◆ **Pane ≠ City** | The HTTPS demo proves an artefact — not the mainnet |
+| ◆ **SAWT** | Nation radio — LORA on the ground, iono toward the vault, Moon in the DNA |
 
-> *« Chez les Extracteurs le gas danse pour extraire. Ici le prix du passage est fixe. »*
+> *« Among Extractors gas dances to extract. Here the price of passage is fixed. »*
 
 ```
-FAITS 001  ⟩  White Paper  ⟩  Roadmap N1  ⟩  posts
+FACTS 001  ⟩  White Paper  ⟩  Roadmap N1  ⟩  posts
      ▲
- divergence = correction obligatoire
+ divergence = mandatory correction
 ```
 
 ---
 
-## ◈ 02 — Lore · H0LL0W NATI0N
+## ◈ 02 — Lore · H0//0wR4V3nation
 
 <div align="center">
 
-**Hollow n’est pas le vide — c’est l’endroit où le Signal résonne.**
+**Hollow is not emptiness — it is where the Signal resonates.**
 
 </div>
 
-| Symbole | Sens |
-|:--------|:-----|
-| ◆ **H0LL0W NATI0N** | Nation-mesh · ladder ×26 · 100 phases · DIY 10 NODES |
-| ◆ **MESH PATH** | Chemin d’initiation · CIRCUIT H0LL0W (11 nœuds + wallets) |
-| ◆ **City of Glitch** | Guerre des **Extracteurs** (FOMO + gas opaque) vs prix fixe |
-| ◆ **Cinq Portes** | Token · Poussière · Feu · Mur · Vitre |
-| ◆ **Les Onze** | Korp / Star Guardians — *pas des rois, des portes* |
-| ◆ **CIADIA (#011)** | Porte ouverte |
-| ◆ **TR0NE** | Antagoniste — Terre à consensus unique |
-| ◆ **C1TAD3L.Z0NES** | Havres glitchés |
-| ◆ **SAWT** | Programme radio + premier seuil · *réel / rêve* |
-| ◆ **ESL** | Étiquette éveillée (identité / display — pas HW wallet certifié) |
-| ◆ **ONMineur** | Faction mineur / éligibilité proposer · mines CAN0PY |
-| ◆ **BLACK_CODE** | Terminal pirate · YOU ↔ RJHBZ |
+| Symbol | Meaning |
+|:-------|:--------|
+| ◆ **H0//0wR4V3nation** | Mesh-nation · ladder ×26 · 100 phases · DIY 10 NODES |
+| ◆ **MESH PATH** | Initiation path · CIRCUIT H0LL0W (11 nodes + wallets) |
+| ◆ **City of Glitch** | War of the **Extractors** (FOMO + opaque gas) vs fixed price |
+| ◆ **Five Gates** | Token · Dust · Fire · Wall · Pane |
+| ◆ **The Eleven** | Korp / Star Guardians — *not kings, gates* |
+| ◆ **CIADIA (#011)** | Open gate |
+| ◆ **TR0NE** | Antagonist — Earth of single consensus |
+| ◆ **C1TAD3L.Z0NES** | Glitched havens |
+| ◆ **SAWT** | Radio programme + first threshold · *real / R4V3* |
+| ◆ **ESL** | Awakened label (identity / display — not a certified HW wallet) |
+| ◆ **CAN0PY** | Miner / proposer eligibility · CAN0PY mines · hardware **ESP32-C5 + SX1262** |
+| ◆ **BLACK_CODE** | Pirate terminal · YOU ↔ RJHBZ |
 
-### Serments des Portes
+### Gate oaths
 
-| Porte | Serment |
-|:------|:--------|
-| ◆ Neon | La démo d’abord — la vitre avant la ville |
-| ◆ Chlorophylle | Burn de rente, pas de combustion gratuite |
-| ◆ ASCII | Les faits commandent ; le hype corrige |
-| ◆ Poussière | CAN0PY paie le passage — grain honnête |
+| Gate | Oath |
+|:-----|:-----|
+| ◆ Neon | Demo first — the pane before the city |
+| ◆ Chlorophyll | Rent burn, not free combustion |
+| ◆ ASCII | Facts command; hype corrects |
+| ◆ Dust | CAN0PY pays the passage — honest grain |
 
 ```
-SAWT // 0001 - RJHBZ - EN ATTENTE D'UN PAIR.
+SAWT // 0001 - RJHBZ - AWAITING A PEER.
 CHR0N0B00ST // ONE ZERO FALLS - THE GRAIN REMEMBERS // M4T3R REQUIEM DUST
 ```
 
-> *« La vitre brille — mais la vitre n’est pas la ville. »*  
-> *« Les Onze ne sont pas des rois. Ce sont des portes qui s’ouvrent. »*  
+> *« The pane shines — but the pane is not the city. »*  
+> *« The Eleven are not kings. They are gates that open. »*  
 > *« Hold the Signal — the Trône costs no guard. »*
 
 ---
 
-## ◈ 03 — Tokenomics · faits durs
+## ◈ 03 — Tokenomics · hard facts
 
-| Clé | Valeur |
-|:----|:-------|
+| Key | Value |
+|:----|:------|
 | ◆ Token | **R4V3** |
-| ◆ Subunit | **M4T3R** · **26 decimals** à T0 |
-| ◆ Relation floor | À l’ère CLEARSIGHT : 1 R4V3 = 10⁸ M4T3R |
-| ◆ Image supply | `[999×9].[25×0]+1` → précision M4T3R |
-| ◆ Frais | **CAN0PY** (voir §04) |
-| ◆ 1ʳᵉ mine | **1 M4T3R** |
-| ◆ Split fees | **49 % ONMineur / 49 % Squad / 1 % ONG / 1 % RJHBZ** |
-| ◆ Burn créateur | **2,6 % / an** (bag OUVERT) · redistribué Nation |
-| ◆ Peg dossier | Intention **1 CHF ≈ 1 R4V3** tant que le bag respire — **≠ garantie** |
-| ◆ Peg démo | Ludique UI — **≠ offre** |
-| ◆ Capital SAS | **10 000 CHF** |
-| ◆ Alloc fondateur tokens | **0** |
-| ◆ Vesting | Aucun |
-| ◆ Émission cachée | **Interdite** |
-| ◆ Chain démo | **chain-id 3377** · *R4V3chain Native* |
+| ◆ Subunit | **M4T3R** · **26 decimals** at T0 |
+| ◆ Floor relation | In the CLEARSIGHT era: 1 R4V3 = 10⁸ M4T3R |
+| ◆ Supply image | `[999×9].[25×0]+1` → M4T3R precision |
+| ◆ Fees | **CAN0PY** (see §04) |
+| ◆ 1ˢᵗ mine | **1 M4T3R** |
+| ◆ Fee split | **49 % CAN0PY / 49 % Squad / 1 % NGO / 1 % RJHBZ** |
+| ◆ Creator burn | **2.6 % / year** (OPEN bag) · redistributed to the Nation |
+| ◆ Dossier peg | Intent **1 CHF ≈ 1 R4V3** while the bag breathes — **≠ guarantee** |
+| ◆ Demo peg | Ludic UI — **≠ offering** |
+| ◆ SAS capital | **10 000 CHF** |
+| ◆ Founder token alloc | **0** |
+| ◆ Vesting | None |
+| ◆ Hidden emission | **Forbidden** |
+| ◆ Demo chain | **chain-id 3377** · *R4V3chain Native* |
 
 ```
-┌─ RÈGLE DURE ─────────────────────────────────────────────────┐
-│  Peg intention ≠ prix marché ≠ peg UI démo                   │
-│  Burn créateur ≠ free burn                                   │
-│  Document Pre-Seal · non audité · pas une offre de titres    │
+┌─ HARD RULE ──────────────────────────────────────────────────┐
+│  Intent peg ≠ market price ≠ demo UI peg                     │
+│  Creator burn ≠ free burn                                    │
+│  Pre-Seal document · unaudited · not a securities offering   │
 └──────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ◈ 04 — CAN0PY · le prix du passage
+## ◈ 04 — CAN0PY · the price of passage
 
 ```
 fee(n) = 1 + 10 × floor((n − 1) / 10)   [M4T3R]
@@ -179,52 +179,52 @@ fee(n) = 1 + 10 × floor((n − 1) / 10)   [M4T3R]
  n = 11 … 20    →  11 M4T3R
  n = 21 … 30    →  21 M4T3R
  …
-Toute tx valide paie exactement ce quantum — sinon rejet.
+Every valid tx pays exactly this quantum — otherwise reject.
 ```
 
-> *« Première mine : un grain. Onzième : onze. La monte est honnête. »*
+> *« First mine: one grain. Eleventh: eleven. The climb is honest. »*
 
-CAN0PY désigne à la fois :
+CAN0PY means all of:
 
-| Face | Rôle |
+| Face | Role |
 |:-----|:-----|
-| ◆ **Barème frais** | Quantum M4T3R par rang de mine |
-| ◆ **Mine / SKU** | Première mineuse · hardware Nation (611) |
-| ◆ **Porteur radio** | Les tx minées CAN0PY alimentent le programme **SAWT** (tags RF) |
+| ◆ **Fee schedule** | M4T3R quantum per mine rank |
+| ◆ **Mine / SKU** | First miner · Nation hardware (**ESP32-C5 + SX1262**) · SKU 611 |
+| ◆ **Radio carrier** | CAN0PY-mined txs feed the **SAWT** programme (RF tags) |
 
-### Transaction formelle
+### Formal transaction
 
 ```
 tx = (from, to, value, nonce, fee=CAN0PY, sig)
 
 valid iff:
-  ✓ champs + fee CAN0PY exact + sig(from)
+  ✓ fields + exact CAN0PY fee + sig(from)
   ✓ nonce == nonce[from] + 1
   ✓ balance[from] ≥ value + fee
-sinon → rejet · S inchangé
+else → reject · S unchanged
 ```
 
 ---
 
-## ◈ 05 — Protocole · os du paper
+## ◈ 05 — Protocol · paper bones
 
 | Module | Essence |
 |:-------|:--------|
-| ◆ Blocs | `prev_hash` · Merkle · timestamp · producteurs |
-| ◆ Consensus City | Fork choice = poids maximal (honnête > attaquant) |
-| ◆ Consensus WIP | **R4V3-BFT-AP** · Anonymous Proposer · comité 11 |
-| ◆ Network | Gossip best-effort · sync chaîne canonique |
-| ◆ État | `S' = apply(S, tx) \| reject` |
-| ◆ Privacy | Pseudonymat public — **pas** d’anonymat magique |
-| ◆ Light clients | Headers + preuve Merkle (SPV-like) |
+| ◆ Blocks | `prev_hash` · Merkle · timestamp · producers |
+| ◆ City consensus | Fork choice = maximal weight (honest > attacker) |
+| ◆ Consensus WIP | **R4V3-BFT-AP** · Anonymous Proposer · committee of 11 |
+| ◆ Network | Best-effort gossip · canonical chain sync |
+| ◆ State | `S' = apply(S, tx) \| reject` |
+| ◆ Privacy | Public pseudonymity — **not** magical anonymity |
+| ◆ Light clients | Headers + Merkle proof (SPV-like) |
 | ◆ PQ (WIP) | SHAKE256 · ML-DSA-65 |
-| ◆ Radio path | SAWT · LORA · iono · Moon Bounce (voir §08) |
-| ◆ Incentive | Fee pressure + burn créateur · pas d’émission inventée |
+| ◆ Radio path | SAWT · LORA · iono · Moon Bounce (see §08) |
+| ◆ Incentive | Fee pressure + creator burn · no invented emission |
 
-**Héritage** : horodatage / Merkle / anti-double-spend (BTC) · machine d’état (ETH).  
-**Différenciateur** : comptes + frais fixes M4T3R + bootstrap documenté + **tags RF**.
+**Heritage**: timestamping / Merkle / anti-double-spend (BTC) · state machine (ETH).  
+**Differentiator**: accounts + fixed M4T3R fees + documented bootstrap + **RF tags**.
 
-### Rampe de blocs (canon)
+### Block ramp (canon)
 
 ```
 10 × 1 tx  →  100 × 10  →  1k × 100  →  10k × 100k  →  …
@@ -232,219 +232,218 @@ sinon → rejet · S inchangé
 
 ---
 
-## ◈ 06 — Phases Signal → Feu → City
+## ◈ 06 — Phases Signal → Fire → City
 
 ```
-   SIGNAL              FEU                 CITY
+   SIGNAL              FIRE                CITY
 ┌────────────┐    ┌────────────┐    ┌──────────────────┐
-│ Bootstrap  │───▶│ Intensité  │───▶│ Multi-nœuds      │
-│ RJHBZ      │    │ SAWT labs  │    │ poids honnête    │
-│ déclaré    │    │ LORA/iono  │    │ > attaquants     │
+│ Bootstrap  │───▶│ Intensity  │───▶│ Multi-node       │
+│ RJHBZ      │    │ SAWT labs  │    │ honest weight    │
+│ declared   │    │ LORA/iono  │    │ > attackers      │
 └────────────┘    └────────────┘    └──────────────────┘
       ▲                                      ▲
- vitre démo                            replication P2P
- (ce repo)                             BFT-AP path
+ demo pane                             P2P replication
+ (this repo)                           BFT-AP path
 ```
 
-| Phase | Signification |
-|:------|:--------------|
-| ◈ **Signal** | Validateur(s) documentés par RJHBZ — risque élevé **annoncé** |
-| ◈ **Feu** | Labs SAWT · ESL · ONMineur · testnet sans valeur |
-| ◈ **City** | Majority of honest weight · sans tiers bancaire pour trancher les soldes |
+| Phase | Meaning |
+|:------|:--------|
+| ◈ **Signal** | Validator(s) documented by RJHBZ — high risk **announced** |
+| ◈ **Fire** | SAWT labs · ESL · CAN0PY · valueless testnet |
+| ◈ **City** | Majority of honest weight · no bank intermediary to settle balances |
 
 ---
 
-## ◈ 07 — ChronoBoost · la poussière se souvient
+## ◈ 07 — ChronoBoost · the dust remembers
 
 | | |
 |:--|:--|
-| ◆ Trajectoire | **26 → 8** decimals |
-| ◆ Cadence | **−1 decimal / cycle** chaque **31 janvier** |
-| ◆ Floor | **8** (= satoshi BTC) |
-| ◆ Dust | Poussière retirée = **M4T3R REQUIEM DUST** (hors cérémonie) |
+| ◆ Trajectory | **26 → 8** decimals |
+| ◆ Cadence | **−1 decimal / cycle** every **1 January** |
+| ◆ Floor | **8** (= BTC satoshi) |
+| ◆ Dust | Removed dust = **M4T3R REQUIEM DUST** (outside ceremony) |
 
 ```
 CHR0N0B00ST // ONE ZERO FALLS - THE GRAIN REMEMBERS
 ```
 
-> *Seul ChronoBoost éteint un zéro. Feu sans REQUIEM = vol contre la Lune.*
+> *Only ChronoBoost extinguishes a zero. Fire without REQUIEM = theft against the Moon.*
 
 ---
 
-## ◈ 08 — SAWT · LORA · la chaîne vers la Lune
+## ◈ 08 — SAWT · LORA · the chain toward the Moon
 
 <div align="center">
 
-**Deux tatouages dans le ciel : un près du sol, un vers la Lune.**
+**Two tattoos in the sky: one near the ground, one toward the Moon.**
 
 </div>
 
-### Qu’est-ce que SAWT ?
+### What is SAWT?
 
-**SAWT** est le **programme radio** de la Nation — le premier seuil où le rêve touche le réel.
+**SAWT** is the Nation’s **radio programme** — the first threshold where R4V3 touches the real.
 
-| Clé | Sens |
-|:----|:-----|
-| ◆ Nature | Radio + ritual de preuve · *pas* un yield |
-| ◆ Gravure | `SAWT // 0001 - RJHBZ - EN ATTENTE D'UN PAIR.` |
-| ◆ Rôle | Porter des **tags** issus de l’état / des tx CAN0PY hors du seul HTTPS |
-| ◆ Hardware | ESL · antennes · SKU 611 — *« Réveille l’étiquette. Tiens la Lune dans ta poche. »* |
-| ◆ Échec | Documenté sans fake — *« L’échec s’écrit. »* |
+| Key | Meaning |
+|:----|:--------|
+| ◆ Nature | Radio + proof ritual · *not* a yield |
+| ◆ Engraving | `SAWT // 0001 - RJHBZ - AWAITING A PEER.` |
+| ◆ Role | Carry **tags** from state / CAN0PY txs beyond HTTPS alone |
+| ◆ Hardware | ESL · antennas · SKU 611 — *« Wake the label. Hold the Moon in your pocket. »* |
+| ◆ Failure | Documented without fake — *« Failure is written. »* |
 
 ```
-┌─ PROGRAMME RADIO SAWT ───────────────────────────────────────┐
-│  LORA touche le proche.                                      │
-│  L’iono ouvre le ciel.                                       │
-│  La Lune compte — elle ne triche pas.                        │
+┌─ SAWT RADIO PROGRAMME ───────────────────────────────────────┐
+│  LORA touches the near.                                      │
+│  The iono opens the sky.                                     │
+│  The Moon counts — it does not cheat.                        │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-### Dual Tag · 31 / 01 / 2027
+### Dual Tag · 01 / 01 / 2027 · 00:00
 
-Le **premier signal public** part de France avec **deux médiums** ensemble :
+The **first public signal** leaves France with **two media** together:
 
-| Tag | Portée | Lecture |
-|:----|:-------|:--------|
-| ◆ **Tag LORA** | Près du sol · mesh court | Preuve locale · voisinage · lab |
-| ◆ **Tag ionosphérique** | Vers la voûte · bounce / EME | Preuve longue distance · ciel |
+| Tag | Range | Reading |
+|:----|:------|:--------|
+| ◆ **LORA Tag** | Near ground · short mesh | Local proof · neighbourhood · lab |
+| ◆ **Ionospheric Tag** | Toward the vault · bounce / EME | Long-range proof · sky |
 
-> *La France est le premier sol. La Lune est déjà dans l’ADN.*
+> *France is the first soil. The Moon is already in the DNA.*
 
-### CAN0PY → RF → Lune (chemin de preuve)
+### CAN0PY → RF → Moon (proof path)
 
 ```
-  tx CAN0PY (fee exacte)
+  CAN0PY tx (exact fee)
         │
         ▼
-  apply(S, tx)  ·  bloc / Merkle
+  apply(S, tx)  ·  block / Merkle
         │
         ▼
-  SAWT encode le tag (preuve / empreinte)
+  SAWT encodes the tag (proof / fingerprint)
         │
         ├──────────────┬──────────────────┐
         ▼              ▼                  ▼
-   Tag LORA      Tag ionosphérique   Moon Bounce (EME)
-   (proche)      (voûte)             (aller-retour Lune)
+   LORA Tag      Ionospheric Tag     Moon Bounce (EME)
+   (near)        (vault)             (Moon round-trip)
 ```
 
-| Couche | Ce qu’elle prouve |
-|:-------|:------------------|
-| ◆ **CAN0PY** | La tx a payé le quantum — état honnête |
-| ◆ **LORA** | Le tag a quitté le lab vers le sol |
-| ◆ **Iono** | Le tag a touché la voûte |
-| ◆ **Moon Bounce** | Echo lunaire mesuré — jalon 19 · *sans fake moon* |
+| Layer | What it proves |
+|:------|:---------------|
+| ◆ **CAN0PY** | The tx paid the quantum — honest state |
+| ◆ **LORA** | The tag left the lab toward the ground |
+| ◆ **Iono** | The tag touched the vault |
+| ◆ **Moon Bounce** | Measured lunar echo — milestone 19 · *no fake moon* |
 
 ```
-┌─ RÈGLE RADIO ────────────────────────────────────────────────┐
-│  Pas de « fake moon ».                                       │
-│  Mesure > cérémonie.                                         │
-│  Si le bounce échoue : on l’écrit — on ne maquille pas.      │
-│  Quatre-vingt-dix jours pour apprendre à ne pas mentir       │
-│  à la Lune.                                                  │
+┌─ RADIO RULE ─────────────────────────────────────────────────┐
+│  No « fake moon ».                                           │
+│  Measure > ceremony.                                         │
+│  If the bounce fails: we write it — we do not polish it.     │
+│  Ninety days to learn not to lie to the Moon.                │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-> *« D’abord un pas. Puis dix. Puis cent. La Lune compte — elle ne triche pas. »*
+> *« First one step. Then ten. Then a hundred. The Moon counts — it does not cheat. »*
 
-### Jalons radio liés
+### Related radio milestones
 
-| # | Jalon |
-|--:|:------|
-| 04 | SAWT Tag LORA lab |
-| 05 | Tag ionosphérique / EME procédure + page d’échec |
-| 14 | **Signal public 31/01/2027** — LORA + iono mesurés *ou* échec documenté |
-| 19 | Moon Bounce mesuré |
+| # | Milestone |
+|--:|:----------|
+| 04 | SAWT LORA Tag lab |
+| 05 | Ionospheric / EME tag procedure + failure page |
+| 14 | **Public signal 01/01/2027 00:00** — measured LORA + iono *or* documented failure |
+| 19 | Measured Moon Bounce |
 
 ---
 
-## ◈ 09 — Roadmap N1 · jalons
+## ◈ 09 — Roadmap N1 · milestones
 
 <div align="center">
 
 **MESH PATH** · ladder ×26 · 100 phases  
-Premier signal public ▸ **31 janvier 2027**
+First public signal ▸ **01 January 2027 · 00:00**
 
 </div>
 
-### Cap Nation (aspirations — pas des KPI trimestriels)
+### Nation caps (aspirations — not quarterly KPIs)
 
 | | |
 |:--|:--|
-| ◆ Cibles | **10 000 nœuds** · jusqu’à **1 000 000 wallets** |
+| ◆ Targets | **10 000 nodes** · up to **1 000 000 wallets** |
 | ◆ DIY | 10 NODES · CIRCUIT H0LL0W · SAWT |
-| ◆ Interdit | Garantir un bénéfice · vendre le rêve court |
+| ◆ Forbidden | Guarantee a profit · sell the R4V3 short |
 
-### Livre des treize (01 → 13)
+### Book of thirteen (01 → 13)
 
-| # | Jalon |
-|--:|:------|
-| 01 | Inventaire dépôts / ruines du code |
-| 02 | Registre monétaire + ChronoBoost spécifié |
+| # | Milestone |
+|--:|:----------|
+| 01 | Inventory of repos / code ruins |
+| 02 | Monetary register + ChronoBoost specified |
 | 03 | Mempool Squad demo (wss) |
-| 04 | SAWT Tag LORA lab |
-| 05 | Tag ionosphérique / EME doc |
+| 04 | SAWT LORA Tag lab |
+| 05 | Ionospheric / EME tag docs |
 | 06 | ESL prototype #1 |
-| 07 | Mine ONMineur / CAN0PY #1 |
-| 08 | Testnet sans valeur |
-| 09 | Initiation ONG 1 centime |
-| 10 | Charte ASCII + Luluw |
-| 11 | CIRCUIT H0LL0W pilote |
-| 12 | Pentest / résilience TR0NE |
-| 13 | Répétition générale PRE-SIGNAL 31/01 |
+| 07 | CAN0PY mine #1 (ESP32-C5 + SX1262) |
+| 08 | Valueless testnet |
+| 09 | NGO initiation 1 cent |
+| 10 | ASCII charter + Luluw |
+| 11 | CIRCUIT H0LL0W pilot |
+| 12 | Pentest / TR0NE resilience |
+| 13 | PRE-SIGNAL dress rehearsal 01/01 |
 
-### Jalons 14 → 26
+### Milestones 14 → 26
 
-| # | Jalon |
-|--:|:------|
-| 14 | **Premier signal public 31/01/2027** (LORA + iono) |
-| 15 | Ouverture C1TAD3L.Z0NES #1 |
-| 16 | Mainnet utilitaire (go / no-go) |
+| # | Milestone |
+|--:|:----------|
+| 14 | **First public signal 01/01/2027 00:00** (LORA + iono) |
+| 15 | Opening C1TAD3L.Z0NES #1 |
+| 16 | Utility mainnet (go / no-go) |
 | 17 | ChronoBoost #1 (2028) |
-| 18 | Apps lore (IP teaser — noms publics sous réserve dépôt) |
-| 19 | **Moon Bounce mesuré** |
-| 20 | Checkpoint 10 000 nœuds |
-| 21 | PEG architecture auditable |
-| 22 | Pack kit-korp scale |
-| 23 | Quêtes éclipse live |
-| 24 | Ressources Nation / mesh scale |
+| 18 | Lore apps (IP teaser — public names pending filing) |
+| 19 | **Measured Moon Bounce** |
+| 20 | 10 000-node checkpoint |
+| 21 | Auditable PEG architecture |
+| 22 | Kit-korp scale pack |
+| 23 | Live eclipse quests |
+| 24 | Nation resources / mesh scale |
 | 25 | CyberSpace Star Conquest |
-| 26 | Miroir document / ERA path |
+| 26 | Document mirror / ERA path |
 
 ```
-Épitaphe si échec :
-« nous avons tenu le signal sans vendre le rêve. »
+Epitaph on failure:
+« we held the signal without selling the R4V3. »
 ```
 
-Cadence lore : *mesure > cérémonie*.
+Lore cadence: *measure > ceremony*.
 
 ---
 
-## ◈ 10 — Vitre démo · ce repo
+## ◈ 10 — Demo pane · this repo
 
-Shell **250×550** — full-stack pédagogique :
+**250×550** shell — pedagogical full-stack:
 
-| Zone | Contenu |
+| Zone | Content |
 |:-----|:--------|
-| ◆ **MetaVerseBB** | Jumeau 3D urbain (OSM + Three.js) · champ M4T3R · arène |
-| ◆ **Wallet / Faucet** | Création, claim testnet, explorer |
-| ◆ **Chaîne** | Blocs · mempool · peers P2P (`/ws/peers`) |
-| ◆ **Swap / LaunchLab** | Quotes pédagogiques · projets launch |
-| ◆ **Showcase** | Hub R4V3 · chat · DAO preview · marché |
-| ◆ **Quêtes** | Progression démo · XP |
-| ◆ **Star Conquest** | Galaxies / ruche (flag produit souvent off) |
-| ◆ **Ops** | Health · seuils · admin unlock seed |
+| ◆ **MetaVerseBB** | Urban 3D twin (OSM + Three.js) · M4T3R field · arena |
+| ◆ **Wallet / Faucet** | Creation, testnet claim, explorer |
+| ◆ **Chain** | Blocks · mempool · P2P peers (`/ws/peers`) |
+| ◆ **Swap / LaunchLab** | Pedagogical quotes · launch projects |
+| ◆ **Showcase** | R4V3 hub · chat · DAO preview · market |
+| ◆ **Quests** | Demo progression · XP |
+| ◆ **Star Conquest** | Galaxies / hive (product flag often off) |
+| ◆ **Ops** | Health · thresholds · admin unlock seed |
 
 ```
-Navigateur ──/api /ws──▶ Spring Boot ──▶ Postgres | memory
+Browser ──/api /ws──▶ Spring Boot ──▶ Postgres | memory
  localhost:4200              :8080
  Pages · Render
 ```
 
 ```
-┌─ SÉPARATION ─────────────────────────────────────────────────┐
-│  Spec (paper)  ≠  Demo (cette vitre)  ≠  Live (mainnet)      │
-│  SAWT RF labs  ≠  encore le signal public du 31/01/2027      │
-│  La vitre HTTPS prouve qu’un artefact public existe.         │
+┌─ SEPARATION ─────────────────────────────────────────────────┐
+│  Spec (paper)  ≠  Demo (this pane)  ≠  Live (mainnet)        │
+│  SAWT RF labs  ≠  yet the public signal of 01/01/2027 00:00  │
+│  The HTTPS pane proves a public artefact exists.             │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -452,19 +451,19 @@ Navigateur ──/api /ws──▶ Spring Boot ──▶ Postgres | memory
 
 ## ◈ 11 — Stack · runtime
 
-| Couche | Tech |
-|:-------|:-----|
-| ◆ Frontend | Angular 21 · Three.js · projet `R4V3` |
+| Layer | Tech |
+|:------|:-----|
+| ◆ Frontend | Angular 21 · Three.js · project `R4V3` |
 | ◆ Backend | Spring Boot 3.5 · Java 21 · `io.r4v3chain` |
 | ◆ Data | Memory (dev) · PostgreSQL 16 · Flyway |
 | ◆ Realtime | WebSockets live / chat / peers / arena |
 | ◆ Ops | Docker Compose · CI · Cloudflare · Render |
-| ◆ Auth | JWT USER/ADMIN · OAuth providers (défaut off) |
-| ◆ RF (hors repo) | SAWT · LORA · iono · EME — travail extérieur / lab |
+| ◆ Auth | JWT USER/ADMIN · OAuth providers (default off) |
+| ◆ RF (out of repo) | SAWT · LORA · iono · EME — external / lab work |
 
-Env : préfixe **`R4V3CHAIN_*`** · Spring **`r4v3chain.*`**
+Env: prefix **`R4V3CHAIN_*`** · Spring **`r4v3chain.*`**
 
-### Structure monorepo
+### Monorepo layout
 
 ```
 R4V3chain/
@@ -482,9 +481,9 @@ R4V3chain/
 
 ## ◈ 12 — Quick start
 
-### Prérequis
+### Prerequisites
 
-`Node 22+` · `Java 21+` · Docker optionnel
+`Node 22+` · `Java 21+` · Docker optional
 
 ### Frontend
 
@@ -517,86 +516,86 @@ docker compose --profile dev up --build -d
 
 ## ◈ 13 — Organisation · axes
 
-| Axe | Entité | Rôle |
-|:----|:-------|:-----|
+| Axis | Entity | Role |
+|:-----|:-------|:-----|
 | 1 | **SASU PI** (Global Scripture) | PI · PEG · ChronoBoost |
-| 2 | App paiements (teaser) | Flux — nom public sous réserve IP |
-| 3 | App social / resa (teaser) | Communauté — nom public sous réserve IP |
-| 4 | **SAS R4V3chain** | Hardware + chaîne + demos + tags SAWT (**ce repo**) |
-| 5 | **ONG H0LL0W R4V3 NATI0N** | Culture · initiation 1 centime |
-| — | **611 Korp Store** | Commerce public (merch, SAWT SKU, CAN0PY) |
+| 2 | Payments app (teaser) | Flow — public name pending IP |
+| 3 | Social / booking app (teaser) | Community — public name pending IP |
+| 4 | **SAS R4V3chain** | Hardware + chain + demos + SAWT tags (**this repo**) |
+| 5 | **NGO H0//0wR4V3nation** | Culture · 1-cent initiation |
+| — | **611 Korp Store** | Public commerce (merch, SAWT SKU, CAN0PY) |
 
-> Greffe narrative ≠ conformité FINMA / LBA. Les faits dossier absorbent le juridique ; le code démo ne le remplace pas.
+> Narrative graft ≠ FINMA / AML compliance. Dossier facts absorb the legal; demo code does not replace it.
 
 ---
 
-## ◈ 14 — Serment · disclaimer
+## ◈ 14 — Oath · disclaimer
 
 ```
-┌─ SERMENT ────────────────────────────────────────────────────┐
-│  Je n’achète pas un trône. Je tiens un signal.               │
-│  Je distingue rêve et réserve, glitch et preuve.             │
-│  Je ne garantis aucun bénéfice.                              │
-│  Je défends le PEG tant que le bag créateur respire          │
-│  (−2,6 % / an redistribués dans la Nation).                  │
+┌─ OATH ───────────────────────────────────────────────────────┐
+│  I do not buy a throne. I hold a signal.                     │
+│  I distinguish R4V3 and reserve, glitch and proof.           │
+│  I guarantee no profit.                                      │
+│  I defend the PEG while the creator bag breathes             │
+│  (−2.6 % / year redistributed in the Nation).                │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-- Document de travail **non audité** · Pre-Seal
-- **Pas** une offre de titres · **pas** un conseil en investissement
-- Footprints OSM (ODbL) pour le jumeau 3D — pas un levé cadastral officiel
-- Attribution : © contributeurs [OpenStreetMap](https://www.openstreetmap.org/copyright)
-- Bande RF LORA / Moon Bounce = **travail extérieur** — pas encore le signal public
+- Working document **unaudited** · Pre-Seal
+- **Not** a securities offering · **not** investment advice
+- OSM footprints (ODbL) for the 3D twin — not an official cadastral survey
+- Attribution: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors
+- LORA / Moon Bounce RF band = **external work** — not yet the public signal
 
 ---
 
-## ◈ 15 — Glossaire express
+## ◈ 15 — Express glossary
 
-| Terme | Sens court |
-|:------|:-----------|
-| ◆ **R4V3** | Token de la Nation (démo / testnet ici) |
-| ◆ **M4T3R** | Subunit · frais · poussière ChronoBoost |
-| ◆ **CAN0PY** | Barème de fees + mines + porteur de tags |
-| ◆ **SAWT** | Programme radio · seuil réel/rêve |
-| ◆ **LORA** | Tag RF proche du sol |
-| ◆ **Iono / EME** | Tag vers la voûte · Earth-Moon-Earth |
-| ◆ **Moon Bounce** | Echo lunaire mesuré — jalon, pas marketing |
-| ◆ **Signal** | Phase bootstrap RJHBZ · aussi le lock 31/01/2027 |
-| ◆ **City** | Phase multi-nœuds · poids honnête |
-| ◆ **TR0NE** | Anti-modèle · consensus unique |
-| ◆ **ONMineur** | Mineur / proposer · split 49 % |
-| ◆ **ESL** | Étiquette éveillée · display / identité |
-| ◆ **PRP** | Destination protocolaire des fees |
-| ◆ **REQUIEM DUST** | Décimales éteintes par ChronoBoost |
-| ◆ **BLACK_CODE** | Voix canon · faits > hype |
-| ◆ **Pre-Seal** | Document non scellé · travail en cours |
+| Term | Short meaning |
+|:-----|:--------------|
+| ◆ **R4V3** | Nation token (demo / testnet here) |
+| ◆ **M4T3R** | Subunit · fees · ChronoBoost dust |
+| ◆ **CAN0PY** | Fee schedule + mines + tag carrier · **ESP32-C5 + SX1262** · 49 % fee split |
+| ◆ **SAWT** | Radio programme · real/R4V3 threshold |
+| ◆ **LORA** | Near-ground RF tag |
+| ◆ **Iono / EME** | Vault-bound tag · Earth-Moon-Earth |
+| ◆ **Moon Bounce** | Measured lunar echo — milestone, not marketing |
+| ◆ **Signal** | RJHBZ bootstrap phase · also the lock **01/01/2027 00:00** |
+| ◆ **City** | Multi-node phase · honest weight |
+| ◆ **TR0NE** | Anti-model · single consensus |
+| ◆ **ESL** | Awakened label · display / identity |
+| ◆ **PRP** | Protocol fee destination |
+| ◆ **REQUIEM DUST** | Decimals extinguished by ChronoBoost |
+| ◆ **BLACK_CODE** | Canon voice · facts > hype |
+| ◆ **Pre-Seal** | Unsealed document · work in progress |
+| ◆ **H0//0wR4V3nation** | The Nation |
 
 ---
 
-## ◈ 16 — Phrases Black CODE (extrait)
+## ◈ 16 — Black CODE phrases (excerpt)
 
 | # | Phrase |
 |--:|:-------|
-| ◆ | *Deux tatouages dans le ciel : un près du sol, un vers la Lune.* |
-| ◆ | *LORA touche le proche. L’iono ouvre le ciel. L’échec s’écrit sans fake.* |
-| ◆ | *Réveille l’étiquette. Tiens la Lune dans ta poche.* |
-| ◆ | *D’abord un pas. Puis dix. Puis cent. La Lune compte — elle ne triche pas.* |
-| ◆ | *Je ne vends pas un trône. Je tiens un signal qui bat.* |
-| ◆ | *Première mine : un grain. Onzième : onze. La monte est honnête.* |
-| ◆ | *Un zéro tombe. Le grain se souvient. La poussière entre en requiem.* |
-| ◆ | *Si un tiers s’éteint, la ronde continue. Sinon le Trône revient.* |
-| ◆ | *Encode. Signe. Teste. Si ça casse, on le dit — on ne maquille pas.* |
-| ◆ | *Fin de transmission. Le Signal reste. Toi aussi, si tu veux.* |
+| ◆ | *Two tattoos in the sky: one near the ground, one toward the Moon.* |
+| ◆ | *LORA touches the near. The iono opens the sky. Failure is written without fake.* |
+| ◆ | *Wake the label. Hold the Moon in your pocket.* |
+| ◆ | *First one step. Then ten. Then a hundred. The Moon counts — it does not cheat.* |
+| ◆ | *I do not sell a throne. I hold a beating signal.* |
+| ◆ | *First mine: one grain. Eleventh: eleven. The climb is honest.* |
+| ◆ | *A zero falls. The grain remembers. Dust enters requiem.* |
+| ◆ | *If a third goes dark, the round continues. Else the Throne returns.* |
+| ◆ | *Encode. Sign. Test. If it breaks, we say so — we do not polish it.* |
+| ◆ | *End of transmission. The Signal remains. You too, if you want.* |
 
 ---
 
-## ◈ 17 — Liens · compagnons
+## ◈ 17 — Links · companions
 
 | | |
 |:--|:--|
-| ◆ Produit | [github.com/Rutkarf/R4V3chain](https://github.com/Rutkarf/R4V3chain) |
-| ◆ Hub confiance | [R4V3chainReview](https://github.com/Rutkarf/R4V3chainReview) |
-| ◆ Vitre | [r4v3chain.pages.dev](https://r4v3chain.pages.dev) |
+| ◆ Product | [github.com/Rutkarf/R4V3chain](https://github.com/Rutkarf/R4V3chain) |
+| ◆ Trust hub | [R4V3chainReview](https://github.com/Rutkarf/R4V3chainReview) |
+| ◆ Pane | [r4v3chain.pages.dev](https://r4v3chain.pages.dev) |
 | ◆ Issues | [Issues](https://github.com/Rutkarf/R4V3chain/issues) |
 
 <div align="center">
@@ -604,12 +603,12 @@ docker compose --profile dev up --build -d
 ```
 ╭──────────────────────────────────────────────────╮
 │  ◈  Hold the Signal. Don't sell Ur R4V3.  ◈      │
-│  ◈  LORA au sol. Iono au ciel. Lune qui compte.  │
+│  ◈  LORA on ground. Iono in sky. Moon that counts.│
 ╰──────────────────────────────────────────────────╯
 ```
 
-**v0.1.0** · RJHBZ · SAS R4V3chain · Pre-Seal  
-*Black CODE chante. Les faits 001 commandent.*  
-*Fin de transmission. Le Signal reste.*
+**v0.1.0** · RJHBZ · SAS R4V3chain · Pre-Seal · **English fork**  
+*Black CODE sings. Facts 001 command.*  
+*End of transmission. The Signal remains.*
 
 </div>

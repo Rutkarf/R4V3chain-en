@@ -111,7 +111,7 @@ export class ShowcaseDaoSummaryComponent implements OnInit, OnDestroy {
       return this.cardLineTitle(card);
     }
 
-    return 'Résumé gouvernance D.A.O.';
+    return 'D.A.O governance summary';
   }
 
   onRefresh(event: Event): void {

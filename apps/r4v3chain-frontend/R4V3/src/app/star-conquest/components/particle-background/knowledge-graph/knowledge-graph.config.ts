@@ -24,7 +24,7 @@ export const QUEST_ORBIT_CONFIG = {
   restoreDurationMs: 550,
   minPolarAngle: 0.25,
   maxPolarAngle: 1.5,
-  /** Camera Z in Conquête stellaire world space (default pan view). */
+  /** Camera Z in Conquest stellaire world space (default pan view). */
   defaultCameraZ: STAR_CONQUEST_SCALE.cameraZ,
   overviewCameraZ: STAR_CONQUEST_SCALE.cameraZ + 15,
   nodeFocusCameraZ: STAR_CONQUEST_SCALE.cameraZ - 42,

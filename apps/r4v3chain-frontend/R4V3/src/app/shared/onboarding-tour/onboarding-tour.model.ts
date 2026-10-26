@@ -1,4 +1,4 @@
-/** Étapes du tutoriel hub post-intro. */
+/** Hub tutorial steps after the intro. */
 export type OnboardingTourStatus = 'idle' | 'running' | 'paused' | 'done' | 'skipped';
 
 export type OnboardingTourSkipWhen =
@@ -29,7 +29,7 @@ export type OnboardingTourEnterAction =
   | 'park-logo'
   | 'finish-hub';
 
-/** Placement du token / bulle pour éviter les chevauchements. */
+/** Token / bubble placement to avoid overlaps. */
 export type OnboardingTourLayout =
   | 'default'
   | 'token-left'
@@ -43,37 +43,37 @@ export interface OnboardingTourStep {
   readonly id: string;
   readonly title: string;
   readonly body: string;
-  /** Sélecteur CSS principal pour spotlight / ancre token. */
+  /** Primary CSS selector for spotlight / token anchor. */
   readonly targetSelector?: string;
-  /** Alternatives si la cible principale est absente. */
+  /** Fallbacks if the primary target is missing. */
   readonly fallbackSelectors?: readonly string[];
   /**
-   * Zones défloutées / cliquables en plus de la cible
-   * (menus, drawers — uniquement pour l’étape courante, jamais sticky).
+   * Extra clear / clickable zones beyond the target
+   * (menus, drawers — current step only, never sticky).
    */
   readonly revealSelectors?: readonly string[];
-  /** Auto-avance si pas d’interaction (ms). 0 = manuel uniquement (clic Suivant). */
+  /** Auto-advance if no interaction (ms). 0 = manual only (Next click). */
   readonly timeoutMs?: number;
-  /** Laisser les clics passer dans le trou spotlight (défaut true si cible). */
+  /** Let clicks pass through the spotlight hole (default true if target). */
   readonly interactive?: boolean;
   readonly enterAction?: OnboardingTourEnterAction;
   readonly skipWhen?: OnboardingTourSkipWhen;
   /**
-   * Padding autour du rect spotlight (px).
-   * 0 = calé exactement sur l’élément (défaut).
+   * Padding around the spotlight rect (px).
+   * 0 = flush to the element (default).
    */
   readonly pad?: number;
   /**
-   * Position du token par rapport à la zone nette.
-   * below (défaut) | above (ex. arène).
+   * Token position relative to the clear zone.
+   * below (default) | above (e.g. arena).
    */
   readonly tokenAnchor?: 'below' | 'above';
-  /** Placement anti-chevauchement token / bulle. */
+  /** Anti-overlap placement for token / bubble. */
   readonly layout?: OnboardingTourLayout;
   /**
-   * En plus de la cible spotlightée (toujours gardée nette),
-   * réappliquer le sélecteur à tous les nœuds qui matchent.
-   * Défaut = false : seul l’élément réellement montré reste net.
+   * In addition to the spotlighted target (always kept clear),
+   * re-apply the selector to every matching node.
+   * Default = false: only the element actually shown stays clear.
    */
   readonly stickyClear?: boolean;
 }
@@ -81,22 +81,22 @@ export interface OnboardingTourStep {
 export const ONBOARDING_STORAGE_KEY = 'r4v3chain.onboarding.v1';
 
 /**
- * Auto-avance entre bulles si l’utilisateur n’agit pas.
- * 0 = désactivé (tutoriel en pause — à rebosser ; pas de défilement auto).
+ * Auto-advance between bubbles if the user does nothing.
+ * 0 = disabled (tutorial paused — no auto scroll).
  */
 export const ONBOARDING_AUTO_ADVANCE_MS = 0;
 
 /**
- * Parcours utilisateur :
- * Auth → jeton → LED → bandeau → hub → R4V3 → swap → wallet/faucet/quêtes → explorateurs → jeux → logo.
- * Chaque étape interactive laisse faire l’action décrite sans quitter le tutoriel ;
- * `revealSelectors` défloute uniquement menus / drawers de l’étape courante.
+ * User path:
+ * Auth → token → LED → banner → hub → R4V3 → swap → wallet/faucet/quests → explorers → games → logo.
+ * Each interactive step lets the user do the described action without leaving the tutorial;
+ * `revealSelectors` only clears menus / drawers for the current step.
  */
 export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   {
     id: 'register',
-    title: 'Inscription',
-    body: 'Inscrit ton compte Ici pour pouvoir utiliser la blockchain et bien plus encore ! D.Y.O.R',
+    title: 'Register',
+    body: 'Create your account here to use the blockchain and much more! D.Y.O.R',
     targetSelector: '[data-tour="register"]',
     fallbackSelectors: [
       '.navbar-auth-btn--register',
@@ -113,8 +113,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'login',
-    title: 'Connexion',
-    body: 'Si tu as déjà un compte, connecte-toi ici.',
+    title: 'Sign in',
+    body: 'If you already have an account, sign in here.',
     targetSelector: '[data-tour="login"]',
     fallbackSelectors: [
       '.navbar-auth-btn--login',
@@ -131,8 +131,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'brand-crypto',
-    title: 'Jeton actif',
-    body: 'Choisis ici le jeton affiché dans le hub, il synchronise le graphique et l’exchange.',
+    title: 'Active token',
+    body: 'Choose the token shown in the hub here — it syncs the chart and the exchange.',
     targetSelector: 'app-brand-crypto-select',
     fallbackSelectors: ['.navbar-brand-select'],
     revealSelectors: ['.token-select__menu'],
@@ -144,8 +144,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'network-status',
-    title: 'LED et Activité',
-    body: 'LED orange : Anonyme. LED verte : Connecter. LED rouge : Indisponible.',
+    title: 'LED and Activity',
+    body: 'Orange LED: Anonymous. Green LED: Connected. Red LED: Unavailable.',
     targetSelector: '.network-trust-chip',
     fallbackSelectors: [
       '[data-tour="network-status"]',
@@ -161,8 +161,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'bandeau',
-    title: 'Pouls du réseau',
-    body: 'Cet espace d’information en direct sur le hub blockchain peut aller d’avant en arrière en restant cliqué dessus.\nClique sur l’un de ces composants pour obtenir plus d’information.',
+    title: 'Network pulse',
+    body: 'This live info strip on the blockchain hub can scrub forward and back while you hold the click.\nClick any of these components for more detail.',
     targetSelector: 'app-bandeau-accueil',
     fallbackSelectors: ['.bandeau-accueil'],
     revealSelectors: ['.nv-anchor-drawer--ticker'],
@@ -174,8 +174,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'collapse-panels',
-    title: 'Réduire / agrandir',
-    body: 'Ces chevrons replient ou ouvrent chaque panneau — utile pour libérer l’écran.',
+    title: 'Collapse / expand',
+    body: 'These chevrons collapse or open each panel — useful to free up the screen.',
     targetSelector: '.app-hub-showcase-block .panel-collapse-control',
     fallbackSelectors: [
       '.app-hub-showcase-block .collapsed-bar-actions__collapse',
@@ -191,8 +191,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'showcase-tabs',
-    title: 'Onglets hub',
-    body: 'Discussion, organisation, laboratoire, marché, R4V3… change d’onglet pour explorer tout le hub.',
+    title: 'Hub tabs',
+    body: 'Chat, organization, lab, market, R4V3… switch tabs to explore the whole hub.',
     targetSelector: 'app-showcase-tabs',
     fallbackSelectors: ['.app-hub-showcase-block .showcase-tabs'],
     revealSelectors: ['app-showcase-tabs'],
@@ -205,8 +205,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'showcase-tours',
-    title: 'Actualités',
-    body: 'Le fil d’actus du hub — nouveautés et annonces. Les non lues sont mises en surbrillance.',
+    title: 'News',
+    body: 'The hub news feed — updates and announcements. Unread items are highlighted.',
     targetSelector: '#showcase-tab-tours',
     fallbackSelectors: ['[data-tab="tours"]'],
     revealSelectors: [
@@ -226,8 +226,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'showcase-chat',
-    title: 'Discussion',
-    body: 'L’onglet Discussion pour échanger et suivre l’activité communautaire.',
+    title: 'Chat',
+    body: 'The Chat tab to talk and follow community activity.',
     targetSelector: '#showcase-tab-rv23',
     fallbackSelectors: ['[data-tab="rv23"]'],
     revealSelectors: [
@@ -248,7 +248,7 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   {
     id: 'showcase-dao',
     title: 'D.A.O',
-    body: 'Actualités et gouvernance de l’écosystème DAO — ouvre la carte R4V3.',
+    body: 'News and governance for the DAO ecosystem — open the R4V3 card.',
     targetSelector: '[data-dao-symbol="R4V3"]',
     fallbackSelectors: [
       '.showcase-dao__card[data-symbol="R4V3"]',
@@ -271,8 +271,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'showcase-labz',
-    title: 'Laboratoire',
-    body: 'Laboratoire : consulte l’entrée R4V3 pour le détail du projet natif.',
+    title: 'Lab',
+    body: 'Lab: open the R4V3 entry for native project detail.',
     targetSelector: '[data-launch-symbol="R4V3"]',
     fallbackSelectors: [
       '.showcase-launch__item[data-symbol="R4V3"]',
@@ -295,8 +295,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'showcase-market',
-    title: 'Marché',
-    body: 'Vue marché des jetons — ouvre la ligne R4V3 pour le détail.',
+    title: 'Market',
+    body: 'Token market view — open the R4V3 row for detail.',
     targetSelector: '.market-panel__row.is-pinned',
     fallbackSelectors: [
       '.market-panel__row[data-symbol="R4V3"]',
@@ -319,8 +319,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'showcase-r4v3',
-    title: 'Hub R4V3',
-    body: 'Le hub R4V3 : livre blanc, wiki et questions, et tout le contexte du jeton natif.',
+    title: 'R4V3 hub',
+    body: 'The R4V3 hub: whitepaper, wiki and Q&A, plus full context for the native token.',
     targetSelector: '#showcase-tab-r4v3',
     fallbackSelectors: ['[data-tab="r4v3"]'],
     revealSelectors: ['app-showcase-r4v3', '.showcase-view--r4v3'],
@@ -335,7 +335,7 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   {
     id: 'peg-chf',
     title: '1 R4V3 = 1 CHF',
-    body: 'Parité de référence affichée ici — lecture simple des montants en francs.',
+    body: 'Reference peg shown here — a simple reading of amounts in francs.',
     targetSelector: '.showcase-r4v3__peg--hero',
     fallbackSelectors: ['.showcase-r4v3__peg-banner'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -348,8 +348,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'pillar-chf',
-    title: 'Pilier CHF',
-    body: 'Parité de référence affichée en temps réel — lecture simple des montants.',
+    title: 'CHF pillar',
+    body: 'Reference peg shown in real time — a simple reading of amounts.',
     targetSelector: '[data-pillar-id="peg-chf"]',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -363,8 +363,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'pillar-fast',
-    title: 'Pilier Rapide',
-    body: 'Transactions de réseau de test quasi instantanées pour les échanges, le robinet et les transferts.',
+    title: 'Fast pillar',
+    body: 'Near-instant test-network transactions for swaps, the faucet, and transfers.',
     targetSelector: '[data-pillar-id="fast"]',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -378,8 +378,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'pillar-utility',
-    title: 'Pilier Utilité',
-    body: 'Monnaie native de l’écosystème — pivot du laboratoire, du graphique et de l’échange.',
+    title: 'Utility pillar',
+    body: 'Native currency of the ecosystem — pivot for the lab, the chart, and the exchange.',
     targetSelector: '[data-pillar-id="utility"]',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -393,8 +393,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'pillar-transparent',
-    title: 'Pilier Transparent',
-    body: 'Livre blanc, traçabilité et gouvernance documentée — rien en zone grise.',
+    title: 'Transparent pillar',
+    body: 'Whitepaper, traceability, and documented governance — nothing in a gray zone.',
     targetSelector: '[data-pillar-id="transparent"]',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -408,8 +408,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'pillar-secure',
-    title: 'Pilier Sécurisé',
-    body: 'Bonnes pratiques de portefeuille et protocole de réseau de test — prudence d’abord.',
+    title: 'Secure pillar',
+    body: 'Wallet best practices and test-network protocol — caution first.',
     targetSelector: '[data-pillar-id="secure"]',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -423,8 +423,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'pillar-ecosystem',
-    title: 'Pilier Écosystème',
-    body: 'Laboratoire, échange et hub connectés autour du R4V3.',
+    title: 'Ecosystem pillar',
+    body: 'Lab, exchange, and hub connected around R4V3.',
     targetSelector: '[data-pillar-id="ecosystem"]',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -438,8 +438,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'whitepaper',
-    title: 'Livre blanc',
-    body: 'Le document officiel du projet — ouvre-le pour la thèse, la tokenomics et le protocole.',
+    title: 'Whitepaper',
+    body: 'The official project document — open it for the thesis, tokenomics, and protocol.',
     targetSelector: '.showcase-r4v3__wp-btn',
     fallbackSelectors: ['.r4v3-summary-bar__wp-btn'],
     revealSelectors: ['.showcase-r4v3__doc-feedback'],
@@ -454,7 +454,7 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   {
     id: 'wiki',
     title: 'Wiki',
-    body: 'Le wiki officiel R4V3 — documentation et FAQ structurée.',
+    body: 'The official R4V3 wiki — documentation and structured FAQ.',
     targetSelector: '.showcase-r4v3__rail-btn--left',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -468,8 +468,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'faq-community',
-    title: 'FAQ communautaire',
-    body: 'Pose une question ou lis les réponses partagées par la communauté.',
+    title: 'Community FAQ',
+    body: 'Ask a question or read answers shared by the community.',
     targetSelector: '.showcase-r4v3__section-link--community',
     revealSelectors: ['.r4v3-hub-drawer'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -483,8 +483,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'swap',
-    title: 'Convertir',
-    body: 'Ici tu convertis tes R4V3 vers un jeton du laboratoire : paire, montant, puis Convertir.',
+    title: 'Swap',
+    body: 'Here you convert your R4V3 into a lab token: pick the pair, amount, then Swap.',
     targetSelector: 'app-exchange-panel',
     fallbackSelectors: ['.app-hub-swap-stack', '.exchange-panel'],
     revealSelectors: ['.exchange-panel', 'app-exchange-panel'],
@@ -496,8 +496,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'exchange-max',
-    title: 'Montant maximum',
-    body: 'Le maximum remplit le solde disponible en un clic — pratique avant de convertir.',
+    title: 'Maximum amount',
+    body: 'Max fills the available balance in one click — handy before you swap.',
     targetSelector: '.exchange-panel__max-btn',
     fallbackSelectors: ['.exchange-panel__amount-zone'],
     revealSelectors: [
@@ -512,8 +512,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'exchange-cta',
-    title: 'Bouton Convertir',
-    body: 'Quand le montant est prêt, lance la conversion ici.',
+    title: 'Swap button',
+    body: 'When the amount is ready, start the conversion here.',
     targetSelector: '.exchange-panel__cta',
     revealSelectors: ['.exchange-panel__feedback'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -524,8 +524,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'dock-overview',
-    title: 'Barre',
-    body: 'La barre du bas regroupe portefeuille, robinet, quêtes et l’explorateur de chaîne.',
+    title: 'Bar',
+    body: 'The bottom bar groups wallet, faucet, quests, and the chain explorer.',
     targetSelector: '.app-bottom-stack__tabs',
     fallbackSelectors: ['.app-bottom-stack'],
     revealSelectors: ['.app-bottom-stack__tabs'],
@@ -537,8 +537,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'wallet',
-    title: 'Portefeuille',
-    body: 'Ton portefeuille : adresses, soldes, envoi et réception.',
+    title: 'Wallet',
+    body: 'Your wallet: addresses, balances, send and receive.',
     targetSelector: '[data-dock-tab="wallet"]',
     revealSelectors: ['app-wallet-panel', '.wallet-display'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -550,8 +550,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'wallet-create',
-    title: 'Créer un portefeuille',
-    body: 'Clique ici pour créer ton portefeuille après l’inscription — c’est ton coffre sur la chaîne.',
+    title: 'Create a wallet',
+    body: 'Click here to create your wallet after registering — it is your vault on the chain.',
     targetSelector: '.wallet-display__create-cta',
     fallbackSelectors: ['.wallet-summary-bar__create'],
     revealSelectors: ['.wallet-display__create-cta', '.auth-drawer'],
@@ -564,8 +564,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'faucet',
-    title: 'Robinet',
-    body: 'Le robinet te donne des jetons de réseau de test gratuitement pour expérimenter sans risque.',
+    title: 'Faucet',
+    body: 'The faucet gives you free test-network tokens to experiment without risk.',
     targetSelector: '[data-dock-tab="faucet"]',
     revealSelectors: ['app-faucet', '.faucet-panel'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -578,8 +578,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'faucet-claim',
-    title: 'Réclamer',
-    body: 'Réclamer = récupérer ta dose gratuite quand le délai est prêt.',
+    title: 'Claim',
+    body: 'Claim = collect your free drop when the cooldown is ready.',
     targetSelector: '.faucet-panel__claim',
     fallbackSelectors: ['.faucet-summary-bar__claim'],
     revealSelectors: [
@@ -599,8 +599,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'quests',
-    title: 'Quêtes',
-    body: 'Les quêtes te guident pas à pas sur la chaîne et débloquent des récompenses — regarde la mission active.',
+    title: 'Quests',
+    body: 'Quests guide you step by step on the chain and unlock rewards — check the active mission.',
     targetSelector: '[data-dock-tab="quests"]',
     fallbackSelectors: ['app-quests-panel'],
     revealSelectors: ['.app-bottom-stack__panel--quests', 'app-quests-panel'],
@@ -613,8 +613,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'dock-chain',
-    title: 'Chaîne',
-    body: 'Explorateur de blocs et de la chaîne R4V3chain.',
+    title: 'Chain',
+    body: 'Block explorer and the R4V3chain.',
     targetSelector: '[data-dock-tab="chain"]',
     revealSelectors: [
       '.app-bottom-stack__panel--chain',
@@ -630,7 +630,7 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   {
     id: 'dock-transactions',
     title: 'Transactions',
-    body: 'File d’attente et compositeur — suis les transactions en cours et prépare les tiennes.',
+    body: 'Queue and composer — follow in-flight transactions and prepare your own.',
     targetSelector: '[data-dock-tab="transactions"]',
     revealSelectors: [
       '.app-bottom-stack__panel--transactions',
@@ -646,8 +646,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'dock-peers',
-    title: 'Pairs',
-    body: 'Les nœuds connectés au réseau — santé et présence des pairs.',
+    title: 'Peers',
+    body: 'Nodes connected to the network — peer health and presence.',
     targetSelector: '[data-dock-tab="peers"]',
     revealSelectors: ['.app-bottom-stack__panel--peers'],
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
@@ -659,8 +659,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'graph',
-    title: 'Graphique',
-    body: 'Mesures en direct des cryptomonnaies courantes et du R4V3 — pour lire le marché avant d’échanger.',
+    title: 'Chart',
+    body: 'Live readings for common cryptocurrencies and R4V3 — read the market before you swap.',
     targetSelector: '.app-market-stack--rate',
     fallbackSelectors: ['.app-market-card--rate', 'app-graph'],
     revealSelectors: ['app-graph', '.app-market-card--rate', '.rate-panel'],
@@ -675,7 +675,7 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   {
     id: 'arena',
     title: 'MetaVerseBB',
-    body: 'Éliminer pour gagner : élimine des joueurs pour une part de leurs jetons du robinet.',
+    body: 'Eliminate to earn: take out players for a share of their faucet tokens.',
     targetSelector: '.arena-hud__strip',
     fallbackSelectors: ['app-three-floor', 'app-arena-hud'],
     revealSelectors: ['app-three-floor', 'app-arena-hud', '.arena-hud'],
@@ -688,8 +688,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'star-conquest',
-    title: 'Conquête stellaire',
-    body: 'Galaxie IA — fais avancer le projet via des quêtes spatiales.',
+    title: 'Star conquest',
+    body: 'AI galaxy — advance the project through space quests.',
     targetSelector: 'app-particle-background',
     fallbackSelectors: ['.sc-reward-label'],
     revealSelectors: [
@@ -706,8 +706,8 @@ export const ONBOARDING_TOUR_STEPS: readonly OnboardingTourStep[] = [
   },
   {
     id: 'park',
-    title: 'Rejouer le tutoriel',
-    body: 'Tu peux relancer ce guide à tout moment en cliquant cinq fois rapidement sur le logo R4V3 en haut à gauche.',
+    title: 'Replay tutorial',
+    body: 'You can restart this guide anytime by clicking five times quickly on the R4V3 logo at the top left.',
     targetSelector: '.logo-shell',
     timeoutMs: ONBOARDING_AUTO_ADVANCE_MS,
     interactive: true,
@@ -725,7 +725,7 @@ export interface SpotlightRect {
   readonly height: number;
 }
 
-/** Pose centre (x/y) + taille pour le handoff intro → tutoriel. */
+/** Center pose (x/y) + size for intro → tutorial handoff. */
 export interface TourEntryPose {
   readonly x: number;
   readonly y: number;

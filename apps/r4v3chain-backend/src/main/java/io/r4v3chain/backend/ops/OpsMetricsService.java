@@ -131,7 +131,7 @@ public class OpsMetricsService {
             alerts.add(new OpsAlertResponse(
                     "warn",
                     "P2P_DISCONNECTED",
-                    "Pairs enregistrés mais aucune session temps réel active"
+                    "Peers registered but no active real-time session"
             ));
         }
 
@@ -139,7 +139,7 @@ public class OpsMetricsService {
             alerts.add(new OpsAlertResponse(
                     "error",
                     "CHAIN_INVALID",
-                    "La chaîne locale n'est plus valide"
+                    "Local chain is no longer valid"
             ));
         }
 
@@ -148,7 +148,7 @@ public class OpsMetricsService {
             alerts.add(new OpsAlertResponse(
                     "warn",
                     "HTTP_ERRORS_HIGH",
-                    "Erreurs HTTP cumulées " + httpErrors + " >= seuil " + opsProperties.getHttpErrorAlertThreshold()
+                    "Cumulative HTTP errors " + httpErrors + " >= threshold " + opsProperties.getHttpErrorAlertThreshold()
             ));
         }
 
@@ -157,7 +157,7 @@ public class OpsMetricsService {
             alerts.add(new OpsAlertResponse(
                     "warn",
                     "RBAC_DENIED_HIGH",
-                    "Refus RBAC cumulés " + rbacDenied + " >= seuil " + opsProperties.getRbacDeniedAlertThreshold()
+                    "Cumulative RBAC denials " + rbacDenied + " >= threshold " + opsProperties.getRbacDeniedAlertThreshold()
             ));
         }
 
@@ -166,7 +166,7 @@ public class OpsMetricsService {
             alerts.add(new OpsAlertResponse(
                     "warn",
                     "SLOW_REQUEST",
-                    "Latence max observée " + maxLatency + "ms >= seuil "
+                    "Max observed latency " + maxLatency + "ms >= threshold "
                             + opsProperties.getSlowRequestThresholdMs() + "ms"
             ));
         }
@@ -175,7 +175,7 @@ public class OpsMetricsService {
             alerts.add(new OpsAlertResponse(
                     "error",
                     "COMMERCIAL_MEMORY_PERSISTENCE",
-                    "Mode commercial actif avec persistance memory — Postgres requis"
+                    "Commercial mode active with memory persistence — Postgres required"
             ));
         }
 

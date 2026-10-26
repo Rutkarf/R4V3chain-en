@@ -77,7 +77,7 @@ export class PlacementApiRepository {
       return {
         catalog,
         fallback,
-        error: catalog ? null : 'Réponse placements invalide.',
+        error: catalog ? null : 'Invalid placements response.',
       };
     }
 
@@ -128,7 +128,7 @@ export class PlacementApiRepository {
     request: PlacementInquiryRequest
   ): Promise<PlacementInquiryResult> {
     if (!this.http) {
-      return { response: null, error: 'Réseau indisponible.' };
+      return { response: null, error: 'Network unavailable.' };
     }
 
     const dto = await firstValueFrom(

@@ -87,7 +87,7 @@ public class FaucetServiceImpl implements FaucetService {
     @Override
     public synchronized FaucetClaimResponse claim(FaucetClaimRequest request, String authorizationHeader) {
         if (request == null) {
-            throw new FaucetException("La demande de réclamation est requise");
+            throw new FaucetException("Claim request is required");
         }
 
         UserAccount account = authService.requireAuthenticatedAccount(authorizationHeader);
@@ -98,14 +98,14 @@ public class FaucetServiceImpl implements FaucetService {
         FaucetStateResponse state = buildState(normalizedWallet);
         if (!state.isEligible()) {
             throw new FaucetException(
-                    "Réclamation pas encore autorisée. Prochaine fois : " + state.getNextEligibleAt()
+                    "Claim not yet allowed. Next eligible at: " + state.getNextEligibleAt()
             );
         }
 
         BigDecimal pending = pendingBalanceStore.get(normalizedWallet);
         BigDecimal requested = resolveClaimAmount(request).min(BigDecimal.ONE);
         if (requested.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new FaucetException("Montant de réclamation invalide");
+            throw new FaucetException("Invalid claim amount");
         }
 
         // Pending (pièces) + drip idle (compteur temps / friandise visuelle).
@@ -117,7 +117,7 @@ public class FaucetServiceImpl implements FaucetService {
         }
         BigDecimal credited = debited.add(fromIdle);
         if (credited.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new FaucetException("Aucune pièce M4T3R à réclamer — attendez le compteur ou ramassez des pièces");
+            throw new FaucetException("No M4T3R coins to claim — wait for the timer or collect coins");
         }
 
         long now = System.currentTimeMillis();
@@ -151,7 +151,7 @@ public class FaucetServiceImpl implements FaucetService {
 
         FaucetClaimResponse response = new FaucetClaimResponse();
         response.setSuccess(true);
-        response.setMessage("Réclamation en file d’attente — mine depuis File pour confirmer le bloc");
+        response.setMessage("Claim queued — mine from Queue to confirm the block");
         response.setWalletAddress(claim.getWalletAddress());
         response.setAmount(claim.getAmount().toPlainString());
         response.setM4t3rCount(M4t3rUnitCount.of(claim.getAmount()));
@@ -237,19 +237,19 @@ public class FaucetServiceImpl implements FaucetService {
             try {
                 amount = new BigDecimal(rawAmount.trim().replace(',', '.'));
             } catch (NumberFormatException exception) {
-                throw new FaucetException("Montant du robinet invalide");
+                throw new FaucetException("Invalid faucet amount");
             }
 
             if (amount.compareTo(BigDecimal.ZERO) <= 0) {
-                throw new FaucetException("Le montant doit être supérieur à 0");
+                throw new FaucetException("Amount must be greater than 0");
             }
 
             if (amount.compareTo(BigDecimal.ONE) > 0) {
-                throw new FaucetException("Le montant dépasse le plafond du robinet");
+                throw new FaucetException("Amount exceeds the faucet ceiling");
             }
 
             if (amount.scale() > 26) {
-                throw new FaucetException("Précision maximale : 26 décimales (m4t3r)");
+                throw new FaucetException("Maximum precision: 26 decimals (m4t3r)");
             }
 
             return amount;
@@ -262,7 +262,7 @@ public class FaucetServiceImpl implements FaucetService {
         String normalizedWallet = WalletValidator.normalize(walletAddress);
 
         if (!WalletValidator.isValidBlockchainAddress(normalizedWallet)) {
-            throw new FaucetException("Adresse de portefeuille invalide");
+            throw new FaucetException("Invalid wallet address");
         }
 
         return normalizedWallet;

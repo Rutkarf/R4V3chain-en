@@ -3,7 +3,7 @@
     class="exchange-panel__rail exchange-panel__rail--skeleton"
     [class.exchange-panel__rail--collapsed]="exchangeCollapsed()"
     aria-hidden="true"
-    aria-label="Convertir vos jetons du laboratoire"
+    aria-label="Convert your Laboratory tokens"
   >
     <span class="exchange-panel__skeleton-row"></span>
   </div>
@@ -85,7 +85,7 @@
     >
       <div class="exchange-panel__amount-wrap">
         <label class="exchange-panel__sr-only" [for]="amountInputId()">
-          Montant à convertir en {{ toToken() }} ({{ amountUnitDisplay(fromToken()) }})
+          Amount to convert into {{ toToken() }} ({{ amountUnitDisplay(fromToken()) }})
         </label>
         <input
           [id]="amountInputId()"

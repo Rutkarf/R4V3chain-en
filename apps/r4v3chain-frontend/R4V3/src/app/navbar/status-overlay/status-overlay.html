@@ -7,7 +7,7 @@
         (click)="refresh($event)"
         [disabled]="trust.loading()"
         [class.is-spinning]="trust.loading()"
-        aria-label="Rafraîchir l'état réseau"
+        aria-label="Refresh network status"
       >
         <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-refresh"/></svg>
       </button>
@@ -15,7 +15,7 @@
         type="button"
         class="status-drawer__close"
         (click)="close($event)"
-        aria-label="Fermer le panneau réseau"
+        aria-label="Close le panneau network"
       ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
     </div>
   </div>

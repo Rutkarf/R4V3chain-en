@@ -70,7 +70,7 @@ export class ShowcasePanelComponent {
       rv23: 'CHAT',
       dao: 'LABZ',
       daonews: 'D.A.O',
-      market: 'MARCHÉ',
+      market: 'MARKET',
     } satisfies Record<ShowcaseTab, string>;
     return match[tab];
   }

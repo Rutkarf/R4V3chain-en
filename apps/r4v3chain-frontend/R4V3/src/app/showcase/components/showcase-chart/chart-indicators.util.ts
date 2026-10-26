@@ -136,7 +136,7 @@ export function ohlcAtIndex(
   };
 
   const fmt = (value: number) =>
-    value.toLocaleString('fr-FR', { maximumFractionDigits: bounds.high >= 100 ? 0 : 4 });
+    value.toLocaleString('en-US', { maximumFractionDigits: bounds.high >= 100 ? 0 : 4 });
 
   return {
     open: fmt(toPrice(candle.open)),

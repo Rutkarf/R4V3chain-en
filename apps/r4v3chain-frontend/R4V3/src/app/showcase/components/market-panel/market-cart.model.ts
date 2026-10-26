@@ -9,7 +9,7 @@ export interface MarketCartItem {
   /** Prix unitaire en R4V3 (utility ≈ CHF). */
   unitPriceR4v3: number;
   accent?: string;
-  /** Ajouté via Favoris (wishlist dans le panier). */
+  /** Ajouté via Favorites (wishlist dans le panier). */
   favorite?: boolean;
 }
 

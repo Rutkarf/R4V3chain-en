@@ -126,7 +126,7 @@ export class ShowcaseDaoDrawerComponent {
     if (desc && desc !== card.summary && desc !== card.objective) {
       return desc;
     }
-    return `Gouvernance communautaire ${card.symbol} — décisions on-chain.`;
+    return `Community governance ${card.symbol} — on-chain decisions.`;
   }
 
   protected voteQuestion(question: CommunityFaqQuestion, direction: 'UP' | 'DOWN'): void {

@@ -129,7 +129,7 @@ export function claimedQuestCount(snapshot: StarConquestProgressSnapshot): numbe
 
 /**
  * Applique la progression joueur sur le catalogue design.
- * Une quête `locked` passe `available` si un voisin connecté est conquis.
+ * Une quête `locked` passe `available` si un voisin connected est conquis.
  */
 export function hydrateStarQuestCatalog(
   catalog: readonly StarQuest[],

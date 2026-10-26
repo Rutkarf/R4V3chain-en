@@ -79,7 +79,7 @@ export class TransactionsDataService {
 
   async refreshPending(force = false): Promise<void> {
     if (this.isRateLimited()) {
-      this.pendingError.set('Trop de requêtes — pause d’1 minute.');
+      this.pendingError.set('Too many requests — 1-minute pause.');
       return;
     }
 
@@ -102,7 +102,7 @@ export class TransactionsDataService {
       } catch (error) {
         this.handleRateLimit(error);
         if (!this.isRateLimited()) {
-          this.pendingError.set('Impossible de charger le mempool.');
+          this.pendingError.set('Unable to load the mempool.');
         }
       } finally {
         this.pendingLoading.set(false);
@@ -163,7 +163,7 @@ export class TransactionsDataService {
     const status = (error as { status?: number })?.status;
     if (status === 429) {
       this.rateLimitedUntil.set(Date.now() + TransactionsDataService.RATE_LIMIT_BACKOFF_MS);
-      this.pendingError.set('Trop de requêtes — nouvel essai dans 1 minute.');
+      this.pendingError.set('Too many requests — try again in 1 minute.');
     }
   }
 }

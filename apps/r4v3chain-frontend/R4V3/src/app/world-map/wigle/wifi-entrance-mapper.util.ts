@@ -48,7 +48,7 @@ function findBuildingForPoint(
 }
 
 /**
- * Place chaque point réseau à la porte d'entrée du bâtiment associé (WiFi à l'accès).
+ * Place chaque point network à la porte d'entrée du bâtiment associé (WiFi à l'accès).
  */
 export function mapGeoPointsToBuildingEntrances(
   points: WigleGeoPoint[],

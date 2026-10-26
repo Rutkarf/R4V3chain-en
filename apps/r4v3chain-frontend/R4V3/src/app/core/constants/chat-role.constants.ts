@@ -10,11 +10,11 @@ export interface ChatRoleMeta {
 }
 
 const ROLE_META: Record<ChatRoleKey, ChatRoleMeta> = {
-  self: { key: 'self', icon: '◆', label: 'Vous' },
-  guest: { key: 'guest', icon: '◇', label: 'Anonyme' },
-  mod: { key: 'mod', icon: '✦', label: 'Modérateur' },
+  self: { key: 'self', icon: '◆', label: 'You' },
+  guest: { key: 'guest', icon: '◇', label: 'Anonymous' },
+  mod: { key: 'mod', icon: '✦', label: 'Moderator' },
   bot: { key: 'bot', icon: '▣', label: 'Bot' },
-  member: { key: 'member', icon: '●', label: 'Membre' },
+  member: { key: 'member', icon: '●', label: 'Member' },
 };
 
 export function chatRoleFor(message: ChatMessage): ChatRoleMeta {

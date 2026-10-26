@@ -76,7 +76,7 @@ class BlockchainServiceMiningRewardTest {
     void miningEmptyPoolIsRejected() {
         assertThatThrownBy(() -> blockchain.minePendingTransactions("miner-1"))
                 .isInstanceOf(RuntimeException.class)
-                .hasMessageContaining("Aucune transaction");
+                .hasMessageContaining("No pending transactions");
     }
 
     @Test

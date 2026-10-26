@@ -54,28 +54,28 @@ export function formatAxisLabel(
   const date = new Date(ts);
 
   if (granularity === '5m') {
-    return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', hour12: false });
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
   }
 
   if (granularity === '1h') {
     if (spanMs > 14 * MS_1D) {
-      return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+      return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
     }
     if (spanMs > 2 * MS_1D) {
-      return date.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric' });
+      return date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' });
     }
-    return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', hour12: false });
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
   }
 
   if (spanMs > 300 * MS_1D) {
-    return date.toLocaleDateString('fr-FR', { month: 'short', year: '2-digit' });
+    return date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
   }
 
   if (spanMs > 60 * MS_1D) {
-    return date.toLocaleDateString('fr-FR', { month: 'short', day: 'numeric' });
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   }
 
-  return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+  return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
 }
 
 export function formatHoverTimestamp(
@@ -88,7 +88,7 @@ export function formatHoverTimestamp(
   const elapsedMin = Math.round((ts - rangeStart) / MS_5M) * 5;
 
   if (granularity === '5m') {
-    return `${date.toLocaleString('fr-FR', {
+    return `${date.toLocaleString('en-US', {
       day: 'numeric',
       month: 'short',
       hour: '2-digit',
@@ -98,7 +98,7 @@ export function formatHoverTimestamp(
   }
 
   if (granularity === '1h') {
-    return date.toLocaleString('fr-FR', {
+    return date.toLocaleString('en-US', {
       weekday: 'short',
       day: 'numeric',
       month: 'short',
@@ -108,7 +108,7 @@ export function formatHoverTimestamp(
     });
   }
 
-  return date.toLocaleDateString('fr-FR', {
+  return date.toLocaleDateString('en-US', {
     weekday: 'short',
     day: 'numeric',
     month: 'long',

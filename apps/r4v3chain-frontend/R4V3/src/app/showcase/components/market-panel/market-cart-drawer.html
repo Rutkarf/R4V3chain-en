@@ -10,16 +10,16 @@
       (click)="$event.stopPropagation()"
     >
       <header class="market-cart-drawer__head">
-        <h3 id="marketCartTitle" class="market-cart-drawer__title">Panier</h3>
+        <h3 id="marketCartTitle" class="market-cart-drawer__title">Cart</h3>
         <span class="market-cart-drawer__count">{{ cart.itemCount() }}</span>
-        <button type="button" class="market-cart-drawer__close" aria-label="Fermer le panier" (click)="cart.closeDrawer()">
+        <button type="button" class="market-cart-drawer__close" aria-label="Close cart" (click)="cart.closeDrawer()">
           <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
         </button>
       </header>
 
       <div class="market-cart-drawer__body">
         @if (cart.items().length === 0) {
-          <p class="market-cart-drawer__empty">Votre panier est vide.</p>
+          <p class="market-cart-drawer__empty">Your cart is empty.</p>
         } @else {
           @for (item of cart.items(); track item.exchangeToken) {
             <div class="market-cart-drawer__row">
@@ -33,9 +33,9 @@
                 <span class="market-cart-drawer__name">{{ item.name }}</span>
               </div>
               <div class="market-cart-drawer__qty">
-                <button type="button" (click)="bump(item.exchangeToken, -1, item.quantity)" aria-label="Diminuer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-minus"/></svg></button>
+                <button type="button" (click)="bump(item.exchangeToken, -1, item.quantity)" aria-label="Decrease"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-minus"/></svg></button>
                 <span>{{ item.quantity }}</span>
-                <button type="button" (click)="bump(item.exchangeToken, 1, item.quantity)" aria-label="Augmenter"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-plus"/></svg></button>
+                <button type="button" (click)="bump(item.exchangeToken, 1, item.quantity)" aria-label="Increase"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-plus"/></svg></button>
               </div>
               <span class="market-cart-drawer__line-total">
                 {{ (item.quantity * item.unitPriceR4v3) | number: '1.0-4' }} R4V3
@@ -43,7 +43,7 @@
               <button
                 type="button"
                 class="market-cart-drawer__remove"
-                aria-label="Retirer"
+                aria-label="Remove"
                 (click)="cart.remove(item.exchangeToken)"
               ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
             </div>
@@ -65,7 +65,7 @@
  [disabled]="cart.items().length === 0 || cart.busy()"
  (click)="pay()"
  >
-          {{ cart.busy() ? 'Paiement…' : 'Payer en R4V3' }}
+          {{ cart.busy() ? 'Payment…' : 'Pay in R4V3' }}
         </button>
       </footer>
     </aside>

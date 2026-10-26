@@ -46,8 +46,8 @@ public class LaunchLabService {
                         "8100",
                         "25000",
                         null,
-                        "Token natif de l'écosystème R4V3chain, indexé CHF.",
-                        "https://r4v3chain.io/whitepaper/r4v3.pdf",
+                        "Native token of the R4V3chain ecosystem, CHF-indexed.",
+                        "/r4v3-whitepaper.pdf",
                         "https://r4v3chain.io",
                         "2026-Q1"
                 ),
@@ -59,7 +59,7 @@ public class LaunchLabService {
                         "0",
                         "10000",
                         null,
-                        "Projet expérimental Laboratoire orienté gouvernance communautaire.",
+                        "Experimental Lab project focused on community governance.",
                         "https://r4v3chain.io/whitepaper/lab3.pdf",
                         "https://r4v3chain.io/lab3",
                         "2026-Q3"
@@ -72,7 +72,7 @@ public class LaunchLabService {
                         "1200",
                         "15000",
                         null,
-                        "Infrastructure DeFi modulaire pour actifs tokenisés.",
+                        "Modular DeFi infrastructure for tokenized assets.",
                         "https://r4v3chain.io/whitepaper/novafi.pdf",
                         "https://novafi.example",
                         "2026-Q2"
@@ -85,7 +85,7 @@ public class LaunchLabService {
                         "4200",
                         "8000",
                         null,
-                        "DAO créative pour collections NFT et trésorerie on-chain.",
+                        "Creative DAO for NFT collections and on-chain treasury.",
                         "https://r4v3chain.io/whitepaper/pxd.pdf",
                         "https://pixeldao.example",
                         "2026-Q1"
@@ -98,7 +98,7 @@ public class LaunchLabService {
                         "0",
                         "20000",
                         null,
-                        "AMM cross-chain à faible latence pour paires Laboratoire.",
+                        "Low-latency cross-chain AMM for Lab pairs.",
                         null,
                         "https://orbitswap.example",
                         "2026-Q4"
@@ -111,7 +111,7 @@ public class LaunchLabService {
                         "19000",
                         "19000",
                         null,
-                        "Collection GameFi clôturée après atteinte du hard cap.",
+                        "GameFi collection closed after reaching the hard cap.",
                         "https://r4v3chain.io/whitepaper/cpet.pdf",
                         "https://chainpets.example",
                         "2025-Q4"
@@ -124,7 +124,7 @@ public class LaunchLabService {
                         "800",
                         "12000",
                         null,
-                        "Rail de liquidité pour actifs synthétiques R4V3.",
+                        "Liquidity rail for R4V3 synthetic assets.",
                         "https://r4v3chain.io/whitepaper/mrail.pdf",
                         "https://metarail.example",
                         "2026-Q3"
@@ -167,7 +167,7 @@ public class LaunchLabService {
         String name = request.name().trim();
 
         if (launchProjectStore.existsBySymbol(symbol)) {
-            throw new IllegalArgumentException("Un projet avec ce symbole existe déjà");
+            throw new IllegalArgumentException("A project with this symbol already exists");
         }
 
         BigDecimal target = request.targetAmount() != null

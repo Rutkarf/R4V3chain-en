@@ -327,7 +327,7 @@ export class KnowledgeGraphVisualization {
   }
 }
 
-/** Camera state machine for the quest / knowledge-graph layer (Conquête stellaire canvas). */
+/** Camera state machine for the quest / knowledge-graph layer (Conquest stellaire canvas). */
 export class QuestCameraController {
   private mode: CameraControlMode = 'world-player';
   private baseTargetZ: number = QUEST_ORBIT_CONFIG.defaultCameraZ;

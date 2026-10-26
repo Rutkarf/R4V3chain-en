@@ -137,7 +137,7 @@ export class AuthService {
   async linkWallet(walletAddress: string, publicKey: string): Promise<boolean> {
     const token = this.tokenSignal();
     if (!token) {
-      this.errorSignal.set('Connectez-vous pour lier un wallet.');
+      this.errorSignal.set('Sign in to link a wallet.');
       return false;
     }
 
@@ -445,7 +445,7 @@ export class AuthService {
     }
     const accessToken = response.accessToken ?? response.token;
     if (!accessToken) {
-      this.errorSignal.set('Réponse d’authentification incomplète.');
+      this.errorSignal.set('Incomplete authentication response.');
       return false;
     }
     this.challengeSignal.set(null);
@@ -482,7 +482,7 @@ export class AuthService {
 
   private extractErrorMessage(error: unknown): string {
     if (!(error instanceof HttpErrorResponse)) {
-      return 'Une erreur est survenue.';
+      return 'An error occurred.';
     }
 
     const body = error.error as { message?: string; detail?: string } | null;
@@ -494,9 +494,9 @@ export class AuthService {
     }
 
     if (error.status === 0) {
-      return 'Impossible de contacter le serveur.';
+      return 'Unable to reach the server.';
     }
 
-    return 'Une erreur est survenue.';
+    return 'An error occurred.';
   }
 }

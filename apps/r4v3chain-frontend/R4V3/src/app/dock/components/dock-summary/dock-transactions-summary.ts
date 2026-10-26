@@ -48,7 +48,7 @@ export class DockTransactionsSummaryComponent implements OnInit, OnDestroy {
       return hash;
     }
     if (this.pendingState.loading()) {
-      return 'Chargement…';
+      return 'Loading…';
     }
     if (this.pendingState.error()) {
       return 'File indisponible';

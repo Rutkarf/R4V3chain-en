@@ -48,8 +48,8 @@ public class CommunityFaqService {
                         "faq-1",
                         "seed-user-1",
                         "NovaTrader",
-                        "Le peg CHF est-il garanti on-chain ?",
-                        "Je vois 1 R4V3 = 1 CHF partout. Est-ce enforce on-chain ou seulement UI ?",
+                        "Is the CHF peg guaranteed on-chain?",
+                        "I see 1 R4V3 = 1 CHF everywhere. Is that enforced on-chain or only in the UI?",
                         now.minusSeconds(86_400 * 2),
                         FaqQuestionStatus.ACTIVE,
                         8,
@@ -62,8 +62,8 @@ public class CommunityFaqService {
                         "faq-2",
                         "seed-user-2",
                         "LaunchDev",
-                        "Différence m4t3r vs R4V3 dans le swap ?",
-                        "Pourquoi l'exchange affiche m4t3r et pas R4V3 directement ?",
+                        "Difference between m4t3r and R4V3 in the swap?",
+                        "Why does the exchange show m4t3r instead of R4V3 directly?",
                         now.minusSeconds(86_400),
                         FaqQuestionStatus.ACTIVE,
                         5,
@@ -76,8 +76,8 @@ public class CommunityFaqService {
                         "faq-3",
                         "seed-user-3",
                         "SwissHODL",
-                        "Quelle est la prochaine évolution du protocole R4V3 ?",
-                        "Y a-t-il une roadmap mainnet ou de nouvelles fonctionnalités governance ?",
+                        "What is the next evolution of the R4V3 protocol?",
+                        "Is there a mainnet roadmap or new governance features?",
                         now.minusSeconds(3_600),
                         FaqQuestionStatus.ACTIVE,
                         2,
@@ -167,10 +167,10 @@ public class CommunityFaqService {
 
     public FaqQuestionResponse vote(String questionId, FaqVoteRequest request, AuthenticatedUser voter) {
         FaqQuestion question = faqQuestionStore.findById(questionId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Question introuvable"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Question not found"));
 
         if (question.getStatus() == FaqQuestionStatus.ARCHIVED) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Question archivée");
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Question archived");
         }
 
         FaqVoteDirection direction = FaqVoteDirection.fromValue(request.direction());
@@ -206,11 +206,11 @@ public class CommunityFaqService {
             AuthenticatedUser actor
     ) {
         if (actor.getRole() != UserRole.ADMIN) {
-            throw new AuthException(403, "Rôle administrateur requis");
+            throw new AuthException(403, "Administrator role required");
         }
 
         FaqQuestion question = faqQuestionStore.findById(questionId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Question introuvable"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Question not found"));
 
         FaqQuestionStatus nextStatus = FaqQuestionStatus.valueOf(request.status().trim().toUpperCase(Locale.ROOT));
         question.setStatus(nextStatus);

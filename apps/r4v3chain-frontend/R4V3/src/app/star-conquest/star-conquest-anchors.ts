@@ -1,6 +1,6 @@
 /**
- * Ancres Quest — toute particule décorative Conquête stellaire
- * (profondeur, motes, pulse, satellites réseau) se cale sur une Quest.
+ * Ancres Quest — toute particule décorative Conquest stellaire
+ * (profondeur, motes, pulse, satellites network) se cale sur une Quest.
  */
 
 export interface StarQuestAnchor {

@@ -95,7 +95,7 @@ import {
 import type { Subscription } from 'rxjs';
 
 /**
- * Arrière-plan global = univers neuronal Conquête stellaire (z-index 0).
+ * Arrière-plan global = univers neuronal Conquest stellaire (z-index 0).
  */
 @Component({
   selector: 'app-particle-background',
@@ -251,7 +251,7 @@ export class ParticleBackgroundComponent implements AfterViewInit, OnDestroy {
       created.canvas.style.background = 'transparent';
       created.canvas.setAttribute('data-star-conquest', 'canvas');
       created.canvas.setAttribute('data-sc-tier', STAR_CONQUEST_SCALE_TIER);
-      created.canvas.setAttribute('aria-label', 'Univers neuronal Conquête stellaire');
+      created.canvas.setAttribute('aria-label', 'Star Conquest neural universe');
       created.canvas.removeAttribute('title');
       this.hostRef.nativeElement.appendChild(created.canvas);
 
@@ -302,7 +302,7 @@ export class ParticleBackgroundComponent implements AfterViewInit, OnDestroy {
       this.animationScheduler.resumeSubscriber('star-conquest');
       this.progress.recordFunnel('views');
     } catch (error) {
-      console.error('[particle-background] Initialisation impossible.', error);
+      console.error('[particle-background] Unable to initialize.', error);
     }
   }
 

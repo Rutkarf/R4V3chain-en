@@ -189,7 +189,7 @@ export class MarketDataService {
       } catch (error) {
         this.handleRateLimit(error);
         if (!this.isRateLimited()) {
-          this.error.set('Cours indisponibles — réessayez ↻');
+          this.error.set('Prices unavailable — retry ↻');
         }
       } finally {
         this.loadingRows.set(false);
@@ -327,7 +327,7 @@ export class MarketDataService {
 
   private rateLimitMessage(): string {
     const label = this.rateLimitCountdownLabel();
-    return label ? `Trop de requêtes — ${label}` : 'Trop de requêtes — pause d’1 minute.';
+    return label ? `Too many requests — ${label}` : 'Too many requests — pause d’1 minute.';
   }
 
   private handleRateLimit(error: unknown): void {

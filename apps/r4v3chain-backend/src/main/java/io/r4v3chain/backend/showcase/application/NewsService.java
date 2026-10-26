@@ -25,7 +25,7 @@ public class NewsService {
 
     private static final int MAX_ITEMS = 60;
     private static final List<String> ALL_CATEGORIES = List.of(
-            "Réseau", "R4V3", "Pairs", "Écosystème"
+            "Network", "R4V3", "Peers", "Ecosystem"
     );
 
     private final CopyOnWriteArrayList<NewsItem> items = new CopyOnWriteArrayList<>();
@@ -59,11 +59,11 @@ public class NewsService {
 
         items.add(editorial(
                 "editorial-1",
-                "Réseau",
-                "Bienvenue sur R4V3 Explorer",
-                "Explore la chaîne R4V3 en temps réel.",
-                "R4V3 Explorer agrège les blocs, transactions pending et activité réseau. "
-                        + "Utilise les onglets du dock pour miner, consulter la chaîne et gérer tes peers.",
+                "Network",
+                "Welcome to R4V3 Explorer",
+                "Explore the R4V3 chain in real time.",
+                "R4V3 Explorer aggregates blocks, pending transactions, and network activity. "
+                        + "Use the dock tabs to mine, browse the chain, and manage your peers.",
                 now.minus(Duration.ofMinutes(2)),
                 "NONE",
                 null
@@ -71,43 +71,43 @@ public class NewsService {
         items.add(editorial(
                 "editorial-2",
                 "R4V3",
-                "Volume R4V3 en hausse sur 24h",
-                "Activité accrue sur la paire R4V3 / CHF.",
-                "Le panneau taux et le swap permettent de suivre l'évolution du token natif R4V3 "
-                        + "et de simuler des échanges depuis le bandeau marché.",
+                "R4V3 volume up over 24h",
+                "Increased activity on the R4V3 / CHF pair.",
+                "The rates panel and swap let you track the native R4V3 token "
+                        + "and simulate trades from the market banner.",
                 now.minus(Duration.ofMinutes(14)),
                 "NONE",
                 null
         ));
         items.add(editorial(
                 "editorial-3",
-                "Pairs",
-                "Synchronisation multi-nœuds",
-                "Connecte des pairs pour propager la chaîne.",
-                "Ouvre le panneau Pairs dans la barre pour ajouter des nœuds et synchroniser "
-                        + "ta copie locale de la blockchain avec le réseau.",
+                "Peers",
+                "Multi-node sync",
+                "Connect peers to propagate the chain.",
+                "Open the Peers panel in the bar to add nodes and sync "
+                        + "your local blockchain copy with the network.",
                 now.minus(Duration.ofHours(1)),
                 "OPEN_PEERS",
                 null
         ));
         items.add(editorial(
                 "editorial-4",
-                "Écosystème",
-                "Robinet actif — réclamation R4V3 sur le réseau de test",
-                "Récupère des jetons pour tester les transactions.",
-                "Le robinet distribue des R4V3 de test pour alimenter ton portefeuille et expérimenter "
-                        + "les envois, le minage et les échanges sans risque.",
+                "Ecosystem",
+                "Faucet live — claim R4V3 on the test network",
+                "Get tokens to try out transactions.",
+                "The faucet distributes test R4V3 to fund your wallet and experiment "
+                        + "with sends, mining, and swaps risk-free.",
                 now.minus(Duration.ofHours(3)),
                 "OPEN_FAUCET",
                 null
         ));
         items.add(editorial(
                 "editorial-5",
-                "Réseau",
-                "Proof-of-work difficulté 4",
-                "Chaque bloc respecte la règle des zéros en tête.",
-                "La difficulté actuelle impose que le hash des blocs commence par quatre zéros. "
-                        + "Mine les transactions en attente pour valider la chaîne.",
+                "Network",
+                "Proof-of-work difficulty 4",
+                "Every block follows the leading-zeros rule.",
+                "Current difficulty requires block hashes to start with four zeros. "
+                        + "Mine pending transactions to validate the chain.",
                 now.minus(Duration.ofHours(5)),
                 "OPEN_PENDING",
                 null
@@ -115,43 +115,43 @@ public class NewsService {
         items.add(editorial(
                 "editorial-6",
                 "R4V3",
-                "Panneau d’échange R4V3 ↔ jetons du laboratoire",
-                "Simule des échanges depuis le panneau gauche.",
-                "Le panneau d'échange en haut de l'écran permet de convertir entre R4V3 et "
-                        + "d'autres actifs avec estimation en temps réel.",
+                "R4V3 ↔ lab token swap panel",
+                "Simulate swaps from the left panel.",
+                "The swap panel at the top of the screen converts between R4V3 and "
+                        + "other assets with a real-time estimate.",
                 now.minus(Duration.ofHours(8)),
                 "OPEN_SWAP",
                 null
         ));
         items.add(editorial(
                 "editorial-7",
-                "Écosystème",
-                "Laboratoire — déployer un jeton de réseau de test",
-                "Crée un actif personnalisé sur la chaîne R4V3.",
-                "Le laboratoire permet de configurer un jeton, le déployer sur le réseau de test et le retrouver "
-                        + "dans l'onglet dédié du showcase.",
+                "Ecosystem",
+                "Lab — deploy a testnet token",
+                "Create a custom asset on the R4V3 chain.",
+                "The lab lets you configure a token, deploy it on the test network, and find it "
+                        + "in the dedicated showcase tab.",
                 now.minus(Duration.ofHours(12)),
                 "NONE",
                 null
         ));
         items.add(editorial(
                 "editorial-8",
-                "Réseau",
-                "Explorer les blocs minés",
-                "Consulte l'historique depuis le dock.",
-                "Chaque bloc miné apparaît dans la barre Blocs. Clique une actualité réseau pour "
-                        + "ouvrir le détail du bloc associé.",
+                "Network",
+                "Explore mined blocks",
+                "Browse history from the dock.",
+                "Every mined block appears in the Blocks bar. Click a network news item to "
+                        + "open the related block detail.",
                 now.minus(Duration.ofHours(18)),
                 "NONE",
                 null
         ));
         items.add(editorial(
                 "editorial-9",
-                "Pairs",
-                "Statut réseau en direct",
-                "Le bandeau ACTUS reflète l'activité de la chaîne.",
-                "Les événements réseau, blocs minés et peers apparaissent automatiquement "
-                        + "dans le fil ACTUS avec horodatage relatif.",
+                "Peers",
+                "Live network status",
+                "The NEWS banner reflects chain activity.",
+                "Network events, mined blocks, and peers appear automatically "
+                        + "in the NEWS feed with relative timestamps.",
                 now.minus(Duration.ofHours(24)),
                 "NONE",
                 null
@@ -230,19 +230,19 @@ public class NewsService {
         NewsItem swapItem = editorial(
                 id,
                 "R4V3",
-                "Échange sur le réseau de test exécuté",
+                "Testnet swap executed",
                 summary,
-                "Portefeuille "
+                "Wallet "
                         + truncate(walletAddress, 12)
-                        + " a échangé "
+                        + " swapped "
                         + (swap.amountIn() != null ? swap.amountIn().stripTrailingZeros().toPlainString() : "0")
                         + " "
                         + swap.fromToken()
-                        + " contre "
+                        + " for "
                         + (swap.amountOut() != null ? swap.amountOut().stripTrailingZeros().toPlainString() : "0")
                         + " "
                         + swap.toToken()
-                        + " sur le simulateur R4V3chainz du réseau de test.",
+                        + " on the R4V3chainz testnet simulator.",
                 now,
                 "OPEN_SWAP",
                 swap.toToken()
@@ -269,12 +269,12 @@ public class NewsService {
             String blockId = "chain-block-" + latest.getIndex();
             items.add(chainNews(
                     blockId,
-                    "Réseau",
-                    "Bloc #" + latest.getIndex() + " ajouté à la chaîne",
+                    "Network",
+                    "Block #" + latest.getIndex() + " added to the chain",
                     "Hash " + truncate(latest.getHash(), 16),
-                    "Le bloc #" + latest.getIndex() + " a été miné avec le hash "
-                            + safe(latest.getHash()) + ". Nonce : " + latest.getNonce()
-                            + ", difficulté : " + latest.getDifficulty() + ".",
+                    "Block #" + latest.getIndex() + " was mined with hash "
+                            + safe(latest.getHash()) + ". Nonce: " + latest.getNonce()
+                            + ", difficulty: " + latest.getDifficulty() + ".",
                     now.minus(Duration.ofMinutes(1)),
                     "VIEW_BLOCK",
                     String.valueOf(latest.getIndex())
@@ -288,15 +288,15 @@ public class NewsService {
             PendingTransactionResponse latest = pending.get(0);
             items.add(chainNews(
                     "chain-pending-" + safe(latest.getId()),
-                    "Réseau",
-                    "Transaction pending : " + formatTx(latest),
-                    "En attente de minage",
-                    "Transaction de " + safe(latest.getFromAddress()) + " vers "
-                            + safe(latest.getToAddress()) + " pour "
+                    "Network",
+                    "Pending transaction: " + formatTx(latest),
+                    "Waiting to be mined",
+                    "Transaction from " + safe(latest.getFromAddress()) + " to "
+                            + safe(latest.getToAddress()) + " for "
                             + (latest.getAmount() != null
                             ? latest.getAmount().stripTrailingZeros().toPlainString()
                             : "0")
-                            + " R4V3. ID : " + safe(latest.getId()) + ".",
+                            + " R4V3. ID: " + safe(latest.getId()) + ".",
                     now.minus(Duration.ofSeconds(30)),
                     "VIEW_PENDING",
                     safe(latest.getId())
@@ -306,11 +306,11 @@ public class NewsService {
         int peerHint = Math.min(3, Math.max(1, blocks.size()));
         items.add(chainNews(
                 "chain-peers-" + blocks.size(),
-                "Pairs",
-                peerHint + " nœud(s) peuvent synchroniser la chaîne",
-                "Utilise le panneau Pairs pour te connecter",
-                "La chaîne compte " + blocks.size() + " bloc(s). Connecte "
-                        + peerHint + " peer(s) ou plus pour propager les blocs.",
+                "Peers",
+                peerHint + " node(s) can sync the chain",
+                "Use the Peers panel to connect",
+                "The chain has " + blocks.size() + " block(s). Connect "
+                        + peerHint + " peer(s) or more to propagate blocks.",
                 now.minus(Duration.ofMinutes(45)),
                 "OPEN_PEERS",
                 null
@@ -358,9 +358,9 @@ public class NewsService {
         List<Block> blocks = blockchainService.getBlocks();
         if (!blocks.isEmpty()) {
             Block latest = blocks.get(blocks.size() - 1);
-            return "Bloc #" + latest.getIndex() + " · chaîne active";
+            return "Block #" + latest.getIndex() + " · chain active";
         }
-        return "Chaîne en attente de premier bloc";
+        return "Chain waiting for first block";
     }
 
     private NewsItem editorial(
@@ -429,7 +429,7 @@ public class NewsService {
         List<PendingTransactionResponse> pending = pendingTransactionService.getPendingTransactions();
 
         if (pending.isEmpty()) {
-            return "Aucune transaction récente";
+            return "No recent transactions";
         }
 
         return formatTx(pending.get(0));
@@ -448,18 +448,18 @@ public class NewsService {
         long minutes = delta.toMinutes();
 
         if (minutes < 1) {
-            return "à l'instant";
+            return "just now";
         }
         if (minutes < 60) {
-            return "il y a " + minutes + " min";
+            return minutes + " min ago";
         }
 
         long hours = delta.toHours();
         if (hours < 24) {
-            return "il y a " + hours + " h";
+            return hours + " h ago";
         }
 
-        return "il y a " + delta.toDays() + " j";
+        return delta.toDays() + " d ago";
     }
 
     private String truncate(String value, int max) {

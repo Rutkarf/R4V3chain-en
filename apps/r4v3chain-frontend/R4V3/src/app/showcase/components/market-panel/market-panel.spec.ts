@@ -14,16 +14,16 @@ import { MARKET_ASSETS } from './market-panel.constants';
 import { MarketAssetRow } from './market-panel.model';
 
 const mockMetrics = {
-  volumeLabel: 'Laboratoire',
+  volumeLabel: 'Laboratory',
   liquidityLabel: '25k R4V3',
   marketCapLabel: '12k / 50k',
   momentum: 'warm' as const,
-  momentumLabel: 'Élan',
+  momentumLabel: 'Momentum',
   holdersLabel: '420',
   tokenAgeLabel: '14j',
   recentActivityLabel: 'Calme',
   progressPercent: 24,
-  creatorLabel: 'Laboratoire · R4V3',
+  creatorLabel: 'Laboratory · R4V3',
   statusLabel: 'LIVE',
 };
 
@@ -33,7 +33,7 @@ function mockRow(overrides: Partial<MarketAssetRow> = {}): MarketAssetRow {
     price: '0,05 €',
     changePercent: 1.2,
     positive: true,
-    volume: 'Laboratoire',
+    volume: 'Laboratory',
     favorite: true,
     createdAtMs: Date.now(),
     metrics: mockMetrics,
@@ -186,8 +186,8 @@ describe('MarketPanelComponent', () => {
     expect(fixture.nativeElement.querySelector('app-market-carousel-3d')).toBeTruthy();
     expect(fixture.nativeElement.textContent).toContain('NFT');
     expect(fixture.nativeElement.textContent).toContain('SERVICES');
-    expect(fixture.nativeElement.textContent).toContain('ACTIFS');
-    expect(fixture.nativeElement.textContent).toContain('TOUT');
+    expect(fixture.nativeElement.textContent).toContain('ASSETS');
+    expect(fixture.nativeElement.textContent).toContain('ALL');
     expect(fixture.nativeElement.textContent).not.toContain('TRAD');
   });
 

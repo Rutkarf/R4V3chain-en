@@ -56,7 +56,7 @@ public class IpBanFilter extends OncePerRequestFilter {
             Map<String, Object> body = new LinkedHashMap<>();
             body.put("status", HttpStatus.FORBIDDEN.value());
             body.put("error", "Forbidden");
-            body.put("message", "Cette adresse IP est bannie de R4v3chain.");
+            body.put("message", "This IP address is banned from R4V3chain.");
             body.put("reason", "age_decline");
             body.put("timestamp", Instant.now().toString());
             objectMapper.writeValue(response.getOutputStream(), body);

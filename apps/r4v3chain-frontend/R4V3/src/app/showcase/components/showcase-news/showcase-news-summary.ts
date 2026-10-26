@@ -104,8 +104,8 @@ export class ShowcaseNewsSummaryComponent implements OnInit, OnDestroy {
     const age = this.headlineAge();
     const chain = this.newsState.chainStatusPrimary();
     const unread = this.unreadCount();
-    const unreadPart = unread > 0 ? `${unread} non lues. ` : '';
-    return `${unreadPart}${title}${age ? `, ${age}` : ''}. ${chain}. Cliquer pour développer.`;
+    const unreadPart = unread > 0 ? `${unread} unreads. ` : '';
+    return `${unreadPart}${title}${age ? `, ${age}` : ''}. ${chain}. Click to expand.`;
   }
 
   onBarClick(event: Event): void {
@@ -287,10 +287,10 @@ export class ShowcaseNewsSummaryComponent implements OnInit, OnDestroy {
 
   copyButtonLabel(): string {
     if (this.copied()) {
-      return 'Copié';
+      return 'Copied';
     }
     if (this.copyFailed()) {
-      return 'Échec';
+      return 'Failed';
     }
     return 'Copier';
   }

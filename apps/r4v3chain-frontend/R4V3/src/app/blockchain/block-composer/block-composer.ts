@@ -88,14 +88,14 @@ export class BlockComposerComponent implements OnInit {
 
   readonly submitButtonLabel = computed(() => {
     if (this.loading()) {
-      return 'Envoi…';
+      return 'Sending…';
     }
 
     if (!this.auth.isAuthenticated()) {
-      return 'Connexion';
+      return 'Sign in';
     }
 
-    return this.compact ? 'CRÉER' : 'Créer transaction';
+    return this.compact ? 'CREATE' : 'Create transaction';
   });
 
   readonly messagePlaceholder = computed(
@@ -149,14 +149,14 @@ export class BlockComposerComponent implements OnInit {
 
   get helperText(): string {
     if (this.showMaxLengthError) {
-      return 'Le message optionnel doit rester sous 500 caractères.';
+      return 'Optional message must stay under 500 characters.';
     }
 
     if (this.remainingChars() <= 50) {
-      return `Il reste ${this.remainingChars()} caractères pour le message optionnel.`;
+      return `${this.remainingChars()} characters left for the optional message.`;
     }
 
-    return 'La transaction sera signée côté backend puis ajoutée au mempool.';
+    return 'The transaction will be signed on the backend, then added to the mempool.';
   }
 
   async submit(): Promise<void> {
@@ -169,7 +169,7 @@ export class BlockComposerComponent implements OnInit {
     this.errorMessage.set(null);
 
     if (!this.auth.promptLogin()) {
-      this.errorMessage.set('Connectez-vous pour créer une transaction.');
+      this.errorMessage.set('Sign in to create a transaction.');
       return;
     }
 
@@ -185,7 +185,7 @@ export class BlockComposerComponent implements OnInit {
       amountValue <= 0 ||
       this.rawTextLength() > this.maxLength
     ) {
-      this.errorMessage.set('Complétez From, To et Amount (> 0).');
+      this.errorMessage.set('Fill in From, To, and Amount (> 0).');
       return;
     }
 
@@ -217,7 +217,7 @@ export class BlockComposerComponent implements OnInit {
         response?.transaction?.hash ??
         'pending';
 
-      this.successMessage.set(`Tx créée (${transactionId.slice(0, 8)}…).`);
+      this.successMessage.set(`Tx created (${transactionId.slice(0, 8)}…).`);
       this.transactionCreated.emit(transactionId);
       this.transactionsDock.showMempool(transactionId);
       this.data.scheduleRefresh(true);
@@ -225,9 +225,9 @@ export class BlockComposerComponent implements OnInit {
       console.error(error);
       const status = (error as { status?: number })?.status;
       if (status === 429) {
-        this.errorMessage.set('Trop de requêtes — réessayez dans 1 minute.');
+        this.errorMessage.set('Too many requests — try again in 1 minute.');
       } else {
-        this.errorMessage.set('Impossible d’ajouter la transaction au mempool.');
+        this.errorMessage.set('Unable to add the transaction to the mempool.');
       }
     } finally {
       this.loading.set(false);
@@ -261,7 +261,7 @@ export class BlockComposerComponent implements OnInit {
     const address = this.walletSession.address();
     if (!address) {
       if (!silent) {
-        this.errorMessage.set('Créez un wallet depuis l’onglet Wallet.');
+        this.errorMessage.set('Create a wallet from the Wallet tab.');
       }
       return;
     }

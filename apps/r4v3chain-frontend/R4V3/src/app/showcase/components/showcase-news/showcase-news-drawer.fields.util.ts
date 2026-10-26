@@ -45,7 +45,7 @@ export function drawerTargetFull(item: NewsItem): string {
 
   switch (item.actionType) {
     case 'VIEW_BLOCK':
-      return `Bloc #${item.actionTarget}`;
+      return `Block #${item.actionTarget}`;
     default:
       return item.actionTarget;
   }
@@ -54,18 +54,18 @@ export function drawerTargetFull(item: NewsItem): string {
 export function drawerActionTypeLabel(item: NewsItem): string | null {
   switch (item.actionType) {
     case 'VIEW_BLOCK':
-      return 'Voir bloc';
+      return 'View block';
     case 'VIEW_PENDING':
     case 'OPEN_PENDING':
-      return 'En attente';
+      return 'Pending';
     case 'OPEN_PEERS':
       return 'Pairs';
     case 'OPEN_FAUCET':
-      return 'Robinet';
+      return 'Faucet';
     case 'OPEN_SWAP':
-      return 'Échange';
+      return 'Swap';
     case 'OPEN_WALLET':
-      return 'Portefeuille';
+      return 'Wallet';
     default:
       return null;
   }
@@ -74,9 +74,9 @@ export function drawerActionTypeLabel(item: NewsItem): string | null {
 export function drawerSourceLabel(source: NewsSource): string {
   switch (source) {
     case 'CHAIN':
-      return 'Sur la chaîne';
+      return 'On-chain';
     case 'EDITORIAL':
-      return 'Édito';
+      return 'Editorial';
     default:
       return source;
   }
@@ -122,7 +122,7 @@ export function formatDrawerFreshPublished(item: NewsItem): {
   const fresh = freshRaw ? compactDrawerRelativeTime(freshRaw) : '—';
   const published = formatDrawerPublishedAt(item.publishedAt);
   return {
-    value: `Publié: ${fresh} · ${published}`,
+    value: `Published: ${fresh} · ${published}`,
     displayValue: `${fresh} · ${published}`,
   };
 }
@@ -136,7 +136,7 @@ export function buildNewsDrawerFields(item: NewsItem): NewsDrawerField[] {
     {
       id: 'fresh-published',
       section: 'meta',
-      label: 'Publié',
+      label: 'Published',
       value: freshPublished.value,
       displayValue: freshPublished.displayValue,
     },
@@ -171,7 +171,7 @@ export function buildNewsDrawerFields(item: NewsItem): NewsDrawerField[] {
   fields.push({
     id: 'summary',
     section: 'content',
-    label: 'Résumé',
+    label: 'Summary',
     value: summary || body || '—',
     displayValue: summaryDisplay,
   });
@@ -180,7 +180,7 @@ export function buildNewsDrawerFields(item: NewsItem): NewsDrawerField[] {
     fields.push({
       id: 'detail',
       section: 'content',
-      label: 'Détail',
+      label: 'Details',
       value: body,
       displayValue: abbreviateHashesInText(body),
     });

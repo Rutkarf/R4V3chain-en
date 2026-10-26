@@ -3,7 +3,7 @@ import { Injectable, signal } from '@angular/core';
 type SfxKind = 'fire' | 'hit' | 'kill' | 'hurt' | 'power' | 'earn';
 
 /**
- * Audio Éliminer pour gagner — blips punchy, zéro asset externe.
+ * Audio Eliminate to earn — blips punchy, zéro asset externe.
  */
 @Injectable({ providedIn: 'root' })
 export class ArenaAudioService {

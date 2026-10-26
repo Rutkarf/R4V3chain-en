@@ -637,8 +637,8 @@ export class BlockchainApiService {
       catchError(() =>
         of({
           message1: 'R4V3chain',
-          lastTransaction: 'Aucune transaction récente',
-          lastTransactionShort: 'Aucune',
+          lastTransaction: 'No recent transaction',
+          lastTransactionShort: 'None',
           userCount: 0,
         })
       )
@@ -799,7 +799,7 @@ export class BlockchainApiService {
     };
 
     this.liveSocket.onerror = () => {
-      // onclose déclenche la reconnexion (cold start Render, réseau, etc.)
+      // onclose déclenche la reconnexion (cold start Render, network, etc.)
     };
 
     this.liveSocket.onclose = () => {

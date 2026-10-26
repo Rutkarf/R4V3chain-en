@@ -1,5 +1,5 @@
 /**
- * Pont Conquête stellaire → surfaces produit R4V3chain (Dock / Showcase).
+ * Pont Conquest stellaire → surfaces produit R4V3chain (Dock / Showcase).
  * Une étoile live se conquiert par une action réelle, pas un clic magique.
  * Couverture commerciale = lignes de cette table, pas un nouveau graphe.
  */
@@ -47,64 +47,64 @@ export const STAR_CONQUEST_LIVE_LINKS: readonly StarConquestLiveLink[] = [
     starQuestId: 'sc-security-auth',
     taskId: 'daily-login',
     action: 'login',
-    ctaLabel: 'Se connecter',
+    ctaLabel: 'Sign in',
   },
   {
     kind: 'task',
     starQuestId: 'sc-dock-faucet',
     taskId: 'faucet-claim',
     action: 'faucet',
-    ctaLabel: 'Ouvrir le faucet',
+    ctaLabel: 'Open faucet',
   },
   {
     kind: 'task',
     starQuestId: 'sc-swap-confirm',
     taskId: 'swap-tokens',
     action: 'swap',
-    ctaLabel: 'Aller au swap',
+    ctaLabel: 'Go to swap',
   },
   {
     kind: 'task',
     starQuestId: 'sc-dock-chain',
     taskId: 'explore-blocks',
     action: 'explore-blocks',
-    ctaLabel: 'Explorer un bloc',
+    ctaLabel: 'Explore a block',
   },
   {
     kind: 'hub',
     starQuestId: 'sc-backend-quests',
     action: 'quests',
-    ctaLabel: 'Ouvrir Quêtes',
+    ctaLabel: 'Open Quests',
   },
   {
     kind: 'navigate',
     starQuestId: 'sc-wallet-copy',
     action: 'wallet',
-    ctaLabel: 'Ouvrir le wallet',
+    ctaLabel: 'Open wallet',
   },
   {
     kind: 'navigate',
     starQuestId: 'sc-dock-mempool',
     action: 'transactions',
-    ctaLabel: 'Ouvrir le mempool',
+    ctaLabel: 'Open mempool',
   },
   {
     kind: 'navigate',
     starQuestId: 'sc-showcase-chat',
     action: 'showcase-tours',
-    ctaLabel: 'Ouvrir Showcase',
+    ctaLabel: 'Open Showcase',
   },
   {
     kind: 'navigate',
     starQuestId: 'sc-dock-peers',
     action: 'peers',
-    ctaLabel: 'Ouvrir les peers',
+    ctaLabel: 'Open peers',
   },
   {
     kind: 'navigate',
     starQuestId: 'sc-r4v3-market',
     action: 'market',
-    ctaLabel: 'Ouvrir le market',
+    ctaLabel: 'Open market',
   },
 ] as const;
 

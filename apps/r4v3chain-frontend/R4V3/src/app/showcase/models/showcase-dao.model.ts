@@ -34,8 +34,8 @@ export function daoStatusLabel(status: DaoGovernanceStatus): string {
     case 'active':
       return 'Active';
     case 'closed':
-      return 'Fermée';
+      return 'Closed';
     default:
-      return 'En création';
+      return 'Draft';
   }
 }

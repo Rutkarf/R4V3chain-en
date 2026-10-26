@@ -84,7 +84,7 @@ public final class TotpAuthenticator {
             String raw = Integer.toString(binary % modulo);
             return "0".repeat(Math.max(0, digits - raw.length())) + raw;
         } catch (Exception exception) {
-            throw new AuthException(500, "Impossible de calculer le code TOTP");
+            throw new AuthException(500, "Unable to compute TOTP code");
         }
     }
 
@@ -143,7 +143,7 @@ public final class TotpAuthenticator {
         for (int i = 0; i < cleaned.length(); i++) {
             int value = BASE32.indexOf(cleaned.charAt(i));
             if (value < 0) {
-                throw new IllegalArgumentException("secret base32 invalide");
+                throw new IllegalArgumentException("invalid base32 secret");
             }
             buffer = (buffer << 5) | value;
             bits += 5;

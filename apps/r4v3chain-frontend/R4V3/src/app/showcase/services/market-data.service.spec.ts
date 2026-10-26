@@ -66,7 +66,7 @@ describe('MarketDataService', () => {
 
     await service.refreshRows(true);
     expect(service.rateLimitedUntil()).toBeGreaterThan(Date.now());
-    expect(service.error()).toContain('Trop de requêtes');
+    expect(service.error()).toContain('Too many requests');
   });
 
   it('should persist recent trades from swap event', () => {

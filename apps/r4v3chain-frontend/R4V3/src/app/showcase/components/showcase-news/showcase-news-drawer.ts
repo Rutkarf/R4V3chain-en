@@ -150,18 +150,18 @@ export class ShowcaseNewsDrawerComponent implements OnDestroy {
   protected actionLabel(item: NewsItem): string | null {
     switch (item.actionType) {
       case 'VIEW_BLOCK':
-        return 'Voir bloc';
+        return 'View block';
       case 'VIEW_PENDING':
       case 'OPEN_PENDING':
-        return 'En attente';
+        return 'Pending';
       case 'OPEN_PEERS':
         return 'Pairs';
       case 'OPEN_FAUCET':
-        return 'Robinet';
+        return 'Faucet';
       case 'OPEN_SWAP':
-        return 'Échange';
+        return 'Swap';
       case 'OPEN_WALLET':
-        return 'Portefeuille';
+        return 'Wallet';
       default:
         return null;
     }
@@ -169,10 +169,10 @@ export class ShowcaseNewsDrawerComponent implements OnDestroy {
 
   protected copyButtonLabel(): string {
     if (this.copied()) {
-      return 'Copié';
+      return 'Copied';
     }
     if (this.copyFailed()) {
-      return 'Échec';
+      return 'Failed';
     }
     return 'Copier';
   }

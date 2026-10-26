@@ -26,11 +26,11 @@ export function buildStarConquestSelectionSnapshot(
     family: quest.family,
     actionHint:
       kind === 'claim'
-        ? 'Conquérir'
+        ? 'Conquer'
         : kind === 'completed'
-          ? 'Déjà conquise'
+          ? 'Already conquered'
           : kind === 'locked'
-            ? 'Verrouillée'
+            ? 'Locked'
             : 'Pas encore ouvrable',
   };
 }

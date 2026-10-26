@@ -29,7 +29,7 @@ public enum OAuthProvider {
 
     public static OAuthProvider fromId(String raw) {
         if (raw == null || raw.isBlank()) {
-            throw new IllegalArgumentException("Provider OAuth requis");
+            throw new IllegalArgumentException("OAuth provider required");
         }
 
         String normalized = raw.trim().toLowerCase(Locale.ROOT);
@@ -39,6 +39,6 @@ public enum OAuthProvider {
             }
         }
 
-        throw new IllegalArgumentException("Provider OAuth inconnu: " + raw);
+        throw new IllegalArgumentException("Unknown OAuth provider: " + raw);
     }
 }

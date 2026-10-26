@@ -83,7 +83,7 @@ export const STAR_CONQUEST_REMOVED_QUESTS: readonly {
   },
   {
     id: 'sc-data-peers',
-    reason: 'Redondant avec poll chain + rates ; budget réseau unifié.',
+    reason: 'Redondant avec poll chain + rates ; budget network unifié.',
   },
   {
     id: 'sc-data-showcase-api',
@@ -139,7 +139,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'angular',
     family: 'interface',
     description:
-      '[Done] Zones shell + panneau/scanner SC sans voler Navbar/Swap/Dock/Graph — overlays shippés sur pages.dev.',
+      '[Done] Shell zones + SC panel/scanner without stealing Navbar/Swap/Dock/Graph — overlays shipped on pages.dev.',
     rewardM4T3R: 180,
     rarity: 'epic',
     status: 'completed',
@@ -152,7 +152,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'swap',
     family: 'interface',
     description:
-      '[Ready · live] Exécuter un swap Laboratoire. L’étoile se complète via la quête Dock swap-tokens (pas de claim magique).',
+      '[Ready · live] Run a Laboratory swap. The star completes via the Dock swap-tokens quest (no magic claim).',
     rewardM4T3R: 140,
     rarity: 'epic',
     status: 'available',
@@ -165,7 +165,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'swap',
     family: 'interface',
     description:
-      '[In Progress] Label « Slippage max 0,5 % » live — reste : contrôle mémorisé + strip 16px (pas encore de picker).',
+      '[In Progress] « Max slippage 0.5% » label live — remaining: remembered control + 16px strip (no picker yet).',
     rewardM4T3R: 95,
     rarity: 'rare',
     status: 'active',
@@ -178,7 +178,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'showcase',
     family: 'interface',
     description:
-      '[Ready · live] Ouvrir Showcase Chat (CTA SC) : bulles 250px, input accessible — conquérir via navigation produit.',
+      '[Ready · live] Open Showcase Chat (SC CTA): 250px bubbles, accessible input — conquer via product navigation.',
     rewardM4T3R: 110,
     rarity: 'rare',
     status: 'available',
@@ -191,7 +191,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'showcase',
     family: 'interface',
     description:
-      '[Done] Vote DAO Showcase (drawer + résumé) en colonne étroite — shippé sur pages.dev, zéro overflow 250px.',
+      '[Done] Showcase DAO vote (drawer + summary) in a narrow column — shipped on pages.dev, zero 250px overflow.',
     rewardM4T3R: 125,
     rarity: 'rare',
     status: 'completed',
@@ -204,7 +204,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'a11y',
     family: 'interface',
     description:
-      '[Done] FocusTrapDirective + anneaux sur drawers, panneau Quest, scanner, Navbar/Swap/Dock — clavier sans piège.',
+      '[Done] FocusTrapDirective + rings on drawers, Quest panel, scanner, Navbar/Swap/Dock — keyboard without traps.',
     rewardM4T3R: 70,
     rarity: 'common',
     status: 'completed',
@@ -258,7 +258,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'performance',
     family: 'three',
     description:
-      '[Done] shouldAnimateWebGl + pause visibility — constellation mobile sans drain (floor + SC host).',
+      '[Done] shouldAnimateWebGl + visibility pause — mobile constellation without drain (floor + SC host).',
     rewardM4T3R: 120,
     rarity: 'rare',
     status: 'completed',
@@ -271,7 +271,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'three',
     family: 'three',
     description:
-      '[Done] --floor-peek-height (220px token) synchronisé bande Quests ↔ canvas MetaVerseBB.',
+      '[Done] --floor-peek-height (220px token) synced Quests strip ↔ MetaVerseBB canvas.',
     rewardM4T3R: 85,
     rarity: 'rare',
     status: 'completed',
@@ -285,7 +285,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'three',
     family: 'three',
     description:
-      '[Done] Scanner hors-vue + reward labels — une ligne = une Quest occluse (shippé).',
+      '[Done] Off-screen scanner + reward labels — one row = one occluded Quest (shipped).',
     rewardM4T3R: 135,
     rarity: 'epic',
     status: 'completed',
@@ -295,11 +295,11 @@ const SEEDS: readonly QuestSeed[] = [
   },
   {
     id: 'sc-map-wigle',
-    title: 'Carte Wigle Live',
+    title: 'Live Wigle Map',
     category: 'three',
     family: 'three',
     description:
-      '[Done] Floor : WiFi Wigle + footprints OSM — ancre MetaVerseBB, zéro particule orpheline.',
+      '[Done] Floor: Wigle WiFi + OSM footprints — MetaVerseBB anchor, zero orphan particles.',
     rewardM4T3R: 100,
     rarity: 'rare',
     status: 'completed',
@@ -311,11 +311,11 @@ const SEEDS: readonly QuestSeed[] = [
   // ——— Blockchain / M4T3R (7) ———
   {
     id: 'sc-wallet-copy',
-    title: 'Copie d’adresse du portefeuille',
+    title: 'Wallet address copy',
     category: 'dock',
     family: 'blockchain',
     description:
-      '[Ready · live] Copier l’adresse wallet (CTA SC → Dock wallet) — toast, sans exposer de secret.',
+      '[Ready · live] Copy wallet address (SC CTA → Dock wallet) — toast, without exposing secrets.',
     rewardM4T3R: 75,
     rarity: 'common',
     status: 'available',
@@ -328,7 +328,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'dock',
     family: 'blockchain',
     description:
-      '[Ready · live] Réclamer le faucet. Aligné Dock faucet-claim (1 MTS + XP) — action réelle requise.',
+      '[Ready · live] Claim the faucet. Aligned with Dock faucet-claim (1 MTS + XP) — real action required.',
     rewardM4T3R: 90,
     rarity: 'rare',
     status: 'available',
@@ -341,7 +341,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'dock',
     family: 'blockchain',
     description:
-      '[Ready · live] Ouvrir le mempool densifié (bande dock 250px) — CTA SC → transactions.',
+      '[Ready · live] Open the densified mempool (250px dock strip) — SC CTA → transactions.',
     rewardM4T3R: 105,
     rarity: 'rare',
     status: 'available',
@@ -355,7 +355,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'dock',
     family: 'blockchain',
     description:
-      '[Ready · live] Ouvrir le détail d’un bloc — suit Dock explore-blocks (drawer hash/nonce).',
+      '[Ready · live] Open a block detail — follows Dock explore-blocks (hash/nonce drawer).',
     rewardM4T3R: 115,
     rarity: 'rare',
     status: 'available',
@@ -365,11 +365,11 @@ const SEEDS: readonly QuestSeed[] = [
   },
   {
     id: 'sc-security-wallet',
-    title: 'Masque de clé du portefeuille',
+    title: 'Wallet key mask',
     category: 'security',
     family: 'blockchain',
     description:
-      '[Done] maskedPublicKey / maskedPrivateKey + reveal contrôlé — aucun leak console sur pages.dev.',
+      '[Done] maskedPublicKey / maskedPrivateKey + controlled reveal — no console leak on pages.dev.',
     rewardM4T3R: 170,
     rarity: 'epic',
     status: 'completed',
@@ -382,7 +382,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'security',
     family: 'blockchain',
     description:
-      '[Blocked] Confirm send wallet existe — débloquer après conquête swap + mask + pickup (deps graph).',
+      '[Blocked] Wallet confirm-send exists — unlock after swap + mask + pickup conquests (graph deps).',
     rewardM4T3R: 130,
     rarity: 'epic',
     status: 'locked',
@@ -395,7 +395,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'gamification',
     family: 'blockchain',
     description:
-      '[Done] Pickup FX + cellules M4T3R au sol (trail) — preview local, pas de crédit faucet.',
+      '[Done] Pickup FX + floor M4T3R cells (trail) — local preview, no faucet credit.',
     rewardM4T3R: 55,
     rarity: 'common',
     status: 'completed',
@@ -410,7 +410,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'backend',
     family: 'backend',
     description:
-      '[Ready · hub live] Login + faucet + swap + blocs Dock complètent l’étoile. API Spring SC = Icebox.',
+      '[Ready · hub live] Login + faucet + swap + Dock blocks complete the star. Spring SC API = Icebox.',
     rewardM4T3R: 190,
     rarity: 'legendary',
     status: 'available',
@@ -423,7 +423,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'backend',
     family: 'backend',
     description:
-      '[Done] 429/5xx faucet → messages UX non leaky (FaucetRuntimeService) — shippé.',
+      '[Done] 429/5xx faucet → non-leaky UX messages (FaucetRuntimeService) — shipped.',
     rewardM4T3R: 80,
     rarity: 'common',
     status: 'completed',
@@ -436,7 +436,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'security',
     family: 'backend',
     description:
-      '[Ready · live] Se connecter — suit Dock daily-login. Pas de clic magique sur l’étoile.',
+      '[Ready · live] Sign in — follows Dock daily-login. No magic click on the star.',
     rewardM4T3R: 145,
     rarity: 'epic',
     status: 'available',
@@ -449,7 +449,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'security',
     family: 'backend',
     description:
-      '[Done] AuthService.isAdmin() gate l’onglet admin dock (app.ts) — zéro fuite UI guest.',
+      '[Done] AuthService.isAdmin() gates the dock admin tab (app.ts) — zero guest UI leak.',
     rewardM4T3R: 155,
     rarity: 'epic',
     status: 'completed',
@@ -462,7 +462,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'data',
     family: 'backend',
     description:
-      '[In Progress] Quote lock « Taux garanti 30 s » live — reste : soft-expire cache réseau anti-spam.',
+      '[In Progress] Quote lock « Guaranteed rate 30s » live — remaining: soft-expire network cache anti-spam.',
     rewardM4T3R: 100,
     rarity: 'rare',
     status: 'active',
@@ -475,7 +475,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'data',
     family: 'backend',
     description:
-      '[Done] Polling chain/mempool avec backoff 429 + pause onglet — budgets mobile shippés.',
+      '[Done] Chain/mempool polling with 429 backoff + tab pause — mobile budgets shipped.',
     rewardM4T3R: 110,
     rarity: 'rare',
     status: 'completed',
@@ -488,7 +488,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'data',
     family: 'backend',
     description:
-      '[Icebox] localStorage star-conquest-progress-v1 OK — sync Spring Boot SC pas branchée.',
+      '[Icebox] localStorage star-conquest-progress-v1 OK — Spring Boot SC sync not wired.',
     rewardM4T3R: 125,
     rarity: 'rare',
     status: 'future',
@@ -503,7 +503,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'gamification',
     family: 'quality',
     description:
-      '[Done] 1 particule = 1 Quest → panneau holographique. Halos/bloom = copies de la même carte.',
+      '[Done] 1 particle = 1 Quest → holographic panel. Halos/bloom = copies of the same card.',
     rewardM4T3R: 210,
     rarity: 'legendary',
     status: 'completed',
@@ -516,7 +516,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'gamification',
     family: 'quality',
     description:
-      '[Done] Progression SC (claim + live Dock) hydratée sur le graphe + dock-quests-summary.',
+      '[Done] SC progress (claim + Dock live) hydrated on the graph + dock-quests-summary.',
     rewardM4T3R: 175,
     rarity: 'epic',
     status: 'completed',
@@ -529,7 +529,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'gamification',
     family: 'quality',
     description:
-      '[Done] Pont STAR_CONQUEST_LIVE_LINKS ↔ Dock daily (10 surfaces) — sync shippée.',
+      '[Done] STAR_CONQUEST_LIVE_LINKS ↔ Dock daily bridge (10 surfaces) — sync shipped.',
     rewardM4T3R: 140,
     rarity: 'epic',
     status: 'completed',
@@ -543,7 +543,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'gamification',
     family: 'quality',
     description:
-      '[Ready · live] Ouvrir l’onglet Peers — satellites réseau orbitent une Quest (CTA SC).',
+      '[Ready · live] Open the Peers tab — network satellites orbit a Quest (SC CTA).',
     rewardM4T3R: 130,
     rarity: 'rare',
     status: 'available',
@@ -552,11 +552,11 @@ const SEEDS: readonly QuestSeed[] = [
   },
   {
     id: 'sc-tests-unit',
-    title: 'Conquête stellaire Specs',
+    title: 'Star Conquest Specs',
     category: 'tests',
     family: 'quality',
     description:
-      '[Done] Specs : 35 Quests, 7/famille, connexions valides, live links, board GitHub colonnes.',
+      '[Done] Specs: 35 Quests, 7/family, valid connections, live links, GitHub board columns.',
     rewardM4T3R: 90,
     rarity: 'rare',
     status: 'completed',
@@ -569,7 +569,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'tests',
     family: 'quality',
     description:
-      '[Done] A11y panneau Quest + scanner (dialog, focus trap, close, reward) — non-régression shell.',
+      '[Done] Quest panel + scanner a11y (dialog, focus trap, close, reward) — shell non-regression.',
     rewardM4T3R: 65,
     rarity: 'common',
     status: 'completed',
@@ -582,7 +582,7 @@ const SEEDS: readonly QuestSeed[] = [
     category: 'showcase',
     family: 'quality',
     description:
-      '[Ready · live] Ouvrir le market R4V3 (chart + token) — surface produit, pas de claim magique.',
+      '[Ready · live] Open the R4V3 market (chart + token) — product surface, no magic claim.',
     rewardM4T3R: 50,
     rarity: 'common',
     status: 'available',

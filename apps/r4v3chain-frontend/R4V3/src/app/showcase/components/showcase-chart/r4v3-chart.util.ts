@@ -528,9 +528,9 @@ export function r4v3ViewLabel(view: R4v3ChartView): string {
     case 'pulse':
       return 'Pulse';
     case 'fuel':
-      return 'Carburant';
+      return 'Fuel';
     case 'health':
-      return 'Santé';
+      return 'Health';
     default:
       return view;
   }
@@ -540,15 +540,15 @@ export function r4v3ViewLabel(view: R4v3ChartView): string {
 export function r4v3ViewHint(view: R4v3ChartView): string {
   switch (view) {
     case 'auto':
-      return 'Choisit automatiquement le mode le plus adapté à l’activité du réseau.';
+      return 'Automatically picks the mode best suited to network activity.';
     case 'flow':
-      return 'Vue Flux — pression nette des achats et ventes R4V3 sur la période.';
+      return 'Flow view — net R4V3 buy/sell pressure over the period.';
     case 'pulse':
-      return 'Pulse — swaps récents et événements on-chain du réseau.';
+      return 'Pulse — recent swaps and on-chain network events.';
     case 'fuel':
-      return 'Carburant du laboratoire — volume et élan des projets listés.';
+      return 'Laboratory fuel — volume and momentum of listed projects.';
     case 'health':
-      return 'Santé — niveau d’activité global quand le réseau est calme.';
+      return 'Health — overall activity level when the network is quiet.';
     default:
       return '';
   }
@@ -567,12 +567,12 @@ export function r4v3AxisHint(view: R4v3ChartView, ctx: R4v3ChartContext): string
     case 'flow':
       return 'Pression nette';
     case 'pulse':
-      return 'Activité réseau';
+      return 'Network activity';
     case 'fuel':
       return 'R4V3 laboratoire';
     case 'health':
-      return 'Indice santé';
+      return 'Health index';
     default:
-      return 'Activité';
+      return 'Activity';
   }
 }

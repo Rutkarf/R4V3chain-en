@@ -24,7 +24,7 @@ import { RatePanelComponent } from '@exchange/components/rate-panel/rate-panel';
 })
 export class GraphComponent {
   @Input() chartCollapsed = true;
-  @Input() collapseAriaLabel = 'Replier le graphique';
+  @Input() collapseAriaLabel = 'Collapse chart';
 
   @Output() readonly collapseToggle = new EventEmitter<void>();
   @Output() readonly summaryExpand = new EventEmitter<void>();

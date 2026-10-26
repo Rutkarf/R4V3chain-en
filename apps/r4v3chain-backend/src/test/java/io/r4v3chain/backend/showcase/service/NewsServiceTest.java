@@ -59,7 +59,7 @@ class NewsServiceTest {
         NewsFeedResponse feed = newsService.getFeed(null, null, 20, 0);
 
         assertThat(feed.items()).isNotEmpty();
-        assertThat(feed.categories()).contains("Réseau", "R4V3");
+        assertThat(feed.categories()).contains("Network", "R4V3");
     }
 
     @Test

@@ -72,19 +72,19 @@ class ShowcaseNewsControllerTest {
                         "editorial-1",
                         List.of(new NewsItemResponse(
                                 "1",
-                                "Réseau",
+                                "Network",
                                 "Title",
                                 "Summary",
                                 "Body",
                                 "2026-01-01T00:00:00Z",
-                                "il y a 1 min",
+                                "1 min ago",
                                 "EDITORIAL",
                                 "NONE",
                                 null,
                                 true
                         )),
-                        List.of("Réseau"),
-                        "Bloc #0 · chaîne active",
+                        List.of("Network"),
+                        "Block #0 · chain active",
                         "2026-01-01T00:00:00Z",
                         1,
                         false
@@ -95,7 +95,7 @@ class ShowcaseNewsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.headline").value("R4V3chain"))
                 .andExpect(jsonPath("$.items[0].title").value("Title"))
-                .andExpect(jsonPath("$.liveActivity").value("Bloc #0 · chaîne active"));
+                .andExpect(jsonPath("$.liveActivity").value("Block #0 · chain active"));
     }
 
     @TestConfiguration

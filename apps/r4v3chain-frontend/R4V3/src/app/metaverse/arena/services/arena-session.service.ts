@@ -170,7 +170,7 @@ export class ArenaSessionService {
     this.economy.creditFaucet(local.userId, amount);
     this.refreshLocalFromEconomy();
     this.telemetry.recordEarn(amount);
-    this.noticeSignal.set(`Quête dock : +${amount} ƒ ledger Éliminer pour gagner`);
+    this.noticeSignal.set(`Quête dock : +${amount} ƒ ledger Eliminate to earn`);
     return amount;
   }
 

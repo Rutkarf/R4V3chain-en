@@ -17,7 +17,7 @@ interface FootprintEntry {
 }
 
 /**
- * Bâtiments OSM extrudés associés aux points réseau (couche additive).
+ * Bâtiments OSM extrudés associés aux points network (couche additive).
  */
 export class WigleOsmFootprintManager {
   private root: THREE.Group | null = null;
@@ -94,7 +94,7 @@ export class WigleOsmFootprintManager {
         this.entries.size,
         '/',
         points.length,
-        'points réseau'
+        'points network'
       );
     } catch (error) {
       console.warn('[OsmNetworkFootprints] Échec chargement OSM.', error);

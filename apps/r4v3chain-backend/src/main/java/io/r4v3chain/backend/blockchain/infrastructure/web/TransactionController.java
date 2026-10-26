@@ -78,7 +78,7 @@ public class TransactionController {
         }
 
         throw new IllegalArgumentException(
-                "signature client (payload + timestamp + signature) ou senderPrivateKey legacy requis"
+                "client signature (payload + timestamp + signature) or legacy senderPrivateKey required"
         );
     }
 }

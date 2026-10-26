@@ -29,19 +29,19 @@ public class AdminUnlockService {
         if (!isConfigured()) {
             throw new ResponseStatusException(
                     HttpStatus.SERVICE_UNAVAILABLE,
-                    "Admin seed non configurée (R4V3CHAIN_ADMIN_SEED_SHA256)"
+                    "Admin seed not configured (R4V3CHAIN_ADMIN_SEED_SHA256)"
             );
         }
         String normalized = normalizeSeed(seedPhrase);
         if (normalized.isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Seed requise");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Seed required");
         }
         String digest = sha256Hex(normalized);
         if (!MessageDigest.isEqual(
                 digest.getBytes(StandardCharsets.UTF_8),
                 properties.getSeedSha256().getBytes(StandardCharsets.UTF_8)
         )) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Graine d’administration invalide");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid admin seed");
         }
         purgeExpired();
         String token = UUID.randomUUID().toString();
@@ -54,16 +54,16 @@ public class AdminUnlockService {
         if (!isConfigured()) {
             throw new ResponseStatusException(
                     HttpStatus.SERVICE_UNAVAILABLE,
-                    "Admin seed non configurée"
+                    "Admin seed not configured"
             );
         }
         if (unlockToken == null || unlockToken.isBlank()) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Token unlock admin requis");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Admin unlock token required");
         }
         Long expiresAt = tokens.get(unlockToken.trim());
         if (expiresAt == null || expiresAt < System.currentTimeMillis()) {
             tokens.remove(unlockToken.trim());
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Session admin expirée — resaisir la seed");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Admin session expired — re-enter the seed");
         }
     }
 

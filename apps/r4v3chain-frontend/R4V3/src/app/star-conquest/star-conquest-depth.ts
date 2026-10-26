@@ -1,5 +1,5 @@
 /**
- * Couches de profondeur Conquête stellaire — taille / opacite / vitesse / parallaxe.
+ * Couches de profondeur Conquest stellaire — taille / opacite / vitesse / parallaxe.
  * Camera typique : z ≈ 120 (palier produit). Plus le Z monde est bas, plus l’élément est lointain.
  */
 

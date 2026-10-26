@@ -60,7 +60,7 @@ export interface VirtualAIAgent {
   nodeId: string;
   displayName: string;
   role: string;
-  state: 'idle' | 'thinking' | 'moving' | 'communicating' | 'offline' | 'synchronisé';
+  state: 'idle' | 'thinking' | 'moving' | 'communicating' | 'offline' | 'synced';
   capabilities: string[];
   peerId?: string;
   position?: THREE.Vector3;

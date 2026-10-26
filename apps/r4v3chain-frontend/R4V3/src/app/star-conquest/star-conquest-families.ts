@@ -1,5 +1,5 @@
 /**
- * Conquête stellaire — 5 familles de Quests + palette centralisée.
+ * Conquest stellaire — 5 familles de Quests + palette centralisée.
  * Teintes alignées sur Three legacy (cyan/magenta floor) et accents UI existants.
  */
 
@@ -57,7 +57,7 @@ export const STAR_QUEST_FAMILIES: Record<StarQuestFamily, StarQuestFamilyTheme> 
   },
   quality: {
     id: 'quality',
-    label: 'Conquête',
+    label: 'Conquest',
     // Floor magenta #8b9dad → fuchsia contenu
     hex: '#7b0d1e',
     rgb: [0.91, 0.35, 0.61],
@@ -81,7 +81,7 @@ export function familyFromCategory(
     case 'three':
       return 'three';
     case 'gamification':
-      // Achievements / progression → Conquête ; overrides M4T3R → blockchain
+      // Achievements / progression → Conquest ; overrides M4T3R → blockchain
       return 'quality';
     case 'backend':
     case 'data':

@@ -29,7 +29,7 @@ export class ShowcaseTabShowcaseComponent {
 
   @Input() activeTab: ShowcaseTab = 'tours';
   @Input() showcaseCollapsed = true;
-  @Input() collapseAriaLabel = 'Replier le showcase';
+  @Input() collapseAriaLabel = 'Collapse showcase';
   @Input() refreshBusy = false;
 
   @Output() readonly tabChange = new EventEmitter<ShowcaseTab>();

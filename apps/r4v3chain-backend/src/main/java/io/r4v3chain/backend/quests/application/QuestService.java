@@ -59,7 +59,7 @@ public class QuestService {
         if (QuestCatalog.isServerHooked(request.taskId())) {
             throw new QuestException(
                     403,
-                    "La progression de cette quête est validée automatiquement côté serveur"
+                    "This quest progress is validated automatically on the server"
             );
         }
 
@@ -70,7 +70,7 @@ public class QuestService {
     public QuestProgressResponse recordBlockExplored(String authorizationHeader, int blockIndex) {
         UserAccount account = authService.requireAuthenticatedAccount(authorizationHeader);
         if (blockchainService.findBlockByIndex(blockIndex) == null) {
-            throw new QuestException(404, "Bloc introuvable: #" + blockIndex);
+            throw new QuestException(404, "Block not found: #" + blockIndex);
         }
 
         QuestProgressState state = loadNormalizedState(account.getId());
@@ -82,7 +82,7 @@ public class QuestService {
 
         QuestCatalog.DailyQuestDefinition definition = QuestCatalog.findDailyQuest("explore-blocks");
         if (definition == null) {
-            throw new QuestException(400, "Quête inconnue: explore-blocks");
+            throw new QuestException(400, "Unknown quest: explore-blocks");
         }
 
         QuestTaskState task = state.getTasks().computeIfAbsent(
@@ -157,7 +157,7 @@ public class QuestService {
         UserAccount account = authService.requireAuthenticatedAccount(authorizationHeader);
         QuestCatalog.DailyQuestDefinition definition = QuestCatalog.findDailyQuest(taskId);
         if (definition == null) {
-            throw new QuestException(400, "Quête inconnue: " + taskId);
+            throw new QuestException(400, "Unknown quest: " + taskId);
         }
 
         QuestProgressState state = loadNormalizedState(account.getId());
@@ -167,11 +167,11 @@ public class QuestService {
         );
 
         if (task.isClaimed()) {
-            throw new QuestException(409, "Récompense déjà réclamée");
+            throw new QuestException(409, "Reward already claimed");
         }
 
         if (task.getProgress() < definition.target()) {
-            throw new QuestException(400, "Quête non terminée");
+            throw new QuestException(400, "Quest not completed");
         }
 
         task.setClaimed(true);
@@ -188,11 +188,11 @@ public class QuestService {
         QuestProgressState state = loadNormalizedState(account.getId());
 
         if (state.isMissionClaimed()) {
-            throw new QuestException(409, "Mission déjà réclamée");
+            throw new QuestException(409, "Mission already claimed");
         }
 
         if (missionProgress(state) < 100) {
-            throw new QuestException(400, "Mission non terminée");
+            throw new QuestException(400, "Mission not completed");
         }
 
         state.setMissionClaimed(true);
@@ -209,11 +209,11 @@ public class QuestService {
         QuestProgressState state = loadNormalizedState(account.getId());
 
         if (state.isWeeklyClaimed()) {
-            throw new QuestException(409, "Récompense hebdomadaire déjà réclamée");
+            throw new QuestException(409, "Weekly reward already claimed");
         }
 
         if (!allDailyClaimed(state)) {
-            throw new QuestException(400, "Toutes les quêtes quotidiennes doivent être réclamées");
+            throw new QuestException(400, "All daily quests must be claimed");
         }
 
         state.setWeeklyClaimed(true);
@@ -233,7 +233,7 @@ public class QuestService {
         QuestCatalog.DailyQuestDefinition definition = QuestCatalog.findDailyQuest(taskId);
         if (definition == null) {
             if (failOnUnknownTask) {
-                throw new QuestException(400, "Quête inconnue: " + taskId);
+                throw new QuestException(400, "Unknown quest: " + taskId);
             }
             return loadNormalizedState(account.getId());
         }
@@ -256,7 +256,7 @@ public class QuestService {
     private void mintQuestReward(UserAccount account, BigDecimal amount, String payload) {
         String walletAddress = account.getWalletAddress();
         if (walletAddress == null || walletAddress.isBlank()) {
-            throw new QuestException(400, "Portefeuille requis pour recevoir la récompense R4V3");
+            throw new QuestException(400, "Wallet required to receive the R4V3 reward");
         }
 
         blockchainService.enqueueSystemCredit(walletAddress, amount, payload);

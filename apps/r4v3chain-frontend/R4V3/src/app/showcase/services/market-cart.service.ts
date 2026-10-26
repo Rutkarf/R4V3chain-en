@@ -160,8 +160,8 @@ export class MarketCartService {
     this.commit(next);
     this.lastMessage.set(
       asFavorite
-        ? `${row.config.displaySymbol} ajouté aux favoris (panier)`
-        : `${row.config.displaySymbol} ajouté au panier`
+        ? `${row.config.displaySymbol} added to favorites (cart)`
+        : `${row.config.displaySymbol} added to cart`
     );
     this.pushRemoteIfAuth();
   }
@@ -193,18 +193,18 @@ export class MarketCartService {
     const address = this.wallet.address();
     if (!this.auth.isAuthenticated()) {
       this.auth.openDrawer('login');
-      this.lastMessage.set('Connexion requise pour payer');
+      this.lastMessage.set('Sign in required to pay');
       return;
     }
     if (!address) {
       window.dispatchEvent(new CustomEvent('dock-open-panel', { detail: { panel: 'wallet' } }));
-      this.lastMessage.set('Créez un wallet pour payer');
+      this.lastMessage.set('Create a wallet to pay');
       return;
     }
 
     const source = options?.items ?? this.itemsSignal();
     if (source.length === 0) {
-      this.lastMessage.set('Panier vide');
+      this.lastMessage.set('Cart vide');
       return;
     }
 
@@ -220,7 +220,7 @@ export class MarketCartService {
         tap(() => this.wallet.requestBalanceRefresh()),
         catchError((err) => {
           const message =
-            err?.error?.message || err?.message || 'Checkout impossible — solde ou connexion';
+            err?.error?.message || err?.message || 'Checkout failed — balance or connection';
           this.lastMessage.set(String(message));
           return of(null);
         })

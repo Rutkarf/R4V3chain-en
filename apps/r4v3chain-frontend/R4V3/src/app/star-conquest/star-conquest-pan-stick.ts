@@ -25,7 +25,7 @@ import {
       <div
         class="sc-pan-stick"
         role="application"
-        aria-label="Déplacer l’univers Conquête stellaire"
+        aria-label="Pan Star Conquest universe"
         (pointerdown)="onDown($event)"
         (pointermove)="onMove($event)"
         (pointerup)="onUp($event)"

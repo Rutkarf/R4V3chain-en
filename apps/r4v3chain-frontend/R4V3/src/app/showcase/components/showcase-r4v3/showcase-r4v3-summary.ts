@@ -66,9 +66,9 @@ export class ShowcaseR4v3SummaryComponent implements OnInit, OnDestroy {
   readonly whitepaperAriaLabel = computed(() => {
     const error = this.whitepaperError();
     if (this.whitepaperLoading()) {
-      return 'Téléchargement du white paper…';
+      return 'Downloading white paper…';
     }
-    return error ? `Livre blanc — ${error}` : 'Télécharger le white paper R4V3';
+    return error ? `White paper — ${error}` : 'Download R4V3 white paper';
   });
 
   ngOnInit(): void {
@@ -92,7 +92,7 @@ export class ShowcaseR4v3SummaryComponent implements OnInit, OnDestroy {
 
   barAriaLabel(): string {
     const pillar = `${this.pillarLabel()}${this.pillarDetail() ? ` · ${this.pillarDetail()}` : ''}`;
-    return `1 R4V3 = 1 CHF. ${pillar}. Cliquer pour développer.`;
+    return `1 R4V3 = 1 CHF. ${pillar}. Click to expand.`;
   }
 
   pillarLabel(): string {
@@ -134,7 +134,7 @@ export class ShowcaseR4v3SummaryComponent implements OnInit, OnDestroy {
     this.whitepaperLoading.set(false);
 
     if (!result.ok) {
-      this.whitepaperError.set(result.message ?? 'Indisponible');
+      this.whitepaperError.set(result.message ?? 'Unavailable');
       window.setTimeout(() => this.whitepaperError.set(''), 4_000);
     }
   }

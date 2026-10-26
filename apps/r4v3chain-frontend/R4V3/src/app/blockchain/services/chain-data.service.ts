@@ -78,7 +78,7 @@ export class ChainDataService {
 
   async refreshBlocks(force = false, query?: ChainExplorerQuery): Promise<void> {
     if (this.isRateLimited()) {
-      this.error.set('Trop de requêtes — pause d’1 minute.');
+      this.error.set('Too many requests — 1-minute pause.');
       return;
     }
 
@@ -123,7 +123,7 @@ export class ChainDataService {
       } catch (err) {
         this.handleRateLimit(err);
         if (!this.isRateLimited()) {
-          this.error.set('Impossible de charger la blockchain.');
+          this.error.set('Unable to load the blockchain.');
         }
       } finally {
         this.loading.set(false);
@@ -177,7 +177,7 @@ export class ChainDataService {
     const status = (error as { status?: number })?.status;
     if (status === 429) {
       this.rateLimitedUntil.set(Date.now() + ChainDataService.RATE_LIMIT_BACKOFF_MS);
-      this.error.set('Trop de requêtes — nouvel essai dans 1 minute.');
+      this.error.set('Too many requests — try again in 1 minute.');
     }
   }
 }

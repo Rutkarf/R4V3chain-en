@@ -9,11 +9,11 @@ export interface NewsTimeGroup {
 }
 
 const GROUP_LABELS: Record<NewsTimeGroupKey, string> = {
-  instant: "À l'instant",
-  hour: 'Cette heure',
-  today: "Aujourd'hui",
-  yesterday: 'Hier',
-  earlier: 'Plus tôt',
+  instant: "Just now",
+  hour: 'This hour',
+  today: "Today",
+  yesterday: 'Yesterday',
+  earlier: 'Earlier',
 };
 
 const HASH_PATTERN = /\b([a-f0-9]{12,})\b/gi;
@@ -33,13 +33,15 @@ export function newsCategoryAbbrev(category: string, source?: NewsItem['source']
   }
 
   switch (category.toLowerCase()) {
-    case 'réseau':
+    case 'network':
+    case 'reseau':
       return 'NET';
     case 'peers':
       return 'P2P';
     case 'r4v3':
       return 'R4';
-    case 'écosystème':
+    case 'ecosystem':
+    case 'ecosysteme':
     case 'd.a.o':
       return 'DAO';
     default:
@@ -71,7 +73,7 @@ export function formatNewsDisplayTitle(item: NewsItem): string {
   switch (item.actionType) {
     case 'VIEW_BLOCK':
       if (blockIndex) {
-        return `Bloc #${blockIndex} confirmé`;
+        return `Block #${blockIndex} confirmed`;
       }
       break;
     case 'VIEW_PENDING':
@@ -86,14 +88,14 @@ export function formatNewsDisplayTitle(item: NewsItem): string {
       if (/peer|nœud|node/i.test(item.title)) {
         return item.title;
       }
-      return 'Pairs du réseau mis à jour';
+      return 'Network peers updated';
     case 'OPEN_FAUCET':
-      return item.title.includes('faucet') ? item.title : 'Faucet disponible';
+      return item.title.includes('faucet') ? item.title : 'Faucet available';
     case 'OPEN_SWAP':
       if (/swap/i.test(item.title)) {
         return item.title;
       }
-      return 'Swap exécuté sur le testnet';
+      return 'Swap executed on testnet';
     case 'OPEN_WALLET':
       return item.title;
     default:
@@ -101,7 +103,7 @@ export function formatNewsDisplayTitle(item: NewsItem): string {
   }
 
   if (item.source === 'EDITORIAL' && /bienvenue/i.test(item.title)) {
-    return 'Bienvenue sur R4V3 Explorer';
+    return 'Welcome to R4V3 Explorer';
   }
 
   return abbreviateHashesInText(item.title);

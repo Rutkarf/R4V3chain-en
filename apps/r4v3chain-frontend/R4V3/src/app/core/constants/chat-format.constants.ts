@@ -43,17 +43,17 @@ export const CHAT_FORMAT_STYLE_PRESETS: {
 }[] = [
   {
     label: 'N',
-    title: 'Neon — cyan gras',
+    title: 'Neon — bold cyan',
     patch: { fontColor: '#8b9dad', bold: true, highlightColor: 'transparent' },
   },
   {
     label: '✓',
-    title: 'Validé — vert gras',
+    title: 'Validated — bold green',
     patch: { fontColor: '#09814a', bold: true, highlightColor: 'transparent' },
   },
   {
     label: '!',
-    title: 'Alerte — orange souligné',
+    title: 'Alert — underlined orange',
     patch: { fontColor: '#7b0d1e', bold: true, underline: true, highlightColor: 'transparent' },
   },
 ];
@@ -62,25 +62,25 @@ export const CHAT_FORMAT_STYLE_PRESETS: {
 export const CHAT_FONT_SIZE_OPTIONS = ['8'] as const;
 
 export const CHAT_FONT_COLOR_PRESETS: { label: string; value: string }[] = [
-  { label: 'Blanc', value: '#ede7d9' },
-  { label: 'Noir', value: '#0a1220' },
-  { label: 'Gris', value: '#8b9dad' },
+  { label: 'White', value: '#ede7d9' },
+  { label: 'Black', value: '#0a1220' },
+  { label: 'Gray', value: '#8b9dad' },
   { label: 'Orange', value: '#7b0d1e' },
   { label: 'Violet', value: '#0a1220' },
-  { label: 'Vert', value: '#09814a' },
+  { label: 'Green', value: '#09814a' },
   { label: 'Cyan', value: '#8b9dad' },
-  { label: 'Bleu', value: '#8b9dad' },
-  { label: 'Violet', value: '#8b9dad' },
-  { label: 'Rose', value: '#ede7d9' },
+  { label: 'Blue', value: '#8b9dad' },
+  { label: 'Purple', value: '#8b9dad' },
+  { label: 'Pink', value: '#ede7d9' },
 ];
 
 export const CHAT_HIGHLIGHT_PRESETS: { label: string; value: string }[] = [
-  { label: 'Aucun', value: 'transparent' },
-  { label: 'Violet sombre', value: '#0a1220' },
-  { label: 'Vert', value: '#09814a' },
+  { label: 'None', value: 'transparent' },
+  { label: 'Dark violet', value: '#0a1220' },
+  { label: 'Green', value: '#09814a' },
   { label: 'Cyan', value: '#ede7d9' },
-  { label: 'Rose', value: '#7b0d1e' },
-  { label: 'Gris', value: '#ede7d9' },
+  { label: 'Pink', value: '#7b0d1e' },
+  { label: 'Gray', value: '#ede7d9' },
 ];
 
 /** Grille thème type Word — 10 colonnes */

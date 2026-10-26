@@ -42,10 +42,10 @@ export class BandeauAccueilComponent
   @ViewChild('viewport', { read: ElementRef })
   viewportRef?: ElementRef<HTMLElement>;
 
-  /** Champs historiques — synchronisés avec NavbarTickerStateService. */
+  /** Champs historiques — synceds avec NavbarTickerStateService. */
   message1 = '';
-  lastTransaction = 'Chargement...';
-  lastTransactionShort = 'Chargement...';
+  lastTransaction = 'Loading...';
+  lastTransactionShort = 'Loading...';
   userCount = 0;
 
   marqueeCopies: number[] = [0, 1];
@@ -69,7 +69,7 @@ export class BandeauAccueilComponent
       const segments = this.ticker.segments();
       this.message1 = segments.find((s) => s.id === 'network')?.value ?? 'R4V3CHAIN';
       this.lastTransactionShort =
-        segments.find((s) => s.id === 'tx')?.value ?? 'Aucune transaction récente';
+        segments.find((s) => s.id === 'tx')?.value ?? 'No recent transaction';
       this.lastTransaction = this.lastTransactionShort;
       const peers = segments.find((s) => s.id === 'peers')?.value ?? '0';
       this.userCount = Number.parseInt(peers.split('/')[0], 10) || 0;
@@ -244,14 +244,14 @@ export class BandeauAccueilComponent
           }
         },
         error: (error: unknown) => {
-          console.error('Erreur live updates:', error);
+          console.error('Error live updates:', error);
         },
       });
   }
 
   private applyLatestTransaction(transactions: PendingTransaction[]): void {
     if (!transactions || transactions.length === 0) {
-      this.lastTransaction = 'Aucune transaction récente';
+      this.lastTransaction = 'No recent transaction';
       this.lastTransactionShort = this.lastTransaction;
       return;
     }

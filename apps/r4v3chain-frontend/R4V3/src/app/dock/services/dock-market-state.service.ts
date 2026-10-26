@@ -31,7 +31,7 @@ export class DockMarketStateService {
   readonly statusLabel = computed(() => {
     switch (this.phase()) {
       case 'error':
-        return 'Erreur';
+        return 'Error';
       case 'loading':
         return 'Synchro…';
       default:

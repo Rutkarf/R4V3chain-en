@@ -19,7 +19,7 @@ interface RingFx {
 }
 
 /**
- * FX Éliminer pour gagner — beams épais, muzzle, sparks, anneau KO.
+ * FX Eliminate to earn — beams épais, muzzle, sparks, anneau KO.
  */
 @Injectable({ providedIn: 'root' })
 export class ArenaFxService {

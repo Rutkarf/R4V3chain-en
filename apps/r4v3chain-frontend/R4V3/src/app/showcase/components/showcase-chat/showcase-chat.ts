@@ -85,7 +85,7 @@ export class ShowcaseChatComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly openMenu = signal<ChatMenuId>(null);
   readonly searchQuery = signal('');
   readonly searchExpanded = signal(false);
-  /** Poster sous le pseudonyme Anonymous (compte connecté requis). */
+  /** Post under the Anonymous pseudonym (signed-in account required). */
   readonly postAsAnonymous = signal(false);
 
   readonly filteredMessages = computed(() => {
@@ -113,38 +113,38 @@ export class ShowcaseChatComponent implements OnInit, AfterViewInit, OnDestroy {
     if (username) {
       return formatChatDisplayName(username);
     }
-    return 'Compte';
+    return 'Account';
   });
 
   readonly postIdentityTitle = computed(() => {
     const username = this.auth.user()?.username?.trim();
     if (username) {
-      return `Poster en tant que ${formatChatDisplayName(username)}`;
+      return `Post as ${formatChatDisplayName(username)}`;
     }
-    return 'Poster avec votre compte (connexion requise)';
+    return 'Post with your account (sign-in required)';
   });
 
   readonly postAnonymousTitle = computed(() =>
     this.auth.isAuthenticated()
-      ? 'Poster en Anonymous (compte connecté)'
-      : 'Connexion requise pour poster en Anonymous'
+      ? 'Post as Anonymous (signed in)'
+      : 'Sign in required to post as Anonymous'
   );
 
   readonly sendButtonLabel = computed(() => {
     const author = this.postAsAnonymous()
       ? CHAT_ANONYMOUS_AUTHOR
       : this.postIdentityLabel();
-    return `Envoyer le message en tant que ${author}`;
+    return `Send message as ${author}`;
   });
 
   readonly composerPlaceholder = computed(() => {
     if (!this.auth.isAuthenticated()) {
-      return 'Connexion requise pour écrire…';
+      return 'Sign in required to write…';
     }
     if (this.postAsAnonymous()) {
       return 'Message anonyme…';
     }
-    return 'Tape ton message…';
+    return 'Type your message…';
   });
 
   ngOnInit(): void {
@@ -323,7 +323,7 @@ export class ShowcaseChatComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   protected refreshAriaLabel(): string {
-    return this.chatState.refreshing() ? 'Actualisation du chat…' : 'Actualiser le chat';
+    return this.chatState.refreshing() ? 'Actualisation du chat…' : 'Refresh chat';
   }
 
   protected onCustomFontColor(event: Event): void {
@@ -342,7 +342,7 @@ export class ShowcaseChatComponent implements OnInit, AfterViewInit, OnDestroy {
     event?.stopPropagation();
 
     if (anonymous && !this.auth.promptLogin()) {
-      this.chat.setSendError('Connectez-vous pour poster en Anonymous.');
+      this.chat.setSendError('Sign in to post as Anonymous.');
       return;
     }
 
@@ -357,7 +357,7 @@ export class ShowcaseChatComponent implements OnInit, AfterViewInit, OnDestroy {
   protected sendMessage(): void {
     if (!this.auth.promptLogin() || !this.auth.isAuthenticated()) {
       this.postAsAnonymous.set(false);
-      this.chat.setSendError('Connectez-vous pour envoyer un message.');
+      this.chat.setSendError('Sign in to send a message.');
       return;
     }
 
@@ -376,7 +376,7 @@ export class ShowcaseChatComponent implements OnInit, AfterViewInit, OnDestroy {
     } else {
       const username = this.auth.user()?.username?.trim();
       if (!username) {
-        this.chat.setSendError('Connectez-vous pour envoyer un message.');
+        this.chat.setSendError('Sign in to send a message.');
         return;
       }
       this.chat.setUsername(username);

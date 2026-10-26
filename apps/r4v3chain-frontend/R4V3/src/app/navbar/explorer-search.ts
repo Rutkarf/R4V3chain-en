@@ -144,7 +144,7 @@ export class ExplorerSearchComponent {
             return;
           }
 
-          this.errorMessage.set('Bloc introuvable dans la chaîne locale.');
+          this.errorMessage.set('Block not found on the local chain.');
         });
       return;
     }
@@ -153,7 +153,7 @@ export class ExplorerSearchComponent {
       this.errorMessage.set(
         result.balance != null
           ? `Solde ${result.address}: ${result.balance} R4V3`
-          : 'Adresse trouvée.'
+          : 'Address found.'
       );
     }
   }

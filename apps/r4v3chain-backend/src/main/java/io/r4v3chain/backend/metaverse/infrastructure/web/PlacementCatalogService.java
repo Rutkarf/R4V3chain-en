@@ -40,7 +40,7 @@ public class PlacementCatalogService {
     static final double DEFAULT_EAST = 5.394;
 
     private static final String DEV_NOTICE =
-            "DEV — emplacement fictif, non contractuel, aucun partenaire réel associé.";
+            "DEV — fictional placement, non-contractual, no real partner associated.";
 
     private final Clock clock;
     private final List<PlacementBuildingDto> buildings;
@@ -76,7 +76,7 @@ public class PlacementCatalogService {
 
     public MetaversePlacementsResponse list(double south, double north, double west, double east) {
         if (south >= north || west >= east) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bounding box invalide");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid bounding box");
         }
 
         List<SponsoredPlacementDto> inBounds = placements.stream()
@@ -108,11 +108,11 @@ public class PlacementCatalogService {
     public MetaversePlacementDetailResponse getById(String id) {
         SponsoredPlacementDto placement = placementsById.get(id);
         if (placement == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Emplacement introuvable");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Placement not found");
         }
         PlacementBuildingDto building = buildingsById.get(placement.buildingId());
         if (building == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Emplacement introuvable");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Placement not found");
         }
         String merchantId = placement.merchantId();
         String campaignId = placement.campaignId();
@@ -131,12 +131,12 @@ public class PlacementCatalogService {
     public PlacementInquiryResponseDto submitInquiry(String placementId, PlacementInquiryRequestDto request) {
         if (request != null && request.placementId() != null && !request.placementId().isBlank()
                 && !request.placementId().equals(placementId)) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Identifiant d'emplacement incohérent");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Inconsistent placement id");
         }
 
         SponsoredPlacementDto placement = placementsById.get(placementId);
         if (placement == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Emplacement introuvable");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Placement not found");
         }
 
         PlacementBuildingDto building = buildingsById.get(placement.buildingId());
@@ -149,14 +149,14 @@ public class PlacementCatalogService {
             return new PlacementInquiryResponseDto(
                     nextInquiryId(),
                     PlacementInquiryResponseDto.REJECTED,
-                    "Demande indisponible pour cet emplacement."
+                    "Request unavailable for this placement."
             );
         }
 
         PlacementInquiryResponseDto response = new PlacementInquiryResponseDto(
                 nextInquiryId(),
                 PlacementInquiryResponseDto.RECEIVED,
-                "Demande reçue. Aucune réservation n'est effectuée."
+                "Request received. No reservation is made."
         );
         inquiries.put(response.inquiryId(), response);
         return response;
@@ -229,7 +229,7 @@ public class PlacementCatalogService {
         return List.of(
                 new PlacementBuildingDto(
                         "mirror-adjacent-building-01",
-                        "DEV — Immeuble nord-est Ombrière",
+                        "DEV — Northeast Canopy building",
                         new PlacementGeoDto(43.2946586, 5.3748354, null, "verified"),
                         world(57.75, 0, -6.58),
                         "ground-storefront-v1",
@@ -237,7 +237,7 @@ public class PlacementCatalogService {
                 ),
                 new PlacementBuildingDto(
                         "mirror-adjacent-building-02",
-                        "DEV — Immeuble nord Ombrière",
+                        "DEV — North Canopy building",
                         new PlacementGeoDto(43.2948273, 5.3747644, null, "verified"),
                         world(51.99, 0, -25.36),
                         "ground-storefront-v1",
@@ -245,7 +245,7 @@ public class PlacementCatalogService {
                 ),
                 new PlacementBuildingDto(
                         "harbor-west-building",
-                        "DEV — Façade ouest Vieux-Port",
+                        "DEV — West Old Port facade",
                         new PlacementGeoDto(43.2938272, 5.3737823, null, "approximate"),
                         world(-27.58, 0, 85.98),
                         "ground-storefront-v1",
@@ -253,7 +253,7 @@ public class PlacementCatalogService {
                 ),
                 new PlacementBuildingDto(
                         "harbor-east-building",
-                        "DEV — Hôtel des Princes (inventaire fictif)",
+                        "DEV — Princes Hotel (fictional inventory)",
                         new PlacementGeoDto(43.294698, 5.375526, null, "verified"),
                         world(113.7, 0, -10.96),
                         "ground-storefront-v1",
@@ -364,7 +364,7 @@ public class PlacementCatalogService {
                         "DEV — Partenaire exemple",
                         "demo",
                         "unverified",
-                        new MerchantProfileDto.PublicProfileDto(DEV_NOTICE, "Démonstration")
+                        new MerchantProfileDto.PublicProfileDto(DEV_NOTICE, "Demonstration")
                 ),
                 new MerchantProfileDto(
                         "dev-merchant-quai",
@@ -384,7 +384,7 @@ public class PlacementCatalogService {
                         "dev-merchant-vitrine",
                         "DEV — Campagne exemple",
                         new PlacementCampaignDto.CreativeDto(
-                                "Emplacement sponsorisable (démo)",
+                                "Sponsorable placement (demo)",
                                 DEV_NOTICE
                         ),
                         new PlacementCampaignDto.CtaDto("inquiry", "Demander un devis"),

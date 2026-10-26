@@ -22,7 +22,7 @@ import { CollapsedBarActionsComponent } from '../../../components/collapsed-bar-
 export class ShowcaseChartSummaryComponent {
   protected readonly state = inject(ChartSummaryStateService);
 
-  readonly collapseAriaLabel = input('Déplier le graphique');
+  readonly collapseAriaLabel = input('Expand chart');
   readonly collapseToggle = output<void>();
 
   @HostBinding('class')

@@ -100,6 +100,6 @@ describe('r4v3-chart.util', () => {
     expect(r4v3ViewHint('flow')).toContain('Flux');
     expect(r4v3ViewHint('pulse')).toContain('Pulse');
     expect(r4v3ViewHint('fuel')).toContain('laboratoire');
-    expect(r4v3ViewHint('health')).toContain('Santé');
+    expect(r4v3ViewHint('health')).toContain('Health');
   });
 });

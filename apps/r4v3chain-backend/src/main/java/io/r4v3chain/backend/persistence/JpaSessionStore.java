@@ -35,7 +35,7 @@ public class JpaSessionStore implements SessionStore {
     @Transactional
     public String createSession(String userId) {
         if (!legacySessionEnabled) {
-            throw new IllegalStateException("session legacy désactivée");
+            throw new IllegalStateException("legacy session disabled");
         }
         UUID token = UUID.randomUUID();
         Instant now = Instant.now();

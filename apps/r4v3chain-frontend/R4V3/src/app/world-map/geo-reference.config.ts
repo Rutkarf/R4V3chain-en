@@ -137,7 +137,7 @@ export const GEOGRAPHIC_DATA_SOURCES: readonly GeographicDataSource[] = [
     pathOrEndpoint: 'WigleVisualizationService.java',
     coordinateSystem: 'EPSG:4326',
     coverage: 'Agrégats WiFi mock',
-    accuracy: 'low — métadonnées réseau',
+    accuracy: 'low — métadonnées network',
     isAuthorized: true,
     isUsed: true,
   },
@@ -313,7 +313,7 @@ export interface WigleProfessionalAnchor {
   signalStrength: number;
 }
 
-/** Points WiGLE / réseau professionnels — coordonnées GPS réelles (landmarks + POI Vieux-Port). */
+/** Points WiGLE / network professionnels — coordonnées GPS réelles (landmarks + POI Vieux-Port). */
 export const WIGLE_PROFESSIONAL_ANCHORS: readonly WigleProfessionalAnchor[] = [
   {
     id: 'vp-ombriere',

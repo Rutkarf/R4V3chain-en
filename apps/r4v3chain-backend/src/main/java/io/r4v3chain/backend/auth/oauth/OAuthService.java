@@ -146,7 +146,7 @@ public class OAuthService {
     public URI completeAuthorization(OAuthProvider provider, String code, String state) {
         if (code != null && code.startsWith(DEV_MOCK_CODE_PREFIX)) {
             if (!oauthProperties.isDevMockEnabled()) {
-                throw new AuthException(403, "OAuth mock désactivé");
+                throw new AuthException(403, "OAuth mock disabled");
             }
 
             String frontendRedirect = stateStore.consumeRedirectUri(state)
@@ -182,7 +182,7 @@ public class OAuthService {
 
     public UserAccount consumeExchangeCode(String code) {
         return exchangeCodeStore.consume(code)
-                .orElseThrow(() -> new AuthException(401, "Code OAuth invalide ou expiré"));
+                .orElseThrow(() -> new AuthException(401, "OAuth code invalid or expired"));
     }
 
     private URI redirectWithExchangeCode(String frontendRedirect, UserAccount account) {
@@ -224,7 +224,7 @@ public class OAuthService {
                 .body(GoogleTokenResponse.class);
 
         if (token == null || token.accessToken() == null || token.accessToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code Google");
+            throw new AuthException(502, "Unable to exchange Google code");
         }
 
         GoogleUserInfo profile = restClient.get()
@@ -261,7 +261,7 @@ public class OAuthService {
                 .body(MetaTokenResponse.class);
 
         if (token == null || token.accessToken() == null || token.accessToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code Meta");
+            throw new AuthException(502, "Unable to exchange Meta code");
         }
 
         MetaUserInfo profile = restClient.get()
@@ -303,7 +303,7 @@ public class OAuthService {
                 .body(AppleTokenResponse.class);
 
         if (token == null || token.idToken() == null || token.idToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code Apple");
+            throw new AuthException(502, "Unable to exchange Apple code");
         }
 
         AppleIdTokenClaims claims = parseAppleIdToken(token.idToken());
@@ -340,7 +340,7 @@ public class OAuthService {
                 .body(StandardTokenResponse.class);
 
         if (token == null || token.accessToken() == null || token.accessToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code Microsoft");
+            throw new AuthException(502, "Unable to exchange Microsoft code");
         }
 
         MicrosoftUserInfo profile = restClient.get()
@@ -385,7 +385,7 @@ public class OAuthService {
                 .body(StandardTokenResponse.class);
 
         if (token == null || token.accessToken() == null || token.accessToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code GitHub");
+            throw new AuthException(502, "Unable to exchange GitHub code");
         }
 
         GitHubUserInfo profile = restClient.get()
@@ -438,7 +438,7 @@ public class OAuthService {
                 .body(StandardTokenResponse.class);
 
         if (token == null || token.accessToken() == null || token.accessToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code X");
+            throw new AuthException(502, "Unable to exchange X code");
         }
 
         XUserResponse profile = restClient.get()
@@ -479,7 +479,7 @@ public class OAuthService {
                 .body(StandardTokenResponse.class);
 
         if (token == null || token.accessToken() == null || token.accessToken().isBlank()) {
-            throw new AuthException(502, "Impossible d'échanger le code Discord");
+            throw new AuthException(502, "Unable to exchange Discord code");
         }
 
         DiscordUserInfo profile = restClient.get()
@@ -537,7 +537,7 @@ public class OAuthService {
         try {
             String[] parts = idToken.split("\\.");
             if (parts.length < 2) {
-                throw new AuthException(502, "Jeton Apple invalide");
+                throw new AuthException(502, "Invalid Apple token");
             }
 
             String payloadJson = new String(Base64.getUrlDecoder().decode(parts[1]), StandardCharsets.UTF_8);
@@ -545,13 +545,13 @@ public class OAuthService {
         } catch (AuthException exception) {
             throw exception;
         } catch (Exception exception) {
-            throw new AuthException(502, "Impossible de lire le jeton Apple");
+            throw new AuthException(502, "Unable to read Apple token");
         }
     }
 
     private String requireEmail(String email, String providerLabel) {
         if (email == null || email.isBlank()) {
-            throw new AuthException(400, providerLabel + " n'a pas fourni d'adresse email");
+            throw new AuthException(400, providerLabel + " did not provide an email address");
         }
 
         return email.trim();
@@ -598,7 +598,7 @@ public class OAuthService {
             case GITHUB -> oauthProperties.getGithub();
             case X -> oauthProperties.getX();
             case DISCORD -> oauthProperties.getDiscord();
-            case APPLE -> throw new IllegalArgumentException("Apple utilise une configuration dédiée");
+            case APPLE -> throw new IllegalArgumentException("Apple uses a dedicated configuration");
         };
     }
 
@@ -618,11 +618,11 @@ public class OAuthService {
     private AuthException unavailableProviderException(OAuthProvider provider) {
         return new AuthException(
                 503,
-                "Connexion " + provider.label()
-                        + " non configurée. Renseignez OAUTH_"
+                provider.label()
+                        + " login is not configured. Set OAUTH_"
                         + provider.id().toUpperCase()
-                        + "_ENABLED=true et les credentials client, "
-                        + "ou désactivez le bouton jusqu’à configuration."
+                        + "_ENABLED=true and the client credentials, "
+                        + "or disable the button until configured."
         );
     }
 
@@ -651,7 +651,7 @@ public class OAuthService {
             byte[] hash = digest.digest(codeVerifier.getBytes(StandardCharsets.US_ASCII));
             return Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
         } catch (Exception exception) {
-            throw new AuthException(500, "Impossible de générer le challenge PKCE");
+            throw new AuthException(500, "Unable to generate PKCE challenge");
         }
     }
 

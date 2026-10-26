@@ -10,12 +10,12 @@ export const SHOWCASE_TABS: ReadonlyArray<{
   id: ShowcaseTab;
   label: string;
 }> = [
-  { id: 'rv23', label: 'TCHAT' },
+  { id: 'rv23', label: 'CHAT' },
   { id: 'daonews', label: 'D.A.O' },
-  { id: 'dao', label: 'LABO' },
-  { id: 'market', label: 'MARCHÉ' },
+  { id: 'dao', label: 'LAB' },
+  { id: 'market', label: 'MARKET' },
   { id: 'r4v3', label: 'R4V3' },
-  { id: 'tours', label: 'ACTUS' },
+  { id: 'tours', label: 'NEWS' },
 ];
 
 /** Anciens identifiants showcase → onglets hub maquette. */
@@ -41,7 +41,7 @@ export function newsCategoryForTab(tab: ShowcaseTab): string {
     case 'r4v3':
       return 'R4V3';
     case 'daonews':
-      return 'Écosystème';
+      return 'Ecosystem';
     default:
       return 'all';
   }

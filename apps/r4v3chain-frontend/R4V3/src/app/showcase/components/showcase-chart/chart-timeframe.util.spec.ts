@@ -28,8 +28,8 @@ describe('chart timeframe menu (CoinGecko only)', () => {
   });
 
   it('filters intervals by active API range', () => {
-    expect(buildTimeframeMenuSections('24h')[0]?.title).toBe('Période');
-    expect(buildTimeframeMenuSections('7d')[0]?.title).toBe('Période');
+    expect(buildTimeframeMenuSections('24h')[0]?.title).toBe('Period');
+    expect(buildTimeframeMenuSections('7d')[0]?.title).toBe('Period');
     expect(buildTimeframeMenuSections('365d')[0]?.options.map((o) => o.id)).toEqual(['1d']);
   });
 

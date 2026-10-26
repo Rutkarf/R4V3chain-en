@@ -174,13 +174,13 @@ export class LaunchFormDrawerComponent {
     }
 
     if (!file.type.startsWith('image/')) {
-      this.logoError.set('Format image requis (PNG, JPG, SVG, WebP).');
+      this.logoError.set('Image format required (PNG, JPG, SVG, WebP).');
       inputEl.value = '';
       return;
     }
 
     if (file.size > LOGO_MAX_BYTES) {
-      this.logoError.set('Logo trop volumineux (max 200 Ko).');
+      this.logoError.set('Logo too large (max 200 KB).');
       inputEl.value = '';
       return;
     }
@@ -192,7 +192,7 @@ export class LaunchFormDrawerComponent {
       this.logoError.set(null);
     };
     reader.onerror = () => {
-      this.logoError.set('Lecture du logo impossible.');
+      this.logoError.set('Could not read logo.');
     };
     reader.readAsDataURL(file);
   }

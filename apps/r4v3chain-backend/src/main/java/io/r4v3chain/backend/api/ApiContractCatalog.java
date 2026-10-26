@@ -5,7 +5,7 @@ import io.r4v3chain.backend.config.ApiRoutes;
 import java.util.List;
 
 /**
- * Phase AA — catalogue de contrat API natif (maintenu dans le dépôt, sans OpenAPI/Swagger).
+ * Phase AA — native API contract catalog (maintained in-repo, no OpenAPI/Swagger).
  */
 public final class ApiContractCatalog {
 
@@ -17,30 +17,30 @@ public final class ApiContractCatalog {
                 "0.17.0",
                 "v1",
                 "application/problem+json",
-                "Les routes /api/* legacy restent actives avec en-têtes Deprecation.",
+                "Legacy /api/* routes remain active with Deprecation headers.",
                 List.of(
-                        endpoint("GET", ApiRoutes.OPS_SNAPSHOT_V1, true, "Snapshot observabilité native (ADMIN, panel admin)"),
-                        endpoint("GET", ApiRoutes.ADMIN_STATUS_V1, false, "Statut panel admin (seed configurée ?)"),
-                        endpoint("POST", ApiRoutes.ADMIN_UNLOCK_V1, false, "Unlock panel admin via seed 24 mots"),
+                        endpoint("GET", ApiRoutes.OPS_SNAPSHOT_V1, true, "Native observability snapshot (ADMIN, admin panel)"),
+                        endpoint("GET", ApiRoutes.ADMIN_STATUS_V1, false, "Admin panel status (seed configured?)"),
+                        endpoint("POST", ApiRoutes.ADMIN_UNLOCK_V1, false, "Unlock admin panel via 24-word seed"),
                         endpoint("GET", ApiRoutes.ADMIN_EXPORT_V1, true, "Export evidence pack json|txt|csv (header X-Admin-Unlock-Token)"),
-                        endpoint("GET", ApiRoutes.CHAIN_CONFIG_V1, false, "Métadonnées chaîne native EVM-compatible"),
-                        endpoint("POST", ApiRoutes.WALLETS_GENERATE_EVM_V1, false, "Générer wallet secp256k1 (dev/démo)"),
-                        endpoint("GET", ApiRoutes.HEALTH_V1, false, "Santé et flags produit"),
-                        endpoint("GET", ApiRoutes.CONTRACT_V1, false, "Ce catalogue de contrat"),
-                        endpoint("POST", ApiRoutes.AUTH_REGISTER_V1, false, "Inscription utilisateur"),
-                        endpoint("POST", ApiRoutes.AUTH_LOGIN_V1, false, "Connexion (identifier + password)"),
-                        endpoint("POST", ApiRoutes.AUTH_REFRESH_V1, false, "Renouveler access token (refreshToken)"),
-                        endpoint("POST", ApiRoutes.AUTH_LOGOUT_V1, true, "Déconnexion session Bearer"),
-                        endpoint("GET", ApiRoutes.AUTH_ME_V1, true, "Profil utilisateur courant"),
-                        endpoint("PUT", ApiRoutes.AUTH_LINK_WALLET_V1, true, "Lier un wallet au compte"),
-                        endpoint("GET", ApiRoutes.BLOCKCHAIN_CHAIN_V1, false, "Chaîne complète"),
-                        endpoint("GET", ApiRoutes.BLOCKCHAIN_STATS_V1, false, "Statistiques blockchain"),
-                        endpoint("GET", ApiRoutes.BLOCKCHAIN_VALID_V1, false, "Validité de la chaîne"),
-                        endpoint("GET", ApiRoutes.BLOCKCHAIN_BLOCKS_V1, false, "Liste des blocs"),
-                        endpoint("GET", ApiRoutes.BLOCKCHAIN_BLOCKS_LATEST_V1, false, "Dernier bloc"),
-                        endpoint("GET", ApiRoutes.BLOCKCHAIN_PENDING_V1, false, "Transactions en attente"),
-                        endpoint("GET", ApiRoutes.EXPLORER_SEARCH_V1, false, "Recherche explorer (param q)"),
-                        endpoint("GET", ApiRoutes.EXPLORER_BLOCKS_V1, false, "Blocs filtrés (wallet, from, to, limit)")
+                        endpoint("GET", ApiRoutes.CHAIN_CONFIG_V1, false, "Native EVM-compatible chain metadata"),
+                        endpoint("POST", ApiRoutes.WALLETS_GENERATE_EVM_V1, false, "Generate secp256k1 wallet (dev/demo)"),
+                        endpoint("GET", ApiRoutes.HEALTH_V1, false, "Health and product flags"),
+                        endpoint("GET", ApiRoutes.CONTRACT_V1, false, "This contract catalog"),
+                        endpoint("POST", ApiRoutes.AUTH_REGISTER_V1, false, "User registration"),
+                        endpoint("POST", ApiRoutes.AUTH_LOGIN_V1, false, "Login (identifier + password)"),
+                        endpoint("POST", ApiRoutes.AUTH_REFRESH_V1, false, "Renew access token (refreshToken)"),
+                        endpoint("POST", ApiRoutes.AUTH_LOGOUT_V1, true, "Bearer session logout"),
+                        endpoint("GET", ApiRoutes.AUTH_ME_V1, true, "Current user profile"),
+                        endpoint("PUT", ApiRoutes.AUTH_LINK_WALLET_V1, true, "Link a wallet to the account"),
+                        endpoint("GET", ApiRoutes.BLOCKCHAIN_CHAIN_V1, false, "Full chain"),
+                        endpoint("GET", ApiRoutes.BLOCKCHAIN_STATS_V1, false, "Blockchain statistics"),
+                        endpoint("GET", ApiRoutes.BLOCKCHAIN_VALID_V1, false, "Chain validity"),
+                        endpoint("GET", ApiRoutes.BLOCKCHAIN_BLOCKS_V1, false, "List of blocks"),
+                        endpoint("GET", ApiRoutes.BLOCKCHAIN_BLOCKS_LATEST_V1, false, "Latest block"),
+                        endpoint("GET", ApiRoutes.BLOCKCHAIN_PENDING_V1, false, "Pending transactions"),
+                        endpoint("GET", ApiRoutes.EXPLORER_SEARCH_V1, false, "Explorer search (param q)"),
+                        endpoint("GET", ApiRoutes.EXPLORER_BLOCKS_V1, false, "Filtered blocks (wallet, from, to, limit)")
                 )
         );
     }

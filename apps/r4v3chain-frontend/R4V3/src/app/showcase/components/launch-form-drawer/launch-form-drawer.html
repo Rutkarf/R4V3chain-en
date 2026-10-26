@@ -15,11 +15,11 @@
       <app-launch-form-drawer-fx class="launch-drawer__fx" />
 
       <header class="launch-drawer__head">
-        <h2 id="launchFormTitle" class="launch-drawer__title">Lancer un projet</h2>
+        <h2 id="launchFormTitle" class="launch-drawer__title">Launch a project</h2>
         <button
           type="button"
           class="launch-drawer__close"
-          aria-label="Fermer le formulaire"
+          aria-label="Close form"
           [disabled]="submitting()"
           (click)="closeDrawer()"
         >
@@ -33,11 +33,11 @@
         }
 
         <form class="launch-drawer__form" [formGroup]="form" (ngSubmit)="submit()">
-          <p class="launch-drawer__section-title launch-drawer__span-all">Identité</p>
+          <p class="launch-drawer__section-title launch-drawer__span-all">Identity</p>
 
           <div class="launch-drawer__logo-cell">
             @if (logoPreview(); as preview) {
-              <img class="launch-drawer__logo-preview" [src]="preview" alt="Logo du jeton" />
+              <img class="launch-drawer__logo-preview" [src]="preview" alt="Token logo" />
             } @else {
               <span class="launch-drawer__logo-preview launch-drawer__logo-preview--empty" aria-hidden="true">?</span>
             }
@@ -45,7 +45,7 @@
               <span class="launch-drawer__label">Logo</span>
               <label class="launch-drawer__browse">
                 <span class="launch-drawer__browse-icon" aria-hidden="true"></span>
-                <span class="launch-drawer__browse-text">Importer</span>
+                <span class="launch-drawer__browse-text">Import</span>
                 <input
                   class="launch-drawer__browse-input"
                   type="file"
@@ -55,7 +55,7 @@
               </label>
             </div>
             @if (logoPreview()) {
-              <button type="button" class="launch-drawer__link-btn" (click)="clearLogo()" aria-label="Retirer le logo"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
+              <button type="button" class="launch-drawer__link-btn" (click)="clearLogo()" aria-label="Remove logo"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
             }
             @if (logoError(); as logoErr) {
               <span class="launch-drawer__field-hint launch-drawer__field-hint--err launch-drawer__span-all">{{ logoErr }}</span>
@@ -63,12 +63,12 @@
           </div>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Nom *</span>
+            <span class="launch-drawer__label">Name *</span>
             <input type="text" formControlName="name" maxlength="40" autocomplete="off" placeholder="Nova Protocol" />
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Symbole *</span>
+            <span class="launch-drawer__label">Symbol *</span>
             <input type="text" formControlName="symbol" maxlength="8" autocomplete="off" placeholder="NVP" />
           </label>
 
@@ -78,11 +78,11 @@
               formControlName="description"
               maxlength="600"
               rows="2"
-              placeholder="Utilité, public cible, promesse…"
+              placeholder="Utility, target audience, promise…"
             ></textarea>
           </label>
 
-          <p class="launch-drawer__section-title launch-drawer__span-all">Chaîne & tokenomics</p>
+          <p class="launch-drawer__section-title launch-drawer__span-all">Chain & tokenomics</p>
 
           <label class="launch-drawer__field">
             <span class="launch-drawer__label">Blockchain *</span>
@@ -94,84 +94,84 @@
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Offre *</span>
+            <span class="launch-drawer__label">Supply *</span>
             <span class="launch-drawer__number-wrap">
               <input class="launch-drawer__input-number" type="number" formControlName="totalSupply" min="1" step="1" placeholder="1e9" />
               <span class="launch-drawer__stepper" aria-hidden="true">
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Augmenter" (click)="stepNumber('totalSupply', 1)"></button>
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Diminuer" (click)="stepNumber('totalSupply', -1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Increase" (click)="stepNumber('totalSupply', 1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Decrease" (click)="stepNumber('totalSupply', -1)"></button>
               </span>
             </span>
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Décimales *</span>
+            <span class="launch-drawer__label">Decimals *</span>
             <span class="launch-drawer__number-wrap">
               <input class="launch-drawer__input-number" type="number" formControlName="decimals" min="0" max="18" step="1" />
               <span class="launch-drawer__stepper" aria-hidden="true">
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Augmenter" (click)="stepNumber('decimals', 1)"></button>
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Diminuer" (click)="stepNumber('decimals', -1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Increase" (click)="stepNumber('decimals', 1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Decrease" (click)="stepNumber('decimals', -1)"></button>
               </span>
             </span>
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Contrat</span>
+            <span class="launch-drawer__label">Contract</span>
             <input type="text" formControlName="contractAddress" autocomplete="off" placeholder="0x…" />
           </label>
 
-          <p class="launch-drawer__section-title launch-drawer__span-all">Levée & calendrier</p>
+          <p class="launch-drawer__section-title launch-drawer__span-all">Raise & schedule</p>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Objectif *</span>
+            <span class="launch-drawer__label">Target *</span>
             <span class="launch-drawer__number-wrap">
               <input class="launch-drawer__input-number" type="number" formControlName="targetAmount" min="1" step="100" placeholder="50000" />
               <span class="launch-drawer__stepper" aria-hidden="true">
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Augmenter" (click)="stepNumber('targetAmount', 1)"></button>
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Diminuer" (click)="stepNumber('targetAmount', -1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Increase" (click)="stepNumber('targetAmount', 1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Decrease" (click)="stepNumber('targetAmount', -1)"></button>
               </span>
             </span>
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Plafond</span>
+            <span class="launch-drawer__label">Hard cap</span>
             <span class="launch-drawer__number-wrap">
               <input class="launch-drawer__input-number" type="number" formControlName="hardCap" min="0" step="100" placeholder="100000" />
               <span class="launch-drawer__stepper" aria-hidden="true">
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Augmenter" (click)="stepNumber('hardCap', 1)"></button>
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Diminuer" (click)="stepNumber('hardCap', -1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Increase" (click)="stepNumber('hardCap', 1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Decrease" (click)="stepNumber('hardCap', -1)"></button>
               </span>
             </span>
             @if (form.hasError('hardCapBelowTarget')) {
-              <span class="launch-drawer__field-hint launch-drawer__field-hint--err">Plafond ≥ objectif</span>
+              <span class="launch-drawer__field-hint launch-drawer__field-hint--err">Hard cap ≥ target</span>
             }
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Liquidité %</span>
+            <span class="launch-drawer__label">Liquidity %</span>
             <span class="launch-drawer__number-wrap">
               <input class="launch-drawer__input-number" type="number" formControlName="liquidityPercent" min="0" max="100" step="1" placeholder="70" />
               <span class="launch-drawer__stepper" aria-hidden="true">
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Augmenter" (click)="stepNumber('liquidityPercent', 1)"></button>
-                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Diminuer" (click)="stepNumber('liquidityPercent', -1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--up" tabindex="-1" aria-label="Increase" (click)="stepNumber('liquidityPercent', 1)"></button>
+                <button type="button" class="launch-drawer__step-btn launch-drawer__step-btn--down" tabindex="-1" aria-label="Decrease" (click)="stepNumber('liquidityPercent', -1)"></button>
               </span>
             </span>
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Lancement *</span>
+            <span class="launch-drawer__label">Launch *</span>
             <input type="datetime-local" formControlName="launchDate" />
           </label>
 
-          <p class="launch-drawer__section-title launch-drawer__span-all">Présence</p>
+          <p class="launch-drawer__section-title launch-drawer__span-all">Presence</p>
 
           <label class="launch-drawer__field launch-drawer__span-2">
-            <span class="launch-drawer__label">Site web *</span>
+            <span class="launch-drawer__label">Website *</span>
             <input type="url" formControlName="website" placeholder="https://…" />
           </label>
 
           <label class="launch-drawer__field">
-            <span class="launch-drawer__label">Livre blanc</span>
+            <span class="launch-drawer__label">White paper</span>
             <input type="url" formControlName="whitepaperUrl" placeholder="https://…" />
           </label>
 
@@ -192,7 +192,7 @@
 
           <label class="launch-drawer__terms launch-drawer__span-all">
             <input type="checkbox" formControlName="acceptTerms" />
-            <span>J’accepte les conditions du laboratoire (testnet).</span>
+            <span>I accept the Laboratory terms (testnet).</span>
           </label>
 
           <div class="launch-drawer__actions launch-drawer__span-all">
@@ -202,14 +202,14 @@
               [disabled]="submitting()"
               (click)="closeDrawer()"
             >
-              Annuler
+              Cancel
             </button>
             <button
               type="submit"
               class="launch-drawer__btn launch-drawer__btn--primary"
               [disabled]="form.invalid || submitting()"
             >
-              {{ submitting() ? 'Publication…' : 'Publier le projet' }}
+              {{ submitting() ? 'Publishing…' : 'Publish project' }}
             </button>
           </div>
         </form>

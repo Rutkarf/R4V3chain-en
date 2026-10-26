@@ -4,12 +4,12 @@ import { AppLocale, LocaleKey, nextLocale, translate } from './locale.messages';
 
 const STORAGE_KEY = 'r4v3chain.locale';
 
-/** L’interface est uniquement en français. */
+/** UI is English-only on this fork. */
 export function detectAppLocale(
   _languages: readonly string[] | undefined,
   _language: string | undefined,
 ): AppLocale {
-  return 'fr';
+  return 'en';
 }
 
 @Injectable({ providedIn: 'root' })
@@ -17,7 +17,7 @@ export class LocaleService {
   private readonly localeSignal = signal<AppLocale>(this.readStoredLocale());
 
   readonly locale = this.localeSignal.asReadonly();
-  readonly localeLabel = computed(() => 'FR');
+  readonly localeLabel = computed(() => 'EN');
 
   t(key: LocaleKey): string {
     return translate(this.locale(), key);
@@ -31,8 +31,8 @@ export class LocaleService {
   }
 
   private readStoredLocale(): AppLocale {
-    localStorage.setItem(STORAGE_KEY, 'fr');
-    document.documentElement.lang = 'fr';
-    return 'fr';
+    localStorage.setItem(STORAGE_KEY, 'en');
+    document.documentElement.lang = 'en';
+    return 'en';
   }
 }

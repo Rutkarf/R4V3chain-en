@@ -7,7 +7,7 @@
     <header class="showcase-news__head">
       <div class="showcase-meta showcase-news__meta-bar showcase-launch__meta-bar">
         <label class="showcase-meta__search showcase-launch__search-inline">
-          <span class="sr-only">Rechercher un projet</span>
+          <span class="sr-only">Search for a project</span>
           <span class="showcase-launch__search-icon" aria-hidden="true">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-search"/></svg>
           </span>
@@ -15,7 +15,7 @@
             class="showcase-launch__search-hint"
             [class.is-hidden]="!!searchQuery().trim()"
             aria-hidden="true"
-          >Rechercher</span>
+          >Search</span>
           <input
             #searchInput
             type="search"
@@ -43,15 +43,15 @@
         </ul>
       } @else if (error()) {
         <div class="showcase-news__status showcase-news__status--error">
-          <p>Impossible de charger les projets.</p>
-          <button type="button" class="showcase-news__retry" (click)="refresh()">Réessayer</button>
+          <p>Could not load projects.</p>
+          <button type="button" class="showcase-news__retry" (click)="refresh()">Retry</button>
         </div>
       } @else if (filteredProjects().length === 0) {
         <div class="showcase-news__status">
           <p>{{ emptyMessage() }}</p>
           @if (searchQuery().trim()) {
             <button type="button" class="showcase-news__retry" (click)="clearSearch()">
-              Effacer
+              Clear
             </button>
           }
         </div>
@@ -129,7 +129,7 @@
           class="showcase-launch__cta ds-surface ds-surface--showcase-tab"
           (click)="openDrawer()"
         >
-          <span class="showcase-launch__cta-label">LANCER UN PROJET</span>
+          <span class="showcase-launch__cta-label">LAUNCH A PROJECT</span>
         </button>
       }
     </div>

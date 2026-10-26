@@ -203,11 +203,11 @@ function deriveVolumeBarsFromPrices(prices: number[]): number[] {
 
 function formatPriceLikeReference(value: number, reference: string): string {
   if (!reference || reference === '—') {
-    return value.toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+    return value.toLocaleString('en-US', { maximumFractionDigits: 2 });
   }
 
   const usesComma = reference.includes(',');
-  const formatted = value.toLocaleString('fr-FR', {
+  const formatted = value.toLocaleString('en-US', {
     maximumFractionDigits: reference.includes('.') || usesComma ? 4 : 0,
   });
   return usesComma ? formatted : formatted.replace(',', '.');

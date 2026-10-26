@@ -1,6 +1,6 @@
 import {
-  R4V3_WHITEPAPER_TXT_FILENAME,
-  R4V3_WHITEPAPER_TXT_URL,
+  R4V3_WHITEPAPER_PDF_FILENAME,
+  R4V3_WHITEPAPER_PDF_URL,
 } from '../constants/r4v3-token.constants';
 
 export interface R4v3WhitepaperResult {
@@ -8,12 +8,12 @@ export interface R4v3WhitepaperResult {
   message?: string;
 }
 
-/** Ouvre le white paper dans un nouvel onglet et déclenche le téléchargement .txt. */
+/** Opens the latest R4V3 white paper PDF and triggers a download. */
 export async function openR4v3Whitepaper(): Promise<R4v3WhitepaperResult> {
   try {
-    const response = await fetch(R4V3_WHITEPAPER_TXT_URL, { cache: 'no-store' });
+    const response = await fetch(R4V3_WHITEPAPER_PDF_URL, { cache: 'no-store' });
     if (!response.ok) {
-      return { ok: false, message: 'Livre blanc indisponible' };
+      return { ok: false, message: 'White paper unavailable' };
     }
 
     const blob = await response.blob();
@@ -23,7 +23,7 @@ export async function openR4v3Whitepaper(): Promise<R4v3WhitepaperResult> {
 
     const anchor = document.createElement('a');
     anchor.href = objectUrl;
-    anchor.download = R4V3_WHITEPAPER_TXT_FILENAME;
+    anchor.download = R4V3_WHITEPAPER_PDF_FILENAME;
     anchor.rel = 'noopener';
     document.body.appendChild(anchor);
     anchor.click();
@@ -32,6 +32,6 @@ export async function openR4v3Whitepaper(): Promise<R4v3WhitepaperResult> {
     window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
     return { ok: true };
   } catch {
-    return { ok: false, message: 'Livre blanc inaccessible' };
+    return { ok: false, message: 'White paper unreachable' };
   }
 }

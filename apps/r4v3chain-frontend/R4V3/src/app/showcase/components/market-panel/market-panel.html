@@ -23,12 +23,12 @@
         <input
           type="search"
           class="market-panel__search-input"
-          placeholder="Rechercher un produit"
+          placeholder="Search for a product"
           [ngModel]="searchQuery()"
           (ngModelChange)="onSearchInput($event)"
           autocomplete="off"
           spellcheck="false"
-          aria-label="Rechercher un produit"
+          aria-label="Search for a product"
         />
         <span class="market-panel__search-icon" aria-hidden="true">
           <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-search"/></svg>
@@ -45,13 +45,13 @@
         role="status"
       >
         <span>{{ banner.message }}</span>
-        <button type="button" class="market-panel__banner-dismiss" (click)="dismissStatusBanner()" aria-label="Fermer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
+        <button type="button" class="market-panel__banner-dismiss" (click)="dismissStatusBanner()" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
       </div>
     }
 
     <div class="market-panel__stage">
       @if (loadingRows() && carouselLanes().every((lane) => lane.items.length === 0)) {
-        <p class="market-panel__empty">Chargement catalogue…</p>
+        <p class="market-panel__empty">Loading catalog…</p>
       } @else {
         <app-market-carousel-3d
           [lanes]="carouselLanes()"

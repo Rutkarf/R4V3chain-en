@@ -60,7 +60,7 @@ public class ArenaSocketHandler extends TextWebSocketHandler {
         session.setTextMessageSizeLimit(WebSocketBufferLimits.MAX_TEXT_MESSAGE_BUFFER_SIZE);
         Optional<AuthenticatedUser> user = webSocketAuthSupport.resolveFromSession(session);
         if (user.isEmpty()) {
-            sendJson(session, errorNode("AUTH_REQUIRED", "Authentification requise pour l’arène."));
+            sendJson(session, errorNode("AUTH_REQUIRED", "Authentication required for the arena."));
             session.close(CloseStatus.NOT_ACCEPTABLE);
             return;
         }
@@ -71,12 +71,12 @@ public class ArenaSocketHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         Optional<AuthenticatedUser> auth = webSocketAuthSupport.resolveFromSession(session);
         if (auth.isEmpty()) {
-            sendJson(session, errorNode("AUTH_REQUIRED", "Authentification requise."));
+            sendJson(session, errorNode("AUTH_REQUIRED", "Authentication required."));
             return;
         }
         UserAccount account = userAccountStore.findById(auth.get().getId()).orElse(null);
         if (account == null) {
-            sendJson(session, errorNode("ACCOUNT_NOT_FOUND", "Compte introuvable."));
+            sendJson(session, errorNode("ACCOUNT_NOT_FOUND", "Account not found."));
             return;
         }
         JsonNode payload = objectMapper.readTree(message.getPayload());
@@ -133,7 +133,7 @@ public class ArenaSocketHandler extends TextWebSocketHandler {
 
         // Anti-téléport grossier (MVP) : rayon arène ~120 m
         if (Math.hypot(x, z) > 120) {
-            sendJson(session, errorNode("INVALID_POSE", "Position hors arène."));
+            sendJson(session, errorNode("INVALID_POSE", "Position outside the arena."));
             return;
         }
 
@@ -152,7 +152,7 @@ public class ArenaSocketHandler extends TextWebSocketHandler {
         String eventId = payload.path("eventId").asText("");
         String victimUserId = payload.path("victimUserId").asText("");
         if (eventId.isBlank() || victimUserId.isBlank()) {
-            sendJson(session, errorNode("INVALID_ELIMINATION", "eventId/victimUserId requis."));
+            sendJson(session, errorNode("INVALID_ELIMINATION", "eventId/victimUserId required."));
             return;
         }
         ArenaEliminationResponse result = rewardsService.applyElimination(

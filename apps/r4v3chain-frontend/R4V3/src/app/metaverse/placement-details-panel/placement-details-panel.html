@@ -78,13 +78,13 @@
             <button type="submit" [disabled]="facade.inquiryBusy()">
               {{ facade.inquiryBusy() ? 'Envoi…' : 'Demander un devis' }}
             </button>
-            <button type="button" class="ghost" (click)="close()">Fermer</button>
+            <button type="button" class="ghost" (click)="close()">Close</button>
           </div>
         </form>
       } @else {
         <div class="placement-actions">
-          <p class="placement-feedback">Pas de demande en ligne pour cet état.</p>
-          <button type="button" class="ghost" (click)="close()">Fermer</button>
+          <p class="placement-feedback">No online request for this state.</p>
+          <button type="button" class="ghost" (click)="close()">Close</button>
         </div>
       }
 

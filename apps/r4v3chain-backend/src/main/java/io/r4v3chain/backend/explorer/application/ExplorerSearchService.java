@@ -50,22 +50,22 @@ public class ExplorerSearchService {
             }
 
             if (matchesBlockIndex(block, originalQuery)) {
-                results.add(blockResult(block, "Correspondance par index"));
+                results.add(blockResult(block, "Index match"));
                 continue;
             }
 
             if (contains(block.getHash(), normalized)) {
-                results.add(blockResult(block, "Hash du bloc"));
+                results.add(blockResult(block, "Block hash"));
                 continue;
             }
 
             if (contains(block.getPreviousHash(), normalized)) {
-                results.add(blockResult(block, "Hash précédent"));
+                results.add(blockResult(block, "Previous hash"));
                 continue;
             }
 
             if (contains(block.getData(), normalized)) {
-                results.add(blockResult(block, "Données du bloc"));
+                results.add(blockResult(block, "Block data"));
                 continue;
             }
 
@@ -127,8 +127,8 @@ public class ExplorerSearchService {
             BigDecimal balance = blockchainService.getBalance(originalQuery);
             results.add(new ExplorerSearchResultDto(
                     "ADDRESS",
-                    "Adresse " + shorten(originalQuery, 10, 6),
-                    "Solde : " + balance.toPlainString() + " R4V3",
+                    "Address " + shorten(originalQuery, 10, 6),
+                    "Balance: " + balance.toPlainString() + " R4V3",
                     null,
                     null,
                     null,
@@ -143,7 +143,7 @@ public class ExplorerSearchService {
     private ExplorerSearchResultDto blockResult(Block block, String subtitle) {
         return new ExplorerSearchResultDto(
                 "BLOCK",
-                "Bloc #" + block.getIndex(),
+                "Block #" + block.getIndex(),
                 subtitle,
                 block.getIndex(),
                 block.getHash(),
@@ -154,7 +154,7 @@ public class ExplorerSearchService {
     }
 
     private ExplorerSearchResultDto transactionResult(Transaction tx, Block block, boolean pending) {
-        String label = pending ? "TX en attente" : "Transaction";
+        String label = pending ? "Pending TX" : "Transaction";
         String subtitle = buildTransactionSubtitle(tx, block, pending);
 
         return new ExplorerSearchResultDto(
@@ -175,10 +175,10 @@ public class ExplorerSearchService {
                 : shorten(tx.getId(), 8, 6);
 
         if (pending) {
-            return id + " · en attente";
+            return id + " · pending";
         }
 
-        return id + " · bloc #" + (block != null ? block.getIndex() : "?");
+        return id + " · block #" + (block != null ? block.getIndex() : "?");
     }
 
     private boolean matchesBlockIndex(Block block, String query) {

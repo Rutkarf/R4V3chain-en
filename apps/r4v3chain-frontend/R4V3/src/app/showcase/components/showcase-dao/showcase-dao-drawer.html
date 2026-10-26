@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="dao-drawer__close" aria-label="Fermer" (click)="dismiss()">
+        <button type="button" class="dao-drawer__close" aria-label="Close" (click)="dismiss()">
           <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
         </button>
       </header>
@@ -91,7 +91,7 @@
               <span class="dao-drawer__gov-count">{{ openProposals() }}</span>
             </div>
             @if (previewQuestions().length === 0) {
-              <p class="dao-drawer__empty">Aucune décision ouverte</p>
+              <p class="dao-drawer__empty">No open decisions</p>
             } @else {
               <ul class="dao-drawer__questions">
                 @for (question of previewQuestions(); track question.id) {
@@ -119,7 +119,7 @@
                 }
               </ul>
               @if (hiddenQuestionCount() > 0) {
-                <p class="dao-drawer__more">+{{ hiddenQuestionCount() }} dans Détail</p>
+                <p class="dao-drawer__more">+{{ hiddenQuestionCount() }} in Details</p>
               }
             }
           </section>
@@ -130,7 +130,7 @@
             Proposition
           </button>
           <button type="button" class="dao-drawer__foot-btn dao-drawer__foot-btn--accent" (click)="openSub('detail')">
-            Détail
+            Details
           </button>
         </footer>
       </div>
@@ -156,10 +156,10 @@
               class="dao-sub-drawer__title"
               [id]="mode === 'proposal' ? 'daoSubProposalTitle' : 'daoSubDetailTitle'"
             >
-              {{ mode === 'proposal' ? 'Nouvelle proposition' : 'Détail gouvernance' }}
+              {{ mode === 'proposal' ? 'New proposal' : 'Governance details' }}
             </h3>
           </div>
-          <button type="button" class="dao-sub-drawer__close" aria-label="Fermer" (click)="closeSub()">
+          <button type="button" class="dao-sub-drawer__close" aria-label="Close" (click)="closeSub()">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
           </button>
         </header>
@@ -167,8 +167,8 @@
         @if (mode === 'proposal') {
           <div class="dao-sub-drawer__body dao-sub-drawer__body--form">
             @if (!canAsk()) {
-              <p class="dao-sub-drawer__hint">Connectez-vous pour publier une proposition.</p>
-              <button type="button" class="dao-sub-drawer__login" (click)="promptLogin()">Connexion</button>
+              <p class="dao-sub-drawer__hint">Sign in to publish a proposal.</p>
+              <button type="button" class="dao-sub-drawer__login" (click)="promptLogin()">Sign in</button>
             } @else {
               <form class="dao-sub-drawer__form" (ngSubmit)="submitQuestion()">
                 <label class="dao-sub-drawer__field">
@@ -178,14 +178,14 @@
                     name="daoAskTitle"
                     [ngModel]="askTitle()"
                     (ngModelChange)="askTitle.set($event)"
-                    placeholder="Titre de la décision…"
+                    placeholder="Decision title…"
                     required
                     minlength="8"
                     maxlength="120"
                   />
                 </label>
                 <label class="dao-sub-drawer__field dao-sub-drawer__field--grow">
-                  <span class="dao-sub-drawer__label">Détail *</span>
+                  <span class="dao-sub-drawer__label">Details *</span>
                   <textarea
                     name="daoAskBody"
                     rows="5"
@@ -201,7 +201,7 @@
                   <p class="dao-sub-drawer__feedback" [class.is-ok]="formSuccess()">{{ msg }}</p>
                 }
                 <button type="submit" class="dao-sub-drawer__submit" [disabled]="formSuccess()">
-                  {{ formSuccess() ? 'Publié' : 'Publier' }}
+                  {{ formSuccess() ? 'Published' : 'Publish' }}
                 </button>
               </form>
             }
@@ -226,7 +226,7 @@
                 <span class="dao-sub-drawer__count">{{ questions().length }}</span>
               </div>
               @if (questions().length === 0) {
-                <p class="dao-sub-drawer__hint">Aucune proposition pour l’instant.</p>
+                <p class="dao-sub-drawer__hint">No proposals yet.</p>
               } @else {
                 <ul class="dao-sub-drawer__questions">
                   @for (question of questions(); track question.id) {

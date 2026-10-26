@@ -86,7 +86,7 @@ public class ChatSocketHandler extends TextWebSocketHandler {
         }
 
         if (user.isEmpty() && !wantsAnonymous) {
-            sendError(session, "Authentification requise pour envoyer un message, ou activez Anonymous.");
+            sendError(session, "Authentication required to send a message, or enable Anonymous.");
             return;
         }
 

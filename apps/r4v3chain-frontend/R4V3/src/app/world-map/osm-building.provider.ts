@@ -48,7 +48,7 @@ const OVERPASS_ENDPOINTS = [`${environment.apiUrl}/metaverse/overpass`, '/overpa
 const MAX_AROUND_RADIUS_METERS = 1500;
 /** Tuiles ~900 m — requêtes Overpass fiables (évite timeout / payload tronqué). */
 const TILE_DEG = 0.008;
-/** Pause réseau après un échec complet (tous les endpoints). */
+/** Pause network après un échec complet (tous les endpoints). */
 const CIRCUIT_COOLDOWN_MS = 60_000;
 
 @Injectable({ providedIn: 'root' })

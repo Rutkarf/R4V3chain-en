@@ -39,7 +39,7 @@ public class OAuthUserProvisioner {
         Optional<OAuthIdentity> existingIdentity = oauthIdentityStore.findByProviderSubject(provider, providerSubject);
         if (existingIdentity.isPresent()) {
             return userAccountStore.findById(existingIdentity.get().userId())
-                    .orElseThrow(() -> new AuthException(404, "Compte OAuth introuvable"));
+                    .orElseThrow(() -> new AuthException(404, "OAuth account not found"));
         }
 
         String normalizedEmail = AuthNormalizer.normalizeEmail(email);
@@ -47,7 +47,7 @@ public class OAuthUserProvisioner {
         if (byEmail.isPresent()) {
             UserAccount linked = byEmail.get();
             if (!PasswordHasher.isOAuthAccount(linked.getPasswordHash())) {
-                throw new AuthException(409, "Un compte existe déjà avec cet email. Connectez-vous avec votre mot de passe.");
+                throw new AuthException(409, "An account already exists with this email. Sign in with your password.");
             }
             linkIdentity(linked.getId(), provider, providerSubject);
             return linked;

@@ -47,6 +47,6 @@ class RateLimitIntegrationTest {
                         .content(body))
                 .andExpect(status().isTooManyRequests())
                 .andExpect(jsonPath("$.status").value(429))
-                .andExpect(jsonPath("$.message").value("Trop de requêtes. Réessayez dans une minute."));
+                .andExpect(jsonPath("$.message").value("Too many requests. Try again in a minute."));
     }
 }

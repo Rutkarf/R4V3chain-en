@@ -36,7 +36,7 @@ public class RoleAuthorizationService {
 
     public UserAccount requireAuthenticated(String authorization) {
         return authTokenResolver.resolveAccount(authorization)
-                .orElseThrow(() -> new AuthException(401, "Authentification requise"));
+                .orElseThrow(() -> new AuthException(401, "Authentication required"));
     }
 
     public UserAccount requireUser(String authorization, String ipAddress) {
@@ -44,7 +44,7 @@ public class RoleAuthorizationService {
         if (!account.getRole().isAtLeast(UserRole.USER)) {
             recordRbacDenied("requireUser", account.getUsername());
             authAuditService.accessDenied(account.getId(), "requireUser", ipAddress);
-            throw new AuthException(403, "Rôle utilisateur requis");
+            throw new AuthException(403, "User role required");
         }
         return account;
     }
@@ -54,7 +54,7 @@ public class RoleAuthorizationService {
         if (account.getRole() != UserRole.ADMIN) {
             recordRbacDenied("requireAdmin", account.getUsername());
             authAuditService.accessDenied(account.getId(), "requireAdmin", ipAddress);
-            throw new AuthException(403, "Rôle administrateur requis");
+            throw new AuthException(403, "Administrator role required");
         }
         return account;
     }

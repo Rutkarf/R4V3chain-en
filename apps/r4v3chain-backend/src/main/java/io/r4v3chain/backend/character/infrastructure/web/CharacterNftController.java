@@ -46,7 +46,7 @@ public class CharacterNftController {
     ) {
         UserAccount account = roleAuthorizationService.requireAuthenticated(authorization);
         if (account.getRole() != UserRole.ADMIN && !account.getId().equals(userId)) {
-            throw new AuthException(403, "Personnage réservé à son compte");
+            throw new AuthException(403, "Character reserved for its account");
         }
         return characterNftService.getOrCreateForUser(userId);
     }

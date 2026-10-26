@@ -45,7 +45,7 @@ export class DockPendingStateService {
   readonly statusLabel = computed(() => {
     switch (this.phase()) {
       case 'error':
-        return 'Erreur';
+        return 'Error';
       case 'loading':
       case 'busy':
         return this.mining() ? 'Minage…' : 'Synchro…';
@@ -70,7 +70,7 @@ export class DockPendingStateService {
   readonly headline = computed(() => {
     const items = this.transactions();
     if (items.length === 0) {
-      return this.error() ? 'Chargement impossible' : 'Aucune transaction en attente';
+      return this.error() ? 'Unable to load' : 'No pending transactions';
     }
 
     const first = items[0];

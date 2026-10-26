@@ -14,7 +14,7 @@ const EDGE_BOUNCE = 48;
 const CENTER_SPRING = 1.2;
 
 /**
- * Univers Conquête stellaire — la structure reste fixe.
+ * Univers Conquest stellaire — la structure reste fixe.
  * Le joystick déplace uniquement le point de vue (caméra) en X/Y,
  * sans changer la profondeur ni transformer le contenu.
  */

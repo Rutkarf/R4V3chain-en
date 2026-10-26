@@ -543,7 +543,7 @@ export class StarConquestGraph {
     return 'ultra-low';
   }
 
-  /** Bascule l’univers spatial Conquête stellaire (100 % autonome, sans metaverse floor). */
+  /** Bascule l’univers spatial Conquest stellaire (100 % autonome, sans metaverse floor). */
   setUniverse(theme: StarConquestUniverseTheme): void {
     this.universeTheme = theme;
     this.background.setGpuQuality(this.gpuQuality);

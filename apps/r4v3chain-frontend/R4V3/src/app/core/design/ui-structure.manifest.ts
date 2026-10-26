@@ -156,7 +156,7 @@ export const UI_STRUCTURE_MANIFEST: readonly UiZoneManifest[] = [
           { id: 'solde-row', label: 'SOLDE + USD', kind: 'text' },
           { id: 'prix-row', label: 'PRIX + USD', kind: 'text' },
           { id: 'change-24h', label: '24H CHANGE', kind: 'badge' },
-          { id: 'swap-cta', label: 'Échange / Portefeuille / Connexion', kind: 'button' },
+          { id: 'swap-cta', label: 'Échange / Wallet / Connexion', kind: 'button' },
         ],
         interactions: ['flipPair', 'selectFromToken', 'setMaxAmount', 'onSwapClick', 'BrandCrypto sync'],
         dataFields: [
@@ -389,7 +389,7 @@ export const UI_STRUCTURE_MANIFEST: readonly UiZoneManifest[] = [
         styles: ['quests/quests-panel/quests-panel.css'],
         elements: [
           { id: 'quests-xp', label: 'TOTAL XP + RÉCOMPENSES', kind: 'badge' },
-          { id: 'quests-mission', label: 'Gardien du réseau + progress', kind: 'panel' },
+          { id: 'quests-mission', label: 'Gardien du network + progress', kind: 'panel' },
           { id: 'quests-daily', label: 'DAILY TASKS + reset timer', kind: 'table' },
           { id: 'quests-weekly', label: 'WEEKLY REWARD + XP BOOST', kind: 'panel' },
         ],
@@ -431,8 +431,8 @@ export const UI_STRUCTURE_MANIFEST: readonly UiZoneManifest[] = [
         template: 'app.html',
         styles: ['app.css'],
         elements: [
-          { id: 'dock-wallet', label: 'Portefeuille', kind: 'tab' },
-          { id: 'dock-faucet', label: 'Robinet', kind: 'tab' },
+          { id: 'dock-wallet', label: 'Wallet', kind: 'tab' },
+          { id: 'dock-faucet', label: 'Faucet', kind: 'tab' },
           { id: 'dock-pending', label: 'En attente', kind: 'tab' },
           { id: 'dock-block', label: 'Bloc', kind: 'tab' },
           { id: 'dock-chain', label: 'Chaîne', kind: 'tab' },

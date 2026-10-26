@@ -55,7 +55,7 @@
  >
         @if (searchResults().length === 0 && !searchLoading()) {
           <li class="rate-panel-search__empty" role="option" aria-disabled="true">
-            {{ searchError() || 'Aucun résultat.' }}
+            {{ searchError() || 'No results.' }}
           </li>
         }
 
@@ -78,7 +78,7 @@
     </header>
     }
 
-  <div class="rate-panel-chart" [class.rate-panel-chart--collapsed]="hubGraphOnly() && chartCollapsed()" aria-label="Graphique marché">
+  <div class="rate-panel-chart" [class.rate-panel-chart--collapsed]="hubGraphOnly() && chartCollapsed()" aria-label="Market chart">
     @if (hubGraphOnly() && chartCollapsed()) {
       <app-showcase-chart-summary
         [collapseAriaLabel]="collapseAriaLabel()"

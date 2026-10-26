@@ -76,20 +76,20 @@ export class NetworkTrustService {
   readonly statusHeadline = computed(() => {
     switch (this.trustState()) {
       case 'checking':
-        return 'Vérification…';
+        return 'Verifying…';
       case 'offline':
         return 'Hors ligne';
       case 'slow':
-        return 'Connexion lente';
+        return 'Slow connection';
       default:
-        return this.streamLive() ? 'En direct' : 'Opérationnel';
+        return this.streamLive() ? 'En direct' : 'Operational';
     }
   });
 
   readonly chipAriaLabel = computed(() => {
     const latency = this.latencyLabel();
     const stream = this.streamLive() ? 'flux live actif' : 'flux live inactif';
-    return `État réseau R4V3chain : ${this.statusHeadline()}, latence ${latency}, ${stream}. Cliquer pour les détails.`;
+    return `R4V3chain network status: ${this.statusHeadline()}, latency ${latency}, ${stream}. Click for details.`;
   });
 
   readonly detailSummary = computed(() => {
@@ -133,13 +133,13 @@ export class NetworkTrustService {
       this.lastCheckedAt.set(Date.now());
 
       if (!response.ok) {
-        this.errorMessage.set('Backend hors ligne — certaines actions peuvent échouer.');
+        this.errorMessage.set('Backend offline — some actions may fail.');
       }
     } catch {
       this.apiOk.set(false);
       this.latencyMs.set(null);
       this.lastCheckedAt.set(Date.now());
-      this.errorMessage.set('Backend hors ligne — certaines actions peuvent échouer.');
+      this.errorMessage.set('Backend offline — some actions may fail.');
     } finally {
       this.hasChecked.set(true);
       this.loading.set(false);

@@ -37,7 +37,7 @@ const VARIANT_MASK_TWEAK: Record<
 };
 
 /**
- * Stops masque CSS alignés sur le fog gameplay — transition douce vers Conquête stellaire.
+ * Stops masque CSS alignés sur le fog gameplay — transition douce vers Conquest stellaire.
  */
 export function harmonizedHorizonMaskStops(variant?: HorizonAtmosphereVariant): HorizonMaskStop[] {
   const preset = activeAtmospherePreset();

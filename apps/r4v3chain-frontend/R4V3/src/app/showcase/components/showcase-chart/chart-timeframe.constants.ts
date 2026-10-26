@@ -5,7 +5,7 @@ export type CoingeckoGranularity = '5m' | '1h' | '1d';
 
 export type ChartTimeframeCategory = 'interval' | 'period';
 
-/** Intervalles = granularité CG ; périodes = fenêtre temporelle CG. */
+/** Intervals = granularité CG ; périodes = fenêtre temporelle CG. */
 export type ChartTimeframeId =
   | '1d'
   | '24h'
@@ -22,7 +22,7 @@ export interface ChartTimeframeOption {
   category: ChartTimeframeCategory;
   apiRange: ChartRange;
   coingeckoGranularity: CoingeckoGranularity;
-  /** Périodes API compatibles (intervalles uniquement). */
+  /** Periods API compatibles (intervalles uniquement). */
   supportedApiRanges?: readonly ChartRange[];
 }
 
@@ -31,11 +31,11 @@ export interface ChartTimeframeSection {
   options: readonly ChartTimeframeOption[];
 }
 
-/** Intervalles alignés sur la granularité CoinGecko (pas d’interpolation). */
+/** Intervals alignés sur la granularité CoinGecko (pas d’interpolation). */
 export const CHART_INTERVAL_OPTIONS: readonly ChartTimeframeOption[] = [
   {
     id: '1d',
-    label: '1 jour',
+    label: '1 day',
     badge: '1J',
     category: 'interval',
     apiRange: '365d',
@@ -44,11 +44,11 @@ export const CHART_INTERVAL_OPTIONS: readonly ChartTimeframeOption[] = [
   },
 ];
 
-/** Périodes avec jeu de données CoinGecko direct (sans fenêtre synthétique). */
+/** Periods avec jeu de données CoinGecko direct (sans fenêtre synthétique). */
 export const CHART_PERIOD_OPTIONS: readonly ChartTimeframeOption[] = [
   {
     id: '24h',
-    label: '24 heures',
+    label: '24 hours',
     badge: '24H',
     category: 'period',
     apiRange: '24h',
@@ -56,7 +56,7 @@ export const CHART_PERIOD_OPTIONS: readonly ChartTimeframeOption[] = [
   },
   {
     id: '7d',
-    label: '7 jours',
+    label: '7 days',
     badge: '7J',
     category: 'period',
     apiRange: '7d',
@@ -64,7 +64,7 @@ export const CHART_PERIOD_OPTIONS: readonly ChartTimeframeOption[] = [
   },
   {
     id: '30d',
-    label: '1 mois',
+    label: '1 month',
     badge: '1M',
     category: 'period',
     apiRange: '30d',
@@ -72,7 +72,7 @@ export const CHART_PERIOD_OPTIONS: readonly ChartTimeframeOption[] = [
   },
   {
     id: '90d',
-    label: '3 mois',
+    label: '3 months',
     badge: '3M',
     category: 'period',
     apiRange: '90d',
@@ -80,7 +80,7 @@ export const CHART_PERIOD_OPTIONS: readonly ChartTimeframeOption[] = [
   },
   {
     id: '1y',
-    label: '1 an',
+    label: '1 year',
     badge: '1A',
     category: 'period',
     apiRange: '365d',
@@ -88,7 +88,7 @@ export const CHART_PERIOD_OPTIONS: readonly ChartTimeframeOption[] = [
   },
   {
     id: 'ytd',
-    label: 'Depuis le 1er janv.',
+    label: 'Year to date',
     badge: 'YTD',
     category: 'period',
     apiRange: '365d',
@@ -115,10 +115,10 @@ export function buildTimeframeMenuSections(activeApiRange: ChartRange): ChartTim
   const sections: ChartTimeframeSection[] = [];
 
   if (intervals.length > 0) {
-    sections.push({ title: 'Intervalle', options: intervals });
+    sections.push({ title: 'Interval', options: intervals });
   }
 
-  sections.push({ title: 'Période', options: CHART_PERIOD_OPTIONS });
+  sections.push({ title: 'Period', options: CHART_PERIOD_OPTIONS });
   return sections;
 }
 
@@ -144,7 +144,7 @@ export function defaultIntervalForRange(range: ChartRange): ChartTimeframeId {
  * - > 90 j    → ~1 point / jour
  */
 export const COINGECKO_GRANULARITY_HINT =
-  'Données CoinGecko : ~5 min (24 h), horaire (2–90 j), journalier (> 90 j).';
+  'CoinGecko data: ~5 min (24 h), hourly (2–90 d), daily (> 90 d).';
 
 export const CHART_AXIS_LABELS: Record<ChartTimeframeId, readonly string[]> = {
   '1d': ['T1', 'T2', 'T3', 'T4', '1A'],
@@ -162,6 +162,6 @@ export function chartAxisLabelsForTimeframe(id: ChartTimeframeId): readonly stri
 
 /** @deprecated Utiliser buildTimeframeMenuSections */
 export const CHART_TIMEFRAME_SECTIONS: readonly ChartTimeframeSection[] = [
-  { title: 'Intervalle', options: CHART_INTERVAL_OPTIONS },
-  { title: 'Période', options: CHART_PERIOD_OPTIONS },
+  { title: 'Interval', options: CHART_INTERVAL_OPTIONS },
+  { title: 'Period', options: CHART_PERIOD_OPTIONS },
 ];

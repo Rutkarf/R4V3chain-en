@@ -12,7 +12,7 @@ export interface ArenaTelemetrySnapshot {
 }
 
 /**
- * Télémétrie anonyme locale (session) — pas d’envoi réseau.
+ * Télémétrie anonyme locale (session) — pas d’envoi network.
  */
 @Injectable({ providedIn: 'root' })
 export class ArenaTelemetryService {

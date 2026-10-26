@@ -35,7 +35,7 @@
             <span class="launch-project-drawer__chain">{{ item.chain }}</span>
           }
           <span class="launch-project-drawer__lab">Lab</span>
-          <button type="button" class="launch-project-drawer__close" aria-label="Fermer le projet" (click)="dismiss()">
+          <button type="button" class="launch-project-drawer__close" aria-label="Close project" (click)="dismiss()">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
           </button>
         </div>
@@ -78,7 +78,7 @@
           <div class="launch-project-drawer__kv">
             <span class="launch-project-drawer__kv-k">Brief</span>
             <span class="launch-project-drawer__kv-v">
-              {{ item.description || ('Projet Laboratoire ' + item.symbol + ' — détails à venir.') }}
+              {{ item.description || ('Laboratory project ' + item.symbol + ' — details coming soon.') }}
             </span>
           </div>
           <div class="launch-project-drawer__kv">
@@ -96,7 +96,7 @@
         </section>
 
         <section class="launch-project-drawer__links">
-          <span class="launch-project-drawer__sec-label">Liens</span>
+          <span class="launch-project-drawer__sec-label">Links</span>
           <div class="launch-project-drawer__link-row">
             @if (hasWhitepaper()) {
               <button type="button" class="launch-project-drawer__link-btn" (click)="openWhitepaper(item)">
@@ -109,7 +109,7 @@
               </button>
             }
             @if (!hasWhitepaper() && !hasWebsite()) {
-              <span class="launch-project-drawer__link-empty">Aucun lien publié</span>
+              <span class="launch-project-drawer__link-empty">No links published</span>
             }
           </div>
         </section>
@@ -122,9 +122,9 @@
           } @else {
             <p class="launch-project-drawer__foot-hint">
               @if (item.status === 'ENDED') {
-                Projet clôturé — swap indisponible.
+                Project closed — swap unavailable.
               } @else {
-                Swap bientôt disponible pour {{ item.symbol }}.
+                Swap coming soon for {{ item.symbol }}.
               }
             </p>
           }

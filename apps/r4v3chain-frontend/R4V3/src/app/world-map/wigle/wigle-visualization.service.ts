@@ -68,7 +68,7 @@ export class WigleVisualizationService {
     void this.refreshBuildingMapping();
   }
 
-  /** Recharge agrégats réseau ↔ bâtiments OSM/prototype sur la map floor. */
+  /** Recharge agrégats network ↔ bâtiments OSM/prototype sur la map floor. */
   async refreshBuildingMapping(): Promise<void> {
     if (this.mappingInflight) return;
     const buildings = this.buildingRegistry.list();
@@ -117,7 +117,7 @@ export class WigleVisualizationService {
         `source=${buildingsResp.source}`
       );
     } catch (error) {
-      console.warn('[MetaverseNetwork] Échec mapping bâtiments réseau.', error);
+      console.warn('[MetaverseNetwork] Échec mapping bâtiments network.', error);
     } finally {
       this.mappingInflight = false;
       this.lastRegistryCount = buildings.length;
@@ -253,14 +253,14 @@ export class WigleVisualizationService {
       );
       this.loaded = true;
       console.info(
-        '[MetaverseNetwork] Points réseau:',
+        '[MetaverseNetwork] Points network:',
         this.allPoints.length,
         `source=${response.source}`,
         `centre=(${lat.toFixed(5)}, ${lon.toFixed(5)})`
       );
       void this.refreshBuildingMapping();
     } catch (error) {
-      console.warn('[MetaverseNetwork] Échec chargement points réseau.', error);
+      console.warn('[MetaverseNetwork] Échec chargement points network.', error);
     } finally {
       this.loading = false;
     }

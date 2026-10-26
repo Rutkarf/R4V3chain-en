@@ -59,7 +59,7 @@ export class QuestsProgressService {
           'info'
         );
       } else if (result.duplicate) {
-        this.notify(`Bloc #${blockIndex} déjà exploré aujourd’hui`, 'info');
+        this.notify(`Block #${blockIndex} already explored today`, 'info');
       }
 
       this.walletSession.requestBalanceRefresh();

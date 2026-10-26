@@ -12,7 +12,7 @@
     @if (loading()) {
       <span class="chart-summary-bar__price chart-summary-bar__price--muted">…</span>
     } @else if (error()) {
-      <span class="chart-summary-bar__price chart-summary-bar__price--muted">Indispo.</span>
+      <span class="chart-summary-bar__price chart-summary-bar__price--muted">Unavailable</span>
     } @else {
       <span class="chart-summary-bar__price">{{ price() }}</span>
       <span
@@ -71,7 +71,7 @@
     class="chart-summary-bar__actions"
     [collapsed]="true"
     [collapseAriaLabel]="collapseAriaLabel()"
-    refreshAriaLabel="Actualiser le graphique"
+    refreshAriaLabel="Refresh chart"
     [refreshBusy]="loading()"
     (refresh)="onRefresh($event)"
     (collapseToggle)="collapseToggle.emit()"

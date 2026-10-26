@@ -40,7 +40,7 @@ interface BotAi {
 }
 
 /**
- * Combat Éliminer pour gagner — FX punchy, lock-on, bots IA, loot streak.
+ * Combat Eliminate to earn — FX punchy, lock-on, bots IA, loot streak.
  */
 @Injectable({ providedIn: 'root' })
 export class ArenaCombatService implements OnDestroy {

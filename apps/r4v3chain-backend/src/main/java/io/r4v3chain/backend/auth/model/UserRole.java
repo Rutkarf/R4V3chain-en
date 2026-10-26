@@ -21,7 +21,7 @@ public enum UserRole {
         try {
             return UserRole.valueOf(value.trim().toUpperCase());
         } catch (IllegalArgumentException exception) {
-            throw new IllegalArgumentException("Rôle inconnu : " + value.trim());
+            throw new IllegalArgumentException("Unknown role: " + value.trim());
         }
     }
 }

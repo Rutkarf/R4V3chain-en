@@ -16,20 +16,20 @@ public class ProductFeatureService {
     public void requireLegacyPrivateKey() {
         if (!productProperties.isAllowLegacyPrivateKey()) {
             throw new FeatureDisabledException(
-                    "senderPrivateKey est désactivé en mode commercial — utilisez une signature client.");
+                    "senderPrivateKey is disabled in commercial mode — use a client signature.");
         }
     }
 
     public void requireServerWalletCreate() {
         if (!productProperties.isAllowServerWalletCreate()) {
             throw new FeatureDisabledException(
-                    "La création de wallet côté serveur est désactivée — générez le wallet localement.");
+                    "Server-side wallet creation is disabled — generate the wallet locally.");
         }
     }
 
     public void requireFaucet() {
         if (!productProperties.isFaucetEnabled()) {
-            throw new FeatureDisabledException("Le faucet est désactivé.");
+            throw new FeatureDisabledException("The faucet is disabled.");
         }
     }
 }

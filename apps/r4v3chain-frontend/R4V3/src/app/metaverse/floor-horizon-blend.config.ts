@@ -1,5 +1,5 @@
 /**
- * Ciel metaverse + fondu vers Conquête stellaire.
+ * Ciel metaverse + fondu vers Conquest stellaire.
  * Exclusive three-floor : ne pas réutiliser WORLD_BACKGROUND_CONFIG (navy partagé).
  *
  * Le canvas floor est opaque (ciel noir). Un masque CSS fond le haut de la bande

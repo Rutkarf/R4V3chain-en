@@ -33,7 +33,7 @@ const COL = {
 } as const;
 
 /** Tooltip / aria au survol du joystick. */
-export const JOYSTICK_ARIA_LABEL = "Déplace l'univers de particules";
+export const JOYSTICK_ARIA_LABEL = 'Move the particle universe';
 
 const RING_R = 5.6;
 const KNOB_TRAVEL = 3.2;
@@ -681,7 +681,7 @@ function createOrbitLabelTexture(): THREE.CanvasTexture {
   ctx.fillStyle = 'rgba(237, 231, 217, 0.98)';
   ctx.shadowColor = 'rgba(237, 231, 217, 0.5)';
   ctx.shadowBlur = 4;
-  ctx.fillText("Déplace l'univers", 256, 36);
+  ctx.fillText('Move the universe', 256, 36);
   ctx.font = '600 10px Inter, sans-serif';
   ctx.fillText('de particules', 256, 64);
   const tex = new THREE.CanvasTexture(canvas);

@@ -895,7 +895,7 @@ describe('Conquête stellaire product progress', () => {
     const next = incrementStarConquestFunnel(emptyStarConquestProgress(), 'views');
     expect(next.funnel.views).toBe(1);
     expect(parseStarConquestProgress({ version: 2 }).funnel.views).toBe(0);
-    expect(STAR_QUEST_STATUS_LABEL.completed).toBe('Conquise');
+    expect(STAR_QUEST_STATUS_LABEL.completed).toBe('Conquered');
     expect(cloneStarQuest(STAR_CONQUEST_MOCK_QUESTS[0]).connections).not.toBe(
       STAR_CONQUEST_MOCK_QUESTS[0].connections
     );

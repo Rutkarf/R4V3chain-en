@@ -94,7 +94,7 @@ export class ShowcaseChatStateService {
       case 'active':
         return 'Chat disponible';
       case 'pending':
-        return 'Synchronisation…';
+        return 'Syncing…';
       case 'offline':
         return 'Chat indisponible';
     }

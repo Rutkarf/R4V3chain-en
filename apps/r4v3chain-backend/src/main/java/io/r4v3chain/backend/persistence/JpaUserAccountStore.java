@@ -76,7 +76,7 @@ public class JpaUserAccountStore implements UserAccountStore {
     public UserAccount updateWallet(String userId, String walletAddress, String publicKey) {
         UserEntity entity = parseUuid(userId)
                 .flatMap(userRepository::findById)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
 
         entity.setWalletAddress(walletAddress);
         entity.setWalletPublicKey(publicKey);
@@ -88,7 +88,7 @@ public class JpaUserAccountStore implements UserAccountStore {
     public UserAccount updatePassword(String userId, String passwordHash) {
         UserEntity entity = parseUuid(userId)
                 .flatMap(userRepository::findById)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
 
         entity.setPasswordHash(passwordHash);
         entity.setPasswordSalt("");
@@ -117,7 +117,7 @@ public class JpaUserAccountStore implements UserAccountStore {
     public UserAccount updateRole(String userId, io.r4v3chain.backend.auth.model.UserRole role) {
         UserEntity entity = parseUuid(userId)
                 .flatMap(userRepository::findById)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
         entity.setRole(role == null ? "USER" : role.name());
         return UserEntityMapper.toAccount(userRepository.save(entity));
     }
@@ -125,7 +125,7 @@ public class JpaUserAccountStore implements UserAccountStore {
     private UserEntity requireUser(String userId) {
         return parseUuid(userId)
                 .flatMap(userRepository::findById)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
     }
 
     private Optional<UUID> parseUuid(String id) {

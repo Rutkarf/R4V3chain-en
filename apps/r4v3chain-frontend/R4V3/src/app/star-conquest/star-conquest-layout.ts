@@ -114,7 +114,7 @@ export function measureGapAboveFloor(floorPeekPx = 220): {
 }
 
 /**
- * Zone jouable Conquête stellaire :
+ * Zone jouable Conquest stellaire :
  * haut = sommet du viewport (plein ciel dès le haut),
  * bas = horizon MetaVerseBB (sans chevauchement).
  */

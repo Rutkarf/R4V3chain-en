@@ -82,7 +82,7 @@ public class BlockchainController {
             HttpServletRequest httpRequest
     ) {
         if (request == null || request.getMinerAddress() == null || request.getMinerAddress().isBlank()) {
-            throw new IllegalArgumentException("minerAddress requis");
+            throw new IllegalArgumentException("minerAddress required");
         }
 
         String ip = RequestClientInfo.clientIp(httpRequest);

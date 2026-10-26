@@ -1,5 +1,5 @@
 /**
- * Scale Conquête stellaire — levier visuel du palier produit.
+ * Scale Conquest stellaire — levier visuel du palier produit.
  *
  * Palier actuel : produit (`product`).
  * `company` reste un plafond visuel : ne pas l’activer tant que

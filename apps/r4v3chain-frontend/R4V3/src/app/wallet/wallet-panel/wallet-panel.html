@@ -18,8 +18,8 @@
         type="button"
         class="wallet-display__status-line-close"
         (click)="dismissStatusLine($event)"
-        aria-label="Fermer la notification"
-        title="Fermer"
+        aria-label="Dismiss notification"
+        title="Dismiss"
       ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
     </div>
   }
@@ -150,7 +150,7 @@
  [attr.title]="
  canCreateWallet()
  ? locale.t('wallet.create')
- : 'Inscris-toi ou connecte-toi pour créer un wallet'
+ : 'Sign up or sign in to create a wallet'
  "
  >
               @if (creatingWallet()) {
@@ -462,7 +462,7 @@
             class="wallet-display__field-control"
             type="text"
             formControlName="memo"
-            placeholder="Référence"
+            placeholder="Reference"
             autocomplete="off"
           />
         </label>
@@ -561,8 +561,8 @@
                 [src]="qrDataUrl()!"
                 [alt]="
                   hasWallet()
-                    ? 'QR code pour recevoir des fonds sur ' + friendlyWalletAddress()
-                    : 'QR code de démonstration'
+                    ? 'QR code to receive funds at ' + friendlyWalletAddress()
+                    : 'Demo QR code'
                 "
               />
             } @else {

@@ -47,7 +47,7 @@ export class DockPeersStateService {
     return parsePeerEndpoint(peer.url).nodeName;
   });
 
-  /** Connexions actives vers le peer affiché (1 si CONNECTED, sinon 0). */
+  /** Sign ins actives vers le peer affiché (1 si CONNECTED, sinon 0). */
   readonly primaryPeerConnectedPeople = computed(() => {
     const peer = this.primaryPeer();
     if (!peer) {
@@ -82,13 +82,13 @@ export class DockPeersStateService {
   readonly statusLabel = computed(() => {
     switch (this.phase()) {
       case 'error':
-        return 'Erreur';
+        return 'Error';
       case 'loading':
         return 'Synchro…';
       case 'empty':
-        return 'Aucun pair';
+        return 'No peers';
       case 'connected':
-        return 'Réseau OK';
+        return 'Network OK';
       default:
         return 'Partiel';
     }

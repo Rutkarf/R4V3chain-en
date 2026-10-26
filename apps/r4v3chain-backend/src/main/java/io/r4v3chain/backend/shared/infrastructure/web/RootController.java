@@ -14,7 +14,7 @@ public class RootController {
                 "ok", true,
                 "service", "r4v3chain-backend",
                 "health", "/api/health",
-                "message", "R4V3chain backend API. Frontend Angular sur Cloudflare Pages (*.pages.dev)."
+                "message", "R4V3chain backend API. Angular frontend on Cloudflare Pages (*.pages.dev)."
         );
     }
 }

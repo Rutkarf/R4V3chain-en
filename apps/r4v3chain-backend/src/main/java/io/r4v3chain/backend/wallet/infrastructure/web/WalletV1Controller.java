@@ -36,7 +36,7 @@ public class WalletV1Controller {
         if (!chainProperties.isAllowServerEvmWalletCreate()) {
             throw new ResponseStatusException(
                     HttpStatus.FORBIDDEN,
-                    "Génération serveur de wallet EVM désactivée"
+                    "Server EVM wallet generation disabled"
             );
         }
 

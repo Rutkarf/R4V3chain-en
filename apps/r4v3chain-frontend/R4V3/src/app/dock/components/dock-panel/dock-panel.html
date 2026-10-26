@@ -8,17 +8,17 @@
   [attr.data-active-panel]="activePanel"
 >
   @if (isPendingCollapsed) {
-    <header class="dock-panel__handle dock-summary-bar ds-surface ds-surface--dock" aria-label="Pending, panneau replié">
+    <header class="dock-panel__handle dock-summary-bar ds-surface ds-surface--dock" aria-label="Pending, panel collapsed">
       <app-dock-pending-summary class="dock-summary-bar__content" />
       <app-mini-bar-slide-indicator />
     </header>
   } @else if (isBlockCollapsed) {
-    <header class="dock-panel__handle dock-summary-bar ds-surface ds-surface--dock" aria-label="Block, panneau replié">
+    <header class="dock-panel__handle dock-summary-bar ds-surface ds-surface--dock" aria-label="Block, panel collapsed">
       <app-dock-block-summary class="dock-summary-bar__content" />
       <app-mini-bar-slide-indicator />
     </header>
   } @else if (isChainCollapsed) {
-    <header class="dock-panel__handle dock-summary-bar ds-surface ds-surface--dock" aria-label="Chain, panneau replié">
+    <header class="dock-panel__handle dock-summary-bar ds-surface ds-surface--dock" aria-label="Chain, panel collapsed">
       <app-dock-chain-summary class="dock-summary-bar__content" />
       <app-mini-bar-slide-indicator />
     </header>

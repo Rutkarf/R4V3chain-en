@@ -56,7 +56,7 @@
         }
 
         <label class="showcase-meta__search showcase-news__search-inline">
-          <span class="sr-only">Rechercher dans les actualités</span>
+          <span class="sr-only">Search news</span>
           <span class="showcase-news__search-icon" aria-hidden="true">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-search"/></svg>
           </span>
@@ -64,7 +64,7 @@
             class="showcase-news__search-hint"
             [class.is-hidden]="!!searchQuery().trim()"
             aria-hidden="true"
-          >Rechercher</span>
+          >Search</span>
           <input
             #searchInput
             type="search"
@@ -89,16 +89,16 @@
         </ul>
       } @else if (error()) {
         <div class="showcase-news__status showcase-news__status--error ds-empty" role="alert">
-          <p class="ds-empty__title">Chargement impossible</p>
-          <p class="ds-empty__desc">Impossible de charger les actualités.</p>
+          <p class="ds-empty__title">Could not load</p>
+          <p class="ds-empty__desc">Could not load news.</p>
           <button type="button" class="showcase-news__retry cta cta--sm cta--secondary ds-empty__action" (click)="retry()">
-            Réessayer
+            Retry
           </button>
         </div>
       } @else if (filteredItems().length === 0) {
         <div class="showcase-news__status showcase-news__empty ds-empty" role="status">
-          <p class="ds-empty__title">Aucune actualité</p>
-          <p class="ds-empty__desc">Aucun événement pour ce filtre.</p>
+          <p class="ds-empty__title">No news</p>
+          <p class="ds-empty__desc">No events for this filter.</p>
         </div>
       } @else {
         <ul class="showcase-news__list">

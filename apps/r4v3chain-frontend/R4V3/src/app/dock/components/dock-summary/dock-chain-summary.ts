@@ -61,7 +61,7 @@ export class DockChainSummaryComponent implements OnInit, OnDestroy {
   });
 
   readonly emptyLabel = computed(() =>
-    this.state.error() ? 'Chaîne indisponible' : this.state.loading() ? 'Chargement…' : 'Aucun bloc'
+    this.state.error() ? 'Chain unavailable' : this.state.loading() ? 'Loading…' : 'No blocks'
   );
 
   readonly barAriaLabel = computed(() => {
@@ -93,7 +93,7 @@ export class DockChainSummaryComponent implements OnInit, OnDestroy {
       error: 'error',
       loading: 'loading',
       empty: 'empty',
-      synchronisé: 'synced',
+      synced: 'synced',
     };
     return `dock-summary-status--${map[phase]}`;
   }

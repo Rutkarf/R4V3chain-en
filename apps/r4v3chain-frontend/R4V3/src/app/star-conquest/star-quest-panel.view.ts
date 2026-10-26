@@ -36,11 +36,11 @@ export function starQuestCtaLabel(
   kind: StarQuestClaimKind,
   live: StarConquestLiveLink | undefined
 ): string {
-  if (kind === 'completed') return 'Conquise';
+  if (kind === 'completed') return 'Conquered';
   if (live) return live.ctaLabel;
-  if (kind === 'locked') return 'À débloquer';
+  if (kind === 'locked') return 'Unlock';
   if (kind === 'future') return 'Roadmap';
-  return 'Conquérir';
+  return 'Conquer';
 }
 
 export function starQuestCtaEnabled(
@@ -59,18 +59,18 @@ export function starQuestRewardCopy(
 ): { label: string; value: string } {
   if (liveTask) {
     return {
-      label: 'Quête Dock',
+      label: 'Dock quest',
       value: `${liveTask.rewardMts} MTS · ${liveTask.rewardXp} XP`,
     };
   }
   if (live?.kind === 'navigate') {
-    return { label: 'Surface produit', value: 'Ouvrir dans l’app' };
+    return { label: 'Product surface', value: 'Open in app' };
   }
   if (live) {
-    return { label: 'Hub live', value: '4 quêtes Dock' };
+    return { label: 'Hub live', value: '4 Dock quests' };
   }
   return {
-    label: kind === 'completed' ? 'Preview local' : 'Gain estimé',
+    label: kind === 'completed' ? 'Preview local' : 'Estimated gain',
     value: `${rewardM4T3R} M4T3R`,
   };
 }
@@ -81,23 +81,23 @@ export function starQuestHint(params: {
   playerClaimed: boolean;
   previewM4T3R: number;
 }): string {
-  if (params.live && params.kind === 'completed') return 'Alignée sur la quête Dock.';
-  if (params.live) return 'Fais l’action dans l’app — pas de clic magique.';
-  if (params.kind === 'claim') return 'Conquête locale — pas de crédit faucet.';
-  if (params.kind === 'locked') return 'Conquis un voisin pour débloquer.';
+  if (params.live && params.kind === 'completed') return 'Aligned with the Dock quest.';
+  if (params.live) return 'Do the action in the app — no magic click.';
+  if (params.kind === 'claim') return 'Local conquest — no faucet credit.';
+  if (params.kind === 'locked') return 'Conquer a neighbor to unlock.';
   if (params.kind === 'completed' && params.playerClaimed) {
-    return `Enregistrée en preview (${params.previewM4T3R} M4T3R).`;
+    return `Saved in preview (${params.previewM4T3R} M4T3R).`;
   }
-  if (params.kind === 'completed') return 'Livrée dans le catalogue produit.';
-  return 'Pas encore ouvrable.';
+  if (params.kind === 'completed') return 'Shipped in the product catalog.';
+  return 'Not open yet.';
 }
 
 export const STAR_QUEST_CLAIM_ERROR_MESSAGE: Record<StarConquestClaimReason, string> = {
-  missing: 'Cette étoile n’est plus dans le catalogue.',
-  locked: 'Conquis un voisin pour débloquer.',
-  future: 'Pas encore ouvrable.',
-  'already-claimed': 'Déjà conquise.',
-  'action-required': 'Fais l’action dans l’app — pas de clic magique.',
+  missing: 'This star is no longer in the catalog.',
+  locked: 'Conquer a neighbor to unlock.',
+  future: 'Not open yet.',
+  'already-claimed': 'Already conquered.',
+  'action-required': 'Do the action in the app — no magic click.',
 };
 
 export interface StarQuestPanelView {

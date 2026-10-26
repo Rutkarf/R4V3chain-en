@@ -8,7 +8,7 @@ import io.r4v3chain.backend.quests.dto.QuestWeeklyCatalogItem;
 import java.util.List;
 
 /**
- * Métadonnées UI du catalogue quêtes — source unique alignée avec le frontend.
+ * Quest catalog UI metadata — single source aligned with the frontend.
  */
 public final class QuestCatalogUi {
 
@@ -33,8 +33,8 @@ public final class QuestCatalogUi {
 
         QuestMissionCatalogItem mission = new QuestMissionCatalogItem(
                 MISSION_ID,
-                "Gardien du réseau",
-                "Maintiens l’intégrité du réseau en terminant les tâches quotidiennes et hebdomadaires.",
+                "Network guardian",
+                "Keep the network healthy by completing daily and weekly tasks.",
                 QuestCatalog.MISSION_REWARD_MTS,
                 QuestCatalog.MISSION_REWARD_XP,
                 100
@@ -55,21 +55,21 @@ public final class QuestCatalogUi {
 
     private static String titleFor(String taskId) {
         return switch (taskId) {
-            case "daily-login" -> "Connexion quotidienne";
-            case "faucet-claim" -> "Réclamation du robinet";
-            case "explore-blocks" -> "Explorer les blocs";
-            case "swap-tokens" -> "Échanger des jetons";
+            case "daily-login" -> "Daily login";
+            case "faucet-claim" -> "Faucet claim";
+            case "explore-blocks" -> "Explore blocks";
+            case "swap-tokens" -> "Swap tokens";
             default -> taskId;
         };
     }
 
     private static String descriptionFor(String taskId) {
         return switch (taskId) {
-            case "daily-login" -> "Connecte-toi à l’application";
-            case "faucet-claim" -> "Réclame depuis le robinet";
-            case "explore-blocks" -> "Ouvrir le détail d’un bloc dans l’explorateur";
+            case "daily-login" -> "Sign in to the app";
+            case "faucet-claim" -> "Claim from the faucet";
+            case "explore-blocks" -> "Open a block detail in the explorer";
             case "swap-tokens" ->
-                    "Échanger un jeton du laboratoire (hors paires BTC/ETH standard) via le panneau d’échange";
+                    "Swap a lab token (outside standard BTC/ETH pairs) via the swap panel";
             default -> "";
         };
     }

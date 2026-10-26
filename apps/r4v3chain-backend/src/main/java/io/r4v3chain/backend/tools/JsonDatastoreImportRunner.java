@@ -33,13 +33,13 @@ public class JsonDatastoreImportRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        log.info("Phase P — démarrage import JSON → Postgres");
+        log.info("Phase P — starting JSON → Postgres import");
         JsonDatastoreImportReport report = importer.importAll();
         report.getImportedCounts().forEach((dataset, count) ->
                 log.info("  • {} : {} enregistrement(s)", dataset, count)
         );
         report.getSkippedFiles().forEach((dataset, reason) ->
-                log.warn("  • {} ignoré ({})", dataset, reason)
+                log.warn("  • {} skipped ({})", dataset, reason)
         );
 
         if (properties.isExitAfterImport()) {

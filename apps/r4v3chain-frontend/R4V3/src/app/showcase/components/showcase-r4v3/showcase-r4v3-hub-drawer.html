@@ -27,14 +27,14 @@
               [class.r4v3-hub-drawer__filter--active]="isWikiCategoryActive('all')"
               (click)="selectWikiCategory('all')"
             >
-              Toutes
+              All
             </button>
 
             <label class="r4v3-hub-drawer__search r4v3-hub-drawer__search--wiki">
               <input
                 type="search"
-                placeholder="Rechercher…"
-                aria-label="Recherche wiki"
+                placeholder="Search…"
+                aria-label="Wiki search"
                 [value]="wikiSearchQuery()"
                 (input)="onWikiSearchInput($any($event.target).value)"
               />
@@ -44,7 +44,7 @@
             <button
               type="button"
               class="r4v3-hub-drawer__icon-btn r4v3-hub-drawer__icon-btn--close r4v3-hub-drawer__icon-btn--wiki-close"
-              aria-label="Fermer"
+              aria-label="Close"
               (click)="dismiss()"
             >
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
@@ -86,7 +86,7 @@
             <button
               type="button"
               class="r4v3-hub-drawer__icon-btn r4v3-hub-drawer__icon-btn--close r4v3-hub-drawer__icon-btn--wiki-close"
-              aria-label="Fermer"
+              aria-label="Close"
               (click)="dismiss()"
             >
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
@@ -130,14 +130,14 @@
                     type="button"
                     class="r4v3-hub-drawer__icon-btn ds-surface ds-surface--showcase-tab"
                     [disabled]="!canPrev()"
-                    aria-label="Élément précédent"
+                    aria-label="Previous item"
                     (click)="navigatePrev.emit()"
                   ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-left"/></svg></button>
                   <button
                     type="button"
                     class="r4v3-hub-drawer__icon-btn ds-surface ds-surface--showcase-tab"
                     [disabled]="!canNext()"
-                    aria-label="Élément suivant"
+                    aria-label="Next item"
                     (click)="navigateNext.emit()"
                   ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-right"/></svg></button>
                 </div>
@@ -145,7 +145,7 @@
               <button
                 type="button"
                 class="r4v3-hub-drawer__icon-btn r4v3-hub-drawer__icon-btn--close ds-surface ds-surface--showcase-tab"
-                aria-label="Fermer"
+                aria-label="Close"
                 (click)="dismiss()"
               >
                 <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
@@ -160,7 +160,7 @@
           @case ('pillar') {
             <article class="r4v3-hub-drawer__article r4v3-hub-drawer__article--pillar">
               <section class="r4v3-hub-drawer__card r4v3-hub-drawer__card--lead r4v3-hub-drawer__card--pillar-lead">
-                <span class="r4v3-hub-drawer__card-label">En bref</span>
+                <span class="r4v3-hub-drawer__card-label">At a glance</span>
                 <p class="r4v3-hub-drawer__prose r4v3-hub-drawer__prose--lead">{{ content.pillar.drawerSummary }}</p>
               </section>
               <div class="r4v3-hub-drawer__pillar-sections" role="list">
@@ -181,10 +181,10 @@
               @if (!showBackToWiki() && (content.entry.popular || content.entry.isNew)) {
                 <div class="r4v3-hub-drawer__badges">
                   @if (content.entry.popular) {
-                    <span class="r4v3-hub-drawer__badge">Populaire</span>
+                    <span class="r4v3-hub-drawer__badge">Popular</span>
                   }
                   @if (content.entry.isNew) {
-                    <span class="r4v3-hub-drawer__badge r4v3-hub-drawer__badge--new">Nouveau</span>
+                    <span class="r4v3-hub-drawer__badge r4v3-hub-drawer__badge--new">New</span>
                   }
                 </div>
               }
@@ -192,14 +192,14 @@
                 class="r4v3-hub-drawer__card r4v3-hub-drawer__card--lead"
                 [class.r4v3-hub-drawer__card--wiki-center]="showBackToWiki()"
               >
-                <span class="r4v3-hub-drawer__card-label">Résumé</span>
+                <span class="r4v3-hub-drawer__card-label">Summary</span>
                 <p class="r4v3-hub-drawer__prose">{{ content.entry.summary }}</p>
               </section>
               <section
                 class="r4v3-hub-drawer__card"
                 [class.r4v3-hub-drawer__card--wiki-center]="showBackToWiki()"
               >
-                <span class="r4v3-hub-drawer__card-label">Réponse complète</span>
+                <span class="r4v3-hub-drawer__card-label">Full answer</span>
                 <p class="r4v3-hub-drawer__prose r4v3-hub-drawer__prose--detail">{{ content.entry.body }}</p>
               </section>
             </article>
@@ -209,7 +209,7 @@
               @if (communityQuestionLive(); as question) {
                 <div class="r4v3-hub-drawer__stats">
                   <div class="r4v3-hub-drawer__stat">
-                    <span class="r4v3-hub-drawer__stat-label">Auteur</span>
+                    <span class="r4v3-hub-drawer__stat-label">Author</span>
                     <span class="r4v3-hub-drawer__stat-value">{{ question.authorName }}</span>
                   </div>
                   <div class="r4v3-hub-drawer__stat">
@@ -221,7 +221,7 @@
                     <span class="r4v3-hub-drawer__stat-value">{{ question.score }}</span>
                   </div>
                   <div class="r4v3-hub-drawer__stat">
-                    <span class="r4v3-hub-drawer__stat-label">Publié</span>
+                    <span class="r4v3-hub-drawer__stat-label">Published</span>
                     <span class="r4v3-hub-drawer__stat-value">{{ question.relativeTime }}</span>
                   </div>
                 </div>
@@ -250,7 +250,7 @@
                   <p class="r4v3-hub-drawer__prose r4v3-hub-drawer__prose--lead">{{ question.title }}</p>
                 </section>
                 <section class="r4v3-hub-drawer__card">
-                  <span class="r4v3-hub-drawer__card-label">Détails</span>
+                  <span class="r4v3-hub-drawer__card-label">Details</span>
                   <p class="r4v3-hub-drawer__prose">{{ question.body }}</p>
                 </section>
                 @if (question.answers.length > 0) {
@@ -259,13 +259,13 @@
                       <span class="r4v3-hub-drawer__card-label">
                         {{ answer.authorName }}
                         @if (answer.isStaff) { · Staff }
-                        @if (answer.isValidated) { · Validée }
+                        @if (answer.isValidated) { · Validated }
                       </span>
                       <p class="r4v3-hub-drawer__prose">{{ answer.body }}</p>
                     </section>
                   }
                 } @else {
-                  <p class="r4v3-hub-drawer__empty">Aucune réponse pour le moment.</p>
+                  <p class="r4v3-hub-drawer__empty">No answers yet.</p>
                 }
               }
             </article>
@@ -274,7 +274,7 @@
             <div class="r4v3-hub-drawer__wiki">
               <ul class="r4v3-hub-drawer__wiki-rail">
                 @if (filteredWikiEntries().length === 0) {
-                  <li class="r4v3-hub-drawer__empty">Aucun article ne correspond à votre recherche.</li>
+                  <li class="r4v3-hub-drawer__empty">No articles match your search.</li>
                 } @else {
                   @for (entry of filteredWikiEntries(); track entry.id; let i = $index) {
                     <li>
@@ -303,9 +303,9 @@
           @case ('community-form') {
             <div class="r4v3-hub-drawer__form-wrap">
               <div class="r4v3-hub-drawer__dex-banner">
-                <span class="r4v3-hub-drawer__dex-badge">Gouvernance d’échange</span>
+                <span class="r4v3-hub-drawer__dex-badge">Exchange governance</span>
                 <p>
-                  Votre question entre dans le classement communautaire. Les votes déterminent les sujets épinglés.
+                  Your question enters the community ranking. Votes determine pinned topics.
                 </p>
               </div>
 
@@ -313,8 +313,8 @@
                 <div class="r4v3-hub-drawer__success" role="status">
                   <span class="r4v3-hub-drawer__success-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg></span>
                   <div>
-                    <strong>Question envoyée</strong>
-                    <p>Elle apparaîtra dans le ticker et pourra être votée par la communauté.</p>
+                    <strong>Question submitted</strong>
+                    <p>It will appear in the ticker and can be voted on by the community.</p>
                   </div>
                 </div>
               } @else if (isAuthenticated()) {
@@ -328,7 +328,7 @@
                       <input
                         type="text"
                         class="r4v3-hub-drawer__input"
-                        placeholder="Ex. Quelle est la prochaine évolution du protocole R4V3 ?"
+                        placeholder="E.g. What is the next evolution of the R4V3 protocol?"
                         maxlength="200"
                         [ngModel]="askTitle()"
                         (ngModelChange)="askTitle.set($event)"
@@ -339,18 +339,18 @@
                     </span>
                   </label>
                   <label class="r4v3-hub-drawer__field">
-                    <span class="r4v3-hub-drawer__field-label">Description détaillée (optionnel)</span>
+                    <span class="r4v3-hub-drawer__field-label">Detailed description (optional)</span>
                     <textarea
                       class="r4v3-hub-drawer__textarea"
                       rows="5"
-                      placeholder="Contexte, contraintes, ce que vous avez déjà consulté…"
+                      placeholder="Context, constraints, what you already checked…"
                       [ngModel]="askBody()"
                       (ngModelChange)="askBody.set($event)"
                       name="communityAskBody"
                     ></textarea>
                   </label>
                   <div class="r4v3-hub-drawer__field">
-                    <span class="r4v3-hub-drawer__field-label">Catégorie (optionnel)</span>
+                    <span class="r4v3-hub-drawer__field-label">Category (optional)</span>
                     <div
                       class="r4v3-hub-drawer__token-select"
                       [class.r4v3-hub-drawer__token-select--open]="categoryMenuOpen()"
@@ -392,13 +392,13 @@
                 </form>
               } @else {
                 <div class="r4v3-hub-drawer__login-card">
-                  <p>Connectez-vous pour proposer une question à la communauté.</p>
+                  <p>Sign in to submit a question to the community.</p>
                   <button
                     type="button"
                     class="r4v3-hub-drawer__login-btn ds-surface ds-surface--showcase-tab"
                     (click)="promptLoginForQuestion()"
                   >
-                    Se connecter
+                    Sign in
                   </button>
                 </div>
               }
@@ -421,7 +421,7 @@
               type="button"
               class="r4v3-hub-drawer__foot-nav"
               [disabled]="!canPrev()"
-              aria-label="Question précédente"
+              aria-label="Previous question"
               (click)="navigatePrev.emit()"
             ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-left"/></svg></button>
             <button
@@ -437,7 +437,7 @@
               type="button"
               class="r4v3-hub-drawer__foot-nav"
               [disabled]="!canNext()"
-              aria-label="Question suivante"
+              aria-label="Next question"
               (click)="navigateNext.emit()"
             ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-right"/></svg></button>
           } @else {
@@ -471,7 +471,7 @@
             [disabled]="!canSubmitForm()"
             (click)="submitCommunityForm($event)"
           >
-            Envoyer à la communauté
+            Send to community
           </button>
         </footer>
       }

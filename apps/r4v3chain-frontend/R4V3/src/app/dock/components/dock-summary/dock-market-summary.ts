@@ -89,7 +89,7 @@ export class DockMarketSummaryComponent implements OnInit, OnDestroy {
 
     return trimmed
       .replace('Laboratoire', 'Labo')
-      .replace('Parité CHF', 'Parité')
+      .replace('CHF peg', 'Peg')
       .replace(/\s*R4V3\b/gi, '')
       .replace(/\s+/g, ' ')
       .trim();
@@ -112,7 +112,7 @@ export class DockMarketSummaryComponent implements OnInit, OnDestroy {
     if (row) {
       return this.rowTitle(row);
     }
-    return 'Résumé marché';
+    return 'Market summary';
   }
 
   private onGlobalRefresh = (): void => {

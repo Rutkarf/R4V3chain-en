@@ -12,7 +12,7 @@ declare global {
 
 /**
  * Charge logo.stl une seule fois ; chaque viewer clone la géométrie.
- * Prefetch réseau possible avant Angular ; Three.js seulement au parse.
+ * Prefetch network possible avant Angular ; Three.js seulement au parse.
  * Pas de weld CPU (trop lent sur 7.8 Mo) — normals seules pour un 1er frame < 1 s.
  */
 @Injectable({ providedIn: 'root' })
@@ -27,7 +27,7 @@ export class LogoStlCacheService {
     void this.ensureBytes();
   }
 
-  /** Prefetch Three + STLLoader en parallèle du réseau. */
+  /** Prefetch Three + STLLoader en parallèle du network. */
   prefetchRuntime(): void {
     void this.ensureThree();
     void this.ensureLoader();

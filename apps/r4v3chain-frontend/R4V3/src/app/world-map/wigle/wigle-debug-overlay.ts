@@ -35,7 +35,7 @@ export class WigleDebugOverlay {
     this.effectsEnabled = enabled;
   }
 
-  /** Légende réseau désactivée — conservé pour compat API. */
+  /** Légende network désactivée — conservé pour compat API. */
   setLegendVisible(_visible: boolean): void {}
 
   updateGeoStats(stats: { geo: WigleGeoDebugStats; horizon: HorizonScaleDebugStats }): void {

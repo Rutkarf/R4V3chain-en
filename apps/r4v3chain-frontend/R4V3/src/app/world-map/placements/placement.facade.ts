@@ -115,7 +115,7 @@ export class PlacementFacade {
   ): Promise<boolean> {
     const placement = this.selectedPlacement();
     if (!placement) {
-      this.inquiryError.set('Aucun emplacement sélectionné.');
+      this.inquiryError.set('No placement selected.');
       return false;
     }
 
@@ -128,9 +128,9 @@ export class PlacementFacade {
     if (!gate.ok) {
       this.inquiryError.set(
         gate.reason === 'in-flight'
-          ? 'Demande déjà en cours.'
+          ? 'Request already in progress.'
           : gate.reason === 'duplicate-key'
-            ? 'Demande déjà envoyée pour cet emplacement.'
+            ? 'Request already sent for this placement.'
             : 'Demande indisponible pour cet emplacement.'
       );
       return false;
@@ -151,7 +151,7 @@ export class PlacementFacade {
         return false;
       }
       if (result.response.status !== 'received') {
-        this.inquiryError.set(result.response.message ?? 'Demande refusée.');
+        this.inquiryError.set(result.response.message ?? 'Request denied.');
         emitPlacementTelemetry({ name: 'inquiry_failed', placementId: placement.id });
         return false;
       }

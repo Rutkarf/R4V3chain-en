@@ -46,7 +46,7 @@
                 (click)="refreshMarket($event)"
                 [disabled]="chartSummary.phase() === 'loading'"
                 [class.is-spinning]="chartSummary.phase() === 'loading'"
-                aria-label="Rafraîchir Market Pulse"
+                aria-label="Refresh Market Pulse"
               >
                 <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-refresh"/></svg>
               </button>
@@ -54,7 +54,7 @@
                 type="button"
                 class="status-drawer__close"
                 (click)="closePopover($event)"
-                aria-label="Fermer Market Pulse"
+                aria-label="Close Market Pulse"
               ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
             </div>
           </div>

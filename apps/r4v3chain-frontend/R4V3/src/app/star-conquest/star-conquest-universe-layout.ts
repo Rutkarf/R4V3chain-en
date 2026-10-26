@@ -114,7 +114,7 @@ export function layoutPeerForUniverse(
   }
 }
 
-/** Z offset quest selon statut (Timeline Conquête). */
+/** Z offset quest selon statut (Timeline Conquest). */
 export function questZFromStatus(
   status: string,
   baseZ: number

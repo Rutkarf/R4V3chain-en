@@ -27,7 +27,7 @@ public final class CryptoUtils {
             keyPairGenerator.initialize(ecSpec, new SecureRandom());
             return keyPairGenerator.generateKeyPair();
         } catch (Exception e) {
-            throw new RuntimeException("Erreur lors de la génération de la paire de clés", e);
+            throw new RuntimeException("Error generating key pair", e);
         }
     }
 
@@ -46,7 +46,7 @@ public final class CryptoUtils {
             }
             return hexString.toString();
         } catch (Exception e) {
-            throw new RuntimeException("Erreur SHA-256", e);
+            throw new RuntimeException("SHA-256 error", e);
         }
     }
 
@@ -58,7 +58,7 @@ public final class CryptoUtils {
             byte[] signature = ecdsaSign.sign();
             return Base64.getEncoder().encodeToString(signature);
         } catch (Exception e) {
-            throw new RuntimeException("Erreur lors de la signature", e);
+            throw new RuntimeException("Error signing", e);
         }
     }
 
@@ -70,7 +70,7 @@ public final class CryptoUtils {
             byte[] signatureBytes = Base64.getDecoder().decode(signatureBase64);
             return ecdsaVerify.verify(signatureBytes);
         } catch (Exception e) {
-            throw new RuntimeException("Erreur lors de la vérification de signature", e);
+            throw new RuntimeException("Error verifying signature", e);
         }
     }
 
@@ -168,7 +168,7 @@ public final class CryptoUtils {
             KeyFactory keyFactory = KeyFactory.getInstance("EC", "BC");
             return keyFactory.generatePublic(spec);
         } catch (Exception e) {
-            throw new RuntimeException("Erreur conversion clé publique", e);
+            throw new RuntimeException("Public key conversion error", e);
         }
     }
 
@@ -179,7 +179,7 @@ public final class CryptoUtils {
             KeyFactory keyFactory = KeyFactory.getInstance("EC", "BC");
             return keyFactory.generatePrivate(spec);
         } catch (Exception e) {
-            throw new RuntimeException("Erreur conversion clé privée", e);
+            throw new RuntimeException("Private key conversion error", e);
         }
     }
 

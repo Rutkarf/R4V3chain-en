@@ -151,7 +151,7 @@ describe('ShowcaseR4v3Component', () => {
     expect(fixture.nativeElement.querySelector('.showcase-r4v3__wp-btn')).toBeTruthy();
     expect(
       fixture.nativeElement.querySelector('.showcase-r4v3__wp-btn-label')?.textContent?.trim()
-    ).toBe('Livre blanc');
+    ).toBe('White paper');
     expect(fixture.nativeElement.querySelector('.showcase-r4v3__wp-btn-hint')).toBeFalsy();
     expect(fixture.nativeElement.querySelector('.showcase-meta__refresh')).toBeFalsy();
     expect(fixture.nativeElement.querySelector('.showcase-r4v3__live-quote')).toBeFalsy();
@@ -186,6 +186,6 @@ describe('ShowcaseR4v3Component', () => {
     expect(fixture.nativeElement.querySelector('.showcase-r4v3__rail-btn--left')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('.showcase-r4v3__section-link--community')).toBeTruthy();
     expect(fixture.nativeElement.textContent).toContain('Wiki');
-    expect(fixture.nativeElement.textContent).toContain('FAQ communautaire');
+    expect(fixture.nativeElement.textContent).toContain('Community FAQ');
   });
 });

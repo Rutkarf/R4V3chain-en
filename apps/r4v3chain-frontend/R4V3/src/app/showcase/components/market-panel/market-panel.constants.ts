@@ -9,17 +9,17 @@ export type MarketSortMode = 'fav' | 'change' | 'price' | 'name';
 
 /** Rail gauche showcase Marché — remplit la hauteur. */
 export const MARKET_CATEGORY_RAIL: ReadonlyArray<{ id: MarketFilter; label: string }> = [
-  { id: 'all', label: 'TOUT' },
+  { id: 'all', label: 'ALL' },
   { id: 'nft', label: 'NFT' },
   { id: 'service', label: 'SERVICES' },
-  { id: 'asset', label: 'ACTIFS' },
+  { id: 'asset', label: 'ASSETS' },
   { id: 'fav', label: 'FAV' },
   { id: 'live', label: 'LIVE' },
   { id: 'drop', label: 'DROPS' },
 ];
 
 export interface MarketAssetConfig {
-  /** Clé exchange Laboratoire / R4V3 */
+  /** Clé exchange Laboratory / R4V3 */
   exchangeToken: ExchangeFromToken;
   /** Symbole affiché */
   displaySymbol: string;
@@ -30,7 +30,7 @@ export interface MarketAssetConfig {
   iconLabel: string;
   /** Unité décimale affichée pour le natif */
   unitLabel?: string;
-  /** Rayon boutique : NFT physique, service numérique, actif */
+  /** Department boutique : NFT physique, service numérique, actif */
   offerKind: MarketOfferKind;
   /** Badge court (DROP / SERVICE / NATIF / LIVE) */
   offerTag: string;
@@ -61,8 +61,8 @@ export const MARKET_ASSETS: readonly MarketAssetConfig[] = [
     iconLabel: 'R',
     unitLabel: 'm4t3r',
     offerKind: 'asset',
-    offerTag: 'NATIF',
-    shortPitch: 'Monnaie native du hub — pivot swap, graphique et accès Laboratoire.',
+    offerTag: 'NATIVE',
+    shortPitch: 'Hub native currency — swap hub, chart, and Laboratory access.',
     stockLabel: 'UTILITY 1 R4V3:1CHF',
   },
   {
@@ -74,8 +74,8 @@ export const MARKET_ASSETS: readonly MarketAssetConfig[] = [
     iconLabel: 'P',
     offerKind: 'nft',
     offerTag: 'DROP',
-    shortPitch: 'Collection NFT physique Pixel — édition limitée, certificat on-chain + envoi.',
-    stockLabel: '12 restants',
+    shortPitch: 'Pixel physical NFT collection — limited edition, on-chain certificate + shipping.',
+    stockLabel: '12 left',
   },
   {
     exchangeToken: 'NVFI',
@@ -86,8 +86,8 @@ export const MARKET_ASSETS: readonly MarketAssetConfig[] = [
     iconLabel: 'N',
     offerKind: 'service',
     offerTag: 'SERVICE',
-    shortPitch: 'Service numérique NovaFi — desk conseil, alertes et reporting marché.',
-    stockLabel: 'Illimité',
+    shortPitch: 'Digital service NovaFi — advisory desk, alerts, and market reporting.',
+    stockLabel: 'Unlimited',
   },
   {
     exchangeToken: 'LAB3',
@@ -98,8 +98,8 @@ export const MARKET_ASSETS: readonly MarketAssetConfig[] = [
     iconLabel: '3',
     offerKind: 'nft',
     offerTag: 'DROP',
-    shortPitch: 'Objet physique Lab #03 — série numérotée liée au jeton LAB3.',
-    stockLabel: '8 restants',
+    shortPitch: 'Lab #03 physical item — numbered series linked to LAB3 token.',
+    stockLabel: '8 left',
   },
   {
     exchangeToken: 'ORB',
@@ -110,8 +110,8 @@ export const MARKET_ASSETS: readonly MarketAssetConfig[] = [
     iconLabel: 'O',
     offerKind: 'service',
     offerTag: 'SERVICE',
-    shortPitch: 'Service numérique Orbit — relay API, webhooks et monitoring swap.',
-    stockLabel: 'Illimité',
+    shortPitch: 'Digital service Orbit — API relay, webhooks, and swap monitoring.',
+    stockLabel: 'Unlimited',
   },
 ];
 

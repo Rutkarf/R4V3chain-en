@@ -31,7 +31,7 @@ export class NavbarTickerStateService {
 
   readonly networkLabel = signal('R4V3CHAIN');
   readonly activeToken = signal('R4V3');
-  readonly lastTransactionShort = signal('Chargement…');
+  readonly lastTransactionShort = signal('Loading…');
   readonly peersConnected = signal(0);
   readonly peersTotal = signal(0);
   readonly blockTip = signal<string | null>(null);
@@ -53,43 +53,43 @@ export class NavbarTickerStateService {
     const segments: NavbarTickerSegment[] = [
       {
         id: 'network',
-        label: 'Réseau',
+        label: 'Network',
         value: networkValue,
         detail: {
           eyebrow: 'Infrastructure',
           title: networkValue,
           summary:
-            'R4V3chain s’appuie sur un réseau distribué optimisé pour la latence et la disponibilité des nœuds.',
+            'R4V3chain runs on a distributed network optimized for latency and node availability.',
           bullets: [
-            'Consensus synchronisé en temps réel avec les pairs actifs.',
-            'Lancement prévu au 4e trimestre — accès anticipé via le laboratoire R4V3.',
-            'Compatible avec les flux en direct de l’explorateur.',
+            'Consensus synced in real time with active peers.',
+            'Launch planned for Q4 — early access via the R4V3 laboratory.',
+            'Compatible with the explorer’s live feeds.',
           ],
           metrics: [
-            { label: 'Réseau', value: 'R4V3chain pair à pair' },
-            { label: 'Statut', value: this.loading() ? 'Synchronisation…' : 'Opérationnel' },
-            { label: 'Mise à jour', value: ageLabel },
+            { label: 'Network', value: 'R4V3chain peer-to-peer' },
+            { label: 'Status', value: this.loading() ? 'Syncing…' : 'Operational' },
+            { label: 'Updated', value: ageLabel },
           ],
         },
       },
       {
         id: 'token',
-        label: 'Jeton',
+        label: 'Token',
         value: tokenValue,
         detail: {
-          eyebrow: 'Actif sélectionné',
+          eyebrow: 'Selected asset',
           title: tokenValue,
           summary:
-            'Le jeton actif pilote le graphique, l’échange et les métriques affichées dans le hub marché.',
+            'The active token drives the chart, exchange, and metrics shown in the market hub.',
           bullets: [
-            'R4V3 — jeton natif de l’écosystème R4V3chain.',
-            'Jetons du laboratoire disponibles dans le menu déroulant adjacent.',
-            'Récompenses distribuées aux participants actifs du réseau.',
+            'R4V3 — native token of the R4V3chain ecosystem.',
+            'Laboratory tokens available in the adjacent dropdown.',
+            'Rewards distributed to active network participants.',
           ],
           metrics: [
             { label: 'TVL', value: '12.4M' },
-            { label: 'Lancement', value: 'Q4 2026' },
-            { label: 'Récompenses', value: 'Actifs' },
+            { label: 'Launch', value: 'Q4 2026' },
+            { label: 'Rewards', value: 'Active' },
           ],
         },
       },
@@ -98,36 +98,36 @@ export class NavbarTickerStateService {
         label: 'Tx',
         value: txValue,
         detail: {
-          eyebrow: 'File',
-          title: 'Dernière transaction',
+          eyebrow: 'Queue',
+          title: 'Latest transaction',
           summary:
-            'Flux des transactions en attente de validation, mis à jour via le canal live du nœud.',
+            'Stream of transactions pending validation, updated via the node’s live channel.',
           bullets: [
-            'Hash tronqué dans le ticker pour la lisibilité compacte.',
-            'Ouvrez la barre Transactions pour l’historique complet.',
-            'Rafraîchissement automatique à chaque instantané réseau.',
+            'Hash truncated in the ticker for compact readability.',
+            'Open the Transactions bar for the full history.',
+            'Automatic refresh on every network snapshot.',
           ],
           metrics: [{ label: 'Hash', value: txValue }],
         },
       },
       {
         id: 'peers',
-        label: 'Pairs',
+        label: 'Peers',
         value: peersLabel,
         detail: {
-          eyebrow: 'Topologie P2P',
-          title: `${peersLabel} pairs`,
+          eyebrow: 'P2P topology',
+          title: `${peersLabel} peers`,
           summary:
-            'Nombre de nœuds connectés au réseau R4V3chain, mesuré via les statistiques des pairs.',
+            'Number of nodes connected to the R4V3chain network, measured via peer stats.',
           bullets: [
-            'Les pairs actifs contribuent à la propagation des blocs.',
-            'Consultez la barre Pairs pour le détail de chaque connexion.',
-            'Actualisation automatique toutes les 30 secondes.',
+            'Active peers help propagate blocks.',
+            'Check the Peers bar for each connection’s detail.',
+            'Automatic refresh every 30 seconds.',
           ],
           metrics: [
-            { label: 'Connectés', value: String(this.peersConnected()) },
+            { label: 'Connected', value: String(this.peersConnected()) },
             { label: 'Total', value: String(this.peersTotal() || this.peersConnected()) },
-            { label: 'Mise à jour', value: ageLabel },
+            { label: 'Updated', value: ageLabel },
           ],
         },
       },
@@ -136,19 +136,19 @@ export class NavbarTickerStateService {
     if (tip) {
       segments.push({
         id: 'tip',
-        label: 'Bloc',
+        label: 'Block',
         value: tip,
         detail: {
-          eyebrow: 'Chaîne',
-          title: `Bloc ${tip}`,
+          eyebrow: 'Chain',
+          title: `Block ${tip}`,
           summary:
-            'Index du dernier bloc confirmé sur la chaîne R4V3chain, rafraîchi toutes les 5 secondes.',
+            'Index of the latest confirmed block on R4V3chain, refreshed every 5 seconds.',
           bullets: [
-            'Pointe de chaîne synchronisée avec la barre Chaîne.',
-            'Cliquez sur un bloc dans l’explorateur pour ouvrir le détail.',
-            'Indicateur de progression du nœud local.',
+            'Chain tip synced with the Chain bar.',
+            'Click a block in the explorer to open its detail.',
+            'Local node progress indicator.',
           ],
-          metrics: [{ label: 'Sommet', value: tip }],
+          metrics: [{ label: 'Tip', value: tip }],
         },
       });
     }
@@ -217,7 +217,7 @@ export class NavbarTickerStateService {
           }
         } else {
           this.networkLabel.set('R4V3CHAIN');
-          this.lastTransactionShort.set('Aucune transaction récente');
+          this.lastTransactionShort.set('No recent transaction');
         }
         this.loading.set(false);
         this.lastUpdatedAt.set(Date.now());
@@ -240,7 +240,7 @@ export class NavbarTickerStateService {
 
   private applyLatestTransaction(transactions: PendingTransaction[]): void {
     if (!transactions?.length) {
-      this.lastTransactionShort.set('Aucune transaction récente');
+      this.lastTransactionShort.set('No recent transaction');
       return;
     }
 
@@ -260,7 +260,7 @@ export class NavbarTickerStateService {
 
   private applyLatestTransactionLabel(value: string | null): void {
     if (!value?.trim()) {
-      this.lastTransactionShort.set('Aucune transaction récente');
+      this.lastTransactionShort.set('No recent transaction');
       return;
     }
 

@@ -2019,7 +2019,7 @@ export class MetaverseMapProvider implements MapProvider {
     }
   }
 
-  /** Ombrière de verre au spawn — indépendante du graphe Conquête stellaire. */
+  /** Ombrière de verre au spawn — indépendante du graphe Conquest stellaire. */
   private addMirrorCanopy(): void {
     if (!this.root) return;
     const origin = METRO_SPAWN_ANCHOR.mirror;

@@ -21,7 +21,7 @@ export interface ChartSummarySnapshot {
 
 @Injectable({ providedIn: 'root' })
 export class ChartSummaryStateService {
-  readonly title = signal('Graphique');
+  readonly title = signal('Chart');
   readonly pairLabel = signal('R4V3 / CHF');
   readonly price = signal('—');
   readonly delta = signal('—');

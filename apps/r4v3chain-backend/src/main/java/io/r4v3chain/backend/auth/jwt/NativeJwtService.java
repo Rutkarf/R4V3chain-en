@@ -143,14 +143,14 @@ public class NativeJwtService {
             byte[] digest = mac.doFinal(content.getBytes(StandardCharsets.UTF_8));
             return URL_ENCODER.encodeToString(digest);
         } catch (Exception exception) {
-            throw new AuthException(500, "Impossible de signer le jeton JWT");
+            throw new AuthException(500, "Unable to sign JWT token");
         }
     }
 
     private byte[] resolveSecretBytes() {
         String secret = authProperties.getJwtSecret();
         if (secret == null || secret.isBlank()) {
-            throw new AuthException(500, "r4v3chain.auth.jwt-secret non configuré");
+            throw new AuthException(500, "r4v3chain.auth.jwt-secret not configured");
         }
         return secret.getBytes(StandardCharsets.UTF_8);
     }

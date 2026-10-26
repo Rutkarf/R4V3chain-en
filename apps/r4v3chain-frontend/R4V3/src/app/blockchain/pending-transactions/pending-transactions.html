@@ -76,12 +76,12 @@
       @if (compact && embedded) {
         <p class="pending-view__inline-error" role="alert">
           <span>{{ error() }}</span>
-          <button type="button" class="pending-view__inline-retry" (click)="refresh()">Réessayer</button>
+          <button type="button" class="pending-view__inline-retry" (click)="refresh()">Retry</button>
         </p>
       } @else {
       <div class="pending-view__status pending-view__status--error" role="alert">
         <p>{{ error() }}</p>
-        <button type="button" class="pending-view__retry" (click)="refresh()">Réessayer</button>
+        <button type="button" class="pending-view__retry" (click)="refresh()">Retry</button>
       </div>
       }
     } @else if (loading() && !hasTransactions()) {
@@ -199,7 +199,7 @@
       }
     } @else if (searchQuery().trim() && hasTransactions()) {
       <div class="pending-view__status">
-        <p>Aucun résultat</p>
+        <p>No results</p>
         <button type="button" class="pending-view__retry" (click)="clearSearch()">Effacer filtre</button>
       </div>
     } @else {

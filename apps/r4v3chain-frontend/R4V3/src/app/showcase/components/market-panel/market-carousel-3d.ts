@@ -319,7 +319,7 @@ export class MarketCarousel3dComponent implements AfterViewInit, OnDestroy {
 
   readonly lanes = input.required<MarketCarouselLaneInput[]>();
   readonly activeCategoryId = input.required<MarketFilter>();
-  readonly emptyMessage = input('Aucun produit');
+  readonly emptyMessage = input('No products');
 
   readonly categoryChange = output<MarketFilter>();
   readonly itemSelect = output<MarketAssetRow>();
@@ -507,7 +507,7 @@ export class MarketCarousel3dComponent implements AfterViewInit, OnDestroy {
       if (lane.items.length === 0) {
         const empty = this.createCardObject({
           title: lane.category.label,
-          subtitle: 'Aucun produit',
+          subtitle: 'No products',
           price: '—',
           accent: '#8b9dad',
           icon: '·',

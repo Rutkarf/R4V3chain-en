@@ -117,8 +117,8 @@ import {
 } from './r4v3-chart.util';
 
 const CHART_TYPES: ReadonlyArray<{ id: ChartDisplayType; label: string }> = [
-  { id: 'line', label: 'Courbe' },
-  { id: 'candles', label: 'Bougies' },
+  { id: 'line', label: 'Line' },
+  { id: 'candles', label: 'Candles' },
 ];
 
 const CURRENCIES: ReadonlyArray<{ id: ChartCurrency; label: string }> = [
@@ -157,19 +157,19 @@ const HUB_PERIOD_PILLS: readonly HubPeriodPill[] = [
 ];
 
 const HUB_TICK_PILLS: readonly HubTickPill[] = [
-  { id: 'centieme', label: '1 centième', badge: '1 centième', stepMs: 10 },
-  { id: 'dixieme', label: 'un dixième', badge: 'un dixième', stepMs: 100 },
-  { id: 'seconde', label: 'une seconde', badge: 'une seconde', stepMs: 1_000 },
+  { id: 'centieme', label: '1 cent', badge: '1 cent', stepMs: 10 },
+  { id: 'dixieme', label: 'one tenth', badge: 'one tenth', stepMs: 100 },
+  { id: 'seconde', label: '1 second', badge: '1 second', stepMs: 1_000 },
   { id: 'minute', label: '1 minute', badge: '1 minute', stepMs: 60_000 },
-  { id: 'heure', label: '1 heure', badge: '1 heure', stepMs: 3_600_000 },
+  { id: 'heure', label: '1 hour', badge: '1 hour', stepMs: 3_600_000 },
 ];
 
 const R4V3_VIEW_PILLS: readonly { id: R4v3ChartView; badge: string; hint: string }[] = [
   { id: 'auto', badge: 'AUTO', hint: r4v3ViewHint('auto') },
-  { id: 'flow', badge: 'VUE', hint: r4v3ViewHint('flow') },
+  { id: 'flow', badge: 'VIEW', hint: r4v3ViewHint('flow') },
   { id: 'pulse', badge: 'PULSE', hint: r4v3ViewHint('pulse') },
   { id: 'fuel', badge: 'FUEL', hint: r4v3ViewHint('fuel') },
-  { id: 'health', badge: 'SANTÉ', hint: r4v3ViewHint('health') },
+  { id: 'health', badge: 'HEALTH', hint: r4v3ViewHint('health') },
 ];
 
 const R4V3_PEG_PRICE = R4V3_PEG_DISPLAY_PRICE;
@@ -213,7 +213,7 @@ export class ShowcaseChartComponent {
   readonly chartCollapsed = input(false, { transform: booleanAttribute });
   /** Bandeau R4V3 : graphique compact avec pills 1H/24H/7J. */
   readonly compactLayout = input(false, { transform: booleanAttribute });
-  readonly collapseAriaLabel = input('Replier le graphique');
+  readonly collapseAriaLabel = input('Collapse chart');
   readonly collapseToggle = output<void>();
 
   private readonly api = inject(ShowcaseApiService);
@@ -321,7 +321,7 @@ export class ShowcaseChartComponent {
   readonly activeTimeframeBadge = computed(() => this.activeTimeframe().badge);
   readonly activeTimeframeHint = computed(() => {
     const tf = this.activeTimeframe();
-    const sectionTitle = isIntervalId(tf.id) ? 'Intervalle' : 'Période';
+    const sectionTitle = isIntervalId(tf.id) ? 'Interval' : 'Period';
     return `${sectionTitle} · ${tf.label} · CoinGecko ${tf.coingeckoGranularity}`;
   });
   readonly isNativeR4v3 = computed(() => this.selectedSymbol() === BRAND_DEFAULT_CRYPTO);
@@ -482,7 +482,7 @@ export class ShowcaseChartComponent {
     const status = this.activeLaunchProject()?.status;
     switch (status) {
       case 'LIVE':
-        return 'Direct';
+        return 'Live';
       case 'SOON':
         return 'Soon';
       case 'ENDED':
@@ -641,7 +641,7 @@ export class ShowcaseChartComponent {
     () => this.r4v3State.swapStats()?.lastSwapSummary?.trim() || '—'
   );
 
-  /** Badge du mode R4V3 sur le trigger — libellé court uniquement (ex. AUTO, pas « Auto · Santé »). */
+  /** Badge du mode R4V3 sur le trigger — libellé court uniquement (ex. AUTO, pas « Auto · Health »). */
   readonly r4v3ViewBadge = computed(() => {
     const view = this.r4v3ViewMode();
     return this.r4v3ViewPills.find((pill) => pill.id === view)?.badge ?? r4v3ViewLabel(view);
@@ -670,7 +670,7 @@ export class ShowcaseChartComponent {
 
   readonly hubActiveTickBadge = computed(() => {
     const id = this.activeTickResolution();
-    return HUB_TICK_PILLS.find((pill) => pill.id === id)?.badge ?? '1 centième';
+    return HUB_TICK_PILLS.find((pill) => pill.id === id)?.badge ?? '1 cent';
   });
 
   readonly r4v3AxisTitle = computed(() =>
@@ -691,7 +691,7 @@ export class ShowcaseChartComponent {
     }
 
     if (this.isChartCalm()) {
-      return 'Aucun swap — convertir pour alimenter le réseau';
+      return 'No swaps — convert to feed the network';
     }
 
     return '';
@@ -703,7 +703,7 @@ export class ShowcaseChartComponent {
 
   readonly r4v3InsightHint = computed(() => {
     if (this.isChartCalm()) {
-      return 'Ouvrir le panneau de conversion R4V3';
+      return 'Open R4V3 conversion panel';
     }
     return this.r4v3InsightLine();
   });
@@ -734,9 +734,9 @@ export class ShowcaseChartComponent {
 
     if (this.isChartCalm()) {
       return [
-        { label: 'Santé', value: `${this.r4v3HealthScore()}/100`, tone: 'up' },
+        { label: 'Health', value: `${this.r4v3HealthScore()}/100`, tone: 'up' },
         { label: 'Liq.', value: `${Math.round(this.r4v3LiquidityProxy())}%` },
-        { label: 'Échanges', value: String(flow.swaps) },
+        { label: 'Swaps', value: String(flow.swaps) },
       ];
     }
 
@@ -745,33 +745,33 @@ export class ShowcaseChartComponent {
     switch (view) {
       case 'flow':
         return [
-          { label: 'Réseau', value: flow.netLabel, tone: flow.buys >= flow.sells ? 'up' : 'down' },
-          { label: 'Achats', value: flow.buys > 0 ? formatCompactMetric(flow.buys) : '0' },
-          { label: 'Ventes', value: flow.sells > 0 ? formatCompactMetric(flow.sells) : '0' },
+          { label: 'Network', value: flow.netLabel, tone: flow.buys >= flow.sells ? 'up' : 'down' },
+          { label: 'Buys', value: flow.buys > 0 ? formatCompactMetric(flow.buys) : '0' },
+          { label: 'Sells', value: flow.sells > 0 ? formatCompactMetric(flow.sells) : '0' },
         ];
       case 'pulse':
         return [
-          { label: 'Évén.', value: String(flow.swaps) },
+          { label: 'Events', value: String(flow.swaps) },
           { label: 'Vol.', value: this.hubFooterVol() },
-          { label: 'Direct', value: flow.swaps > 0 ? 'Actif' : '—', tone: flow.swaps > 0 ? 'up' : undefined },
+          { label: 'Live', value: flow.swaps > 0 ? 'Active' : '—', tone: flow.swaps > 0 ? 'up' : undefined },
         ];
       case 'fuel':
         return [
-          { label: 'Carburant', value: this.r4v3FuelTotal() },
-          { label: 'Cible', value: this.hubLaunchTarget() },
-          { label: 'Levé', value: this.hubLaunchRaised() },
+          { label: 'Fuel', value: this.r4v3FuelTotal() },
+          { label: 'Target', value: this.hubLaunchTarget() },
+          { label: 'Raised', value: this.hubLaunchRaised() },
         ];
       case 'health':
         return [
-          { label: 'Santé', value: `${this.r4v3HealthScore()}/100`, tone: 'up' },
+          { label: 'Health', value: `${this.r4v3HealthScore()}/100`, tone: 'up' },
           { label: 'Liq.', value: `${Math.round(this.r4v3LiquidityProxy())}%` },
-          { label: 'Échanges', value: String(flow.swaps) },
+          { label: 'Swaps', value: String(flow.swaps) },
         ];
       default:
         return [
           { label: 'Vol.', value: this.hubFooterVol() },
-          { label: 'Réseau', value: flow.netLabel, tone: flow.buys >= flow.sells ? 'up' : 'down' },
-          { label: 'Échanges', value: String(flow.swaps) },
+          { label: 'Network', value: flow.netLabel, tone: flow.buys >= flow.sells ? 'up' : 'down' },
+          { label: 'Swaps', value: String(flow.swaps) },
         ];
     }
   });
@@ -1185,7 +1185,7 @@ export class ShowcaseChartComponent {
             : [50, 48, 44, 46, 40, 42, 38];
 
       this.chartSummary.sync({
-        title: 'Graphique',
+        title: 'Chart',
         pairLabel: `${this.pairBase()} / ${this.currencyLabel()}`,
         price: this.marketSummaryPrice(),
         delta: this.marketSummaryDelta(),
@@ -2128,7 +2128,7 @@ export class ShowcaseChartComponent {
             const amount = tx.amount ?? 0;
             return `#${tx.id.slice(0, 6)} · ${amount} · ${tx.data?.slice(0, 24) ?? 'tx'}`;
           });
-        this.tradeLines.set(lines.length ? lines : ['Aucune transaction récente pour cette paire']);
+        this.tradeLines.set(lines.length ? lines : ['No recent transactions for this pair']);
       });
   }
 
@@ -2310,11 +2310,11 @@ export class ShowcaseChartComponent {
 
   private formatAxisPrice(value: number, reference: string): string {
     if (!reference || reference === '—') {
-      return value.toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+      return value.toLocaleString('en-US', { maximumFractionDigits: 2 });
     }
 
     const usesComma = reference.includes(',');
-    const formatted = value.toLocaleString('fr-FR', {
+    const formatted = value.toLocaleString('en-US', {
       maximumFractionDigits: reference.includes('.') || usesComma ? 4 : 0,
     });
     return usesComma ? formatted : formatted.replace(',', '.');

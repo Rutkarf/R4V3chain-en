@@ -19,12 +19,12 @@
         </ul>
       } @else if (error()) {
         <div class="showcase-news__status showcase-news__status--error">
-          <p>Impossible de charger les DAO.</p>
-          <button type="button" class="showcase-news__retry" (click)="refresh()">Réessayer</button>
+          <p>Could not load DAOs.</p>
+          <button type="button" class="showcase-news__retry" (click)="refresh()">Retry</button>
         </div>
       } @else if (filteredCards().length === 0) {
         <div class="showcase-news__status">
-          <p>Aucune DAO disponible.</p>
+          <p>No DAOs available.</p>
         </div>
       } @else {
         <ul class="showcase-news__list showcase-dao__list">

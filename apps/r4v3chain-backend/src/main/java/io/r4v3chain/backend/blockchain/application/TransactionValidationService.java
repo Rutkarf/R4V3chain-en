@@ -209,7 +209,7 @@ public class TransactionValidationService {
             UserAccountStore userAccountStore
     ) {
         if (!signature.startsWith(PendingTransactionAttestation.AUTH_PREFIX)) {
-            throw new TransactionValidationException("signature AUTHv1 requise");
+            throw new TransactionValidationException("AUTHv1 signature required");
         }
 
         if (userAccountStore == null || !PendingTransactionAttestation.verify(transaction, userAccountStore)) {

@@ -111,7 +111,7 @@ export class ShowcaseNewsComponent {
 
     switch (this.newsState.chainLiveTone()) {
       case 'pending':
-        return 'attente';
+        return 'pending';
       case 'offline':
         return 'off';
       default:
@@ -212,9 +212,9 @@ export class ShowcaseNewsComponent {
   protected refreshAriaLabel(): string {
     const unread = this.newsState.unreadCount();
     if (unread > 0) {
-      return `Actualiser les actualités, ${unread} non lue${unread > 1 ? 's' : ''}`;
+      return `Refresh news, ${unread} unread${unread > 1 ? 's' : ''}`;
     }
-    return 'Actualiser les actualités';
+    return 'Refresh news';
   }
 
   protected openLatestBlock(): void {

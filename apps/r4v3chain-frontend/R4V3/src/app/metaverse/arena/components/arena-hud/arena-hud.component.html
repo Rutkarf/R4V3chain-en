@@ -45,7 +45,7 @@
 
       @if (questComplete() && phase() === 'playing') {
         <button type="button" class="arena-hud__quest-claim" (click)="claimQuest()">
-          Claim quête +{{ questReward }}ƒ
+          Claim quest +{{ questReward }}ƒ
         </button>
       }
 
@@ -73,7 +73,7 @@
 
           <p class="arena-hud__lead">Mode</p>
           <div class="arena-hud__row">
-            <button type="button" class="arena-hud__chip-btn" [class.is-on]="mode() === 'ffa-bots'" (click)="setMode('ffa-bots')">Mêlée</button>
+            <button type="button" class="arena-hud__chip-btn" [class.is-on]="mode() === 'ffa-bots'" (click)="setMode('ffa-bots')">Melee</button>
             <button type="button" class="arena-hud__chip-btn" [class.is-on]="mode() === 'horde'" (click)="setMode('horde')">Horde</button>
             <button type="button" class="arena-hud__chip-btn" [class.is-on]="mode() === 'duel-bots'" (click)="setMode('duel-bots')">Duel</button>
             <button type="button" class="arena-hud__chip-btn" [class.is-on]="mode() === 'ffa-peers'" (click)="setMode('ffa-peers')">Pairs</button>
@@ -89,7 +89,7 @@
           <p class="arena-hud__lead">Salle</p>
           <div class="arena-hud__row">
             <input class="arena-hud__input" [value]="roomDraft()" (input)="onRoomInput($event)" aria-label="Room" />
-            <button type="button" class="arena-hud__chip-btn" (click)="applyRoom()">Valider</button>
+            <button type="button" class="arena-hud__chip-btn" (click)="applyRoom()">Confirm</button>
           </div>
           <p class="arena-hud__lead arena-hud__chip--dim">
             room={{ roomId() }} · {{ transportMode() }} · bots ×{{ targetCount() }} · peers {{ peerCount() }}
@@ -157,7 +157,7 @@
       </div>
 
       @if (killCamActive()) {
-        <p class="arena-hud__toast arena-hud__toast--ko-big" role="status">ÉLIMINÉ · GAIN</p>
+        <p class="arena-hud__toast arena-hud__toast--ko-big" role="status">ELIMINATED · GAIN</p>
       }
       @if (lastLoot(); as loot) {
         @if (loot.accepted && loot.lootAmount > 0 && phase() === 'playing') {

@@ -16,6 +16,6 @@ export function starConquestRuntimeError(message: string): StarConquestRuntimeOv
   return { phase: 'error', message };
 }
 
-export function starConquestRuntimeLoading(message = 'Chargement de l’univers'): StarConquestRuntimeOverlay {
+export function starConquestRuntimeLoading(message = 'Loading universe'): StarConquestRuntimeOverlay {
   return { phase: 'loading', message };
 }

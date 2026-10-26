@@ -56,7 +56,7 @@ export class DockTabsDockTabsComponent implements OnDestroy {
 
   @Input() activeTab: BottomDockTab = 'wallet';
   @Input() dockCollapsed = true;
-  @Input() collapseAriaLabel = 'Replier le dock';
+  @Input() collapseAriaLabel = 'Collapse dock';
   @Input() refreshBusy = false;
 
   @Output() readonly tabChange = new EventEmitter<BottomDockTab>();

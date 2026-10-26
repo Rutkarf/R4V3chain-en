@@ -50,7 +50,7 @@ export class DockWalletStateService {
   readonly statusLabel = computed(() => {
     switch (this.phase()) {
       case 'error':
-        return 'Erreur';
+        return 'Error';
       case 'loading':
         return 'Synchro…';
       case 'disconnected':
@@ -62,7 +62,7 @@ export class DockWalletStateService {
 
   readonly headline = computed(() => {
     if (!this.hasWallet()) {
-      return 'Créer ou importer un wallet';
+      return 'Create or import a wallet';
     }
 
     const bal = this.balance();

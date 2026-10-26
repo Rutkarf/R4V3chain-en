@@ -1,5 +1,5 @@
 /**
- * Conquête stellaire — modèle Quest (frontend-first, prêt API Spring Boot).
+ * Conquest stellaire — modèle Quest (frontend-first, prêt API Spring Boot).
  */
 
 import type { StarQuestFamily } from './star-conquest-families';
@@ -83,11 +83,11 @@ export interface StarQuestPanelState {
 }
 
 export const STAR_QUEST_STATUS_LABEL: Record<StarQuestStatus, string> = {
-  available: 'Disponible',
-  locked: 'Verrouillée',
-  active: 'En cours',
-  completed: 'Conquise',
-  future: 'Bientôt',
+  available: 'Available',
+  locked: 'Locked',
+  active: 'In progress',
+  completed: 'Conquered',
+  future: 'Soon',
 };
 
 export type StarQuestClaimKind = 'claim' | 'locked' | 'future' | 'completed';
@@ -109,20 +109,20 @@ export function cloneStarQuest(quest: StarQuest): StarQuest {
 }
 
 export const STAR_QUEST_CATEGORY_LABEL: Record<StarQuestCategory, string> = {
-  swap: 'Échange',
+  swap: 'Swap',
   showcase: 'Showcase',
-  dock: 'Barre',
-  graph: 'Graphique',
+  dock: 'Dock',
+  graph: 'Chart',
   three: 'Three.js',
   angular: 'Angular',
   backend: 'Backend',
   performance: 'Perf',
-  security: 'Sécurité',
+  security: 'Security',
   ux: 'UX',
   a11y: 'A11y',
   responsive: 'Responsive',
   tests: 'Tests',
   gamification: 'Game',
   data: 'Data',
-  quality: 'Qualité',
+  quality: 'Quality',
 };

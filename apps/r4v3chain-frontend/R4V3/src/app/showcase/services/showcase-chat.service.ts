@@ -142,7 +142,7 @@ export class ShowcaseChatService {
           this.removeMessageById(this.pendingLocalSendId);
           this.pendingLocalSendId = null;
         }
-        this.sendErrorSignal.set(envelope.message || "Impossible d'envoyer le message.");
+        this.sendErrorSignal.set(envelope.message || "Could not send the message.");
       }
     };
 
@@ -230,7 +230,7 @@ export class ShowcaseChatService {
       ? CHAT_ANONYMOUS_AUTHOR
       : override || this.getUsername();
     if (!anonymous && !author) {
-      this.sendErrorSignal.set('Connectez-vous pour envoyer un message.');
+      this.sendErrorSignal.set('Sign in to send a message.');
       return;
     }
     if (!anonymous && override) {
@@ -386,7 +386,7 @@ export class ShowcaseChatService {
     if (error instanceof Error && error.message.trim()) {
       return error.message;
     }
-    return "Impossible d'envoyer le message. Vérifie ta connexion ou reconnecte-toi.";
+    return "Could not send the message. Check your connection or sign in again.";
   }
 
   private appendMessage(message: ChatMessage): void {

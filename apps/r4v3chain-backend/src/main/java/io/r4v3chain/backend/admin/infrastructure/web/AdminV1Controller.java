@@ -54,7 +54,7 @@ public class AdminV1Controller {
                 result.unlockToken(),
                 result.expiresAtEpochMs(),
                 result.ttlSeconds(),
-                "Panel admin déverrouillé"
+                "Admin panel unlocked"
         );
     }
 

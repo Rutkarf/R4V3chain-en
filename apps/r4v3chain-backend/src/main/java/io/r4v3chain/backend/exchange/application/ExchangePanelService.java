@@ -32,7 +32,7 @@ public class ExchangePanelService {
                 rate,
                 BigDecimal.ZERO,
                 BigDecimal.ZERO,
-                "Swap démo"
+                "Demo swap"
         );
     }
 

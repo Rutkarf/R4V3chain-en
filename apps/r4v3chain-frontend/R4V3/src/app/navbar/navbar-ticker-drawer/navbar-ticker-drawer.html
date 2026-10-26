@@ -33,7 +33,7 @@
               (click)="refresh($event)"
               [disabled]="ticker.loading()"
               [class.is-spinning]="ticker.loading()"
-              aria-label="Rafraîchir le ticker"
+              aria-label="Refresh ticker"
             >
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-refresh"/></svg>
             </button>
@@ -41,7 +41,7 @@
               type="button"
               class="ticker-drawer__icon-btn ticker-drawer__icon-btn--close"
               (click)="close($event)"
-              aria-label="Fermer"
+              aria-label="Close"
             ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
           </div>
         </header>

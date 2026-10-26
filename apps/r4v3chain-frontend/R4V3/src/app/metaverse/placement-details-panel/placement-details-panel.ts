@@ -6,10 +6,10 @@ import type { PlacementInventoryStatus } from '@world-map/placements/placement.m
 
 const STATUS_LABEL: Record<PlacementInventoryStatus, string> = {
   available: 'Disponible',
-  reserved: 'Réservé',
+  reserved: 'Reserved',
   active: 'Campagne active',
   paused: 'En pause',
-  expired: 'Expiré',
+  expired: 'Expired',
   unavailable: 'Indisponible',
 };
 
@@ -37,7 +37,7 @@ export class PlacementDetailsPanel {
     void this.facade.submitInquiry({
       contactEmail: email.trim() || undefined,
       message: message.trim() || undefined,
-      locale: 'fr',
+      locale: 'en',
     });
   }
 }

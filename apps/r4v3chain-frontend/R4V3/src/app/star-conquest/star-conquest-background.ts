@@ -28,7 +28,7 @@ const ECHOES_PER_QUEST: Record<StarDepthLayerId, number> = {
 };
 
 /**
- * Fond Conquête stellaire : aurore shader + échos de profondeur.
+ * Fond Conquest stellaire : aurore shader + échos de profondeur.
  * Chaque étoile far/mid/near est rattachée à une Quest du catalogue.
  */
 export class StarConquestBackground {

@@ -1,5 +1,5 @@
 /**
- * Configuration locale des contrôles Conquête stellaire (pan monde).
+ * Configuration locale des contrôles Conquest stellaire (pan monde).
  * Valeurs = comportement historique de `StarConquestWorld` / HorizonJoystick.
  */
 

@@ -22,7 +22,7 @@ export interface StarQuestRewardLabel {
 }
 
 /**
- * Pont Conquête stellaire : scène ↔ panneaux HTML (sélection, labels, scanner).
+ * Pont Conquest stellaire : scène ↔ panneaux HTML (sélection, labels, scanner).
  */
 @Injectable({ providedIn: 'root' })
 export class StarConquestStateService {

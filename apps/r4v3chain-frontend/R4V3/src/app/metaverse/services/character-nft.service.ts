@@ -302,7 +302,7 @@ export class CharacterNftService {
     const norm = THREE.MathUtils.clamp(speed / Math.max(maxSpeed, 0.01), 0, 1);
     const climbNorm = climbing ? 0.85 : norm;
 
-    // 1) Os Mixamo — pas à pas synchronisé à la vitesse
+    // 1) Os Mixamo — pas à pas synced à la vitesse
     if (this.skeletonWalk) {
       this.updateSkeletonWalk(deltaSeconds, moving || climbing, climbNorm, speed);
       return;

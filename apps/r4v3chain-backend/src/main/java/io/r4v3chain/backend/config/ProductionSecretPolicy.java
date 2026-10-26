@@ -40,8 +40,8 @@ final class ProductionSecretPolicy {
     private static void validateAdminSeed(String seedSha256) {
         if (SHIPPED_ADMIN_SEED_SHA256.equalsIgnoreCase(seedSha256)) {
             throw new IllegalStateException(
-                    "Profil prod/staging/commercial : R4V3CHAIN_ADMIN_SEED_SHA256 obligatoire "
-                            + "(remplacer la valeur livrée dans le fichier de base).");
+                    "prod/staging/commercial profile: R4V3CHAIN_ADMIN_SEED_SHA256 required "
+                            + "(replace the value shipped in the base file).");
         }
     }
 
@@ -57,30 +57,30 @@ final class ProductionSecretPolicy {
     private static void validateJwtSecret(String jwtSecret) {
         if (isWeak(jwtSecret) || jwtSecret.length() < MIN_JWT_SECRET_LENGTH) {
             throw new IllegalStateException(
-                    "Profil prod/staging/commercial : R4V3CHAIN_JWT_SECRET obligatoire "
+                    "prod/staging/commercial profile: R4V3CHAIN_JWT_SECRET required "
                             + "(≥ "
                             + MIN_JWT_SECRET_LENGTH
-                            + " caractères, secret fort, ≠ change-me / r4v3chain).");
+                            + " characters, strong secret, ≠ change-me / r4v3chain).");
         }
     }
 
     private static void validateActuatorToken(String actuatorToken) {
         if (isWeak(actuatorToken) || actuatorToken.length() < MIN_ACTUATOR_TOKEN_LENGTH) {
             throw new IllegalStateException(
-                    "Profil prod/staging/commercial : R4V3CHAIN_ACTUATOR_TOKEN obligatoire "
+                    "prod/staging/commercial profile: R4V3CHAIN_ACTUATOR_TOKEN required "
                             + "(≥ "
                             + MIN_ACTUATOR_TOKEN_LENGTH
-                            + " caractères, ≠ change-me).");
+                            + " characters, ≠ change-me).");
         }
     }
 
     private static void validateDatabasePassword(String databasePassword) {
         if (isWeak(databasePassword) || databasePassword.length() < MIN_DATABASE_PASSWORD_LENGTH) {
             throw new IllegalStateException(
-                    "Profil prod/staging/commercial : DATABASE_PASSWORD / POSTGRES_PASSWORD obligatoire "
+                    "prod/staging/commercial profile: DATABASE_PASSWORD / POSTGRES_PASSWORD required "
                             + "(≥ "
                             + MIN_DATABASE_PASSWORD_LENGTH
-                            + " caractères, ≠ r4v3chain / change-me).");
+                            + " characters, ≠ r4v3chain / change-me).");
         }
     }
 

@@ -567,30 +567,30 @@ export class AppComponent {
   }
 
   chartCollapseLabel(): string {
-    return this.chartCollapsed() ? 'Déplier le graphique' : 'Replier le graphique';
+    return this.chartCollapsed() ? 'Expand chart' : 'Collapse chart';
   }
 
   exchangeCollapseLabel(): string {
-    return this.exchangeCollapsed() ? 'Déplier l\'échange' : 'Replier l\'échange';
+    return this.exchangeCollapsed() ? 'Expand exchange' : 'Collapse exchange';
   }
 
   dockCollapseLabel(): string {
-    return this.dockCollapsed() ? 'Déplier le dock' : 'Replier le dock';
+    return this.dockCollapsed() ? 'Expand dock' : 'Collapse dock';
   }
 
   showcaseCollapseLabel(): string {
     const labels: Record<ShowcaseTab, string> = {
-      tours: 'TOUS',
+      tours: 'ALL',
       r4v3: 'R4V3',
       rv23: 'CHAT',
       dao: 'LABZ',
       daonews: 'D.A.O',
-      market: 'MARCHÉ',
+      market: 'MARKET',
     };
     const name = labels[this.activeShowcaseTab()];
     return this.showcaseCollapsed()
-      ? `Déplier le panneau ${name}`
-      : `Replier le panneau ${name}`;
+      ? `Expand ${name} panel`
+      : `Collapse ${name} panel`;
   }
 
   openBlockDrawer(block: Block): void {

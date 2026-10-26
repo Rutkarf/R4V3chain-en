@@ -108,7 +108,7 @@ export class ShowcaseLaunchSummaryComponent implements OnInit, OnDestroy {
   }
 
   projectDisplayName(project: LaunchProject): string {
-    return project.name?.trim() || project.symbol?.trim() || 'Projet';
+    return project.name?.trim() || project.symbol?.trim() || 'Project';
   }
 
   hasWhitepaper(project: LaunchProject): boolean {
@@ -117,8 +117,8 @@ export class ShowcaseLaunchSummaryComponent implements OnInit, OnDestroy {
 
   whitepaperAriaLabel(project: LaunchProject): string {
     return this.hasWhitepaper(project)
-      ? `Ouvrir le whitepaper ${project.symbol}`
-      : `Livre blanc indisponible pour ${project.symbol}`;
+      ? `Open white paper ${project.symbol}`
+      : `White paper unavailable for ${project.symbol}`;
   }
 
   openWhitepaper(project: LaunchProject, event: MouseEvent): void {

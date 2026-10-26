@@ -70,7 +70,7 @@ describe('QuestsPanel', () => {
       isAuthenticated: vi.fn(() => authenticated),
       getCurrentMission: vi.fn(() => ({
         id: 'network-guardian',
-        title: 'Gardien du réseau',
+        title: 'Network guardian',
         description: 'Maintiens l’intégrité du réseau en terminant les tâches quotidiennes et hebdomadaires.',
         rewardMts: 1,
         rewardXp: 150,
@@ -125,12 +125,12 @@ describe('QuestsPanel', () => {
     expect(questsDataMock.init).toHaveBeenCalled();
   });
 
-  it('renders compact header with Gardien du réseau, countdown and refresh', async () => {
+  it('renders compact header with Network guardian, countdown and refresh', async () => {
     await setup();
     const element = fixture.nativeElement as HTMLElement;
     expect(element.querySelector('.quests-panel__title')).toBeNull();
-    expect(element.querySelector('.quests-panel__guardian')?.textContent).toContain('Gardien du réseau');
-    expect(element.querySelector('.quests-panel__guardian-rank')?.textContent).toContain('Rôle actif');
+    expect(element.querySelector('.quests-panel__guardian')?.textContent).toContain('Network guardian');
+    expect(element.querySelector('.quests-panel__guardian-rank')?.textContent).toContain('Active role');
     expect(element.querySelector('.quests-panel__guardian-line')).toBeTruthy();
     expect(element.querySelector('.quests-panel__countdown-value')?.textContent).toContain('11:59:59');
     expect(element.querySelector('.quests-panel__section-title')).toBeNull();

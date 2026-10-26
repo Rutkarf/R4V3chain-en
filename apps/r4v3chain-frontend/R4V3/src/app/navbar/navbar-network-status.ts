@@ -42,8 +42,8 @@ export class NavbarNetworkStatusComponent {
 
   /**
    * Rouge = backend / admin / API KO.
-   * Vert = session connectée + API OK.
-   * Orange = invité (non connecté) + API OK.
+   * Vert = session connectede + API OK.
+   * Orange = invité (non connected) + API OK.
    */
   readonly ledTone = computed((): NetworkLedTone => {
     const state = this.trust.trustState();
@@ -59,7 +59,7 @@ export class NavbarNetworkStatusComponent {
   readonly chipAria = computed(() => {
     const tone = this.ledTone();
     const session =
-      tone === 'green' ? 'connecté' : tone === 'orange' ? 'anonyme' : tone === 'red' ? 'indisponible' : 'vérification';
+      tone === 'green' ? 'connected' : tone === 'orange' ? 'anonyme' : tone === 'red' ? 'indisponible' : 'checking';
     return `${this.trust.chipAriaLabel()} Voyant ${session}.`;
   });
 

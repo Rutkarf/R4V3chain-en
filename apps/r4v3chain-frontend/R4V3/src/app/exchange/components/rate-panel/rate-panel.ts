@@ -65,7 +65,7 @@ export class RatePanelComponent {
   /** Hub marché : graphique seul (maquette), sans grille de cartes ni recherche. */
   readonly hubGraphOnly = input(false, { transform: booleanAttribute });
   readonly chartCollapsed = input(false, { transform: booleanAttribute });
-  readonly collapseAriaLabel = input('Replier le graphique');
+  readonly collapseAriaLabel = input('Collapse chart');
   readonly collapseToggle = output<void>();
 
   private readonly rates = inject(CryptoRatesService);

@@ -29,7 +29,7 @@ public class SmtpAuthMailer implements AuthMailer {
         if (!isConfigured()) {
             throw new AuthException(
                     503,
-                    "L'envoi d'email n'est pas configuré. Renseignez R4V3CHAIN_MAIL_HOST, R4V3CHAIN_MAIL_USERNAME et R4V3CHAIN_MAIL_PASSWORD."
+                    "Email sending is not configured. Set R4V3CHAIN_MAIL_HOST, R4V3CHAIN_MAIL_USERNAME, and R4V3CHAIN_MAIL_PASSWORD."
             );
         }
 
@@ -47,19 +47,19 @@ public class SmtpAuthMailer implements AuthMailer {
             MimeMessageHelper helper = new MimeMessageHelper(message, false, StandardCharsets.UTF_8.name());
             helper.setFrom(mailProperties.getFrom());
             helper.setTo(to);
-            helper.setSubject("R4v3chain — confirmez votre inscription");
+            helper.setSubject("R4V3chain — confirm your registration");
             helper.setText("""
-                    Bonjour %s,
+                    Hello %s,
 
-                    Votre code de confirmation R4v3chain est : %s
+                    Your R4V3chain confirmation code is: %s
 
-                    Il expire dans 15 minutes. Si vous n'êtes pas à l'origine de cette inscription, ignorez ce message.
+                    It expires in 15 minutes. If you did not start this registration, ignore this message.
                     """.formatted(username, code));
             sender.send(message);
         } catch (AuthException exception) {
             throw exception;
         } catch (Exception exception) {
-            throw new AuthException(502, "Impossible d'envoyer l'email de confirmation. Vérifiez la configuration SMTP.");
+            throw new AuthException(502, "Unable to send confirmation email. Check SMTP configuration.");
         }
     }
 

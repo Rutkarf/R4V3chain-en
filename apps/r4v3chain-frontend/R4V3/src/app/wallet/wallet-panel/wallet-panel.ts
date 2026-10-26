@@ -186,7 +186,7 @@ export class WalletPanelComponent implements OnInit {
   });
   protected readonly formattedChfValue = computed(() => {
     const bal = Number.parseFloat(this.totalBalance()) || 0;
-    const localeId = this.locale.locale() === 'fr' ? 'fr-FR' : 'en-GB';
+    const localeId = 'en-GB';
     return new Intl.NumberFormat(localeId, {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
@@ -310,7 +310,7 @@ export class WalletPanelComponent implements OnInit {
 
   protected readonly centerMessage = computed(() => {
     if (this.creatingWallet()) {
-      return 'Création du wallet…';
+      return 'Creating wallet…';
     }
     if (this.errorMessage()) {
       return this.errorMessage();
@@ -319,7 +319,7 @@ export class WalletPanelComponent implements OnInit {
       return this.successMessage();
     }
     if (this.refreshingBalance()) {
-      return 'Synchronisation…';
+      return 'Syncing…';
     }
     return '';
   });
@@ -457,7 +457,7 @@ export class WalletPanelComponent implements OnInit {
         this.auth.promptLogin();
         return;
       }
-      this.errorMessage.set('Inscris-toi ou connecte-toi pour créer un wallet.');
+      this.errorMessage.set('Sign up or sign in to create a wallet.');
       this.auth.openDrawer('register');
       return;
     }
@@ -479,7 +479,7 @@ export class WalletPanelComponent implements OnInit {
       const wallet = await this.api.createWalletClientSide();
       const linked = await this.auth.linkWallet(wallet.address, wallet.publicKey);
       if (!linked) {
-        this.errorMessage.set(this.auth.error() ?? 'Impossible de lier le wallet au compte.');
+        this.errorMessage.set(this.auth.error() ?? 'Unable to link the wallet to your account.');
         return;
       }
 
@@ -491,10 +491,10 @@ export class WalletPanelComponent implements OnInit {
         { address: this.ownDisplayAddress(wallet.address) },
         { emitEvent: false }
       );
-      this.successMessage.set('Portefeuille créé et lié au compte.');
+      this.successMessage.set('Wallet created and linked to your account.');
       this.fetchBalance(wallet.address, true, false);
     } catch (error: unknown) {
-      this.errorMessage.set(this.resolveErrorMessage(error, 'Création wallet impossible.'));
+      this.errorMessage.set(this.resolveErrorMessage(error, 'Unable to create wallet.'));
     } finally {
       this.creatingWallet.set(false);
     }
@@ -591,19 +591,19 @@ export class WalletPanelComponent implements OnInit {
 
   protected copyToClipboard(value: string, label: string): void {
     if (!value || value === '—') {
-      this.errorMessage.set(`Aucune donnée ${label}.`);
-      this.pushToast(`Aucune donnée ${label}.`, 'error');
+      this.errorMessage.set(`No ${label} data.`);
+      this.pushToast(`No ${label} data.`, 'error');
       return;
     }
 
     this.copyText(value)
       .then(() => {
-        this.successMessage.set(`${label} copié.`);
-        this.pushToast(`${label} copié`, 'success');
+        this.successMessage.set(`${label} copied.`);
+        this.pushToast(`${label} copied`, 'success');
       })
       .catch(() => {
-        this.errorMessage.set(`Copie ${label} impossible.`);
-        this.pushToast(`Copie ${label} impossible`, 'error');
+        this.errorMessage.set(`Unable to copy ${label}.`);
+        this.pushToast(`Unable to copy ${label}`, 'error');
       });
   }
 
@@ -627,15 +627,15 @@ export class WalletPanelComponent implements OnInit {
     const label = this.locale.t('wallet.keys.public');
     const value = this.walletPublicKey();
     if (!value) {
-      this.errorMessage.set(`Aucune donnée ${label}.`);
-      this.pushToast(`Aucune donnée ${label}.`, 'error');
+      this.errorMessage.set(`No ${label} data.`);
+      this.pushToast(`No ${label} data.`, 'error');
       return;
     }
 
     void this.copyText(value)
       .then(() => {
-        this.successMessage.set(`${label} copié.`);
-        this.pushToast(`${label} copié`, 'success');
+        this.successMessage.set(`${label} copied.`);
+        this.pushToast(`${label} copied`, 'success');
         this.copiedPublicKey.set(true);
         if (this.copiedPublicKeyTimer) {
           clearTimeout(this.copiedPublicKeyTimer);
@@ -643,8 +643,8 @@ export class WalletPanelComponent implements OnInit {
         this.copiedPublicKeyTimer = setTimeout(() => this.copiedPublicKey.set(false), 1500);
       })
       .catch(() => {
-        this.errorMessage.set(`Copie ${label} impossible.`);
-        this.pushToast(`Copie ${label} impossible`, 'error');
+        this.errorMessage.set(`Unable to copy ${label}.`);
+        this.pushToast(`Unable to copy ${label}`, 'error');
       });
   }
 
@@ -653,15 +653,15 @@ export class WalletPanelComponent implements OnInit {
     const label = this.locale.t('wallet.keys.private');
     const value = this.walletPrivateKey();
     if (!value) {
-      this.errorMessage.set(`Aucune donnée ${label}.`);
-      this.pushToast(`Aucune donnée ${label}.`, 'error');
+      this.errorMessage.set(`No ${label} data.`);
+      this.pushToast(`No ${label} data.`, 'error');
       return;
     }
 
     void this.copyText(value)
       .then(() => {
-        this.successMessage.set(`${label} copié.`);
-        this.pushToast(`${label} copié`, 'success');
+        this.successMessage.set(`${label} copied.`);
+        this.pushToast(`${label} copied`, 'success');
         this.copiedPrivateKey.set(true);
         if (this.copiedPrivateKeyTimer) {
           clearTimeout(this.copiedPrivateKeyTimer);
@@ -669,8 +669,8 @@ export class WalletPanelComponent implements OnInit {
         this.copiedPrivateKeyTimer = setTimeout(() => this.copiedPrivateKey.set(false), 1500);
       })
       .catch(() => {
-        this.errorMessage.set(`Copie ${label} impossible.`);
-        this.pushToast(`Copie ${label} impossible`, 'error');
+        this.errorMessage.set(`Unable to copy ${label}.`);
+        this.pushToast(`Unable to copy ${label}`, 'error');
       });
   }
 
@@ -787,7 +787,7 @@ export class WalletPanelComponent implements OnInit {
     this.copyText(value)
       .then(() => {
         this.copiedLookupAddress.set(true);
-        this.successMessage.set('Adresse R4V3 copiée.');
+        this.successMessage.set('R4V3 address copied.');
         if (this.copiedLookupTimer) {
           clearTimeout(this.copiedLookupTimer);
         }
@@ -797,7 +797,7 @@ export class WalletPanelComponent implements OnInit {
         );
       })
       .catch(() => {
-        this.errorMessage.set("Copie de l'adresse impossible.");
+        this.errorMessage.set('Unable to copy address.');
       });
   }
 
@@ -858,8 +858,8 @@ export class WalletPanelComponent implements OnInit {
           if (announce) {
             this.successMessage.set(
               fromCurrentWallet
-                ? 'Solde mis à jour.'
-                : `Solde ${this.shorten(displayAddress)} chargé.`
+                ? 'Balance updated.'
+                : `Balance for ${this.shorten(displayAddress)} loaded.`
             );
           }
           this.refreshingBalance.set(false);
@@ -870,7 +870,7 @@ export class WalletPanelComponent implements OnInit {
             return;
           }
           this.errorMessage.set(
-            this.resolveErrorMessage(error, 'Lecture du solde impossible.')
+            this.resolveErrorMessage(error, 'Unable to read balance.')
           );
         },
       });
@@ -885,7 +885,7 @@ export class WalletPanelComponent implements OnInit {
   }
 
   protected formatFiatApprox(r4v3Amount: number): string {
-    const localeId = this.locale.locale() === 'fr' ? 'fr-FR' : 'en-GB';
+    const localeId = 'en-GB';
     const amount = new Intl.NumberFormat(localeId, {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
@@ -895,8 +895,8 @@ export class WalletPanelComponent implements OnInit {
 
   protected sendAction(): void {
     if (!this.auth.promptLogin()) {
-      this.errorMessage.set('Connectez-vous pour envoyer des fonds.');
-      this.pushToast('Connexion requise pour envoyer', 'error');
+      this.errorMessage.set('Sign in to send funds.');
+      this.pushToast('Sign in required to send', 'error');
       return;
     }
 
@@ -1012,21 +1012,21 @@ export class WalletPanelComponent implements OnInit {
     this.clearMessages();
 
     if (!this.auth.promptLogin()) {
-      this.errorMessage.set('Connectez-vous pour envoyer des fonds.');
-      this.pushToast('Connexion requise pour envoyer', 'error');
+      this.errorMessage.set('Sign in to send funds.');
+      this.pushToast('Sign in required to send', 'error');
       return;
     }
 
     if (!this.hasWallet()) {
       this.errorMessage.set(this.locale.t('wallet.noWallet'));
-      this.pushToast('Créez un wallet avant envoi', 'error');
+      this.pushToast('Create a wallet before sending', 'error');
       return;
     }
 
     if (this.sendForm.invalid) {
       this.sendForm.markAllAsTouched();
-      this.errorMessage.set('Formulaire envoi invalide.');
-      this.pushToast('Vérifiez le destinataire et le montant', 'error');
+      this.errorMessage.set('Invalid send form.');
+      this.pushToast('Check the recipient and amount', 'error');
       return;
     }
 
@@ -1063,7 +1063,7 @@ export class WalletPanelComponent implements OnInit {
       return;
     }
 
-    this.copyToClipboard(this.friendlyWalletAddress(), 'adresse');
+    this.copyToClipboard(this.friendlyWalletAddress(), 'address');
     this.copiedAddress.set(true);
     if (this.copiedTimer) {
       clearTimeout(this.copiedTimer);
@@ -1075,33 +1075,33 @@ export class WalletPanelComponent implements OnInit {
     this.clearMessages();
 
     if (!this.auth.promptLogin()) {
-      this.errorMessage.set('Connectez-vous pour envoyer des fonds.');
-      this.pushToast('Connexion requise pour envoyer', 'error');
+      this.errorMessage.set('Sign in to send funds.');
+      this.pushToast('Sign in required to send', 'error');
       return;
     }
 
     if (!this.hasWallet()) {
       this.errorMessage.set(this.locale.t('wallet.noWallet'));
-      this.pushToast('Créez un wallet avant envoi', 'error');
+      this.pushToast('Create a wallet before sending', 'error');
       return;
     }
 
     if (this.sendForm.invalid) {
       this.sendForm.markAllAsTouched();
-      this.errorMessage.set('Formulaire envoi invalide.');
-      this.pushToast('Vérifiez le destinataire et le montant', 'error');
+      this.errorMessage.set('Invalid send form.');
+      this.pushToast('Check the recipient and amount', 'error');
       return;
     }
 
     const sender = this.wallet();
     if (!sender) {
-      this.errorMessage.set('Portefeuille introuvable.');
+      this.errorMessage.set('Wallet not found.');
       return;
     }
 
     if (!sender.privateKey) {
-      this.errorMessage.set('Clé privée locale requise pour signer la transaction.');
-      this.pushToast('Portefeuille sans clé privée locale', 'error');
+      this.errorMessage.set('Local private key required to sign the transaction.');
+      this.pushToast('Wallet has no local private key', 'error');
       return;
     }
 
@@ -1122,13 +1122,13 @@ export class WalletPanelComponent implements OnInit {
         this.sending.set(false);
         this.showSendConfirm.set(false);
         this.showSendPanel.set(false);
-        this.successMessage.set('Transaction signée et envoyée.');
-        this.pushToast('Transaction envoyée', 'success');
+        this.successMessage.set('Transaction signed and sent.');
+        this.pushToast('Transaction sent', 'success');
         this.refreshMyBalance();
       })
       .catch((error: unknown) => {
         this.sending.set(false);
-        const message = this.resolveErrorMessage(error, "Échec de l'envoi de la transaction.");
+        const message = this.resolveErrorMessage(error, 'Failed to send transaction.');
         this.errorMessage.set(message);
         this.pushToast(message, 'error');
       });

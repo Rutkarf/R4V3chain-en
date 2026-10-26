@@ -26,9 +26,9 @@ describe('Star quest panel view-model', () => {
       playerClaimed: false,
       previewM4T3R: 0,
     });
-    expect(previewView.ctaLabel).toBe('Conquérir');
+    expect(previewView.ctaLabel).toBe('Conquer');
     expect(previewView.ctaEnabled).toBe(true);
-    expect(previewView.hint).toContain('pas de crédit faucet');
+    expect(previewView.hint).toContain('no faucet credit');
     expect(previewView.rewardValue).toContain('M4T3R');
 
     const liveLink = starConquestLiveLink(live.id);
@@ -44,19 +44,19 @@ describe('Star quest panel view-model', () => {
     });
     expect(liveView.live).toBe(true);
     expect(liveView.ctaLabel).toBe(liveLink?.ctaLabel);
-    expect(liveView.hint).toContain('pas de clic magique');
+    expect(liveView.hint).toContain('no magic click');
   });
 
   it('disables locked and future CTAs', () => {
     expect(starQuestCtaEnabled('locked', undefined)).toBe(false);
-    expect(starQuestCtaLabel('locked', undefined)).toBe('À débloquer');
+    expect(starQuestCtaLabel('locked', undefined)).toBe('Unlock');
     expect(starQuestCtaEnabled('future', undefined)).toBe(false);
     expect(starQuestHint({ live: false, kind: 'locked', playerClaimed: false, previewM4T3R: 0 }))
-      .toContain('voisin');
+      .toContain('neighbor');
   });
 
   it('maps claim failures to user messages', () => {
-    expect(STAR_QUEST_CLAIM_ERROR_MESSAGE['action-required']).toContain('pas de clic magique');
-    expect(STAR_QUEST_CLAIM_ERROR_MESSAGE.locked).toContain('voisin');
+    expect(STAR_QUEST_CLAIM_ERROR_MESSAGE['action-required']).toContain('no magic click');
+    expect(STAR_QUEST_CLAIM_ERROR_MESSAGE.locked).toContain('neighbor');
   });
 });

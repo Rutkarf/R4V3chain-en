@@ -25,7 +25,7 @@
       <button
         type="button"
         class="sc-scanner__close"
-        aria-label="Fermer le scanner"
+        aria-label="Close le scanner"
         (click)="closeList()"
       ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
       <span class="sc-scanner__stats">
@@ -49,7 +49,7 @@
       </p>
     }
     @if (state.hiddenCount() === 0) {
-      <p class="sc-scanner__empty">Toutes les quêtes sont visibles.</p>
+      <p class="sc-scanner__empty">All quests are visible.</p>
     } @else {
       <ul class="sc-scanner__list">
         @for (quest of state.hiddenQuests(); track quest.id) {

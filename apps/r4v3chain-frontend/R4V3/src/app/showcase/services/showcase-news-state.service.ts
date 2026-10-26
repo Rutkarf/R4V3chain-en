@@ -66,13 +66,13 @@ export class ShowcaseNewsStateService {
 
     const seconds = Math.floor((Date.now() - updated.getTime()) / 1000);
     if (seconds < 5) {
-      return "à l'instant";
+      return 'just now';
     }
     if (seconds < 60) {
-      return `il y a ${seconds} s`;
+      return `${seconds}s ago`;
     }
 
-    return `il y a ${Math.floor(seconds / 60)} min`;
+    return `${Math.floor(seconds / 60)}m ago`;
   });
 
   readonly latestItemAgeLabel = computed(() => {
@@ -96,7 +96,7 @@ export class ShowcaseNewsStateService {
     if (index !== null) {
       const toneLabel =
         tone === 'pending'
-          ? 'attente'
+          ? 'pending'
           : tone === 'offline'
             ? 'off'
             : 'sync';
@@ -108,7 +108,7 @@ export class ShowcaseNewsStateService {
       return activity.length > 18 ? `${activity.slice(0, 16)}…` : activity;
     }
 
-    return 'Hors ligne';
+    return 'Offline';
   });
 
   readonly chainStatusTooltip = computed(() => {
@@ -123,7 +123,7 @@ export class ShowcaseNewsStateService {
 
     if (blockTs) {
       const blockSeconds = Math.floor((Date.now() - blockTs) / 1000);
-      parts.push(`bloc ${this.formatAgeShort(blockSeconds)}`);
+      parts.push(`block ${this.formatAgeShort(blockSeconds)}`);
     }
 
     return parts.join(' · ');
@@ -149,7 +149,7 @@ export class ShowcaseNewsStateService {
       return '';
     }
 
-    return this.liveActivity() || 'Aucune actualité';
+    return this.liveActivity() || 'No news';
   });
 
   readonly collapsedHeadlineAge = computed(() => {
@@ -354,10 +354,10 @@ export class ShowcaseNewsStateService {
 
   categoryLabel(category: string): string {
     if (category === 'all') {
-      return 'Tous';
+      return 'All';
     }
 
-    if (category.toLowerCase() === 'écosystème') {
+    if (category.toLowerCase() === 'ecosystem' || category.toLowerCase() === 'ecosysteme') {
       return 'D.A.O';
     }
 
@@ -366,13 +366,15 @@ export class ShowcaseNewsStateService {
 
   categoryIcon(category: string): string {
     switch (category.toLowerCase()) {
-      case 'réseau':
+      case 'network':
+      case 'reseau':
         return '⛓';
       case 'r4v3':
         return '◆';
       case 'peers':
         return '◎';
-      case 'écosystème':
+      case 'ecosystem':
+      case 'ecosysteme':
       case 'd.a.o':
         return '✦';
       default:
@@ -441,7 +443,7 @@ export class ShowcaseNewsStateService {
 
   private formatAgeShort(seconds: number): string {
     if (seconds < 5) {
-      return "à l'instant";
+      return "just now";
     }
     if (seconds < 60) {
       return `${seconds}s`;
@@ -453,7 +455,7 @@ export class ShowcaseNewsStateService {
   }
 
   private parseBlockIndexFromLive(activity: string): number | null {
-    const match = /Bloc #(\d+)/i.exec(activity);
+    const match = /Block #(\d+)/i.exec(activity);
     if (!match) {
       return null;
     }

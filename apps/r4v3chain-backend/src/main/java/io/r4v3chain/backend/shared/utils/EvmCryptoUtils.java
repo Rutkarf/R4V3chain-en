@@ -43,7 +43,7 @@ public final class EvmCryptoUtils {
             generator.initialize(CURVE_SPEC, new SecureRandom());
             return generator.generateKeyPair();
         } catch (Exception exception) {
-            throw new RuntimeException("Erreur génération paire secp256k1", exception);
+            throw new RuntimeException("secp256k1 key pair generation error", exception);
         }
     }
 
@@ -62,7 +62,7 @@ public final class EvmCryptoUtils {
                     Base64.getDecoder().decode(publicKeyBase64)
             ));
         } catch (Exception exception) {
-            throw new RuntimeException("Clé publique secp256k1 invalide", exception);
+            throw new RuntimeException("Invalid secp256k1 public key", exception);
         }
     }
 
@@ -73,13 +73,13 @@ public final class EvmCryptoUtils {
                     Base64.getDecoder().decode(privateKeyBase64)
             ));
         } catch (Exception exception) {
-            throw new RuntimeException("Clé privée secp256k1 invalide", exception);
+            throw new RuntimeException("Invalid secp256k1 private key", exception);
         }
     }
 
     public static String addressFromPublicKey(PublicKey publicKey) {
         if (!(publicKey instanceof ECPublicKey ecPublicKey)) {
-            throw new IllegalArgumentException("Clé publique EC attendue");
+            throw new IllegalArgumentException("EC public key expected");
         }
 
         byte[] uncompressed = ecPublicKey.getQ().getEncoded(false);
@@ -118,7 +118,7 @@ public final class EvmCryptoUtils {
             signature.update(payload.getBytes(StandardCharsets.UTF_8));
             return Base64.getEncoder().encodeToString(signature.sign());
         } catch (Exception exception) {
-            throw new RuntimeException("Erreur signature secp256k1", exception);
+            throw new RuntimeException("secp256k1 signature error", exception);
         }
     }
 

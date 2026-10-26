@@ -120,7 +120,7 @@ export class ShowcaseR4v3StateService {
 
     const seconds = Math.floor((Date.now() - updated.getTime()) / 1000);
     if (seconds < 5) {
-      return "à l'instant";
+      return "just now";
     }
     if (seconds < 60) {
       return `il y a ${seconds}s`;
@@ -183,11 +183,11 @@ export class ShowcaseR4v3StateService {
   sourceFilterLabel(): string {
     switch (this.sourceFilter()) {
       case 'CHAIN':
-        return 'Sur la chaîne';
+        return 'On-chain';
       case 'EDITORIAL':
-        return 'Édito';
+        return 'Editorial';
       default:
-        return 'Toutes';
+        return 'All';
     }
   }
 

@@ -26,8 +26,8 @@
       type="button"
       class="wallet-summary-bar__icon-btn wallet-summary-bar__icon-btn--swap"
       (click)="onSwap($event)"
-      aria-label="Échange"
-      title="Échange"
+      aria-label="Swap"
+      title="Swap"
     >
       <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-arrow-left-right"/></svg>
     </button>
@@ -37,8 +37,8 @@
       class="wallet-summary-bar__icon-btn"
       (click)="onSend($event)"
       [disabled]="!hasWallet()"
-      aria-label="Envoyer"
-      title="Envoyer"
+      aria-label="Send"
+      title="Send"
     >
       <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg>
     </button>
@@ -51,16 +51,16 @@
         [disabled]="!canCreateWallet()"
         [attr.aria-label]="
           canCreateWallet()
-            ? 'Créer un portefeuille'
-            : 'Connectez-vous pour créer un wallet'
+            ? 'Create a wallet'
+            : 'Sign in to create a wallet'
         "
         [attr.title]="
           canCreateWallet()
-            ? 'Créer un portefeuille'
-            : 'Connectez-vous pour créer un wallet'
+            ? 'Create a wallet'
+            : 'Sign in to create a wallet'
         "
       >
-        <span class="wallet-summary-bar__create-full">Créer</span>
+        <span class="wallet-summary-bar__create-full">Create</span>
         <span class="wallet-summary-bar__create-short" aria-hidden="true">+</span>
       </button>
     }

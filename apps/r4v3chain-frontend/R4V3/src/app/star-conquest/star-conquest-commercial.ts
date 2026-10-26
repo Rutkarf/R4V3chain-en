@@ -1,5 +1,5 @@
 /**
- * Process commercial Conquête stellaire — pas le scale visuel.
+ * Process commercial Conquest stellaire — pas le scale visuel.
  *
  * Méthode : mesurer le funnel, poser des portes KPI, n’autoriser
  * le level-up que lorsque les portes tiennent. C’est le levier
@@ -117,32 +117,32 @@ export function starConquestCommercialGates(
   return [
     {
       id: 'live-links',
-      label: `Pont Dock ≥ ${t.minLiveLinks} étoiles live`,
+      label: `Dock bridge ≥ ${t.minLiveLinks} live stars`,
       ok: kpis.liveLinkCount >= t.minLiveLinks,
     },
     {
       id: 'live-coverage',
-      label: `Couverture live ≥ ${Math.round(t.minLiveCoverage * 100)}% du catalogue`,
+      label: `Live coverage ≥ ${Math.round(t.minLiveCoverage * 100)}% of catalog`,
       ok: kpis.liveCoverage + 1e-9 >= t.minLiveCoverage,
     },
     {
       id: 'sample',
-      label: `Volume ≥ ${t.minViews} vues pour mesurer`,
+      label: `Volume ≥ ${t.minViews} views to measure`,
       ok: sampled,
     },
     {
       id: 'ctr',
-      label: `CTR vue→pick ≥ ${Math.round(t.minCtr * 100)}%`,
+      label: `CTR view→pick ≥ ${Math.round(t.minCtr * 100)}%`,
       ok: !sampled || kpis.ctr + 1e-9 >= t.minCtr,
     },
     {
       id: 'claim-rate',
-      label: `Taux panneau→conquête ≥ ${Math.round(t.minClaimRate * 100)}%`,
+      label: `Panel→conquest rate ≥ ${Math.round(t.minClaimRate * 100)}%`,
       ok: !claimSample || kpis.claimRate + 1e-9 >= t.minClaimRate,
     },
     {
       id: 'live-share',
-      label: `Part live des conquêtes ≥ ${Math.round(t.minLiveShare * 100)}%`,
+      label: `Live share of conquests ≥ ${Math.round(t.minLiveShare * 100)}%`,
       ok: !shareSample || kpis.liveShare + 1e-9 >= t.minLiveShare,
     },
   ];
@@ -163,21 +163,21 @@ function stageFromGates(
 function nextMethodFromGates(gates: readonly StarConquestCommercialGate[]): string {
   const first = gates.find((gate) => !gate.ok);
   if (!first) {
-    return 'KPI tenus — level-up commercial autorisé (pas le palier visuel company).';
+    return 'KPIs met — commercial level-up allowed (not the company visual tier).';
   }
   switch (first.id) {
     case 'live-links':
-      return 'Ajouter des ponts Dock dans STAR_CONQUEST_LIVE_LINKS (table, pas du code graphe).';
+      return 'Add Dock bridges in STAR_CONQUEST_LIVE_LINKS (table, not graph code).';
     case 'live-coverage':
-      return 'Monter la couverture live : une ligne de mapping Dock par étoile produit, sans nouveau système.';
+      return 'Raise live coverage: one Dock mapping row per product star, without a new system.';
     case 'sample':
-      return 'Le funnel est branché — accumuler des vues session (voir / pick / panneau).';
+      return 'Funnel is wired — accumulate session views (view / pick / panel).';
     case 'ctr':
-      return 'Hausser le CTR : pick trop faible vs vues — lisibilité / hit-test, pas plus de quêtes.';
+      return 'Raise CTR: pick too low vs views — readability / hit-test, not more quests.';
     case 'claim-rate':
-      return 'Hausser le taux de conquête : CTA live vers une action Dock réelle.';
+      return 'Raise conquest rate: live CTA toward a real Dock action.';
     case 'live-share':
-      return 'Réduire les conquêtes preview : plus d’étoiles live, moins de clic magique.';
+      return 'Cut preview conquests: more live stars, fewer magic clicks.';
     default:
       return first.label;
   }

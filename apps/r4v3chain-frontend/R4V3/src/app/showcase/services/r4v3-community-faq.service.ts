@@ -125,14 +125,14 @@ export class R4v3CommunityFaqService {
   askQuestion(title: string, body: string): boolean {
     const user = this.auth.user();
     if (!user) {
-      this.submitMessage.set('Connectez-vous pour poser une question.');
+      this.submitMessage.set('Sign in to ask a question.');
       return false;
     }
 
     const trimmedTitle = title.trim();
     const trimmedBody = body.trim();
     if (trimmedTitle.length < 8 || trimmedBody.length < 12) {
-      this.submitMessage.set('Question trop courte (min. 8 / 12 caractères).');
+      this.submitMessage.set('Question too short (min. 8 / 12 characters).');
       return false;
     }
 
@@ -145,11 +145,11 @@ export class R4v3CommunityFaqService {
           this.questions.update((items) => [question, ...items]);
           this.latestTicker.set(question);
           this.draftQuestion.set('');
-          this.submitMessage.set('Question publiée — en attente de réponse.');
+          this.submitMessage.set('Question published — awaiting an answer.');
           window.setTimeout(() => this.submitMessage.set(''), 3_000);
         },
         error: () => {
-          this.submitMessage.set('Publication impossible pour le moment.');
+          this.submitMessage.set('Could not publish at the moment.');
         },
       });
 
@@ -158,7 +158,7 @@ export class R4v3CommunityFaqService {
 
   voteQuestion(id: string, direction: 'UP' | 'DOWN'): void {
     if (!this.auth.isAuthenticated()) {
-      this.submitMessage.set('Connectez-vous pour voter.');
+      this.submitMessage.set('Sign in to vote.');
       window.setTimeout(() => this.submitMessage.set(''), 2_500);
       return;
     }
@@ -177,7 +177,7 @@ export class R4v3CommunityFaqService {
           }
         },
         error: () => {
-          this.submitMessage.set('Vote impossible pour le moment.');
+          this.submitMessage.set('Could not vote at the moment.');
           window.setTimeout(() => this.submitMessage.set(''), 2_500);
         },
       });
@@ -203,7 +203,7 @@ export class R4v3CommunityFaqService {
       isValidated: false,
       isHighlighted: false,
       createdAt: new Date().toISOString(),
-      relativeTime: "à l'instant",
+      relativeTime: "just now",
       votes: 0,
     };
 
@@ -267,7 +267,7 @@ function formatRelativeTime(iso: string): string {
   const deltaMs = Date.now() - created;
   const minutes = Math.floor(deltaMs / 60_000);
   if (minutes < 1) {
-    return "à l'instant";
+    return "just now";
   }
   if (minutes < 60) {
     return `${minutes} min`;

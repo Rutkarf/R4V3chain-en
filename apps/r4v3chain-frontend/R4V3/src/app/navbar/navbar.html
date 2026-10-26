@@ -33,7 +33,7 @@
                 </div>
               </div>
 
-              <div class="navbar-brand-chips" aria-label="Token et statut réseau">
+              <div class="navbar-brand-chips" aria-label="Token et statut network">
                 <app-brand-crypto-select class="navbar-brand-select" />
 
                 <app-navbar-network-status
@@ -71,7 +71,7 @@
                 type="button"
                 class="navbar-auth-btn navbar-auth-btn--logout"
                 (click)="onLogout()"
-                [attr.aria-label]="'Se déconnecter · ' + authDisplayName()"
+                [attr.aria-label]="'Sign out · ' + authDisplayName()"
               >
                 <svg class="icon icon--md" aria-hidden="true" focusable="false"><use href="#icon-log-out"/></svg>
               </button>
@@ -120,7 +120,7 @@
             (click)="onOpenAdmin()"
             aria-label="Panneau d’administration"
             title="Administration"
-            appNavbarHint="Ouvrir le panneau d’administration"
+            appNavbarHint="Open the admin panel"
           >
             <svg class="icon icon--md" aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg>
           </button>

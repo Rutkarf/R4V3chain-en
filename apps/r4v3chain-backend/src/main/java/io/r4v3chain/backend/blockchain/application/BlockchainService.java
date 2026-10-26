@@ -170,19 +170,19 @@ public class BlockchainService {
 
     public synchronized Transaction addTransaction(Transaction transaction, String senderPublicKeyBase64) {
         if (transaction == null) {
-            throw new RuntimeException("Transaction invalide");
+            throw new RuntimeException("Invalid transaction");
         }
 
         if (transaction.getSender() == null || transaction.getSender().isBlank()) {
-            throw new RuntimeException("Sender obligatoire");
+            throw new RuntimeException("Sender required");
         }
 
         if (transaction.getRecipient() == null || transaction.getRecipient().isBlank()) {
-            throw new RuntimeException("Recipient obligatoire");
+            throw new RuntimeException("Recipient required");
         }
 
         if (transaction.getAmount() == null || transaction.getAmount().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new RuntimeException("Le montant doit être supérieur à 0");
+            throw new RuntimeException("Amount must be greater than 0");
         }
 
         if (transaction.getTimestamp() == null || transaction.getTimestamp() <= 0) {
@@ -195,7 +195,7 @@ public class BlockchainService {
 
         if (!"SYSTEM".equals(transaction.getSender())) {
             if (senderPublicKeyBase64 == null || senderPublicKeyBase64.isBlank()) {
-                throw new RuntimeException("Clé publique manquante pour vérifier la signature");
+                throw new RuntimeException("Public key missing to verify signature");
             }
 
             String derivedAddress = CryptoUtils.addressFromPublicKey(
@@ -203,7 +203,7 @@ public class BlockchainService {
             );
 
             if (!derivedAddress.equals(transaction.getSender())) {
-                throw new RuntimeException("La clé publique ne correspond pas à l'adresse sender");
+                throw new RuntimeException("Public key does not match the sender address");
             }
 
             boolean validSignature = CryptoUtils.verify(
@@ -213,7 +213,7 @@ public class BlockchainService {
             );
 
             if (!validSignature) {
-                throw new RuntimeException("Signature invalide");
+                throw new RuntimeException("Invalid signature");
             }
 
             BigDecimal senderBalance = getBalance(transaction.getSender());
@@ -221,7 +221,7 @@ public class BlockchainService {
             BigDecimal availableBalance = senderBalance.subtract(senderPendingOutgoing);
 
             if (availableBalance.compareTo(transaction.getAmount()) < 0) {
-                throw new RuntimeException("Solde insuffisant");
+                throw new RuntimeException("Insufficient balance");
             }
         }
 
@@ -238,14 +238,14 @@ public class BlockchainService {
         requireMinerAddress(minerAddress);
         PendingTransaction pending = transactionPoolService.findById(pendingId);
         if (pending == null) {
-            throw new IllegalArgumentException("Transaction en attente introuvable : " + pendingId);
+            throw new IllegalArgumentException("Pending transaction not found: " + pendingId);
         }
         return commitMinedBlock(List.of(pending), minerAddress, "pending-one");
     }
 
     private void requireMinerAddress(String minerAddress) {
         if (minerAddress == null || minerAddress.isBlank()) {
-            throw new RuntimeException("Adresse du mineur obligatoire");
+            throw new RuntimeException("Miner address required");
         }
     }
 
@@ -274,7 +274,7 @@ public class BlockchainService {
         }
 
         if (blockTransactions.isEmpty()) {
-            throw new RuntimeException("Aucune transaction en attente à miner");
+            throw new RuntimeException("No pending transactions to mine");
         }
 
         // Récompense mineur uniquement pour des tx utilisateur (P2P).
@@ -329,11 +329,11 @@ public class BlockchainService {
 
     public synchronized Transaction mintSystemCredit(String recipientAddress, BigDecimal amount, String payload) {
         if (recipientAddress == null || recipientAddress.isBlank()) {
-            throw new RuntimeException("Adresse destinataire obligatoire");
+            throw new RuntimeException("Recipient address required");
         }
 
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new RuntimeException("Le montant doit être supérieur à 0");
+            throw new RuntimeException("Amount must be greater than 0");
         }
 
         Transaction creditTx = new Transaction();
@@ -405,11 +405,11 @@ public class BlockchainService {
             String payload
     ) {
         if (recipientAddress == null || recipientAddress.isBlank()) {
-            throw new RuntimeException("Adresse destinataire obligatoire");
+            throw new RuntimeException("Recipient address required");
         }
 
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new RuntimeException("Le montant doit être supérieur à 0");
+            throw new RuntimeException("Amount must be greater than 0");
         }
 
         Transaction creditTx = new Transaction();

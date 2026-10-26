@@ -192,11 +192,11 @@ export class ShowcaseR4v3Component {
   protected systemStatusLabel(status: R4v3SystemStatus): string {
     switch (status) {
       case 'ok':
-        return 'Système opérationnel';
+        return 'System operational';
       case 'degraded':
         return 'Maintenance ou latence';
       case 'incident':
-        return 'Incident réseau';
+        return 'Network incident';
     }
   }
 
@@ -236,7 +236,7 @@ export class ShowcaseR4v3Component {
     this.whitepaperLoading.set(false);
 
     if (!result.ok) {
-      this.whitepaperFeedback.set(result.message ?? 'Livre blanc indisponible');
+      this.whitepaperFeedback.set(result.message ?? 'White paper unavailable');
       window.setTimeout(() => this.whitepaperFeedback.set(''), 4_000);
     }
   }
@@ -420,7 +420,7 @@ export class ShowcaseR4v3Component {
 
   protected communityStatusLabel(question: CommunityFaqQuestion): string {
     if (question.status === 'pinned') {
-      return 'Épinglé';
+      return 'Pinned';
     }
     if (question.pendingStaffReview) {
       return 'En revue';
@@ -428,7 +428,7 @@ export class ShowcaseR4v3Component {
     if (question.status === 'open') {
       return 'Ouvert';
     }
-    return 'Répondu';
+    return 'Answered';
   }
 
   protected isKeyboardFocused(index: number, zone: 'official' | 'community'): boolean {

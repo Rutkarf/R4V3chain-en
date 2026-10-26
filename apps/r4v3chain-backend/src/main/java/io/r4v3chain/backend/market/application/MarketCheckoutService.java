@@ -133,7 +133,7 @@ public class MarketCheckoutService {
 
         String status = allOk ? "PAID" : "FAILED";
         String message = allOk
-                ? "Commande payée · " + totalPaid.toPlainString() + " R4V3"
+                ? "Order paid · " + totalPaid.toPlainString() + " R4V3"
                 : "Checkout interrompu — " + lineResults.get(lineResults.size() - 1).message();
 
         MarketOrder order = new MarketOrder(

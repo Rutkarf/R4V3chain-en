@@ -94,7 +94,7 @@ public class JsonDatastoreImporter {
         importNewsItems(report);
 
         log.info(
-                "Import JSON → Postgres terminé : {} enregistrements importés, {} fichiers ignorés",
+                "JSON → Postgres import complete: {} records imported, {} files skipped",
                 report.totalImported(),
                 report.getSkippedFiles().size()
         );
@@ -104,7 +104,7 @@ public class JsonDatastoreImporter {
     private void importBlockchain(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getBlockchainStatePath());
         if (!Files.exists(path)) {
-            report.recordSkipped("blockchain", "fichier absent: " + path);
+            report.recordSkipped("blockchain", "file missing: " + path);
             return;
         }
 
@@ -114,14 +114,14 @@ public class JsonDatastoreImporter {
             int count = snapshot.getBlocks().size() + snapshot.getPendingPool().size();
             report.recordImported("blockchain", count);
         } catch (IOException exception) {
-            throw new IllegalStateException("Import blockchain impossible: " + path, exception);
+            throw new IllegalStateException("Blockchain import failed: " + path, exception);
         }
     }
 
     private void importUsers(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getAuthUsersPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("users", "fichier absent: " + path);
+            report.recordSkipped("users", "file missing: " + path);
             return;
         }
 
@@ -137,14 +137,14 @@ public class JsonDatastoreImporter {
             userRepository.saveAll(entities);
             report.recordImported("users", entities.size());
         } catch (IOException exception) {
-            throw new IllegalStateException("Import users impossible: " + path, exception);
+            throw new IllegalStateException("Users import failed: " + path, exception);
         }
     }
 
     private void importQuests(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getQuestProgressPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("quests", "fichier absent: " + path);
+            report.recordSkipped("quests", "file missing: " + path);
             return;
         }
 
@@ -160,14 +160,14 @@ public class JsonDatastoreImporter {
             }
             report.recordImported("quests", count);
         } catch (IOException exception) {
-            throw new IllegalStateException("Import quests impossible: " + path, exception);
+            throw new IllegalStateException("Quests import failed: " + path, exception);
         }
     }
 
     private void importFaucetClaims(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getFaucetClaimsPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("faucet-claims", "fichier absent: " + path);
+            report.recordSkipped("faucet-claims", "file missing: " + path);
             return;
         }
 
@@ -180,14 +180,14 @@ public class JsonDatastoreImporter {
             }
             report.recordImported("faucet-claims", count);
         } catch (IOException exception) {
-            throw new IllegalStateException("Import faucet claims impossible: " + path, exception);
+            throw new IllegalStateException("Faucet claims import failed: " + path, exception);
         }
     }
 
     private void importExchangeLedger(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getExchangeLedgerPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("exchange-ledger", "fichier absent: " + path);
+            report.recordSkipped("exchange-ledger", "file missing: " + path);
             return;
         }
 
@@ -214,14 +214,14 @@ public class JsonDatastoreImporter {
 
             report.recordImported("exchange-ledger", count);
         } catch (IOException exception) {
-            throw new IllegalStateException("Import exchange ledger impossible: " + path, exception);
+            throw new IllegalStateException("Exchange ledger import failed: " + path, exception);
         }
     }
 
     private void importLaunchProjects(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getLaunchProjectsPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("launch-projects", "fichier absent: " + path);
+            report.recordSkipped("launch-projects", "file missing: " + path);
             return;
         }
 
@@ -230,14 +230,14 @@ public class JsonDatastoreImporter {
             launchProjectStore.saveAll(snapshot.getProjects());
             report.recordImported("launch-projects", snapshot.getProjects().size());
         } catch (IOException exception) {
-            throw new IllegalStateException("Import launch projects impossible: " + path, exception);
+            throw new IllegalStateException("Launch projects import failed: " + path, exception);
         }
     }
 
     private void importChatMessages(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getChatMessagesPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("chat-messages", "fichier absent: " + path);
+            report.recordSkipped("chat-messages", "file missing: " + path);
             return;
         }
 
@@ -246,14 +246,14 @@ public class JsonDatastoreImporter {
             chatMessageStore.replaceAll(snapshot.getMessages());
             report.recordImported("chat-messages", snapshot.getMessages().size());
         } catch (IOException exception) {
-            throw new IllegalStateException("Import chat messages impossible: " + path, exception);
+            throw new IllegalStateException("Chat messages import failed: " + path, exception);
         }
     }
 
     private void importNewsItems(JsonDatastoreImportReport report) {
         Path path = Path.of(properties.getNewsItemsPath());
         if (!Files.exists(path)) {
-            report.recordSkipped("news-items", "fichier absent: " + path);
+            report.recordSkipped("news-items", "file missing: " + path);
             return;
         }
 
@@ -262,7 +262,7 @@ public class JsonDatastoreImporter {
             newsItemStore.saveAll(snapshot.getItems());
             report.recordImported("news-items", snapshot.getItems().size());
         } catch (IOException exception) {
-            throw new IllegalStateException("Import news items impossible: " + path, exception);
+            throw new IllegalStateException("News items import failed: " + path, exception);
         }
     }
 }

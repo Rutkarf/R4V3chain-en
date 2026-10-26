@@ -1,5 +1,5 @@
 /**
- * Intentions de pan Conquête stellaire — normalisées, hors DOM / hors caméra.
+ * Intentions de pan Conquest stellaire — normalisées, hors DOM / hors caméra.
  * Le stick floor MOVE/VIEW (metaverse) n’est pas ce contrat.
  */
 

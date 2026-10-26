@@ -85,7 +85,7 @@ public class PendingTransactionServiceImpl implements PendingTransactionService 
         transactionPoolService.add(transaction);
 
         return new AddPendingTransactionResponse(
-                "Transaction pending créée.",
+                "Pending transaction created.",
                 toResponse(transaction)
         );
     }
@@ -94,14 +94,14 @@ public class PendingTransactionServiceImpl implements PendingTransactionService 
     public synchronized MinePendingTransactionResponse minePendingTransaction(String id, String minerAddress) {
         PendingTransaction transaction = transactionPoolService.findById(id);
         if (transaction == null) {
-            throw new IllegalArgumentException("Transaction en attente introuvable : " + id);
+            throw new IllegalArgumentException("Pending transaction not found: " + id);
         }
 
         validationService.validatePendingTransaction(transaction, userAccountStore);
         Block block = blockchainService.mineSinglePending(id, minerAddress);
 
         return new MinePendingTransactionResponse(
-                "Transaction minée avec succès.",
+                "Transaction mined successfully.",
                 block
         );
     }

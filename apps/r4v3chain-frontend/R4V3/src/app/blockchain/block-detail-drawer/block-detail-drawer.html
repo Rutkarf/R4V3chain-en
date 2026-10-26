@@ -24,7 +24,7 @@
         <button
           type="button"
           class="drawer-close"
-          aria-label="Fermer le détail du bloc"
+          aria-label="Close block details"
           (click)="closeDrawer()"
         ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg></button>
       </div>
@@ -51,14 +51,14 @@
           </div>
 
           <div class="detail-item detail-item-full">
-            <span class="detail-label">Hash précédent</span>
+            <span class="detail-label">Previous hash</span>
             <span class="detail-code" [title]="block()!.previousHash">
               {{ block()!.previousHash }}
             </span>
           </div>
 
           <div class="detail-item">
-            <span class="detail-label">Difficulté</span>
+            <span class="detail-label">Difficulty</span>
             <span class="detail-value">{{ difficultyLabel(block()!.difficulty) }}</span>
           </div>
 
@@ -68,7 +68,7 @@
           </div>
 
           <div class="detail-item detail-item-full">
-            <span class="detail-label">Résumé rapide</span>
+            <span class="detail-label">Quick summary</span>
             <span class="detail-inline-code" [title]="block()!.hash">
               {{ shortHash(block()!.hash) }}
             </span>
@@ -77,7 +77,7 @@
           <div class="detail-item detail-item-full">
             <span class="detail-label">Contenu</span>
             <p class="detail-content">
-              {{ block()!.data || 'Aucune donnée' }}
+              {{ block()!.data || 'No data' }}
             </p>
           </div>
         </div>

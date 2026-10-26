@@ -29,7 +29,7 @@
 
   <div class="news-summary-bar__headline-wrap">
     @if (loading()) {
-      <span class="news-summary-bar__headline news-summary-bar__headline--muted">Chargement…</span>
+      <span class="news-summary-bar__headline news-summary-bar__headline--muted">Loading…</span>
     } @else {
       <span
         class="news-summary-bar__headline-stack"
@@ -77,19 +77,19 @@
     </span>
   }
 
-  <div class="news-summary-bar__actions" aria-label="Navigation entre actualités">
+  <div class="news-summary-bar__actions" aria-label="News navigation">
     <button
       type="button"
       class="news-summary-bar__action-btn"
       [disabled]="!canNavigatePrev()"
-      aria-label="Actualité précédente"
+      aria-label="Previous news item"
       (click)="navigatePrev($event)"
     ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-left"/></svg></button>
     <button
       type="button"
       class="news-summary-bar__action-btn"
       [disabled]="!canNavigateNext()"
-      aria-label="Actualité suivante"
+      aria-label="Next news item"
       (click)="navigateNext($event)"
     ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-right"/></svg></button>
     <button

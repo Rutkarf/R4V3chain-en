@@ -57,14 +57,14 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
       framework: 'SOC1',
       type: 'Type 1',
       criterion: 'ICFR-access',
-      control: 'Accès logique ledger / comptes',
+      control: 'Logical ledger / accounts access',
       status: 'designed',
     },
     {
       framework: 'SOC1',
       type: 'Type 2',
       criterion: 'ICFR-ops-period',
-      control: 'Efficacité opérationnelle sur période',
+      control: 'Operational efficiency over period',
       status: 'gap-org',
     },
     {
@@ -78,7 +78,7 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
       framework: 'SOC2',
       type: 'Type 1',
       criterion: 'CC6.7',
-      control: 'Seed hashée (SHA-256), jamais en clair',
+      control: 'Hashed seed (SHA-256), never in cleartext',
       status: 'designed',
     },
     {
@@ -92,14 +92,14 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
       framework: 'SOC2',
       type: 'Type 2',
       criterion: 'CC6.1-ops',
-      control: 'Revues d’accès périodiques',
+      control: 'Periodic access reviews',
       status: 'gap-org',
     },
     {
       framework: 'SOC2',
       type: 'Type 2',
       criterion: 'CC8.1-ops',
-      control: 'Historique changements sur période',
+      control: 'Change history over period',
       status: 'gap-org',
     },
   ] as const;
@@ -183,9 +183,9 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
     this.exportNotice.set(null);
     try {
       await this.exportClient.download(format, this.selectedDomains());
-      this.exportNotice.set(`Export .${format} téléchargé`);
+      this.exportNotice.set(`.${format} export downloaded`);
     } catch {
-      this.exportNotice.set('Export impossible — vérifiez la session seed');
+      this.exportNotice.set('Export failed — check the seed session');
     } finally {
       this.exportBusy.set(false);
     }
@@ -196,9 +196,9 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
     this.exportNotice.set(null);
     try {
       await this.exportClient.downloadAllFormats(this.selectedDomains());
-      this.exportNotice.set('Exports .json + .txt + .csv téléchargés');
+      this.exportNotice.set('.json + .txt + .csv exports downloaded');
     } catch {
-      this.exportNotice.set('Export impossible — vérifiez la session seed');
+      this.exportNotice.set('Export failed — check the seed session');
     } finally {
       this.exportBusy.set(false);
     }

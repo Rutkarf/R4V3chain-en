@@ -25,7 +25,7 @@ public class WalletController {
         );
 
         if (!verified.valid()) {
-            throw new IllegalArgumentException("address et publicKey ne correspondent pas");
+            throw new IllegalArgumentException("address and publicKey do not match");
         }
 
         Wallet wallet = new Wallet();
@@ -46,7 +46,7 @@ public class WalletController {
         );
 
         if (!response.valid()) {
-            throw new IllegalArgumentException("address et publicKey ne correspondent pas");
+            throw new IllegalArgumentException("address and publicKey do not match");
         }
 
         return response;

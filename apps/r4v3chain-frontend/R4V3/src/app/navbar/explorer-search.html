@@ -45,7 +45,7 @@
       @if (errorMessage()) {
         <li class="explorer-search__empty">{{ errorMessage() }}</li>
       } @else if (results().length === 0 && !loading()) {
-        <li class="explorer-search__empty">Aucun résultat pour « {{ query() }} »</li>
+        <li class="explorer-search__empty">No results pour « {{ query() }} »</li>
       } @else {
         @for (result of results(); track result.label + result.subtitle + result.kind) {
           <li

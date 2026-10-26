@@ -40,7 +40,7 @@ public class AccessController {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("banned", true);
         body.put("reason", "age_decline");
-        body.put("message", "Accès refusé. Cette adresse IP est bannie.");
+        body.put("message", "Access denied. This IP address is banned.");
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(body);
     }
 }

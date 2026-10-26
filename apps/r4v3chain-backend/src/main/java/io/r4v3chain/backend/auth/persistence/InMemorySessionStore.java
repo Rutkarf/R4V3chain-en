@@ -37,7 +37,7 @@ public class InMemorySessionStore implements SessionStore {
     @Override
     public String createSession(String userId) {
         if (!legacySessionEnabled) {
-            throw new IllegalStateException("session legacy désactivée");
+            throw new IllegalStateException("legacy session disabled");
         }
         String token = UUID.randomUUID().toString();
         sessions.put(token, new SessionEntry(userId, Instant.now().plusSeconds(ttlSeconds)));

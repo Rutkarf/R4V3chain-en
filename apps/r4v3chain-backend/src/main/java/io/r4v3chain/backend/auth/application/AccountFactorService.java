@@ -45,7 +45,7 @@ public class AccountFactorService {
         if (!authMailer.isConfigured()) {
             throw new AuthException(
                     503,
-                    "L'envoi d'email n'est pas configuré. Renseignez R4V3CHAIN_MAIL_HOST, R4V3CHAIN_MAIL_USERNAME et R4V3CHAIN_MAIL_PASSWORD."
+                    "Email sending is not configured. Set R4V3CHAIN_MAIL_HOST, R4V3CHAIN_MAIL_USERNAME, and R4V3CHAIN_MAIL_PASSWORD."
             );
         }
         dropPendingFor(account.getId());
@@ -64,7 +64,7 @@ public class AccountFactorService {
         PendingEmail pending = pendingEmails.get(verificationId);
         if (pending == null || pending.expiresAt < System.currentTimeMillis()) {
             pendingEmails.remove(verificationId);
-            throw new AuthException(401, "Code expiré ou inconnu. Demandez un nouvel envoi.");
+            throw new AuthException(401, "Code expired or unknown. Request a new one.");
         }
         if (pending.attempts >= MAX_ATTEMPTS) {
             pendingEmails.remove(verificationId);
@@ -72,11 +72,11 @@ public class AccountFactorService {
         }
         pending.attempts++;
         if (!MessageDigest.isEqual(pending.codeHash, hashCode(pending.userId, code))) {
-            throw new AuthException(401, "Code de confirmation invalide");
+            throw new AuthException(401, "Invalid confirmation code");
         }
         pendingEmails.remove(verificationId);
         return userAccountStore.findById(pending.userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
     }
 
     public String resendEmailCode(String verificationId) {
@@ -86,10 +86,10 @@ public class AccountFactorService {
     public UserAccount pendingAccount(String verificationId) {
         PendingEmail pending = pendingEmails.get(verificationId);
         if (pending == null) {
-            throw new AuthException(400, "Demande de confirmation introuvable. Inscrivez-vous à nouveau.");
+            throw new AuthException(400, "Confirmation request not found. Register again.");
         }
         return userAccountStore.findById(pending.userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
     }
 
     public String issueTotpChallenge(String userId) {
@@ -98,18 +98,18 @@ public class AccountFactorService {
 
     public UserAccount consumeTotpChallenge(String challengeToken, String code) {
         String userId = nativeJwtService.parseChallenge(challengeToken, "totp")
-                .orElseThrow(() -> new AuthException(401, "Vérification 2FA expirée. Reconnectez-vous."));
+                .orElseThrow(() -> new AuthException(401, "2FA verification expired. Sign in again."));
         UserAccount account = userAccountStore.findById(userId)
-                .orElseThrow(() -> new AuthException(401, "Vérification 2FA expirée. Reconnectez-vous."));
+                .orElseThrow(() -> new AuthException(401, "2FA verification expired. Sign in again."));
         if (!account.isTotpEnabled() || !TotpAuthenticator.matches(account.getTotpSecret(), code)) {
-            throw new AuthException(401, "Code d'authentification invalide");
+            throw new AuthException(401, "Invalid authentication code");
         }
         return account;
     }
 
     public TotpSetupResponse beginTotpSetup(UserAccount account) {
         if (account.isTotpEnabled()) {
-            throw new AuthException(409, "La double authentification est déjà active");
+            throw new AuthException(409, "Two-factor authentication is already enabled");
         }
         String secret = TotpAuthenticator.generateSecret();
         userAccountStore.updateTotp(account.getId(), secret, false);
@@ -118,21 +118,21 @@ public class AccountFactorService {
 
     public UserAccount enableTotp(UserAccount account, String code) {
         UserAccount current = userAccountStore.findById(account.getId())
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
         if (current.getTotpSecret() == null || current.getTotpSecret().isBlank()) {
-            throw new AuthException(400, "Générez d'abord une clé d'authentification");
+            throw new AuthException(400, "Generate an authenticator key first");
         }
         if (!TotpAuthenticator.matches(current.getTotpSecret(), code)) {
-            throw new AuthException(401, "Code d'authentification invalide");
+            throw new AuthException(401, "Invalid authentication code");
         }
         return userAccountStore.updateTotp(current.getId(), current.getTotpSecret(), true);
     }
 
     public UserAccount disableTotp(UserAccount account, String code) {
         UserAccount current = userAccountStore.findById(account.getId())
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
         if (!current.isTotpEnabled() || !TotpAuthenticator.matches(current.getTotpSecret(), code)) {
-            throw new AuthException(401, "Code d'authentification invalide");
+            throw new AuthException(401, "Invalid authentication code");
         }
         return userAccountStore.updateTotp(current.getId(), null, false);
     }
@@ -155,7 +155,7 @@ public class AccountFactorService {
             String material = authProperties.getJwtSecret() + ":" + userId + ":" + code;
             return digest.digest(material.getBytes(StandardCharsets.UTF_8));
         } catch (Exception exception) {
-            throw new AuthException(500, "Impossible de protéger le code email");
+            throw new AuthException(500, "Unable to protect email code");
         }
     }
 

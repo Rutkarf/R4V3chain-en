@@ -1,6 +1,6 @@
 /**
- * Anneau de diagnostics Conquête stellaire — hors rAF critique.
- * N’envoie rien au réseau. Cap fixe pour éviter les fuites.
+ * Anneau de diagnostics Conquest stellaire — hors rAF critique.
+ * N’envoie rien au network. Cap fixe pour éviter les fuites.
  */
 
 export type StarConquestDiagKind =

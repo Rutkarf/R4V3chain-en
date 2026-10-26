@@ -325,7 +325,7 @@ export const ORBIT_CONFIG = {
 export type QuestParticleMode = 'quest-field' | 'metaverse-starry-sky';
 export const QUEST_PARTICLE_MODE: QuestParticleMode = 'metaverse-starry-sky';
 
-/** Knowledge graph visualization layered on Conquête stellaire particles. */
+/** Knowledge graph visualization layered on Conquest stellaire particles. */
 export type QuestVisualizationMode =
   | 'legacy-particles'
   | 'knowledge-graph'

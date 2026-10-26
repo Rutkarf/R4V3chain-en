@@ -282,7 +282,7 @@ export class MarketPanelService {
     const volumeLabel =
       row.config.native && r4v3Chart?.volume
         ? r4v3Chart.volume
-        : row.volume && row.volume !== 'Laboratoire'
+        : row.volume && row.volume !== 'Laboratory'
           ? row.volume
           : launchProject?.raised && launchProject.raised !== '—'
             ? launchProject.raised
@@ -307,7 +307,7 @@ export class MarketPanelService {
     const tokenAgeLabel = this.tokenAgeLabel(launchProject);
     const recentActivityLabel =
       recentTradeCount > 0
-        ? `${recentTradeCount} swap${recentTradeCount > 1 ? 's' : ''} récent${recentTradeCount > 1 ? 's' : ''}`
+        ? `${recentTradeCount} swap${recentTradeCount > 1 ? 's' : ''} recent${recentTradeCount > 1 ? 's' : ''}`
         : 'Calme';
 
     return {
@@ -320,7 +320,7 @@ export class MarketPanelService {
       tokenAgeLabel,
       recentActivityLabel,
       progressPercent,
-      creatorLabel: launchProject ? `Laboratoire · ${launchProject.chain ?? 'R4V3'}` : 'R4V3chain',
+      creatorLabel: launchProject ? `Laboratory · ${launchProject.chain ?? 'R4V3'}` : 'R4V3chain',
       statusLabel: launchProject?.status ?? (row.config.native ? 'LIVE' : 'LIVE'),
       logoUrl: launchProject?.logoUrl ?? null,
       description: launchProject?.description ?? row.config.shortPitch,
@@ -347,7 +347,7 @@ export class MarketPanelService {
       case 'hot':
         return 'Fort momentum';
       case 'warm':
-        return 'Élan';
+        return 'Momentum';
       case 'neutral':
         return 'Stable';
       default:
@@ -371,7 +371,7 @@ export class MarketPanelService {
 
   private tokenAgeLabel(project: LaunchProject | null): string {
     if (!project?.launchDate) {
-      return 'Laboratoire';
+      return 'Laboratory';
     }
 
     const launched = Date.parse(project.launchDate);
@@ -381,11 +381,11 @@ export class MarketPanelService {
 
     const days = Math.max(1, Math.floor((Date.now() - launched) / 86_400_000));
     if (days < 30) {
-      return `${days}j`;
+      return `${days}d`;
     }
 
     const months = Math.floor(days / 30);
-    return `${months} mois`;
+    return `${months} mo`;
   }
 
   private progressPercent(project: LaunchProject): number | null {
@@ -415,7 +415,7 @@ export class MarketPanelService {
     if (value >= 1_000) {
       return `${(value / 1_000).toFixed(1)}k`;
     }
-    return value.toLocaleString('fr-FR', { maximumFractionDigits: 0 });
+    return value.toLocaleString('en-US', { maximumFractionDigits: 0 });
   }
 
   private fetchChart(
@@ -445,7 +445,7 @@ export class MarketPanelService {
         price: this.formatEur(tokenEur),
         changePercent,
         positive,
-        volume: 'Laboratoire',
+        volume: 'Laboratory',
         priceUnavailable: false,
         walletBalance,
         rate,
@@ -458,7 +458,7 @@ export class MarketPanelService {
       price: this.formatEur(LAUNCH_TOKEN_EUR_FALLBACK),
       changePercent,
       positive,
-      volume: 'Laboratoire',
+      volume: 'Laboratory',
       priceUnavailable: rate == null,
       walletBalance,
       rate,
@@ -516,10 +516,10 @@ export class MarketPanelService {
 
   private formatEur(value: number): string {
     if (value >= 1) {
-      return `${value.toLocaleString('fr-FR', { maximumFractionDigits: 2 })} €`;
+      return `${value.toLocaleString('en-US', { maximumFractionDigits: 2 })} €`;
     }
 
-    return `${value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 4 })} €`;
+    return `${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 })} €`;
   }
 
   private fallbackRows(favorites: ReadonlySet<string>): MarketAssetRow[] {
@@ -546,7 +546,7 @@ export class MarketPanelService {
         price: '0,05 €',
         changePercent: 1.8,
         positive: true,
-        volume: 'Laboratoire',
+        volume: 'Laboratory',
         priceUnavailable: true,
         rate: 20,
       },
@@ -554,7 +554,7 @@ export class MarketPanelService {
         price: '0,05 €',
         changePercent: 0.4,
         positive: true,
-        volume: 'Laboratoire',
+        volume: 'Laboratory',
         priceUnavailable: true,
         rate: 18,
       },
@@ -562,7 +562,7 @@ export class MarketPanelService {
         price: '0,05 €',
         changePercent: 0,
         positive: true,
-        volume: 'Laboratoire',
+        volume: 'Laboratory',
         priceUnavailable: true,
         rate: 16,
       },
@@ -570,7 +570,7 @@ export class MarketPanelService {
         price: '0,05 €',
         changePercent: 0.2,
         positive: true,
-        volume: 'Laboratoire',
+        volume: 'Laboratory',
         priceUnavailable: true,
         rate: 22,
       },

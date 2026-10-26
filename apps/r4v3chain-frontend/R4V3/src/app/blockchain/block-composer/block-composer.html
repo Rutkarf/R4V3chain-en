@@ -47,7 +47,7 @@
               class="dock-view__input block-view__compact-input block-view__compact-input--address"
               type="text"
               formControlName="fromAddress"
-              placeholder="Adresse expéditeur"
+              placeholder="Sender address"
               autocomplete="off"
               spellcheck="false"
               aria-labelledby="from-address-label"
@@ -158,7 +158,7 @@
         <div class="dock-view__scroll">
           <div class="block-view__quick-actions">
             <button type="button" class="dock-view__mini-btn" (click)="fillFromWallet()" [disabled]="!walletAddress()">
-              Mon portefeuille
+              My wallet
             </button>
             <button type="button" class="dock-view__mini-btn" (click)="clearForm()" [disabled]="loading()">
               Reset

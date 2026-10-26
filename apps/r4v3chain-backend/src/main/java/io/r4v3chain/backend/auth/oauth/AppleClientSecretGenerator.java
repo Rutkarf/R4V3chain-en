@@ -44,7 +44,7 @@ final class AppleClientSecretGenerator {
             signedJwt.sign(new ECDSASigner(privateKey));
             return signedJwt.serialize();
         } catch (Exception exception) {
-            throw new AuthException(500, "Impossible de générer le secret client Apple");
+            throw new AuthException(500, "Unable to generate Apple client secret");
         }
     }
 }

@@ -33,7 +33,7 @@ import {
 } from '@star-conquest/star-conquest-live';
 
 /**
- * Progression Conquête stellaire : preview local + sync des quêtes Dock live.
+ * Progression Conquest stellaire : preview local + sync des quêtes Dock live.
  */
 @Injectable({ providedIn: 'root' })
 export class StarConquestProgressService {

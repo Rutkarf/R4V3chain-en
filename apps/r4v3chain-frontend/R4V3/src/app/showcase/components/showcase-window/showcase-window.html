@@ -29,7 +29,7 @@
           @defer (on immediate) {
             <app-showcase-chat [isExpanded]="true" />
           } @placeholder {
-            <p class="showcase-window__defer" aria-busy="true">Chargement…</p>
+            <p class="showcase-window__defer" aria-busy="true">Loading…</p>
           }
         }
       </div>
@@ -45,7 +45,7 @@
           @defer (on immediate) {
             <app-showcase-dao [isExpanded]="true" />
           } @placeholder {
-            <p class="showcase-window__defer" aria-busy="true">Chargement…</p>
+            <p class="showcase-window__defer" aria-busy="true">Loading…</p>
           }
         }
       </div>
@@ -61,14 +61,14 @@
           @defer (on immediate) {
             <app-showcase-launch [isExpanded]="true" />
           } @placeholder {
-            <p class="showcase-window__defer" aria-busy="true">Chargement…</p>
+            <p class="showcase-window__defer" aria-busy="true">Loading…</p>
           }
         }
       </div>
 
       <div
         class="showcase-tab-panel ds-surface ds-surface--card showcase-tab-panel--market"
-        data-shell-label="MARCHÉ"
+        data-shell-label="MARKET"
         [hidden]="activeTab !== 'market'"
       >
         @if (collapsed) {
@@ -77,7 +77,7 @@
           @defer (on immediate) {
             <app-market-panel />
           } @placeholder {
-            <p class="showcase-window__defer" aria-busy="true">Chargement…</p>
+            <p class="showcase-window__defer" aria-busy="true">Loading…</p>
           }
         }
       </div>
@@ -93,7 +93,7 @@
           @defer (on immediate) {
             <app-showcase-r4v3 [isExpanded]="true" />
           } @placeholder {
-            <p class="showcase-window__defer" aria-busy="true">Chargement…</p>
+            <p class="showcase-window__defer" aria-busy="true">Loading…</p>
           }
         }
       </div>
@@ -109,7 +109,7 @@
           @defer (on immediate) {
             <app-showcase-news [isExpanded]="true" />
           } @placeholder {
-            <p class="showcase-window__defer" aria-busy="true">Chargement…</p>
+            <p class="showcase-window__defer" aria-busy="true">Loading…</p>
           }
         }
       </div>

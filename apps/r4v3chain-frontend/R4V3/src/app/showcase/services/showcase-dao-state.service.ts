@@ -92,7 +92,7 @@ export class ShowcaseDaoStateService {
 
     const seconds = Math.floor((Date.now() - updated.getTime()) / 1000);
     if (seconds < 5) {
-      return "à l'instant";
+      return "just now";
     }
     if (seconds < 60) {
       return `il y a ${seconds} s`;
@@ -245,16 +245,16 @@ export class ShowcaseDaoStateService {
 
     switch (status) {
       case 'active':
-        return `Gouvernance communautaire active pour ${project.symbol}.`;
+        return `Active community governance for ${project.symbol}.`;
       case 'closed':
-        return `DAO clôturée — historique des décisions ${project.symbol}.`;
+        return `DAO closed — decision history for ${project.symbol}.`;
       default:
-        return `DAO en préparation — rejoignez la gouvernance ${project.symbol}.`;
+        return `DAO in preparation — join governance for ${project.symbol}.`;
     }
   }
 
   private defaultObjective(project: LaunchProject): string {
-    return `Coordonner décisions, trésorerie et roadmap ${project.symbol}.`;
+    return `Coordinate decisions, treasury, and roadmap for ${project.symbol}.`;
   }
 
   private parseRaised(value: string): number {

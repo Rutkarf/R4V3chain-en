@@ -1,5 +1,5 @@
 /**
- * Flags locaux Conquête stellaire.
+ * Flags locaux Conquest stellaire.
  * `overlayHud` est OFF : le bandeau haut a été retiré à la demande produit.
  */
 

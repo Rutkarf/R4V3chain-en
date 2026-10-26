@@ -59,17 +59,17 @@ export class ShowcaseWindowComponent {
   windowAriaLabel(): string {
     switch (this.activeTab) {
       case 'tours':
-        return 'Actualités showcase — toutes';
+        return 'Showcase news — all';
       case 'r4v3':
-        return 'Token natif R4V3 — cours, swap et actualités';
+        return 'Native R4V3 token — price, swap, and news';
       case 'daonews':
-        return 'Gouvernance D.A.O — DAO communautaires';
+        return 'D.A.O governance — community DAOs';
       case 'rv23':
         return 'Chat showcase';
       case 'dao':
-        return 'Vitrine du laboratoire';
+        return 'Laboratory showcase';
       case 'market':
-        return 'Marché — tokens et liquidité';
+        return 'Market — tokens and liquidity';
       default:
         return 'Showcase';
     }

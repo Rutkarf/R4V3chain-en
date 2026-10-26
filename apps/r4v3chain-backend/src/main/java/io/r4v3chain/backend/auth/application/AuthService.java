@@ -99,7 +99,7 @@ public class AuthService {
         if (requiresEmailVerification() && !accountFactorService.mailConfigured()) {
             throw new AuthException(
                     503,
-                    "L'envoi d'email n'est pas configuré. Renseignez R4V3CHAIN_MAIL_HOST, R4V3CHAIN_MAIL_USERNAME et R4V3CHAIN_MAIL_PASSWORD."
+                    "Email sending is not configured. Set R4V3CHAIN_MAIL_HOST, R4V3CHAIN_MAIL_USERNAME, and R4V3CHAIN_MAIL_PASSWORD."
             );
         }
 
@@ -142,17 +142,17 @@ public class AuthService {
         UserAccount account = resolveAccount(identifier)
                 .orElseThrow(() -> {
                     authAuditService.loginFailure(identifier, ipAddress);
-                    return new AuthException(401, "Identifiants invalides");
+                    return new AuthException(401, "Invalid credentials");
                 });
 
         if (PasswordHasher.isOAuthAccount(account.getPasswordHash())) {
             authAuditService.loginFailure(identifier, ipAddress);
-            throw new AuthException(401, "Ce compte utilise une connexion sociale. Utilisez Google ou Meta.");
+            throw new AuthException(401, "This account uses social login. Use Google or Meta.");
         }
 
         if (!PasswordHasher.verify(request.password(), account.getPasswordSalt(), account.getPasswordHash())) {
             authAuditService.loginFailure(identifier, ipAddress);
-            throw new AuthException(401, "Identifiants invalides");
+            throw new AuthException(401, "Invalid credentials");
         }
 
         if (!PasswordHasher.isBcryptHash(account.getPasswordHash())) {
@@ -218,11 +218,11 @@ public class AuthService {
 
     public AuthResponse refresh(RefreshRequest request, String ipAddress) {
         if (request == null || request.refreshToken() == null || request.refreshToken().isBlank()) {
-            throw new AuthException(400, "refreshToken requis");
+            throw new AuthException(400, "refreshToken required");
         }
 
         UserAccount account = authTokenResolver.resolveRefreshToken(request.refreshToken())
-                .orElseThrow(() -> new AuthException(401, "Refresh token invalide ou expiré"));
+                .orElseThrow(() -> new AuthException(401, "Refresh token invalid or expired"));
 
         refreshTokenStore.revoke(request.refreshToken());
         authAuditService.refresh(account.getId(), ipAddress);
@@ -257,11 +257,11 @@ public class AuthService {
         String publicKey = request.publicKey().trim();
 
         if (!WalletValidator.isValidBlockchainAddress(walletAddress)) {
-            throw new AuthException(400, "Adresse wallet invalide");
+            throw new AuthException(400, "Invalid wallet address");
         }
 
         if (publicKey.isBlank()) {
-            throw new AuthException(400, "Clé publique requise");
+            throw new AuthException(400, "Public key required");
         }
 
         try {
@@ -269,17 +269,17 @@ public class AuthService {
                     CryptoUtils.publicKeyFromBase64(publicKey)
             );
             if (!derivedAddress.equals(walletAddress)) {
-                throw new AuthException(400, "La clé publique ne correspond pas à l'adresse wallet");
+                throw new AuthException(400, "Public key does not match the wallet address");
             }
         } catch (AuthException exception) {
             throw exception;
         } catch (RuntimeException exception) {
-            throw new AuthException(400, "Clé publique invalide");
+            throw new AuthException(400, "Invalid public key");
         }
 
         userAccountStore.findByWalletAddress(walletAddress).ifPresent(existing -> {
             if (!existing.getId().equals(account.getId())) {
-                throw new AuthException(409, "Ce wallet est déjà lié à un autre compte");
+                throw new AuthException(409, "This wallet is already linked to another account");
             }
         });
 
@@ -294,16 +294,16 @@ public class AuthService {
 
     public UserAccount requireAuthenticatedAccount(String token) {
         return authTokenResolver.resolveAccount(token)
-                .orElseThrow(() -> new AuthException(401, "Session invalide ou expirée"));
+                .orElseThrow(() -> new AuthException(401, "Invalid or expired session"));
     }
 
     public void ensureWalletOwnership(UserAccount account, String walletAddress) {
         if (account.getWalletAddress() == null || account.getWalletAddress().isBlank()) {
-            throw new AuthException(403, "Aucun portefeuille lié au compte. Liez un portefeuille avant de continuer.");
+            throw new AuthException(403, "No wallet linked to the account. Link a wallet before continuing.");
         }
 
         if (!account.getWalletAddress().equalsIgnoreCase(WalletValidator.normalize(walletAddress))) {
-            throw new AuthException(403, "Ce wallet ne correspond pas à votre compte");
+            throw new AuthException(403, "This wallet does not match your account");
         }
     }
 
@@ -328,9 +328,9 @@ public class AuthService {
             return AuthResponse.emailVerification(accountFactorService.issueEmailCode(existing), toProfile(existing));
         }
         if (AuthNormalizer.normalizeEmail(existing.getEmail()).equals(AuthNormalizer.normalizeEmail(email))) {
-            throw new AuthException(409, "Cet email est déjà utilisé");
+            throw new AuthException(409, "This email is already in use");
         }
-        throw new AuthException(409, "Ce nom d'utilisateur est déjà utilisé");
+        throw new AuthException(409, "This username is already in use");
     }
 
     private boolean requiresEmailVerification() {
@@ -385,7 +385,7 @@ public class AuthService {
     private void validatePassword(String password) {
         int minLength = authProperties.getPasswordMinLength();
         if (password == null || password.length() < minLength) {
-            throw new AuthException(400, "Mot de passe trop court (minimum " + minLength + " caractères)");
+            throw new AuthException(400, "Password too short (minimum " + minLength + " characters)");
         }
     }
 

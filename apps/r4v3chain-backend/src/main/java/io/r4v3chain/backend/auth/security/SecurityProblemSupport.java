@@ -33,7 +33,7 @@ public class SecurityProblemSupport implements AuthenticationEntryPoint, AccessD
             HttpServletResponse response,
             AuthenticationException authException
     ) throws IOException {
-        writeError(request, response, HttpStatus.UNAUTHORIZED, "Unauthorized", "Authentification requise");
+        writeError(request, response, HttpStatus.UNAUTHORIZED, "Unauthorized", "Authentication required");
     }
 
     @Override
@@ -42,7 +42,7 @@ public class SecurityProblemSupport implements AuthenticationEntryPoint, AccessD
             HttpServletResponse response,
             AccessDeniedException accessDeniedException
     ) throws IOException {
-        writeError(request, response, HttpStatus.FORBIDDEN, "Forbidden", "Accès refusé");
+        writeError(request, response, HttpStatus.FORBIDDEN, "Forbidden", "Access denied");
     }
 
     private void writeError(

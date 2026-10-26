@@ -68,32 +68,32 @@ export class ShowcaseLaunchStateService {
   readonly statusLabel = computed(() => {
     switch (this.phase()) {
       case 'error':
-        return 'Erreur';
+        return 'Error';
       case 'loading':
-        return 'Chargement';
+        return 'Loading';
       case 'ready':
-        return 'Prêt';
+        return 'Ready';
       case 'waiting':
-        return 'En attente';
+        return 'Pending';
       case 'running':
-        return 'En cours';
+        return 'In progress';
       case 'done':
-        return 'Terminé';
+        return 'Ended';
       default:
-        return 'Lancement';
+        return 'Launch';
     }
   });
 
   readonly progressLabel = computed(() => {
     const { total, live, soon, ended } = this.counts();
     if (this.loading()) {
-      return 'Synchronisation des projets…';
+      return 'Syncing projects…';
     }
     if (this.error()) {
-      return 'Impossible de charger les lancements';
+      return 'Could not load launches';
     }
     if (total === 0) {
-      return 'Aucun projet — prêt à lancer';
+      return 'No projects — ready to launch';
     }
 
     return `${live} live · ${soon} soon · ${ended} ended`;
@@ -135,7 +135,7 @@ export class ShowcaseLaunchStateService {
 
     const seconds = Math.floor((Date.now() - updated.getTime()) / 1000);
     if (seconds < 5) {
-      return "à l'instant";
+      return "just now";
     }
     if (seconds < 60) {
       return `il y a ${seconds} s`;
@@ -158,13 +158,13 @@ export class ShowcaseLaunchStateService {
   readonly collapsedStatusLabel = computed(() => {
     switch (this.collapsedStatusKey()) {
       case 'LIVE':
-        return 'Direct';
+        return 'Live';
       case 'SOON':
         return 'Soon';
       case 'ENDED':
         return 'Ended';
       default:
-        return this.loading() ? 'Synchro…' : 'Lancement';
+        return this.loading() ? 'Sync…' : 'Launch';
     }
   });
 
@@ -189,7 +189,7 @@ export class ShowcaseLaunchStateService {
       return 'SYNC…';
     }
     if (this.error()) {
-      return 'ERREUR';
+      return 'ERROR';
     }
     return count > 0 ? `${count} ${label}` : label;
   });
@@ -258,7 +258,7 @@ export class ShowcaseLaunchStateService {
 
   createProject(request: CreateLaunchProjectRequest): void {
     if (!this.authService().promptLogin()) {
-      this.launchDrawer.setError('Connectez-vous pour créer un projet de laboratoire.');
+      this.launchDrawer.setError('Sign in to create a Laboratory project.');
       return;
     }
 
@@ -267,7 +267,7 @@ export class ShowcaseLaunchStateService {
 
     this.api.createLaunchProject(request).subscribe({
       next: (project) => {
-        this.successMessage.set(`Projet ${project.symbol} créé (Soon).`);
+        this.successMessage.set(`Project ${project.symbol} created (Soon).`);
         this.launchDrawer.setSubmitting(false);
         this.launchDrawer.close();
         this.loadProjects();
@@ -282,7 +282,7 @@ export class ShowcaseLaunchStateService {
   private statusLabelFor(status: LaunchStatus): string {
     switch (status) {
       case 'LIVE':
-        return 'Direct';
+        return 'Live';
       case 'ENDED':
         return 'Ended';
       default:
@@ -298,12 +298,12 @@ export class ShowcaseLaunchStateService {
   private resolveCreateError(error: unknown): string {
     if (error instanceof HttpErrorResponse) {
       if (error.status === 409) {
-        return error.error?.message ?? 'Ce symbole est déjà utilisé.';
+        return error.error?.message ?? 'This symbol is already in use.';
       }
-      return error.error?.message ?? 'Création impossible.';
+      return error.error?.message ?? 'Could not create project.';
     }
 
-    return 'Création impossible.';
+    return 'Could not create project.';
   }
 
   constructor() {

@@ -98,7 +98,7 @@ public class JsonUserAccountStore implements UserAccountStore {
     @Override
     public synchronized UserAccount updateWallet(String userId, String walletAddress, String publicKey) {
         UserAccount account = findById(userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
 
         account.setWalletAddress(walletAddress);
         account.setWalletPublicKey(publicKey);
@@ -109,7 +109,7 @@ public class JsonUserAccountStore implements UserAccountStore {
     @Override
     public synchronized UserAccount updatePassword(String userId, String passwordHash) {
         UserAccount account = findById(userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
 
         account.setPasswordHash(passwordHash);
         account.setPasswordSalt("");
@@ -120,7 +120,7 @@ public class JsonUserAccountStore implements UserAccountStore {
     @Override
     public synchronized UserAccount markEmailVerified(String userId) {
         UserAccount account = findById(userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
         account.setEmailVerified(Boolean.TRUE);
         persist();
         return account;
@@ -129,7 +129,7 @@ public class JsonUserAccountStore implements UserAccountStore {
     @Override
     public synchronized UserAccount updateTotp(String userId, String totpSecret, boolean totpEnabled) {
         UserAccount account = findById(userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
         account.setTotpSecret(totpSecret);
         account.setTotpEnabled(totpEnabled);
         persist();
@@ -139,7 +139,7 @@ public class JsonUserAccountStore implements UserAccountStore {
     @Override
     public synchronized UserAccount updateRole(String userId, UserRole role) {
         UserAccount account = findById(userId)
-                .orElseThrow(() -> new AuthException(404, "Utilisateur introuvable"));
+                .orElseThrow(() -> new AuthException(404, "User not found"));
         account.setRole(role);
         persist();
         return account;

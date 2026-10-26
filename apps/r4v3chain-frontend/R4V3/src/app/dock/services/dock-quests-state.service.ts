@@ -79,11 +79,11 @@ export class DockQuestsStateService {
   readonly statusLabel = computed(() => {
     switch (this.phase()) {
       case 'error':
-        return 'Erreur';
+        return 'Error';
       case 'loading':
         return 'Synchro…';
       case 'urgent':
-        return 'À réclamer';
+        return 'To claim';
       default:
         return 'En cours';
     }
@@ -104,15 +104,15 @@ export class DockQuestsStateService {
     const views = this.taskViews();
     if (views.length === 0) {
       if (this.error()) {
-        return 'Quêtes indisponibles';
+        return 'Quests unavailable';
       }
       if (this.loading()) {
-        return 'Chargement des quêtes…';
+        return 'Loading quests…';
       }
       if (this.product.metaverseArenaEnabled) {
         return this.arenaMeta.questProgressLabel();
       }
-      return 'Aucune quête';
+      return 'No quests';
     }
 
     const claimable = this.claimableCount();

@@ -65,13 +65,13 @@ export class ShowcaseR4v3HubDrawerComponent implements OnDestroy {
 
   readonly wikiCategories = R4V3_FAQ_CATEGORIES;
   readonly wikiCategoryOptions = [
-    { id: '', label: 'Sans catégorie' },
+    { id: '', label: 'No category' },
     ...R4V3_FAQ_CATEGORIES.map((category) => ({ id: category.id, label: category.label })),
   ];
 
   readonly askCategoryLabel = computed(() => {
     const id = this.askCategory();
-    return this.wikiCategoryOptions.find((option) => option.id === id)?.label ?? 'Sans catégorie';
+    return this.wikiCategoryOptions.find((option) => option.id === id)?.label ?? 'No category';
   });
 
   readonly payload = input<R4v3HubDrawerPayload | null>(null);
@@ -149,7 +149,7 @@ export class ShowcaseR4v3HubDrawerComponent implements OnDestroy {
       case 'official-wiki':
         return 'Wiki';
       case 'community-form':
-        return 'Proposer une question';
+        return 'Submit a question';
     }
   });
 
@@ -161,15 +161,15 @@ export class ShowcaseR4v3HubDrawerComponent implements OnDestroy {
 
     switch (item.kind) {
       case 'pillar':
-        return 'Pilier R4V3';
+        return 'R4V3 pillar';
       case 'faq':
         return r4v3FaqCategoryLabel(item.entry.categoryId);
       case 'community':
-        return item.question.status === 'open' ? 'Communauté · Ouvert' : 'Communauté';
+        return item.question.status === 'open' ? 'Community · Open' : 'Community';
       case 'official-wiki':
         return 'Wiki R4V3';
       case 'community-form':
-        return 'FAQ communautaire · DEX';
+        return 'Community FAQ · DEX';
     }
   });
 
@@ -351,7 +351,7 @@ export class ShowcaseR4v3HubDrawerComponent implements OnDestroy {
     const categoryLabel =
       this.wikiCategoryOptions.find((option) => option.id === this.askCategory())?.label ?? '';
 
-    if (this.askCategory() && categoryLabel && categoryLabel !== 'Sans catégorie') {
+    if (this.askCategory() && categoryLabel && categoryLabel !== 'No category') {
       body = body ? `[${categoryLabel}] ${body}` : `[${categoryLabel}] ${title}`;
     }
 
@@ -390,12 +390,12 @@ export class ShowcaseR4v3HubDrawerComponent implements OnDestroy {
 
   protected copyButtonLabel(): string {
     if (this.copied()) {
-      return 'COPIÉ ✓';
+      return 'COPIED ✓';
     }
     if (this.copyFailed()) {
-      return 'ÉCHEC';
+      return 'FAILED';
     }
-    return 'COPIER';
+    return 'COPY';
   }
 
   protected buildCopyText(): string {

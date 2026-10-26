@@ -96,7 +96,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("status", HttpStatus.TOO_MANY_REQUESTS.value());
         body.put("error", "Too Many Requests");
-        body.put("message", "Trop de requêtes. Réessayez dans une minute.");
+        body.put("message", "Too many requests. Try again in a minute.");
         body.put("timestamp", Instant.now().toString());
 
         objectMapper.writeValue(response.getOutputStream(), body);

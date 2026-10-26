@@ -69,7 +69,7 @@ export class R4v3FaqStateService {
   categoryFilterLabel(): string {
     const filter = this.categoryFilter();
     if (filter === 'all') {
-      return 'Toutes les catégories';
+      return 'All categories';
     }
 
     return this.categories.find((category) => category.id === filter)?.label ?? filter;

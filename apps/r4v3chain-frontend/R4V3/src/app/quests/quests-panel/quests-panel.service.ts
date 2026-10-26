@@ -198,14 +198,14 @@ export class QuestsPanelService {
       } catch (error) {
         return {
           ok: false,
-          error: this.resolveApiError(error, 'Impossible de réclamer la récompense.'),
+          error: this.resolveApiError(error, 'Unable to claim the reward.'),
         };
       }
     }
 
     return this.claimTaskLocally(taskId)
       ? { ok: true }
-      : { ok: false, error: 'Quête non terminée ou déjà réclamée.' };
+      : { ok: false, error: 'Quest not completed or already claimed.' };
   }
 
   async claimMission(): Promise<QuestClaimResult> {
@@ -218,14 +218,14 @@ export class QuestsPanelService {
       } catch (error) {
         return {
           ok: false,
-          error: this.resolveApiError(error, 'Mission non disponible pour réclamation.'),
+          error: this.resolveApiError(error, 'Mission not available to claim.'),
         };
       }
     }
 
     return this.claimMissionLocally()
       ? { ok: true }
-      : { ok: false, error: 'Mission non terminée ou déjà réclamée.' };
+      : { ok: false, error: 'Mission not completed or already claimed.' };
   }
 
   async claimWeekly(): Promise<QuestClaimResult> {
@@ -238,14 +238,14 @@ export class QuestsPanelService {
       } catch (error) {
         return {
           ok: false,
-          error: this.resolveApiError(error, 'Récompense hebdomadaire indisponible.'),
+          error: this.resolveApiError(error, 'Weekly reward unavailable.'),
         };
       }
     }
 
     return this.claimWeeklyLocally()
       ? { ok: true }
-      : { ok: false, error: 'Toutes les quêtes quotidiennes doivent être réclamées.' };
+      : { ok: false, error: 'All daily quests must be claimed first.' };
   }
 
   missionProgress(state = this.snapshot()): number {

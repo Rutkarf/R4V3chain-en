@@ -92,12 +92,12 @@ export class ShowcaseDaoComponent {
       id: 'native-dao-r4v3',
       symbol: 'R4V3',
       name: 'R4V3 DAO',
-      description: 'Gouvernance du token natif R4V3chain.',
+      description: 'Governance of the native R4V3chain token.',
       chain: 'R4V3chain',
       launchStatus: 'LIVE',
       status: 'active',
-      summary: 'Gouvernance et piliers du hub R4V3.',
-      objective: 'Aligner l’écosystème autour du peg CHF et des utilities.',
+      summary: 'R4V3 hub governance and pillars.',
+      objective: 'Align the ecosystem around the CHF peg and utilities.',
       proposalsCount: 0,
       votesCount: 0,
       membersActive: 0,
@@ -110,13 +110,13 @@ export class ShowcaseDaoComponent {
   readonly activeSummaryTooltip = computed(() => {
     const count = this.activeCount();
     if (count === 0) {
-      return 'Aucune DAO active pour le moment';
+      return 'No active DAOs at the moment';
     }
     const names = this.daoState
       .activeCards()
       .map((card) => card.symbol)
       .join(', ');
-    return `${count} DAO active${count > 1 ? 's' : ''} · ${names}`;
+    return `${count} active DAO${count > 1 ? 's' : ''} · ${names}`;
   });
 
   constructor() {
@@ -126,13 +126,13 @@ export class ShowcaseDaoComponent {
   }
 
   protected refreshAriaLabel(): string {
-    return this.loading() ? 'Actualisation des DAO…' : 'Actualiser les DAO';
+    return this.loading() ? 'Refreshing DAOs…' : 'Refresh DAOs';
   }
 
   protected emptyMessage(): string {
     return this.searchQuery().trim()
-      ? 'Aucune DAO ne correspond à votre recherche.'
-      : 'Aucune DAO disponible pour le moment.';
+      ? 'No DAOs match your search.'
+      : 'No DAOs available at the moment.';
   }
 
   protected refresh(): void {

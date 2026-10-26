@@ -273,23 +273,23 @@ function formatGridAxisLabel(
 
   switch (profileKey) {
     case '24h':
-      return date.toLocaleTimeString('fr-FR', {
+      return date.toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
         hour12: false,
       });
     case '7d':
       if (spanMs <= 2 * MS_DAY) {
-        return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', hour12: false });
+        return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
       }
-      return date.toLocaleDateString('fr-FR', { weekday: 'short', hour: '2-digit', hour12: false });
+      return date.toLocaleDateString('en-US', { weekday: 'short', hour: '2-digit', hour12: false });
     case '30d':
-      return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+      return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
     case '90d':
-      return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+      return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
     case '1y':
     case 'ytd':
-      return date.toLocaleDateString('fr-FR', { month: 'short', day: 'numeric' });
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     default:
       return formatAxisLabel(ts, granularity, rangeStart, spanMs);
   }

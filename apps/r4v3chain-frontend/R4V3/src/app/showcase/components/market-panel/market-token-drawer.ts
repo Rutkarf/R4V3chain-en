@@ -89,7 +89,7 @@ export class MarketTokenDrawerComponent {
     if (!item.config.native) {
       this.cart.addFromRow(item, this.buyQty(), { favorite: true });
       this.swapped.emit({
-        message: this.cart.lastMessage() || 'Ajouté aux favoris (panier)',
+        message: this.cart.lastMessage() || 'Added to favorites (cart)',
       });
     }
   }
@@ -119,7 +119,7 @@ export class MarketTokenDrawerComponent {
   /** Total CHF à parité 1 R4V3 = 1 CHF. */
   protected chfTotalLabel(): string {
     const total = this.buyQty();
-    return `${total.toLocaleString('fr-FR', {
+    return `${total.toLocaleString('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })} CHF`;
@@ -133,7 +133,7 @@ export class MarketTokenDrawerComponent {
       return;
     }
     this.cart.addFromRow(item, this.buyQty());
-    this.swapped.emit({ message: this.cart.lastMessage() || 'Ajouté au panier' });
+    this.swapped.emit({ message: this.cart.lastMessage() || 'Added to cart' });
     this.cart.openDrawer();
   }
 
@@ -159,7 +159,7 @@ export class MarketTokenDrawerComponent {
     this.buyConfirm.set({
       symbol: item.config.displaySymbol,
       qty,
-      totalLabel: `${total.toLocaleString('fr-FR', {
+      totalLabel: `${total.toLocaleString('en-US', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 4,
       })} R4V3`,
@@ -219,7 +219,7 @@ export class MarketTokenDrawerComponent {
   private pulseBuy(): void {
     this.buyPulse.set(false);
     queueMicrotask(() => this.buyPulse.set(true));
-    // Idle spin = Y → Acheter kick sur l'autre axe (X).
+    // Idle spin = Y → Buy kick sur l'autre axe (X).
     this.productLogo()?.kickSpin('x');
     this.buyLogo()?.kickSpin('x');
     if (this.buyPulseTimer) clearTimeout(this.buyPulseTimer);
@@ -269,14 +269,14 @@ export class MarketTokenDrawerComponent {
     return this.trustSrcLabel(row);
   }
 
-  protected offerRayonLabel(row: MarketAssetRow): string {
+  protected offerDepartmentLabel(row: MarketAssetRow): string {
     switch (row.config.offerKind) {
       case 'nft':
-        return 'NFT Physique';
+        return 'Physical NFT';
       case 'service':
-        return 'Service numérique';
+        return 'Digital service';
       default:
-        return 'Actif';
+        return 'Asset';
     }
   }
 

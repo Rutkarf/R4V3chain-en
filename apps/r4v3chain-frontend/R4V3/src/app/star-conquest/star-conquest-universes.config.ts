@@ -3,7 +3,7 @@ import type {
   StarConquestUniverseTheme,
 } from './star-conquest-universe.types';
 
-/** Design global Conquête stellaire — uniquement l’univers Ruche (agent swarm). */
+/** Design global Conquest stellaire — uniquement l’univers Ruche (agent swarm). */
 export const STAR_CONQUEST_UNIVERSE_ORDER: readonly StarConquestUniverseId[] = [
   'agent-swarm',
 ] as const;
@@ -18,9 +18,9 @@ export const STAR_CONQUEST_UNIVERSES: Record<
 > = {
   'stellar-nebula': {
     id: 'stellar-nebula',
-    label: 'Nébuleuse Stellar',
-    shortLabel: 'Nébuleuse',
-    description: 'Nuages stellaires abstraits — clusters de lumière et poussière cosmique.',
+    label: 'Stellar Nebula',
+    shortLabel: 'Nebula',
+    description: 'Abstract stellar clouds — light clusters and cosmic dust.',
     bgCenter: '#0a1220',
     bgEdge: '#0a1220',
     auroraRgb: [0.45, 0.22, 0.75],
@@ -45,7 +45,7 @@ export const STAR_CONQUEST_UNIVERSES: Record<
     id: 'synaptic-cortex',
     label: 'Cortex Synaptique',
     shortLabel: 'Cortex',
-    description: 'Réseau neuronal pulsant — synapses et impulsions électriques entre quêtes.',
+    description: 'Pulsing neural network — synapses and electric pulses between quests.',
     bgCenter: '#0a1220',
     bgEdge: '#0a1220',
     auroraRgb: [0.32, 0.9, 0.93],
@@ -95,7 +95,7 @@ export const STAR_CONQUEST_UNIVERSES: Record<
     id: 'm4t3r-grid',
     label: 'Grille M4T3R',
     shortLabel: 'Grille',
-    description: 'Grille isométrique de récompenses — cellules lumineuses et trails dorés.',
+    description: 'Isometric reward grid — lit cells and gold trails.',
     bgCenter: '#0a1220',
     bgEdge: '#0a1220',
     auroraRgb: [0.91, 0.72, 0.43],
@@ -120,7 +120,7 @@ export const STAR_CONQUEST_UNIVERSES: Record<
     id: 'zodiac-constellation',
     label: 'Constellation Zodiac',
     shortLabel: 'Zodiac',
-    description: 'Cinq familles de quêtes en constellations zodiacales respirantes.',
+    description: 'Five quest families in breathing zodiac constellations.',
     bgCenter: '#0a1220',
     bgEdge: '#0a1220',
     auroraRgb: [0.5, 0.45, 0.85],
@@ -145,7 +145,7 @@ export const STAR_CONQUEST_UNIVERSES: Record<
     id: 'p2p-aurora',
     label: 'Aurore P2P',
     shortLabel: 'Aurore',
-    description: 'Champ d’ondes lumineuses — peers connectés amplifient l’aurore synaptique.',
+    description: 'Champ d’ondes lumineuses — peers connecteds amplifient l’aurore synaptique.',
     bgCenter: '#0a1220',
     bgEdge: '#0a1220',
     auroraRgb: [0.2, 0.95, 0.65],
@@ -218,7 +218,7 @@ export const STAR_CONQUEST_UNIVERSES: Record<
   },
   'conquest-timeline': {
     id: 'conquest-timeline',
-    label: 'Timeline Conquête',
+    label: 'Timeline Conquest',
     shortLabel: 'Timeline',
     description: 'Axe temporel Z — quêtes passées, présentes et futures en profondeur.',
     bgCenter: '#0a1220',

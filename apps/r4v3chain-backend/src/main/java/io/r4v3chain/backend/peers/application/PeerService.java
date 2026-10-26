@@ -126,7 +126,7 @@ public class PeerService {
         PeerConnection peer = new PeerConnection(
                 normalized,
                 PeerStatus.CONNECTING,
-                "Connexion en cours..."
+                "Connecting..."
         );
 
         peers.put(normalized, peer);
@@ -170,7 +170,7 @@ public class PeerService {
         closeOutboundSession(normalized);
         peers.remove(normalized);
         peer.setStatus(PeerStatus.DISCONNECTED);
-        peer.setMessage("Pair déconnecté");
+        peer.setMessage("Peer disconnected");
 
         return peer;
     }
@@ -197,7 +197,7 @@ public class PeerService {
                             metricsRegistry.bindSession(session, peer.getUrl());
                             trackPeer(peer.getUrl());
                             peer.setStatus(PeerStatus.CONNECTED);
-                            peer.setMessage("Connecté");
+                            peer.setMessage("Connected");
                             metricsRegistry.recordOutboundConnected(peer.getUrl());
                             p2pService.onOpen(session);
                         }
@@ -213,7 +213,7 @@ public class PeerService {
                             outboundSessions.remove(peer.getUrl(), session);
                             metricsRegistry.unbindSession(session);
                             peer.setStatus(PeerStatus.ERROR);
-                            peer.setMessage(safeMessage(exception, "Erreur de transport WebSocket"));
+                            peer.setMessage(safeMessage(exception, "WebSocket transport error"));
                         }
 
                         @Override
@@ -222,7 +222,7 @@ public class PeerService {
                             outboundSessions.remove(peer.getUrl(), session);
                             metricsRegistry.unbindSession(session);
                             peer.setStatus(PeerStatus.DISCONNECTED);
-                            peer.setMessage("Connexion fermée");
+                            peer.setMessage("Connection closed");
                         }
                     },
                     new WebSocketHttpHeaders(),
@@ -230,12 +230,12 @@ public class PeerService {
             ).whenComplete((session, error) -> {
                 if (error != null) {
                     peer.setStatus(PeerStatus.ERROR);
-                    peer.setMessage(safeMessage(error, "Impossible de se connecter au peer"));
+                    peer.setMessage(safeMessage(error, "Unable to connect to peer"));
                 }
             });
         } catch (Exception exception) {
             peer.setStatus(PeerStatus.ERROR);
-            peer.setMessage(safeMessage(exception, "Impossible de se connecter au peer"));
+            peer.setMessage(safeMessage(exception, "Unable to connect to peer"));
         }
     }
 

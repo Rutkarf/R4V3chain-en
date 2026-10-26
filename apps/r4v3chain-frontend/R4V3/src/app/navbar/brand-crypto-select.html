@@ -36,11 +36,11 @@
     </li>
 
     @if (launchState.loading()) {
-      <li class="token-select__empty" role="presentation">Chargement des lancements…</li>
+      <li class="token-select__empty" role="presentation">Loading launches…</li>
     } @else if (launchState.error() && !hasLaunchProjects()) {
       <li class="token-select__empty" role="presentation">Lancements indisponibles</li>
     } @else if (!hasLaunchProjects()) {
-      <li class="token-select__empty" role="presentation">Aucun jeton lancé pour le moment</li>
+      <li class="token-select__empty" role="presentation">No tokens launched yet</li>
     } @else {
       @for (project of platformLaunchProjects(); track project.id) {
       <li

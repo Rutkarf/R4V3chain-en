@@ -23,11 +23,11 @@ public class BlockchainValidationService {
         Block previous = blockchain.get(blockchain.size() - 1);
 
         if (block.getIndex() != previous.getIndex() + 1) {
-            return new BlockValidationResult(false, "Index de block invalide");
+            return new BlockValidationResult(false, "Invalid block index");
         }
 
         if (!safeEquals(block.getPreviousHash(), previous.getHash())) {
-            return new BlockValidationResult(false, "Previous hash invalide");
+            return new BlockValidationResult(false, "Invalid previous hash");
         }
 
         if (block.getTransactions() != null) {
@@ -52,11 +52,11 @@ public class BlockchainValidationService {
             Block previous = blockchain.get(i - 1);
 
             if (current.getIndex() != previous.getIndex() + 1) {
-                return new BlockValidationResult(false, "Chaîne invalide: index incorrect");
+                return new BlockValidationResult(false, "Invalid chain: incorrect index");
             }
 
             if (!safeEquals(current.getPreviousHash(), previous.getHash())) {
-                return new BlockValidationResult(false, "Chaîne invalide: previous hash incorrect");
+                return new BlockValidationResult(false, "Invalid chain: incorrect previous hash");
             }
         }
 
@@ -69,16 +69,16 @@ public class BlockchainValidationService {
         }
 
         if (transaction.getSender() == null || transaction.getSender().isBlank()) {
-            return new BlockValidationResult(false, "Sender obligatoire");
+            return new BlockValidationResult(false, "Sender required");
         }
 
         if (transaction.getRecipient() == null || transaction.getRecipient().isBlank()) {
-            return new BlockValidationResult(false, "Recipient obligatoire");
+            return new BlockValidationResult(false, "Recipient required");
         }
 
         BigDecimal amount = transaction.getAmount();
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            return new BlockValidationResult(false, "Montant invalide");
+            return new BlockValidationResult(false, "Invalid amount");
         }
 
         return new BlockValidationResult(true, "OK");

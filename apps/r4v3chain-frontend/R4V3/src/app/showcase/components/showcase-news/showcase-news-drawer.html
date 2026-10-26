@@ -43,21 +43,21 @@
                 type="button"
                 class="news-insight-panel__icon-btn ds-surface ds-surface--showcase-tab"
                 [disabled]="!canPrev()"
-                aria-label="Article précédent"
+                aria-label="Previous article"
                 (click)="navigatePrev.emit()"
               ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-left"/></svg></button>
               <button
                 type="button"
                 class="news-insight-panel__icon-btn ds-surface ds-surface--showcase-tab"
                 [disabled]="!canNext()"
-                aria-label="Article suivant"
+                aria-label="Next article"
                 (click)="navigateNext.emit()"
               ><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-chevron-right"/></svg></button>
             </div>
             <button
               type="button"
               class="news-insight-panel__icon-btn news-insight-panel__icon-btn--close ds-surface ds-surface--showcase-tab"
-              aria-label="Fermer l'article"
+              aria-label="Close article"
               (click)="dismiss()"
             >
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>

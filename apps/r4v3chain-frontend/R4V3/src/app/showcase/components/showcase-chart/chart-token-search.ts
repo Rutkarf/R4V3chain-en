@@ -85,7 +85,7 @@ export class ChartTokenSearchComponent {
           return this.rates.searchCoins(trimmed).pipe(
             map((remote) => this.mergeResults(trimmed, remote)),
             catchError(() => {
-              this.searchError.set('Recherche indisponible.');
+              this.searchError.set('Search unavailable.');
               return of(this.mergeResults(trimmed, []));
             })
           );
@@ -171,7 +171,7 @@ export class ChartTokenSearchComponent {
     const r4v3: ChartSearchResult = {
       id: 'r4v3',
       symbol: BRAND_DEFAULT_CRYPTO,
-      name: 'R4V3 · Réseau R4V3chain',
+      name: 'R4V3 · Network R4V3chain',
       thumb: '',
       source: 'r4v3chain',
       network: 'R4V3chain',
@@ -187,7 +187,7 @@ export class ChartTokenSearchComponent {
           name: project.name,
           thumb: project.logoUrl?.trim() || '',
           source: 'launchlab',
-          network: 'Laboratoire',
+          network: 'Laboratory',
         })
       );
 

@@ -29,7 +29,7 @@ function hexToRgb01(hex: string): [number, number, number] {
 }
 
 /**
- * Couche réseau IA/P2P intégrée au graphe Conquête stellaire.
+ * Couche network IA/P2P intégrée au graphe Conquest stellaire.
  * Chaque satellite (peer / agent / system) orbite une Quest — pas de nœud orphelin.
  */
 export class StarConquestNetworkLayer {

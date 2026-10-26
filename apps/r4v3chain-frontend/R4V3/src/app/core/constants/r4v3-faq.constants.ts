@@ -6,36 +6,36 @@ import {
 } from '@showcase/models/r4v3-faq.model';
 
 export const R4V3_FAQ_CATEGORIES: readonly R4v3FaqCategory[] = [
-  { id: 'essentiel', label: 'Essentiel', icon: '◆' },
-  { id: 'utilisation', label: 'Utilisation', icon: '→' },
-  { id: 'stabilite', label: 'Stabilité', icon: '≡' },
-  { id: 'ecosysteme', label: 'Écosystème', icon: '◎' },
-  { id: 'evolution', label: 'Évolution', icon: '↗' },
+  { id: 'essentiel', label: 'Essentials', icon: '◆' },
+  { id: 'utilisation', label: 'Usage', icon: '→' },
+  { id: 'stabilite', label: 'Stability', icon: '≡' },
+  { id: 'ecosysteme', label: 'Ecosystem', icon: '◎' },
+  { id: 'evolution', label: 'Evolution', icon: '↗' },
 ] as const;
 
 export const R4V3_FAQ_HIGHLIGHTS: readonly R4v3FaqHighlight[] = [
   {
     id: 'peg-chf',
     label: 'CHF',
-    detail: 'Ancrage de parité affiché dans l’application',
+    detail: 'Parity anchor shown in the app',
     icon: '₣',
   },
   {
     id: 'utility',
     label: 'Utility coin',
-    detail: 'Monnaie native pour payer, swapper et lancer sur R4V3chain',
+    detail: 'Native currency to pay, swap, and launch on R4V3chain',
     icon: '⚡',
   },
   {
     id: 'speed',
-    label: 'Rapide',
-    detail: 'Transactions testnet quasi instantanées',
+    label: 'Fast',
+    detail: 'Near-instant testnet transactions',
     icon: '⏱',
   },
   {
     id: 'transparent',
     label: 'Transparent',
-    detail: 'Livre blanc et mécanismes documentés',
+    detail: 'White paper and documented mechanisms',
     icon: '◉',
   },
 ] as const;
@@ -44,207 +44,207 @@ export const R4V3_FAQ_ENTRIES: readonly R4v3FaqEntry[] = [
   {
     id: 'what-is-r4v3',
     categoryId: 'essentiel',
-    title: "Qu'est-ce que le R4V3 ?",
-    summary: 'Le token natif et stable de R4V3chain, conçu comme monnaie de référence de l’écosystème.',
-    body: `Le R4V3 est le token natif de R4V3chain. Il sert de monnaie de référence dans l’application : affichage des prix, swaps Laboratoire, faucet testnet et interactions réseau.
+    title: 'What is R4V3?',
+    summary: 'The native stable token of R4V3chain, designed as the ecosystem’s reference currency.',
+    body: `R4V3 is the native token of R4V3chain. It is the reference currency in the app: price display, Laboratory swaps, testnet faucet, and network interactions.
 
-Contrairement aux tokens Laboratoire (PXD, NVFI, etc.), le R4V3 n’est pas un memecoin spéculatif : c’est un utility coin pensé pour être compris rapidement et utilisé au quotidien dans l’écosystème.`,
+Unlike Laboratory tokens (PXD, NVFI, etc.), R4V3 is not a speculative memecoin: it is a utility coin meant to be understood quickly and used day-to-day in the ecosystem.`,
     popular: true,
-    tags: ['natif', 'utility', 'r4v3chain'],
+    tags: ['native', 'utility', 'r4v3chain'],
   },
   {
     id: 'peg-chf',
     categoryId: 'essentiel',
-    title: 'Pourquoi le R4V3 vaut-il 1 franc suisse ?',
-    summary: 'Parité pédagogique à 1 CHF pour simplifier la lecture des montants dans l’interface.',
-    body: `Dans R4V3chain, le R4V3 est présenté avec une parité de référence de **1 R4V3 = 1 franc suisse** (CHF).
+    title: 'Why is R4V3 worth 1 Swiss franc?',
+    summary: 'Pedagogical parity at 1 CHF to simplify reading amounts in the interface.',
+    body: `In R4V3chain, R4V3 is presented with a reference parity of **1 R4V3 = 1 Swiss franc** (CHF).
 
-Ce n’est pas une promesse financière régulée : c’est un ancrage d’affichage qui permet de lire les montants sans conversion mentale compliquée. Sur testnet, cette parité facilite les démonstrations, les swaps Laboratoire et la comparaison des valeurs entre tokens.
+This is not a regulated financial promise: it is a display anchor that lets you read amounts without mental conversion. On testnet, this parity makes demos, Laboratory swaps, and value comparisons between tokens easier.
 
-Le graphique et le hub R4V3 affichent cette référence pour que tout utilisateur comprenne immédiatement l’ordre de grandeur d’un montant.`,
+The chart and R4V3 hub show this reference so every user immediately grasps the order of magnitude of an amount.`,
     popular: true,
     isNew: true,
     updatedAt: '2026-07-01',
-    tags: ['peg', 'chf', 'parité'],
+    tags: ['peg', 'chf', 'parity'],
   },
   {
     id: 'role-r4v3chain',
     categoryId: 'essentiel',
-    title: 'À quoi sert le R4V3 dans R4V3chain ?',
-    summary: 'Payer les frais, swapper, alimenter le faucet et servir de quote pour Laboratoire.',
-    body: `Le R4V3 remplit plusieurs rôles complémentaires :
+    title: 'What is R4V3 used for on R4V3chain?',
+    summary: 'Pay fees, swap, fund the faucet, and serve as the Laboratory quote.',
+    body: `R4V3 fills several complementary roles:
 
-• **Monnaie native** — unité de compte par défaut dans l’interface
-• **Quote Laboratoire** — les tokens lancés sont cotés vs R4V3
-• **Swap** — échange R4V3 ↔ tokens Laboratoire via le panneau Exchange
-• **Faucet testnet** — obtention de R4V3 pour tester sans friction
-• **Référence graphique** — base de lecture des paires et des tendances
+• **Native currency** — default unit of account in the interface
+• **Laboratory quote** — launched tokens are quoted vs R4V3
+• **Swap** — exchange R4V3 ↔ Laboratory tokens via the Exchange panel
+• **Testnet faucet** — get R4V3 to try the app without friction
+• **Chart reference** — base for reading pairs and trends
 
-En résumé : le R4V3 est le point d’entrée économique de l’écosystème R4V3chain.`,
+In short: R4V3 is the economic entry point of the R4V3chain ecosystem.`,
     popular: true,
     tags: ['usage', 'launchlab', 'swap'],
   },
   {
     id: 'get-r4v3',
     categoryId: 'utilisation',
-    title: 'Comment obtenir des R4V3 ?',
-    summary: 'Via le faucet testnet ou en recevant des tokens après un swap.',
-    body: `Sur l’environnement testnet R4V3chain, le moyen le plus simple d’obtenir des R4V3 est le **faucet** intégré à l’application.
+    title: 'How do I get R4V3?',
+    summary: 'Via the testnet faucet or by receiving tokens after a swap.',
+    body: `On the R4V3chain testnet environment, the easiest way to get R4V3 is the in-app **faucet**.
 
-Vous pouvez aussi en recevoir après un swap depuis un token Laboratoire, ou via les flux de démonstration prévus dans l’écosystème.
+You can also receive some after a swap from a Laboratory token, or via demo flows provided in the ecosystem.
 
-Connectez-vous ou créez un wallet testnet, ouvrez le faucet et demandez un crédit. Les montants affichés en **m4t3r** dans l’exchange panel correspondent à la micro-unité du R4V3.`,
+Sign in or create a testnet wallet, open the faucet, and request a credit. Amounts shown as **m4t3r** in the exchange panel are the micro-unit of R4V3.`,
     actionType: 'OPEN_FAUCET',
-    actionLabel: 'Ouvrir le faucet',
-    tags: ['faucet', 'obtenir', 'testnet'],
+    actionLabel: 'Open the faucet',
+    tags: ['faucet', 'get', 'testnet'],
   },
   {
     id: 'use-r4v3',
     categoryId: 'utilisation',
-    title: 'Comment utiliser le R4V3 ?',
-    summary: 'Swapper, consulter le graphique, explorer les paires Laboratoire.',
-    body: `Une fois crédité, vous pouvez :
+    title: 'How do I use R4V3?',
+    summary: 'Swap, view the chart, explore Laboratory pairs.',
+    body: `Once credited, you can:
 
-1. **Consulter** le graphique R4V3 et les paires Laboratoire
-2. **Swapper** via le panneau Exchange (R4V3 → token ou inverse)
-3. **Sélectionner** R4V3 dans la navbar pour synchroniser graphique et swap
-4. **Suivre** l’activité réseau dans les autres onglets du showcase
+1. **View** the R4V3 chart and Laboratory pairs
+2. **Swap** via the Exchange panel (R4V3 → token or reverse)
+3. **Select** R4V3 in the navbar to sync chart and swap
+4. **Follow** network activity in the other showcase tabs
 
-L’interface est conçue pour que la sélection du R4V3 dans la navbar ouvre directement le contexte token + swap.`,
+The UI is designed so selecting R4V3 in the navbar opens the token + swap context directly.`,
     actionType: 'OPEN_SWAP',
-    actionLabel: 'Ouvrir le swap',
-    tags: ['swap', 'graphique', 'navbar'],
+    actionLabel: 'Open the swap',
+    tags: ['swap', 'chart', 'navbar'],
   },
   {
     id: 'm4t3r-unit',
     categoryId: 'utilisation',
-    title: "Qu'est-ce que le m4t3r ?",
-    summary: 'La plus petite unité affichée du R4V3 dans l’exchange panel.',
-    body: `Le **m4t3r** est le libellé UI de la micro-unité R4V3 dans le panneau Exchange — aligné sur le faucet et les soldes testnet.
+    title: 'What is m4t3r?',
+    summary: 'The smallest displayed unit of R4V3 in the exchange panel.',
+    body: `**m4t3r** is the UI label for the R4V3 micro-unit in the Exchange panel — aligned with the faucet and testnet balances.
 
-Afficher les montants en m4t3r permet de saisir de très petites quantités sans notation scientifique, tout en gardant le R4V3 comme symbole principal ailleurs dans l’application (navbar, graphique, paires Laboratoire).`,
-    tags: ['m4t3r', 'unité', 'exchange'],
+Showing amounts in m4t3r lets you enter very small quantities without scientific notation, while keeping R4V3 as the main symbol elsewhere in the app (navbar, chart, Laboratory pairs).`,
+    tags: ['m4t3r', 'unit', 'exchange'],
   },
   {
     id: 'swap-launchlab',
     categoryId: 'utilisation',
-    title: 'Comment échanger R4V3 contre un token Laboratoire ?',
-    summary: 'Sélectionnez une paire R4V3 → PXD (ou autre) dans le panneau Exchange.',
-    body: `Le swap est **unidirectionnel par défaut** : R4V3 est la source, le token Laboratoire la destination.
+    title: 'How do I exchange R4V3 for a Laboratory token?',
+    summary: 'Select an R4V3 → PXD (or other) pair in the Exchange panel.',
+    body: `The swap is **unidirectional by default**: R4V3 is the source, the Laboratory token the destination.
 
-1. Ouvrez le panneau Exchange sous le graphique
-2. Choisissez le token Laboratoire (PXD, NVFI, LAB3, ORB…)
-3. Saisissez un montant en m4t3r
-4. Confirmez le swap
+1. Open the Exchange panel under the chart
+2. Choose the Laboratory token (PXD, NVFI, LAB3, ORB…)
+3. Enter an amount in m4t3r
+4. Confirm the swap
 
-Vous pouvez aussi sélectionner un token Laboratoire depuis la navbar : le graphique et le swap se synchronisent automatiquement.`,
+You can also select a Laboratory token from the navbar: the chart and swap sync automatically.`,
     actionType: 'OPEN_SWAP',
-    actionLabel: 'Aller au swap',
+    actionLabel: 'Go to swap',
     tags: ['launchlab', 'exchange', 'pxd'],
   },
   {
     id: 'stability-mechanism',
     categoryId: 'stabilite',
-    title: 'Comment fonctionne la stabilité du R4V3 ?',
-    summary: 'Mécanisme de peg pédagogique et affichage constant à 1 CHF sur testnet.',
-    body: `Sur testnet, la « stabilité » du R4V3 est **pédagogique** : l’interface maintient une parité d’affichage à 1 CHF pour éviter la volatilité visuelle des demos.
+    title: 'How does R4V3 stability work?',
+    summary: 'Pedagogical peg mechanism and constant 1 CHF display on testnet.',
+    body: `On testnet, R4V3 “stability” is **pedagogical**: the interface keeps a display parity at 1 CHF to avoid visual volatility in demos.
 
-Le mécanisme repose sur :
-• un **ancrage d’affichage** (1 R4V3 = 1 franc suisse)
-• des **quotes Laboratoire** exprimées vs R4V3
-• un **white paper** décrivant le modèle visé
+The mechanism relies on:
+• a **display anchor** (1 R4V3 = 1 Swiss franc)
+• **Laboratory quotes** expressed vs R4V3
+• a **white paper** describing the intended model
 
-Ce n’est pas un stablecoin régulé mainnet : c’est un utility token testnet conçu pour être prévisible dans l’UX.`,
-    tags: ['stabilité', 'peg', 'testnet'],
+This is not a regulated mainnet stablecoin: it is a testnet utility token designed to stay predictable in the UX.`,
+    tags: ['stability', 'peg', 'testnet'],
   },
   {
     id: 'peg-explained',
     categoryId: 'stabilite',
-    title: 'Comment fonctionne le peg ?',
-    summary: 'Référence fixe à 1 CHF pour l’affichage, distincte des tokens Laboratoire volatils.',
-    body: `Le **peg** (ancrage) du R4V3 signifie que l’application présente le token comme valant **1 franc suisse** en référence.
+    title: 'How does the peg work?',
+    summary: 'Fixed 1 CHF reference for display, distinct from volatile Laboratory tokens.',
+    body: `The R4V3 **peg** (anchor) means the app presents the token as worth **1 Swiss franc** by reference.
 
-Les tokens Laboratoire, eux, fluctuent relativement au R4V3 selon l’activité testnet et les scénarios de démo. Cette séparation permet de comprendre :
-• le R4V3 = unité stable de lecture
-• les tokens Laboratoire = actifs d’expérimentation
+Laboratory tokens, by contrast, fluctuate relative to R4V3 based on testnet activity and demo scenarios. This split makes it clear:
+• R4V3 = stable unit of reading
+• Laboratory tokens = experimental assets
 
-Le graphique R4V3 reflète cette stabilité ; les graphiques Laboratoire montrent la dynamique relative.`,
+The R4V3 chart reflects that stability; Laboratory charts show relative dynamics.`,
     popular: true,
     tags: ['peg', 'chf', 'launchlab'],
   },
   {
     id: 'guarantees',
     categoryId: 'stabilite',
-    title: 'Quelles garanties existent ?',
-    summary: 'Transparence documentaire et environnement testnet — pas de garantie financière.',
-    body: `R4V3chain testnet est un environnement de démonstration. Les garanties portent sur la **transparence** et la **pédagogie**, pas sur une couverture financière :
+    title: 'What guarantees exist?',
+    summary: 'Documentary transparency and a testnet environment — no financial guarantee.',
+    body: `R4V3chain testnet is a demonstration environment. Guarantees cover **transparency** and **education**, not financial coverage:
 
-• Livre blanc accessible depuis le hub R4V3
-• Mécanismes décrits dans cette FAQ
-• Code et API ouverts pour inspection
-• Pas de promesse de rendement ou de parité régulée
+• White paper accessible from the R4V3 hub
+• Mechanisms described in this FAQ
+• Open code and APIs for inspection
+• No yield promise or regulated parity
 
-Pour toute utilisation au-delà du testnet, consultez la documentation officielle et les mises à jour du projet.`,
+For any use beyond testnet, consult the official documentation and project updates.`,
     actionType: 'OPEN_WHITEPAPER',
-    actionLabel: 'Lire le white paper',
-    tags: ['garanties', 'white paper', 'transparence'],
+    actionLabel: 'Read the white paper',
+    tags: ['guarantees', 'white paper', 'transparency'],
   },
   {
     id: 'advantages',
     categoryId: 'ecosysteme',
-    title: 'Quels sont les avantages pour les utilisateurs ?',
-    summary: 'Simplicité, prévisibilité des montants, accès Laboratoire et onboarding rapide.',
-    body: `• **Lisibilité** — 1 R4V3 = 1 CHF, pas de surprise sur l’ordre de grandeur
-• **Onboarding** — faucet + FAQ intégrée pour démarrer sans doc externe
-• **Interopérabilité** — swap direct avec les tokens Laboratoire
-• **Cohérence UI** — navbar, graphique et exchange synchronisés
-• **Évolutivité** — hub d’information mis à jour avec l’écosystème
+    title: 'What are the benefits for users?',
+    summary: 'Simplicity, predictable amounts, Laboratory access, and fast onboarding.',
+    body: `• **Readability** — 1 R4V3 = 1 CHF, no surprises on order of magnitude
+• **Onboarding** — faucet + built-in FAQ to start without external docs
+• **Interoperability** — direct swap with Laboratory tokens
+• **UI consistency** — navbar, chart, and exchange stay in sync
+• **Scalability** — information hub kept up to date with the ecosystem
 
-Le R4V3 est pensé pour réduire la friction cognitive, pas pour promettre un gain spéculatif.`,
-    tags: ['avantages', 'ux', 'onboarding'],
+R4V3 is designed to reduce cognitive friction, not to promise speculative gains.`,
+    tags: ['benefits', 'ux', 'onboarding'],
   },
   {
     id: 'security',
     categoryId: 'ecosysteme',
-    title: 'Le R4V3 est-il sécurisé ?',
-    summary: 'Bonnes pratiques wallet testnet ; ne jamais traiter le testnet comme un actif réel.',
-    body: `Sur testnet, la sécurité repose sur les mêmes principes que tout wallet crypto :
+    title: 'Is R4V3 secure?',
+    summary: 'Testnet wallet best practices; never treat testnet as a real asset.',
+    body: `On testnet, security follows the same principles as any crypto wallet:
 
-• Ne partagez jamais votre clé privée ou seed phrase
-• Utilisez des mots de passe forts pour votre compte R4V3chain
-• Considérez les R4V3 testnet comme des jetons de démo sans valeur réelle
-• Vérifiez les URLs et l’authenticité de l’application
+• Never share your private key or seed phrase
+• Use strong passwords for your R4V3chain account
+• Treat testnet R4V3 as demo tokens with no real value
+• Verify URLs and the authenticity of the application
 
-Les transactions sont traçables on-chain dans l’explorateur intégré. Pour un audit complet, référez-vous au white paper et au dépôt source.`,
-    tags: ['sécurité', 'wallet', 'testnet'],
+Transactions are traceable on-chain in the built-in explorer. For a full audit, refer to the white paper and source repository.`,
+    tags: ['security', 'wallet', 'testnet'],
   },
   {
     id: 'roadmap',
     categoryId: 'evolution',
-    title: 'Quelles sont les prochaines évolutions ?',
-    summary: 'FAQ évolutive, enrichissement Laboratoire et documentation officielle continue.',
-    body: `Le hub R4V3 est conçu pour évoluer avec l’écosystème :
+    title: 'What is coming next?',
+    summary: 'Evolving FAQ, richer Laboratory, and ongoing official documentation.',
+    body: `The R4V3 hub is built to evolve with the ecosystem:
 
-• Nouvelles questions ajoutées au fil des retours utilisateurs
-• Intégration renforcée avec Laboratoire et le graphique
-• Documentation officielle (white paper) mise à jour
-• Possibilité future d’administration des FAQ via API
+• New questions added from user feedback
+• Stronger integration with Laboratory and the chart
+• Official documentation (white paper) kept current
+• Future option to administer FAQs via API
 
-Cette FAQ remplace l’ancien panneau technique : l’objectif est un centre d’information vivant, pas une page de doc statique.`,
+This FAQ replaces the old technical panel: the goal is a living information center, not a static docs page.`,
     isNew: true,
     updatedAt: '2026-07-17',
-    tags: ['roadmap', 'faq', 'évolution'],
+    tags: ['roadmap', 'faq', 'evolution'],
   },
   {
     id: 'whitepaper',
     categoryId: 'evolution',
-    title: 'Où consulter le white paper ?',
-    summary: 'Accessible via l’icône document dans le hub R4V3 ou en téléchargement .txt.',
-    body: `Le white paper R4V3 est disponible depuis le hub (icône document en haut à droite) et peut être téléchargé au format texte.
+    title: 'Where can I read the white paper?',
+    summary: 'Available via the document icon in the R4V3 hub or as a .txt download.',
+    body: `The R4V3 white paper is available from the hub (document icon at the top right) and can be downloaded as text.
 
-Il complète cette FAQ avec le contexte technique, le modèle de token et la vision long terme de R4V3chain. Consultez-le pour approfondir au-delà des réponses rapides.`,
+It complements this FAQ with technical context, the token model, and the long-term vision of R4V3chain. Read it to go deeper beyond the quick answers.`,
     actionType: 'OPEN_WHITEPAPER',
-    actionLabel: 'Ouvrir le white paper',
+    actionLabel: 'Open the white paper',
     tags: ['white paper', 'documentation'],
   },
 ] as const;

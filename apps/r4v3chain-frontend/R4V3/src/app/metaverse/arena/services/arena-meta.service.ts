@@ -25,7 +25,7 @@ const QUEST_TARGET = 3;
 const QUEST_REWARD_FAUCET = 25;
 
 /**
- * Méta Éliminer pour gagner : streak, waves, quête dock ledger, earnings session.
+ * Méta Eliminate to earn : streak, waves, quête dock ledger, earnings session.
  */
 @Injectable({ providedIn: 'root' })
 export class ArenaMetaService {
@@ -160,7 +160,7 @@ export class ArenaMetaService {
   }
 
   /**
-   * Claim quête dock → crédit ledger arène (jamais wallet).
+   * Claim quest dock → crédit ledger arène (jamais wallet).
    * @returns montant crédité ou 0
    */
   claimDockQuest(): number {
@@ -209,7 +209,7 @@ export class ArenaMetaService {
   }
 
   mockClaimNotice(): string {
-    return 'La réclamation sur la chaîne est hors arène. Ici : registre éliminer-pour-gagner (jetons du robinet non réclamés).';
+    return 'On-chain claim is outside the arena. Here: eliminate-to-earn ledger (unclaimed faucet tokens).';
   }
 
   tryPickup(x: number, z: number): ArenaPowerUpState | null {
